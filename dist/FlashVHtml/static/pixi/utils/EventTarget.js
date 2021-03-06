@@ -1,0 +1,1 @@
+var PIXI=PIXI||{};PIXI.EventTarget=function(){var n={};this.addEventListener=function(t,e){void 0===n[t]&&(n[t]=[]),-1===n[t].indexOf(e)&&n[t].push(e)},this.dispatchEvent=function(t){for(var e in n[t.type])n[t.type][e](t)},this.removeEventListener=function(t,e){var i=n[t].indexOf(e);-1!==i&&n[t].splice(i,1)}};
