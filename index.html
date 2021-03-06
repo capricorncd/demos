@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <meta name="author" content="https://github.com/capricorncd">
+  <meta name="keywords" content="webgl-demo, dev3cli, capricorncd">
+  <meta name="description" content="webgl-demo, dev3cli, capricorncd, https://github.com/capricorncd/dev3cli">
+  <meta name="github" content="https://github.com/capricorncd/dev3cli">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <%= htmlWebpackPlugin.options.links %>
+</head>
+<body>
+<div id="loader">
+  <img id="loaderText" />
+</div>
+<div id="app"></div>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.8/pixi.min.js" crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.min.js" crossorigin="anonymous"></script>-->
+<%= htmlWebpackPlugin.options.scripts %>
+</body>
+</html>

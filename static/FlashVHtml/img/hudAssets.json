@@ -1,0 +1,68 @@
+{"frames": {
+
+  "EMP_life_icon.png":
+  {
+    "frame": {"x":2,"y":347,"w":37,"h":37},
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": {"x":0,"y":0,"w":37,"h":37},
+    "sourceSize": {"w":37,"h":37}
+  },
+  "combo_HUD_none.png":
+  {
+    "frame": {"x":119,"y":232,"w":115,"h":113},
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": {"x":0,"y":0,"w":115,"h":113},
+    "sourceSize": {"w":115,"h":113}
+  },
+  "combo_HUD_x16.png":
+  {
+    "frame": {"x":119,"y":2,"w":115,"h":113},
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": {"x":0,"y":0,"w":115,"h":113},
+    "sourceSize": {"w":115,"h":113}
+  },
+  "combo_HUD_x2.png":
+  {
+    "frame": {"x":2,"y":232,"w":115,"h":113},
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": {"x":0,"y":0,"w":115,"h":113},
+    "sourceSize": {"w":115,"h":113}
+  },
+  "combo_HUD_x32.png":
+  {
+    "frame": {"x":2,"y":2,"w":115,"h":113},
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": {"x":0,"y":0,"w":115,"h":113},
+    "sourceSize": {"w":115,"h":113}
+  },
+  "combo_HUD_x4.png":
+  {
+    "frame": {"x":119,"y":117,"w":115,"h":113},
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": {"x":0,"y":0,"w":115,"h":113},
+    "sourceSize": {"w":115,"h":113}
+  },
+  "combo_HUD_x8.png":
+  {
+    "frame": {"x":2,"y":117,"w":115,"h":113},
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": {"x":0,"y":0,"w":115,"h":113},
+    "sourceSize": {"w":115,"h":113}
+  }},
+  "meta": {
+    "app": "http://www.texturepacker.com",
+    "version": "1.0",
+    "image": "hudAssets.png",
+    "format": "RGBA8888",
+    "size": {"w":256,"h":512},
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:5e34e5c94cd1e98e521afa845ef5f2b0$"
+  }
+}
