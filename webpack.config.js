@@ -28,11 +28,13 @@ const isProd = process.argv.slice(2).includes('production')
 const baseConfig = {
   mode: isProd ? 'production' : 'development',
   entry: {
-    index: resolve(__dirname, page.name ? `./src/${page.name}/index.ts` : './src/index.tsx')
+    index: resolve(__dirname, page.entry
+      ? page.entry
+      : page.name ? `./src/${page.name}/index.ts` : './src/index.tsx')
   },
   output: {
     path: join(__dirname, './dist', page.name || 'index'),
-    filename: 'index.js',
+    filename: 'index.[hash:8].js',
     libraryTarget: 'window',
     globalObject: 'typeof self !== \'undefined\' ? self : this',
     // umdNamedDefine: true,
@@ -67,24 +69,34 @@ const baseConfig = {
         ]
       },
       {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
         test: /\.(pne?g|jpe?g|gif|svg|webp)$/,
         loader: 'file-loader',
         options: {
-          name: 'static/img/[name].[ext]'
+          // fix: github
+          // content-security-policy: default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'
+          // removed 'static/img' prefix that the github::content-security-policy error
+          name: '[name].[ext]'
         }
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: 'file-loader',
         options: {
-          name: 'static/media/[name].[ext]'
+          name: '[name].[ext]'
         }
       },
       {
         test: /\.(obj|stl|mtl)(\?.*)?$/,
         loader: 'file-loader',
         options: {
-          name: 'static/file/[name].[ext]'
+          name: '[name].[ext]'
         }
       },
       {
@@ -126,13 +138,13 @@ module.exports = isProd
       // https://github.com/webpack-contrib/copy-webpack-plugin
       new CopyWebpackPlugin({
         patterns: [{
-          from: join(__dirname, './static', page.name || 'index'),
-          to: 'static'
+          from: join(__dirname, './static', `${page.name || 'index'}/img`),
+          to: './'
         }],
         options: {
           concurrency: 100
         }
-      })
+      }),
     ]
   })
   // development

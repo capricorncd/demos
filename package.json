@@ -6,7 +6,8 @@
   "author": "Capricorncd",
   "scripts": {
     "dev": "webpack serve",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production && npm run replace",
+    "replace": "node build/replace-in-dist.js"
   },
   "keywords": [
     "webgl-demos",
@@ -48,6 +49,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.2.0",
     "prop-types": "^15.7.2",
+    "replace-in-file": "^6.2.0",
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
