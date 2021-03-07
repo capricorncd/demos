@@ -1,0 +1,1 @@
+var PIXI=window.PIXI;PIXI.autoDetectRenderer=function(e,n){var t=function(){try{return!!window.WebGLRenderingContext&&!!document.createElement("canvas").getContext("experimental-webgl")}catch(e){return!1}}();return console.log(t),t?new PIXI.WebGLRenderer(e,n):new PIXI.CanvasRenderer(e,n)};
