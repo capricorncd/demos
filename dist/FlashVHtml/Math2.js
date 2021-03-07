@@ -1,1 +1,0 @@
-window.Math2={},Math2.random=function(n,t){return Math.random()*(t-n)+n},Math2.map=function(n,t,a,r,o){return(n-t)/(a-t)*(o-r)+r},Math2.randomPlusMinus=function(n){return n=n||.5,Math.random()>n?-1:1},Math2.randomInt=function(n,t){return t+=1,Math.floor(Math.random()*(t-n)+n)},Math2.randomBool=function(n){return n=n||.5,Math.random()<n};
