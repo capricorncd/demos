@@ -9,6 +9,7 @@ const { merge } = require('webpack-merge')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const EslintWebpackPlugin = require('eslint-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const { getIPAddress, getPageInput, createScript, createLinks } = require('./build/helpers')
 const pages = require('./pages')
 
@@ -40,7 +41,7 @@ const baseConfig = {
     // umdNamedDefine: true,
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.vue'],
     alias: {
       '@': resolve('./src')
     }
@@ -49,6 +50,7 @@ const baseConfig = {
   externals: {
     PIXI: 'pixi.js',
     THREE: 'three',
+    Vue: 'vue',
   },
   module: {
     rules: [
@@ -66,6 +68,14 @@ const baseConfig = {
               ]
             }
           }
+        ]
+      },
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'less-loader'
         ]
       },
       {
@@ -108,7 +118,22 @@ const baseConfig = {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/
-      }
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        exclude: /node_modules/
+      },
+      // {
+      //   test: /\.vue$/,
+      //   loader: 'vue-loader',
+      //   options: {
+      //     loaders: {
+      //       // js: 'babel-loader',
+      //       less: ['style-loader', 'css-loader', 'less-loader']
+      //     }
+      //   }
+      // }
     ]
   },
   plugins: [
@@ -119,8 +144,9 @@ const baseConfig = {
       filename: 'index.html',
       links: createLinks(page.links).join('\n'),
       scripts: createScript(page.scripts).join('\n'),
-      inject: true,
+      inject: 'body',
     }),
+    new VueLoaderPlugin(),
   ]
 }
 
@@ -138,7 +164,7 @@ module.exports = isProd
       // https://github.com/webpack-contrib/copy-webpack-plugin
       new CopyWebpackPlugin({
         patterns: [{
-          from: join(__dirname, './static', `${page.name || 'index'}/img`),
+          from: join(__dirname, './static', page.name ? page.name + '/img' : 'index'),
           to: './'
         }],
         options: {
@@ -154,6 +180,10 @@ module.exports = isProd
       // publicPath: './dist',
       host: getIPAddress(),
       port: 8000,
+      contentBase: [
+        join(__dirname, '/'),
+        join(__dirname, 'static'),
+      ]
     },
     plugins: [
       // https://www.npmjs.com/package/eslint-webpack-plugin

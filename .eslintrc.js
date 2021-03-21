@@ -17,10 +17,12 @@
   extends: [
     'standard',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
+    'plugin:vue/essential',
   ],
   plugins: [
-    '@typescript-eslint'
+    '@typescript-eslint',
+    'vue'
   ],
   rules: {
     'space-before-function-paren': 0,

@@ -9,8 +9,9 @@ const { resolve } = require('path')
 async function removeStaticPath() {
   const options = {
     files: resolve(__dirname, '../dist/**/*\.js'),
-    from: /static\/\w+\/img\//g,
-    to: ''
+    from: /"\w+\/img\//g,
+    // from: /static\/\w+\/img\//g,
+    to: '"'
   }
   try {
     const results = await replace(options)

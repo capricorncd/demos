@@ -11,16 +11,20 @@ function App (): React.ReactElement {
     <Router>
       <div>
         <ul>
-          <li><Link to='/'>home</Link></li>
+          <li><a href="../FlashVHtml" target="_blank">FlashVHtml</a></li>
+          <li><a href="../bilibili" target="_blank">bilibili</a></li>
         </ul>
-        <Switch>
-          <Route path="/">
-            <h1>FlashVHtml</h1>
-            <div>
-              <a href="../FlashVHtml">FlashVHtml</a>
-            </div>
-          </Route>
-        </Switch>
+        {/* <Switch> */}
+        {/*  <Route path="/"> */}
+        {/*    <h1>Demos</h1> */}
+        {/*    <div> */}
+        {/*      <a href="../FlashVHtml">FlashVHtml</a> */}
+        {/*    </div> */}
+        {/*    <div> */}
+        {/*      <a href="../bilibili">bilibili header</a> */}
+        {/*    </div> */}
+        {/*  </Route> */}
+        {/* </Switch> */}
       </div>
     </Router>
   )

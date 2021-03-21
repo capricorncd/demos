@@ -16,7 +16,7 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "jsx": "react",
-    "allowJs": true,
+//    "allowJs": true,
     "sourceMap": true,
     "strict": true,
     "noEmit": false,
@@ -34,8 +34,14 @@
       "@types/node"
     ]
   },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/*.tsx"
+  ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "*.js"
   ]
 }

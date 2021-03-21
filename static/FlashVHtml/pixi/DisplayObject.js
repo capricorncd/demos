@@ -2,7 +2,7 @@
  * @author Mat Groves
  */
 
-var PIXI = PIXI || {};
+var PIXI = window.PIXI;
 
 /**
  * @class The DisplayObject class is the base class for all objects that are rendered on the screen.
