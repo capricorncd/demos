@@ -1,7 +1,7 @@
 /**
  * @author Mat Groves
  */
-var PIXI = PIXI || {};
+var PIXI = window.PIXI;
 
 PIXI.blendModes = {};
 PIXI.blendModes.NORMAL = 0

@@ -1,7 +1,7 @@
 /**
  * @author Mat Groves
  */
-var PIXI = PIXI || {};
+var PIXI = window.PIXI;
 
 PIXI._defaultFrame = {x:0, y:0, width:1, height:1};
 

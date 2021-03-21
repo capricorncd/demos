@@ -2,7 +2,7 @@
  * @author Mat Groves
  */
 
-var PIXI = PIXI || {};
+var PIXI = window.PIXI;
 
 /**
  * @class A DisplayObjectContainer represents a collection of display objects. It is the base class of all display objects that act as a container for other objects.

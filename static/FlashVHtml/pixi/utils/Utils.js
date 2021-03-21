@@ -12,7 +12,9 @@ window.requestAnimFrame = (function() {
     };
 })();
 
-var AjaxRequest = function() {
+window.PIXI = {}
+
+window.AjaxRequest = function() {
   var activexmodes = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"] //activeX versions to check for in IE
 
   //Test for support for ActiveXObject in IE first (as XMLHttpRequest in IE7 is broken)

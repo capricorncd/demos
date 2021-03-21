@@ -1,4 +1,5 @@
-var GAME = GAME || {}
+var PIXI = window.PIXI;
+window.GAME = {}
 GAME.GameObjectPool = function (a) {
   this.classType = a
   this.pool = []
@@ -11,7 +12,7 @@ GAME.GameObjectPool.prototype.getObject = function () {
 }
 GAME.GameObjectPool.prototype.returnObject = function () {
 }
-GAME = GAME || {}
+
 GAME.Background = function () {
   PIXI.DisplayObjectContainer.call(this)
   this.scrollPosition = 0
@@ -28,7 +29,7 @@ GAME.Background.prototype.updateTransform = function () {
   for (b = 0; b < this.sky.length; b++) a = 1.4 * this.scrollPosition, a += 800 * b, a %= 1600, a -= 800, this.sky[b].position.y = Math.round(a)
   PIXI.DisplayObjectContainer.prototype.updateTransform.call(this)
 }
-var GAME = GAME || {}, playerFrames
+var playerFrames
 GAME.PlayerShip = function (a) {
   PIXI.Sprite.call(this, PIXI.Texture.fromFrameId('fighter_bankLeft_04.png'))
   if (!playerFrames) {
@@ -83,7 +84,7 @@ GAME.PlayerShip.prototype.shieldOn = function () {
 GAME.PlayerShip.prototype.shieldOff = function () {
   this.shieldActivated && (this.shieldCount = 0, this.shieldActivated = !1, this.shield.visible = !1)
 }
-var GAME = GAME || {}, laserCount = 0
+var laserCount = 0
 GAME.BulletManager = function (a) {
   this.engine = a
   this.bullets = []
@@ -137,7 +138,7 @@ GAME.LaserManager = function (a) {
   this.engine = a
   this.bullets = []
   this.fireCount = 0
-  this.view = new GAME.LaserView(PIXI.Texture.fromImage('static/FlashVHtml/img/MEGAlaser.png'))
+  this.view = new GAME.LaserView(PIXI.Texture.fromImage('FlashVHtml/img/MEGAlaser.png'))
   this.view.points = this.bullets
   this.bulletPool = new GAME.GameObjectPool(GAME.LaserSegment)
   GAME.HIGH_MODE && this.engine.view.stage.addChild(this.view)
@@ -244,7 +245,7 @@ GAME.LaserView.prototype.setTexture = function (a) {
   this.height = a.frame.height
   this.updateFrame = !0
 }
-var GAME = GAME || {}, enemyFrames
+var enemyFrames
 GAME.Enemy = function () {
   if (!enemyFrames) {
     enemyFrames = []
@@ -458,7 +459,7 @@ GAME.EnemyBulletManager.prototype.removeAll = function () {
   for (var a = 0; a < this.bullets.length; a++) this.bullets[a].position.y = 1E3
   this.bullets = []
 }
-var GAME = GAME || {}, explosionFrames, debris = []
+var explosionFrames, debris = []
 GAME.Explosion = function () {
   if (!explosionFrames) {
     debris = []
@@ -518,7 +519,7 @@ GAME.Debris = function () {
 }
 GAME.Debris.constructor = GAME.Debris
 GAME.Debris.prototype = Object.create(PIXI.Sprite.prototype)
-GAME = GAME || {}
+
 laserCount = 0
 GAME.ExplosionManager = function (a) {
   this.engine = a
@@ -541,7 +542,7 @@ GAME.ExplosionManager.prototype.addExplosion = function (a, b) {
   this.engine.view.actionContainer.addChild(c)
   this.explosions.push(c)
 }
-GAME = GAME || {}
+
 GAME.PickupManager = function (a) {
   this.engine = a
   this.pickups = []
@@ -615,7 +616,7 @@ GAME.PickupManager.prototype.destroyPickup = function (a) {
     break
   }
 }
-GAME = GAME || {}
+
 GAME.Pickup = function () {
   PIXI.Sprite.call(this, PIXI.Texture.fromFrameId('pickup_rocket.png'))
   this.origin = { x: 0, y: 0 }
@@ -668,9 +669,9 @@ GAME.Pickup.ROCKET = 4
 GAME.Pickup.LASER = 1
 GAME.Pickup.MULTIPLY = 2
 GAME.Pickup.SHIELD = 3
-GAME = GAME || {}
+
 GAME.EMP = function () {
-  PIXI.Sprite.call(this, PIXI.Texture.fromImage('static/FlashVHtml/img/EMP.png'))
+  PIXI.Sprite.call(this, PIXI.Texture.fromImage('FlashVHtml/img/EMP.png'))
   this.blendMode = PIXI.blendModes.SCREEN
   this.firstPhase = !0
   this.isDead = !1
@@ -683,7 +684,7 @@ GAME.EMP.prototype.update = function () {
   this.firstPhase ? (this.rotation += 0.2, this.scale.x += 0.1 * (2 - this.scale.y), 1.99 < this.scale.x && (this.firstPhase = !1)) : (this.scale.x += 0.3 * (4 - this.scale.x), this.alpha *= 0.8, 0.1 > this.alpha && (this.alpha = 0, this.isDead = !0))
   this.scale.y = this.scale.x
 }
-GAME = GAME || {}
+
 laserCount = 0
 GAME.EMPManager = function (a) {
   this.engine = a
@@ -715,7 +716,7 @@ GAME.EMPManager.prototype.fire = function () {
   0 ==
   this.empCount && this.engine.gameover()
 }
-GAME = GAME || {}
+
 GAME.Rocket = function () {
   this.acceleration = { x: 0, y: 0 }
   this.speed = { x: 0, y: 0 }
@@ -749,7 +750,7 @@ GAME.Rocket.prototype.update = function () {
   this.position.x += this.speed.x * GAME.time.DELTA_TIME
   this.position.y += this.speed.y * GAME.time.DELTA_TIME
 }
-GAME = GAME || {}
+
 GAME.RocketManager = function (a) {
   this.engine = a
   this.rockets = []
@@ -810,7 +811,7 @@ GAME.Smoke = function () {
 }
 GAME.Smoke.constructor = GAME.Smoke
 GAME.Smoke.prototype = Object.create(PIXI.Sprite.prototype)
-GAME = GAME || {}
+
 GAME.CollisionManager = function (a) {
   this.engine = a
   this.count = 0
@@ -889,10 +890,10 @@ GAME.CollisionManager.prototype.hitTestPlayerVsEnemyBullet = function () {
     }
   }
 }
-GAME = GAME || {}
+
 GAME.ShootyView = function (a) {
   this.engine = a
-  this.renderer = renderer
+  this.renderer = window.renderer
   GAME.HIGH_MODE = this.renderer instanceof PIXI.WebGLRenderer
   this.stage = stage
   this.background = new GAME.Background
@@ -908,7 +909,7 @@ GAME.ShootyView = function (a) {
   this.stage.addChild(this.actionContainer)
   this.stage.addChild(this.enemyBulletContainer)
   this.stage.addChild(this.empContainer)
-  this.vignette = PIXI.Sprite.fromImage('static/FlashVHtml/img/vignette.png')
+  this.vignette = PIXI.Sprite.fromImage('FlashVHtml/img/vignette.png')
   GAME.HIGH_MODE && this.stage.addChild(this.vignette)
   this.vignette.visible = !1
   this.vignette.alpha = 0
@@ -933,6 +934,9 @@ GAME.ShootyView = function (a) {
   this.multiplyerSprite.position.x = 600 - this.multiplyerSprite.width
 }
 GAME.ShootyView.constructor = GAME.ShootyView
+
+// GAME.ShootyView.prototype.renderer = null
+
 GAME.ShootyView.prototype.update = function () {
   this.cachMultiplyer != this.engine.multiplier && (this.cachMultiplyer = this.engine.multiplier, this.multiplyerSprite.setTexture(this.multiplyerTextures[this.engine.multiplier]))
   if (this.cachEmpCount != this.engine.empManager.empCount) {
@@ -966,7 +970,7 @@ GAME.ShootyView.prototype.resize = function (a, b) {
   this.gameoverScreen.style.left = a / 2 - 439 * (a / 600) / 2 + 'px'
   this.gameoverScreen.style.top = b / 2 - 240 * (a / 600) / 2 + 'px'
 }
-GAME = GAME || {}
+
 GAME.HIGH_MODE = !0
 GAME.ShootyEngine = function () {
   this.view = new GAME.ShootyView(this)
@@ -1015,7 +1019,7 @@ GAME.ShootyEngine.prototype.update = function () {
   this.view.update()
 }
 GAME.addHitArea = function (a) {
-  var b = PIXI.Sprite.fromImage('static/FlashVHtml/img/hitTest.png')
+  var b = PIXI.Sprite.fromImage('FlashVHtml/img/hitTest.png')
   b.anchor.x = 0.5
   b.anchor.y = 0.5
   b.scale.x = 2 * (a.radius / 20)

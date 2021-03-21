@@ -2,7 +2,7 @@
  * @author Mat Groves
  */
 
-var PIXI = PIXI || {};
+var PIXI = window.PIXI;
 
 /**
  * @class A Stage represents the root of the display tree. Everything connected to the stage is rendered

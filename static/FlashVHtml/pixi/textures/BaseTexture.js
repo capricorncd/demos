@@ -1,7 +1,7 @@
 /**
  * @author Mat Groves
  */
-var PIXI = PIXI || {};
+var PIXI = window.PIXI;
 
 PIXI.BaseTextureCache = {};
 PIXI.texturesToUpdate = [];

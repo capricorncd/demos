@@ -1,10 +1,21 @@
-
+const PIXI = window.PIXI
+const GAME = window.GAME
 document.addEventListener('DOMContentLoaded', onReady)
 
 window.addEventListener('resize', resize)
 window.onorientationchange = resize;
 
 window.scrollTo(0, 1);
+
+function createEl(tag, attrs) {
+  const el = document.createElement('div')
+  if (attrs) {
+    for (let [key, value] of Object.entries(attrs)) {
+      el.setAttribute(key, value)
+    }
+  }
+  return el
+}
 
 var width = 800;
 var height = 600;
@@ -19,18 +30,26 @@ var ratio;
 var offsetX;
 var offsetY;
 var holder;
-var loaderView =  document.getElementById("loader");
-var loaderText = document.getElementById("loaderText");
+var loaderView =  createEl('div',{ id: 'loader' });
+var loaderText = createEl('img', { id: loaderText });
+
+loaderView.appendChild(loaderText)
+document.querySelector('body').appendChild(loaderView)
+
 var loadInterval
 var loadCount = 0;
 var hasLoaded = false;
 
 var renderer = PIXI.autoDetectRenderer(600, 800);
+
+window.renderer = renderer
+
 var stage = new PIXI.Stage();
+window.stage = stage
 
 
 var wasteLogo = new Image();
-wasteLogo.src = "static/FlashVHtml/img/wasteLogo.png";
+wasteLogo.src = "FlashVHtml/img/wasteLogo.png";
 wasteLogo.style.position = "absolute"
 wasteLogo.style.top = "0px";
 wasteLogo.style.left = "0px";
@@ -38,7 +57,7 @@ wasteLogo.style.display = "none";
 wasteLogo.style.zIndex = 20;
 
 var intro = new Image();
-intro.src = "static/FlashVHtml/img/gameStartPanel.png";
+intro.src = "FlashVHtml/img/gameStartPanel.png";
 intro.style.position = "absolute"
 intro.style.top =  -240 + "px";
 intro.style.left = "0px";
@@ -46,11 +65,11 @@ intro.style.display = "none";
 intro.style.zIndex = 200;
 
 var html5icon = new Image();
-html5icon.src = "static/FlashVHtml/img/html5Logo.png"
+html5icon.src = "FlashVHtml/img/html5Logo.png"
 html5icon.style.position = "absolute";
 
 var fullScreenIcon = new Image();
-fullScreenIcon.src = "static/FlashVHtml/img/fullscreen_ON.png"
+fullScreenIcon.src = "FlashVHtml/img/fullscreen_ON.png"
 fullScreenIcon.style.position = "absolute";
 fullScreenIcon.style.cursor = "pointer";
 fullScreenIcon.setAttribute("type", "button");
@@ -92,7 +111,7 @@ function onReady()
 
   //holder.style.display = "none";
   document.body.scroll = "no";
-  loader = new PIXI.AssetLoader(["static/FlashVHtml/img/floor.json", "static/FlashVHtml/img/ActionAssets.json",  "static/FlashVHtml/img/hudAssets.json",  "static/FlashVHtml/img/vignette.png", "static/FlashVHtml/img/EMP.png"])
+  loader = new PIXI.AssetLoader(["FlashVHtml/img/floor.json", "FlashVHtml/img/ActionAssets.json",  "FlashVHtml/img/hudAssets.json",  "FlashVHtml/img/vignette.png", "FlashVHtml/img/EMP.png"])
 
   loader.addEventListener( 'loaded', function ( event ) {
 
@@ -137,19 +156,19 @@ function loaderUpdate()
 
   if(round == 0)
   {
-    loaderText.src = "static/FlashVHtml/img/gameLoading01.png"
+    loaderText.src = "FlashVHtml/img/gameLoading01.png"
   }
   else if(round == 1)
   {
-    loaderText.src = "static/FlashVHtml/img/gameLoading02.png"
+    loaderText.src = "FlashVHtml/img/gameLoading02.png"
   }
   else if(round == 2)
   {
-    loaderText.src = "static/FlashVHtml/img/gameLoading03.png"
+    loaderText.src = "FlashVHtml/img/gameLoading03.png"
   }
   else if(round == 3)
   {
-    loaderText.src = "static/FlashVHtml/img/gameLoading04.png"
+    loaderText.src = "FlashVHtml/img/gameLoading04.png"
   }
 
   if(!hasLoaded)requestAnimFrame(loaderUpdate);

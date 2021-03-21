@@ -2,7 +2,7 @@
 /**
  * @author Mat Groves
  */
-var PIXI = PIXI || {};
+var PIXI = window.PIXI;
 
 PIXI.shaderFragmentSrc = [	"precision mediump float;",
   "varying vec2 vTextureCoord;",

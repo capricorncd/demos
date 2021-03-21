@@ -1,4 +1,4 @@
-var Math2 = {}
+window.Math2 = {}
 
 Math2.random = function (from, to) {
   return Math.random() * (to - from) + from
