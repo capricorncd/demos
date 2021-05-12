@@ -1,0 +1,31 @@
+{
+  "name": "markdown-converter",
+  "version": "0.0.1",
+  "description": "convert markdown file to html",
+  "main": "index.js",
+  "scripts": {
+    "test-file": "node src/test.js ./README.md ./dist/index.html",
+    "test": "node src/test.js ./test ./dist/test",
+    "dev": "webpack-dev-server --config webpack.dev.config.js",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capricorncd/markdown-converter.git"
+  },
+  "keywords": [
+    "markdown",
+    "html"
+  ],
+  "author": "Capricorncd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/capricorncd/markdown-converter/issues"
+  },
+  "homepage": "https://github.com/capricorncd/markdown-converter#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "fs-extra": "^9.0.1",
+    "slash": "^3.0.0"
+  }
+}

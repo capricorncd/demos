@@ -1,0 +1,59 @@
+{
+  "name": "webrtc",
+  "version": "0.0.1",
+  "description": "live",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --port 3000 --config webpack.config.js",
+    "build": "webpack  --mode production --config webpack.config.js",
+    "start": "node ./src/server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capricorncd/webrtc.git"
+  },
+  "keywords": [
+    "webrtc",
+    "live",
+    "media",
+    "recorder"
+  ],
+  "author": "Capricorncd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/capricorncd/webrtc/issues"
+  },
+  "homepage": "https://github.com/capricorncd/webrtc#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "chalk": "^4.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.1.1",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.2",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
+    "vue-loader": "^15.9.3",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.0.9"
+  },
+  "dependencies": {
+    "element-ui": "^2.13.2",
+    "express": "^4.17.1",
+    "log4js": "^6.3.0",
+    "serve-index": "^1.9.1",
+    "socket.io": "^2.3.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.3.4"
+  }
+}
