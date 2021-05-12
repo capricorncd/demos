@@ -7,12 +7,12 @@ https://github.com/capricorncd/dev3cli
 
 ```bash
 # serve with hot reload at localhost:4000
-$ npm run dev
+$ npm run dev --FlashVHtml
 # or
 $ yarn dev
 
 # build static project
-$ npm run build
+$ npm run build --FlashVHtml
 # or
 $ yarn build
 ```
