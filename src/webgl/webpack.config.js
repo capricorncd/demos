@@ -34,7 +34,7 @@ const baseConfig = {
       : page.name ? `./src/${page.name}/index.ts` : './src/index.tsx')
   },
   output: {
-    path: join(__dirname, './dist', page.name || 'index'),
+    path: join(__dirname, '../../webgl', page.name || 'index'),
     filename: 'index.[hash:8].js',
     libraryTarget: 'window',
     globalObject: 'typeof self !== \'undefined\' ? self : this',

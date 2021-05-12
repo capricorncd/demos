@@ -8,7 +8,7 @@ const { resolve } = require('path')
 
 async function removeStaticPath() {
   const options = {
-    files: resolve(__dirname, '../dist/**/*\.js'),
+    files: resolve(__dirname, '../../../webgl/**/*\.js'),
     from: /"\w+\/img\//g,
     // from: /static\/\w+\/img\//g,
     to: '"'
