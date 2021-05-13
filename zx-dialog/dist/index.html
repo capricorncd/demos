@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <title>zx-dialog</title>
+  <style>
+    .btn-group {
+      position: fixed;
+      bottom: 50px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+    }
+    button {
+      display: inline-block;
+      width: 25%;
+      height: 40px;
+      color: #fff;
+      border: 0;
+      border-radius: 4px;
+      font-size: 1.2em;
+    }
+    button:nth-child(1) {
+      background-color: green;
+    }
+    button:nth-child(2) {
+      background-color: #fc0;
+    }
+    button:nth-child(3) {
+      background-color: #ff4141;
+    }
+  </style>
+</head>
+<body>
+<div style="text-align: center; margin-top: 100px">
+  <h3>请点击按钮，查看效果</h3>
+  <p style="color: #999">https://github.com/capricorncd/zx-dialog</p>
+</div>
+<div class="btn-group">
+  <button onclick="handleClick('alert')">alert</button>
+  <button onclick="handleClick('confirm')">confirm</button>
+  <button onclick="handleClick('loading')">loading</button>
+</div>
+<script src="./js/zx-dialog.min.js"></script>
+<script>
+  var zxDialog = new ZxDialog({
+    // 背景透明度
+    maskOpacity: 0.4,
+    // 确定按钮颜色
+    confirmBtnColor: 'green',
+    // 取消按钮颜色
+    cancelBtnColor: '#666'
+  })
+
+  console.log(zxDialog);
+
+  /**
+   * 点击按钮处理
+   * @param type 按钮类型
+   */
+  function handleClick (type) {
+    // alert
+    if (type === 'alert') {
+      zxDialog.alert('alert click')
+    }
+
+    // confirm
+    if (type === 'confirm') {
+      zxDialog.confirm('confirm click', function (res) {
+        zxDialog.alert('您点击了' + (res ? '[确定]' : '[取消]') + '按钮');
+      })
+    }
+
+    // confirm
+    if (type === 'loading') {
+      // 添加loading
+      zxDialog.loading('loading..., 2秒后自动关闭');
+      // 2秒后移除
+      setTimeout(function () {
+        zxDialog.removeLoading();
+      }, 2000);
+    }
+
+  }
+</script>
+</body>
+</html>
