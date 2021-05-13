@@ -119,7 +119,7 @@ if (isProd) {
       new CleanWebpackPlugin({
         verbose: true,
         // 需要保留的文件（夹）
-        cleanOnceBeforeBuildPatterns: ['*.*', 'static', '!.git', '!.gitignore', 'CNAME']
+        cleanOnceBeforeBuildPatterns: ['*.*', 'static', '!.git', '!.gitignore', '!CNAME']
       }),
       new BannerPlugin([
         `${pkg.name} ${pkg.version}`,

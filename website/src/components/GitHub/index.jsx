@@ -6,6 +6,9 @@
 import React, { Component } from 'react'
 import './github.scss'
 
+const DEMOS_SOURCE_MAIN_URL = 'https://github.com/capricorncd/demos/tree/main/'
+const HOME_URL = 'https://capricorncd.github.io/'
+
 const list = [
   {
     name: '新選組 ～桜華妖乱～',
@@ -36,7 +39,7 @@ const list = [
   {
     name: 'School Circle Web Site',
     cover: './static/app-site.jpg',
-    url: 'https://capricorncd.github.io/blog/dist/app-website/',
+    url: './demos/app-website/',
     desc: [
       {
         text: 'Listen,it\'s like falling in love'
@@ -47,14 +50,14 @@ const list = [
       },
       {
         tag: 'Source',
-        url: 'https://github.com/capricorncd/blog/tree/master/demos/app-website'
+        url: DEMOS_SOURCE_MAIN_URL + 'app-website'
       }
     ]
   },
   {
     name: 'Music Card Demo',
     cover: './static/music-card.jpg',
-    url: 'https://capricorncd.github.io/music-card/',
+    url: './demos/music-card/',
     desc: [
       {
         text: 'The music card that Web mini-program application in Smartphone App'
@@ -65,11 +68,11 @@ const list = [
       },
       {
         tag: 'Demo',
-        url: 'https://capricorncd.github.io/music-card/'
+        url: HOME_URL + 'music-card/'
       },
       {
         tag: 'Source',
-        url: 'https://github.com/capricorncd/blog/tree/master/demos/music-card'
+        url: DEMOS_SOURCE_MAIN_URL + 'music-card'
       }
     ]
   },
@@ -185,7 +188,7 @@ const list = [
     // name: 'C4D + Three.js',
     name: 'C4DとThree.jsで製品の3D表示ページの開発 Demo',
     cover: './static/three.png',
-    url: 'https://capricorncd.github.io/blog/dist/three/index.html#/ClockObj',
+    url: './demos/three/index.html#/ClockObj',
     desc: [
       {
         text: 'Developing 3D display pages for products in C4D and Three.js'
@@ -200,14 +203,14 @@ const list = [
       },
       {
         tag: 'Source',
-        url: 'https://github.com/capricorncd/blog/tree/master/demos/three'
+        url: DEMOS_SOURCE_MAIN_URL + 'three'
       }
     ]
   },
   {
     name: 'Web Audio Demo',
     cover: './static/web-audio.png',
-    url: 'https://capricorncd.github.io/web-audio/',
+    url: HOME_URL + 'demos/web-audio/',
     desc: [
       {
         text: 'Use AudioContext to achieve cool music playback effects  in the browser'
@@ -218,11 +221,11 @@ const list = [
       },
       {
         tag: 'Demo',
-        url: 'https://capricorncd.github.io/web-audio/'
+        url: HOME_URL + 'demos/web-audio/'
       },
       {
         tag: 'Source',
-        url: 'https://github.com/capricorncd/blog/tree/master/demos/web-audio'
+        url: DEMOS_SOURCE_MAIN_URL + 'web-audio'
       }
     ]
   },
