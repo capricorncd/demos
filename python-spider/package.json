@@ -1,0 +1,29 @@
+{
+  "name": "spider",
+  "version": "0.0.2",
+  "description": "spider",
+  "author": "capricorncd",
+  "github": "https://github.com/capricorncd/spider",
+  "scripts": {
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "engines": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capricorncd/spider.git"
+  },
+  "keywords": [
+    "python",
+    "scrapy",
+    "spider"
+  ],
+  "bugs": {
+    "url": "https://github.com/capricorncd/spider/issues"
+  },
+  "homepage": "https://github.com/capricorncd/spider",
+  "license": "MIT"
+}
