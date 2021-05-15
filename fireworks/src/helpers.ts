@@ -7,8 +7,9 @@ export function $(selector: string, el: HTMLElement | Document = document): HTML
   return Array.prototype.slice.apply(el.querySelectorAll(selector))
 }
 
-export function random(max: number, min = 0): number {
-  return Math.random() * (max - min) + min
+export function random(max: number, min = 0, isInt = false): number {
+  const result = Math.random() * (max - min) + min
+  return isInt ? Math.round(result) : result
 }
 
 export function calcDistance(px1: number, py1: number, px2: number, py2: number): number {

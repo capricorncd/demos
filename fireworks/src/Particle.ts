@@ -49,8 +49,8 @@ export class Particle {
     }
   }
 
-  draw(): void {
-    const { ctx, hue } = this.options
+  draw(ctx: CanvasRenderingContext2D): void {
+    const { hue } = this.options
     const [moveToX = 0, moveToY = 0] = this.coordinates[this.coordinates.length - 1]
     ctx.beginPath()
     ctx.moveTo(moveToX, moveToY)
@@ -59,7 +59,8 @@ export class Particle {
     ctx.stroke()
   }
 
-  update(index: number, particles: Particle[]): void {
+  update(index: number, particles: Particle[], ctx: CanvasRenderingContext2D): void {
+    this.draw(ctx)
     this.coordinates.pop()
     this.coordinates.unshift([this.x, this.y])
     // 减速

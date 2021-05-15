@@ -23,14 +23,12 @@ export class Firework {
   private targetRadius: number;
   private readonly coordinateCount: number;
   private readonly coordinates: number[][];
-  private readonly ctx: CanvasRenderingContext2D;
   private readonly options: FireworkOptions;
-  private hue: number;
+  private readonly hue: number;
 
   constructor(options: FireworkOptions) {
     this.options = options
-    const { x, y, targetX, targetY, ctx } = options
-    this.ctx = ctx
+    const { x, y, targetX, targetY } = options
     this.x = x
     this.y = y
 
@@ -47,7 +45,7 @@ export class Firework {
     this.angle = Math.atan2(targetY - y, targetX - x)
 
     this.speed = 2
-    this.acceleration = 1.05
+    this.acceleration = 1.02
     // 烟花亮度
     this.brightness = random(70, 50)
     // 烟花到达指定位置小圆半径
@@ -63,8 +61,7 @@ export class Firework {
     this.hue = random(120, 50)
   }
 
-  draw(): void {
-    const { ctx } = this.options
+  draw(ctx: CanvasRenderingContext2D): void {
     const [moveToX = 0, moveToY = 0] = this.coordinates[this.coordinates.length - 1]
     ctx.beginPath()
     ctx.moveTo(moveToX, moveToY)
@@ -77,12 +74,13 @@ export class Firework {
     ctx.stroke()
   }
 
-  update(index: number, fireworks: Firework[]): void {
+  update(index: number, fireworks: Firework[], ctx: CanvasRenderingContext2D): void {
+    this.draw(ctx)
     this.coordinates.pop()
     this.coordinates.unshift([this.x, this.y])
 
     if (this.targetRadius < 8) {
-      this.targetRadius += 0.3
+      this.targetRadius += 0.2
     } else {
       this.targetRadius = 1
     }
@@ -103,14 +101,13 @@ export class Firework {
   }
 
   createParticles(): void {
-    const { targetX, targetY, ctx, particles } = this.options
-    let count = 50
+    const { targetX, targetY, particles } = this.options
+    let count = random(120, 30, true)
     while (count--) {
       particles.push(new Particle({
         x: targetX,
         y: targetY,
-        hue: this.hue,
-        ctx
+        hue: this.hue
       }))
     }
   }

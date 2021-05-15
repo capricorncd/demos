@@ -37,11 +37,10 @@ app.appendChild(canvas)
 function createFireworks(tx?: number, ty?: number): void {
   tx = tx ?? random(winWidth)
   const firework = new Firework({
-    x: tx,
+    x: random(tx + 20, tx - 20),
     y: winHeight,
     targetX: tx,
     targetY: ty ?? random(winHeight / 2),
-    ctx,
     particles
   })
   fireworks.push(firework)
@@ -57,14 +56,12 @@ function run() {
   ctx.clearRect(0, 0, winWidth, winHeight)
   let i = fireworks.length
   while (i--) {
-    fireworks[i].draw()
-    fireworks[i].update(i, fireworks)
+    fireworks[i].update(i, fireworks, ctx)
   }
 
   let j = particles.length
   while (j--) {
-    particles[j].draw()
-    particles[j].update(j, particles)
+    particles[j].update(j, particles, ctx)
   }
 
   if (count > MAX_COUNT) {

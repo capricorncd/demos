@@ -10,7 +10,6 @@ export interface FireworkOptions {
   y: number;
   targetX: number;
   targetY: number;
-  ctx: CanvasRenderingContext2D;
   particles: Particle[];
 }
 
@@ -18,6 +17,5 @@ export interface ParticleOptions {
   x: number;
   y: number;
   hue: number;
-  ctx: CanvasRenderingContext2D;
 }
 
