@@ -9,6 +9,20 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  h1, p {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+  }
+  canvas {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+  }
   h1 {
     margin: 0;
     font-weight: 300;
