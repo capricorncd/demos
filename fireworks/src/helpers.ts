@@ -20,3 +20,17 @@ export function gerElSize(el: Window | HTMLElement): { width: number, height: nu
     height
   }
 }
+
+export function getElOffset(el: HTMLElement): { top: number; left: number } {
+  let top = 0
+  let left = 0
+  while (el) {
+    top += el.offsetTop
+    left += el.offsetLeft
+    el = el.offsetParent as HTMLElement
+  }
+  return {
+    top,
+    left
+  }
+}

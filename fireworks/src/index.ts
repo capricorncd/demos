@@ -6,8 +6,7 @@
  * 视频出处：
  * https://www.bilibili.com/video/BV1vU4y1b7qR
  */
-import './style.scss'
-import { random, gerElSize } from '@/helpers'
+import { random, gerElSize, getElOffset } from '@/helpers'
 import { Firework } from '@/Firework'
 import { Particle } from '@/Particle'
 
@@ -70,9 +69,17 @@ export function Fireworks(el: HTMLElement | Window): HTMLCanvasElement {
     }
   }
 
+  let offsetTop: number | null = null
+  let offsetLeft = 0
+
   canvas.addEventListener('mouseup', (e: MouseEvent) => {
-    const tx = e.pageX
-    const ty = e.pageY
+    if (offsetTop === null) {
+      const offset = getElOffset(canvas)
+      offsetLeft = offset.left
+      offsetTop = offset.top
+    }
+    const tx = e.pageX - offsetLeft
+    const ty = e.pageY - offsetTop
     createFireworks(tx, ty)
   })
 
