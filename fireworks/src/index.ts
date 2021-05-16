@@ -5,77 +5,78 @@
  *
  * 视频出处：
  * https://www.bilibili.com/video/BV1vU4y1b7qR
-*/
+ */
 import './style.scss'
-import { $, random } from '@/helpers'
+import { random, gerElSize } from '@/helpers'
 import { Firework } from '@/Firework'
 import { Particle } from '@/Particle'
 
-const canvas = document.createElement('canvas')
-const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
-canvas.style.background = '#000'
+export function Fireworks(el: HTMLElement | Window): HTMLCanvasElement {
+  const canvas = document.createElement('canvas')
+  const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
+  canvas.style.background = '#000'
 
-const fireworks: Firework[] = []
-const particles: Particle[] = []
+  const fireworks: Firework[] = []
+  const particles: Particle[] = []
 
-let winWidth = window.innerWidth
-let winHeight = window.innerHeight
+  let { width, height } = gerElSize(el)
+  canvas.width = width
+  canvas.height = height
 
-canvas.width = winWidth
-canvas.height = winHeight
-
-window.addEventListener('resize', () => {
-  winWidth = window.innerWidth
-  winHeight = window.innerHeight
-  canvas.width = winWidth
-  canvas.height = winHeight
-})
-
-const app = $('#app')[0]
-app.appendChild(canvas)
-
-function createFireworks(tx?: number, ty?: number): void {
-  tx = tx ?? random(winWidth)
-  const firework = new Firework({
-    x: random(tx + 20, tx - 20),
-    y: winHeight,
-    targetX: tx,
-    targetY: ty ?? random(winHeight / 2),
-    particles
+  window.addEventListener('resize', () => {
+    const size = gerElSize(el)
+    width = size.width
+    height = size.height
+    canvas.width = width
+    canvas.height = height
   })
-  fireworks.push(firework)
+
+  function createFireworks(tx?: number, ty?: number): void {
+    tx = tx ?? random(width)
+    const firework = new Firework({
+      x: random(tx + 20, tx - 20),
+      y: height,
+      targetX: tx,
+      targetY: ty ?? random(height / 2),
+      particles
+    })
+    fireworks.push(firework)
+  }
+
+  createFireworks()
+
+  const MAX_COUNT = 20
+  let count = 0
+
+  function run() {
+    requestAnimationFrame(run)
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    let i = fireworks.length
+    while (i--) {
+      fireworks[i].update(i, fireworks, ctx)
+    }
+
+    let j = particles.length
+    while (j--) {
+      particles[j].update(j, particles, ctx)
+    }
+
+    if (count > MAX_COUNT) {
+      count = 0
+      createFireworks()
+    } else {
+      count++
+    }
+  }
+
+  canvas.addEventListener('mouseup', (e: MouseEvent) => {
+    const tx = e.pageX
+    const ty = e.pageY
+    createFireworks(tx, ty)
+  })
+
+  run()
+
+  return canvas
 }
-
-createFireworks()
-
-const MAX_COUNT = 20
-let count = 0
-function run() {
-  requestAnimationFrame(run)
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'
-  ctx.clearRect(0, 0, winWidth, winHeight)
-  let i = fireworks.length
-  while (i--) {
-    fireworks[i].update(i, fireworks, ctx)
-  }
-
-  let j = particles.length
-  while (j--) {
-    particles[j].update(j, particles, ctx)
-  }
-
-  if (count > MAX_COUNT) {
-    count = 0
-    createFireworks()
-  } else {
-    count++
-  }
-}
-
-canvas.addEventListener('mouseup', (e: MouseEvent) => {
-  const tx = e.pageX
-  const ty = e.pageY
-  createFireworks(tx, ty)
-})
-
-run()

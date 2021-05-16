@@ -6,7 +6,8 @@
   "author": "Capricorncd",
   "scripts": {
     "dev": "webpack serve",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "build:test": "webpack --mode production --env test"
   },
   "keywords": [
     "fireworks",

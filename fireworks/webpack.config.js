@@ -17,18 +17,20 @@ const pkg = require('./package.json')
 
 const argsArr = process.argv.slice(2)
 
-// console.log('process.argv', argsArr)
+console.log('process.argv', argsArr)
 
 const isProd = argsArr.includes('production')
+const isNoTestBuild = !argsArr.includes('test') && isProd
 
 const baseConfig = {
   mode: isProd ? 'production' : 'development',
   entry: {
-    index: resolve(__dirname, './src/index.ts')
+    index: resolve(__dirname, `./${isNoTestBuild ? 'src' : 'test'}/index.ts`)
   },
   output: {
-    path: resolve(__dirname, '../../capricorncd.github.io/demos/fireworks'),
+    path: resolve(__dirname, isNoTestBuild ? './dist' : '../../capricorncd.github.io/demos/fireworks'),
     filename: '[name].js',
+    library: 'Fireworks',
     libraryTarget: 'umd',
     globalObject: 'typeof self !== \'undefined\' ? self : this',
     // umdNamedDefine: true,
@@ -87,12 +89,20 @@ const baseConfig = {
   },
   plugins: [
     new ProgressPlugin(),
+    // new HtmlWebpackPlugin({
+    //   template: 'index.html',
+    //   filename: 'index.html'
+    // }),
+  ]
+}
+
+if (!isNoTestBuild) {
+  baseConfig.plugins.push(
     new HtmlWebpackPlugin({
       template: 'index.html',
       filename: 'index.html'
     }),
-
-  ]
+  )
 }
 
 module.exports = isProd
