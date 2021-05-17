@@ -78,8 +78,8 @@ export function Fireworks(el: HTMLElement | Window): HTMLCanvasElement {
       offsetLeft = offset.left
       offsetTop = offset.top
     }
-    const tx = e.pageX - offsetLeft
-    const ty = e.pageY - offsetTop
+    const tx = e.offsetX - offsetLeft
+    const ty = e.offsetY - offsetTop
     createFireworks(tx, ty)
   })
 
