@@ -15,7 +15,7 @@ export function diff(newTree, oldTree) {
   else {
     // 2.props changed
     const { props: newProps = {} } = newTree
-    const { props: oldProps = {} } = oldTree
+    const { props: oldProps } = oldTree
     if (newProps && oldProps) {
       let newVal, oldVal
       Object.keys(newProps).forEach(key => {
@@ -35,8 +35,8 @@ export function diff(newTree, oldTree) {
       })
     }
     // 3.children changed
-    const { children: newChildren = {} } = newTree
-    const { children: oldChildren = {} } = oldTree
+    const { children: newChildren } = newTree
+    const { children: oldChildren } = oldTree
     // newChildren is an array
     if (Array.isArray(newChildren)) {
       if (Array.isArray(oldChildren)) {
