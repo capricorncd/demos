@@ -16,6 +16,10 @@ export const App = {
       h('h1', {name: 'title', value: context.state.value}, context.state.value),
       h('p', null, 'hello world')
     ]
+    for (let i = 0; i < 1 + Math.round(Math.random() * 10); i++) {
+      children.push(h('p', null, 'hello world ' + i))
+    }
+
     return h('div', { 'current-value': context.state.value }, children)
   },
   setup() {

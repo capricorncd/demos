@@ -41,14 +41,31 @@ export function diff(newTree, oldTree) {
     if (Array.isArray(newChildren)) {
       if (Array.isArray(oldChildren)) {
 
-        if (newChildren.length === oldChildren.length) {
-          newChildren.forEach((newVNode, i) => {
-            diff(newVNode, oldChildren[i])
+        // if (newChildren.length === oldChildren.length) {
+        //   newChildren.forEach((newVNode, i) => {
+        //     diff(newVNode, oldChildren[i])
+        //   })
+        // } else {
+        //   oldTree.el.innerHTML = ''
+        //   newChildren.forEach(v => {
+        //     mountElement(v, oldTree.el)
+        //   })
+        // }
+
+        const minLen = Math.min(newChildren.length, oldChildren.length)
+        for (let i = 0; i < minLen; i++) {
+          diff(newChildren[i], oldChildren[i])
+        }
+
+        if (newChildren.length > minLen) {
+          // 新增DOM节点
+          newChildren.slice(minLen).forEach(v => {
+            mountElement(v, oldTree.el)
           })
         } else {
-          oldTree.el.innerHTML = ''
-          newChildren.forEach(v => {
-            mountElement(v, oldTree.el)
+          // 删除旧的DOM节点
+          oldChildren.slice(minLen).forEach(v => {
+            v.el.parentElement.removeChild(v.el)
           })
         }
 
