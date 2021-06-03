@@ -1,0 +1,25 @@
+{
+  "name": "electron-demo",
+  "version": "1.0.0",
+  "description": "electron demo",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capricorncd/demos.git"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "Capricorncd",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/capricorncd/demos/issues"
+  },
+  "homepage": "https://github.com/capricorncd/demos#readme",
+  "devDependencies": {
+    "electron": "^13.1.0"
+  }
+}
