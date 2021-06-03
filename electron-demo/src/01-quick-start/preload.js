@@ -3,7 +3,11 @@
  * https://github.com/capricorncd
  * Date: 2021-06-03 22:04
  */
+const { contextBridge } = require('electron')
 const { $ } = require('../helpers')
+
+// set versions to global window
+contextBridge.exposeInMainWorld('versions', process.versions)
 
 window.addEventListener('DOMContentLoaded', () => {
   const el = $('#app')[0]
@@ -14,8 +18,6 @@ window.addEventListener('DOMContentLoaded', () => {
     el.append(div)
   }
 
-  console.log(process.versions)
-  window.versions = process.versions
   for (const dependency of ['chrome', 'node', 'electron']) {
     createNode(`${dependency}-version`, process.versions[dependency])
   }
