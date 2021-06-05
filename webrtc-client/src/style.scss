@@ -1,0 +1,18 @@
+/**
+ * Created by dev3cli.
+ * https://github.com/capricorncd/dev3cli
+ * Date: 2021-06-05 15:01:55
+*/
+.option-list-wrapper {
+  display: flex;
+  dt {
+    font-weight: bolder;
+  }
+  dt, dd {
+    display: flex;
+    align-items: center;
+  }
+  dd {
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,6 @@
+/*!
+ * webrtc-client v0.0.1
+ * Author: Capricorncd
+ * Repository: undefined
+ * Released on: 2021-06-05 23:04:43
+ */
