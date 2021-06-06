@@ -6,13 +6,17 @@
 import { AnyObject } from '@/types'
 export * from './select'
 
-export function createElement(tag: string, attrs: AnyObject = {}, children?: string): HTMLElement {
+export function createElement<T extends HTMLElement>(tag: string, attrs: AnyObject = {}, children?: string): T {
   const el = document.createElement(tag)
   Object.keys(attrs).forEach(key => {
     el.setAttribute(key, attrs[key])
   })
   if (typeof children === 'string') {
-    el.textContent = children
+    el.innerHTML = children
   }
-  return el
+  return el as T
+}
+
+export function $<T extends HTMLElement>(selector: string, doc: Document | HTMLElement = document): T {
+  return doc.querySelector(selector) as T
 }

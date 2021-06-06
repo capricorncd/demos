@@ -7,8 +7,7 @@ const DEF_CONSTRAINTS = {
   video: true
 }
 
-export async function initUserMedia(video: HTMLVideoElement, options: MediaStreamConstraints = {}): Promise<void> {
-  const mediaDevices = navigator.mediaDevices
+export async function initUserMedia(video: HTMLVideoElement, options: MediaStreamConstraints = {}): Promise<MediaStream> {
   // // 可能会弹窗是否允许访问摄像头等硬件
   // const constraints: MediaStreamConstraints = {
   //   video: true,
@@ -27,9 +26,21 @@ export async function initUserMedia(video: HTMLVideoElement, options: MediaStrea
     ...DEF_CONSTRAINTS,
     ...options
   }
+  const mediaDevices = navigator.mediaDevices
   const mediaStream: MediaStream = await mediaDevices.getUserMedia(constraints)
   console.log(mediaStream)
   video.srcObject = mediaStream
+  return mediaStream
+}
+
+export async function initUserAudio(audio: HTMLAudioElement): Promise<MediaStream> {
+  const constraints = {
+    video: false,
+    audio: true
+  }
+  const mediaStream = await navigator.mediaDevices.getUserMedia(constraints)
+  audio.srcObject = mediaStream
+  return mediaStream
 }
 
 /**

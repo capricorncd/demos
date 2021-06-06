@@ -83,6 +83,12 @@ resizeMode | boolean | 是否裁剪采集尺寸
   }
 ```
 
+### gerUserMedia
+
+```typescript
+navigator.mediaDevices.getUserMedia(constraints)
+```
+
 ### MediaStreamConstraints.audio
 
 属性|类型|说明
@@ -112,7 +118,7 @@ groupID | string | 同一个物理设备的groupID相同
 
 CSS filter, -webkit-filter/filter
 
-vidoe 与 filter 的关联
+video 与 filter 的关联
 
 最终调用浏览器底层图像绘制库：OpenGL/Metal/...
 
@@ -125,6 +131,126 @@ sepia|褐色|brightness|亮度
 saturate|饱和度|contrast|对比度
 hue-rotate|色相旋转|blur|模糊
 invert|反色|drop-shadow|阴影
+
+## MediaStream
+
+```
+MediaStream {
+  active: true
+  id: "GNe2EwwZu3fcjmwgbpswuQLOrdUp2ARXNLcy"
+  onactive: null
+  onaddtrack: null
+  oninactive: null
+  onremovetrack: null
+}
+```
+
+__proto__
+
+```
+MediaStream {
+  active: true
+  addTrack: ƒ addTrack()
+  clone: ƒ clone()
+  getAudioTracks: ƒ getAudioTracks()
+  getTrackById: ƒ getTrackById()
+  getTracks: ƒ getTracks()
+  getVideoTracks: ƒ getVideoTracks()
+  id: (...)
+  onactive: (...)
+  onaddtrack: (...)
+  oninactive: (...)
+  onremovetrack: (...)
+  removeTrack: ƒ removeTrack()
+}
+```
+
+### methods
+
+MediaStream.addTrack()
+
+MediaStream.removeTrack()
+
+MediaStream.getVideoTracks()
+
+MediaStream.getAudioTracks()
+
+MedaiStream.stop()
+
+### events
+
+onaddtrack
+
+onremovetrack
+
+onended
+
+## MediaRecorder
+
+```javascript
+const mr = new MediaRecorder(stream[, options])
+```
+
+参数 | 说明 
+:-- | :--
+stream | 媒体流，可从getUserMedia/<vidoe>/<audio>/<canvas>获取
+options | 限制选项
+
+选项 | 说明 
+:-- | :--
+｜ mimeType|video/webm
+｜ - | audio/webm
+｜ - | video/webm;codecs=vp8
+｜ - | video/webm;codecs=h264
+｜ - | audio/webm;codecs=opus
+｜ - | 其他mimeType，如video/mp4, audio/mp3等
+|audioBitsPerSecond|音频码率，如64K，128K等
+|videoBitsPerSecond|视频码率
+|bitsPerSecond|整体码率
+
+### API
+
+#### methods
+
+```
+MediaRecorder.start(timeslice)
+```
+
+开始录制媒体。timeslice可选，未设置视频流全部放入一个buffer；反之按timeslice时间切片分段存储数据
+
+```
+MediaRecorder.stop()
+```
+
+停止录制。此时会触发包括最终Blob数据的dataavailable事件
+
+```
+MediaRecorder.pause()
+MediaRecorder.resume()
+MediaRecorder.isTypeSupported()
+```
+
+#### events
+
+ondataavailable 每次记录一定时间的数据时（如果未设置时间片，则记录整个数据时）会定期触发。
+
+onerror 发生错误时，录制会被终止
+
+### js数据存储方式
+
+string
+
+Blob
+
+ArrayBuffer
+
+ArrayBufferView
+
+## getDisplayMedia 捕获桌面
+
+```typescript
+
+```
 
 ## Other
 
