@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no">
+  <title>Socket.io Demo</title>
+  <meta name="author" content="https://github.com/capricorncd">
+  <meta name="keywords" content="Socket.io Demo,capricorncd">
+  <meta name="description" content="Socket.io Demo,capricorncd,https://github.com/capricorncd">
+  <style>
+    html { font-size: 16px}*{box-sizing: border-box}
+    .is-me{text-align: right;color: #999;}
+    form{position: fixed; left: 0; bottom: 0;display: flex;align-items: center;width: 100%}
+    form div {position: absolute;left:5px;top: 4px;line-height: 1; color: #999;font-size: 0.5rem}
+    input, button {height: 50px;margin:0;padding: 0 5px;}
+    input { flex: 1;border: 1px solid #999;}button{flex: 0 0 80px;width: 80px;border: 0;background: greenyellow}
+    #app div span {font-size: 0.5rem}
+  </style>
+</head>
+<body>
+<div id="app"></div>
+<form>
+  <div id="userName"></div>
+  <input type="text">
+  <button type="submit">submit</button>
+</form>
+<script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+<script>
+  function $(s) {
+    return document.querySelector(s);
+  }
+
+  const form = $('form');
+  const input = $('input');
+  const app = $('#app')
+  const userNameDiv = $('#userName')
+  let userName = localStorage.getItem('userName');
+  let userId = localStorage.getItem('userId');
+  if (!userName) {
+    userName = String(Math.random()).split('.')[1];
+    localStorage.setItem('userName', userName)
+  }
+  if (!userId) {
+    userId = String(Math.random()).split('.')[1];
+    localStorage.setItem('userId', userId)
+  }
+
+  function setUserName(input) {
+    userName = input.trim()
+    localStorage.setItem('userName', userName)
+    userNameDiv.textContent = userName
+  }
+
+  setUserName(userName)
+
+  userNameDiv.addEventListener('click', () => {
+    const result = window.prompt('修改用户名:')
+    if (result) {
+      setUserName(result)
+    }
+  })
+
+  function addMessageLine(data, isMe = false) {
+    const div = document.createElement('div')
+    if (isMe) div.className = 'is-me'
+    const prefix = isMe ? `<span>${data.date}</span> ${data.userName}` : `${data.userName} <span>${data.date}</span>`
+    div.innerHTML = `${prefix}<br><strong>${data.message}</strong>`
+    app.append(div)
+    scroll(0, document.body.scrollHeight)
+  }
+
+  const socket = io();
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (input.value) {
+      socket.emit('reply', {
+        userName: userName,
+        userId: userId,
+        message: input.value,
+      });
+      input.value = '';
+    }
+  });
+
+  socket.on('request', res => {
+    console.log(res)
+    if (!res.userId) return
+    addMessageLine(res, res.userId === userId)
+  })
+
+  socket.on('broadcast', res => {
+    addMessageLine('system: ' + res.message, res.date)
+  })
+</script>
+</body>
+</html>
