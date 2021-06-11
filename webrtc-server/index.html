@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,user-scalable=no">
-  <title>Socket.io Demo</title>
+  <title>Free Chat Room</title>
   <meta name="author" content="https://github.com/capricorncd">
   <meta name="keywords" content="Socket.io Demo,capricorncd">
   <meta name="description" content="Socket.io Demo,capricorncd,https://github.com/capricorncd">
   <style>
     html { font-size: 16px}*{box-sizing: border-box}
     .is-me{text-align: right;color: #999;}
+    .is-join {display: flex;align-items: center;justify-content: center;flex-direction: column;color: #999; font-size: 0.725rem}
     form{position: fixed; left: 0; bottom: 0;display: flex;align-items: center;width: 100%}
     form div {position: absolute;left:5px;top: 4px;line-height: 1; color: #999;font-size: 0.5rem}
     input, button {height: 50px;margin:0;padding: 0 5px;}
@@ -26,6 +27,8 @@
 </form>
 <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
 <script>
+  const TYPE_CONNECTION = 'connection'
+
   function $(s) {
     return document.querySelector(s);
   }
@@ -37,7 +40,8 @@
   let userName = localStorage.getItem('userName');
   let userId = localStorage.getItem('userId');
   if (!userName) {
-    userName = String(Math.random()).split('.')[1];
+    inputUserName()
+    if (!userName) userName = String(Math.random()).split('.')[1];
     localStorage.setItem('userName', userName)
   }
   if (!userId) {
@@ -53,32 +57,51 @@
 
   setUserName(userName)
 
-  userNameDiv.addEventListener('click', () => {
-    const result = window.prompt('修改用户名:')
+  function inputUserName() {
+    const result = window.prompt('Enter a nickname:')
     if (result) {
       setUserName(result)
     }
-  })
+  }
+
+  userNameDiv.addEventListener('click', inputUserName)
 
   function addMessageLine(data, isMe = false) {
     const div = document.createElement('div')
-    if (isMe) div.className = 'is-me'
-    const prefix = isMe ? `<span>${data.date}</span> ${data.userName}` : `${data.userName} <span>${data.date}</span>`
-    div.innerHTML = `${prefix}<br><strong>${data.message}</strong>`
+    const isConnection = data.type === TYPE_CONNECTION
+    // connection
+    if (isConnection) {
+      div.className = 'is-join'
+      div.innerHTML = `<div><strong>${data.userName}</strong> joined the chat room</div><div>${data.date}</div>`
+    } else {
+      if (isMe) div.className = 'is-me'
+      const prefix = isMe
+        ? `<span>${data.date}</span> ${data.userName}`
+        : `${data.userName} <span>${data.date}</span>`
+      div.innerHTML = `${prefix}<br><strong>${data.message}</strong>`
+    }
     app.append(div)
     scroll(0, document.body.scrollHeight)
   }
 
   const socket = io();
 
+  function sendMessage(message, type = "chat") {
+    socket.emit('reply', {
+      userName: userName,
+      userId: userId,
+      type,
+      date: new Date().toString(),
+      message,
+    });
+  }
+
+  sendMessage(null, TYPE_CONNECTION)
+
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     if (input.value) {
-      socket.emit('reply', {
-        userName: userName,
-        userId: userId,
-        message: input.value,
-      });
+      sendMessage(input.value)
       input.value = '';
     }
   });

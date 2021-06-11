@@ -23,7 +23,7 @@ function initSocketIO(server) {
     // listen to the event
     socket.on('reply', (data) => {
       // console.log('from client:', data)
-      data.date = new Date().toLocaleString()
+      // data.date = new Date().toLocaleString()
       io.emit('request', data)
       // socket.emit('request', data)
       // socket.broadcast.emit('request', data)
