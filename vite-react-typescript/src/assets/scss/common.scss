@@ -1,0 +1,98 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-06-12 13:33 (GMT+0900)
+ */
+// font-size 10 - 24
+@for $i from 10 through 24
+{
+  $value: #{$i}px !important;
+  .fs#{$i} {
+    font-size: $value;
+  }
+}
+
+// flex
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.inline-flex {
+  display: inline-flex;
+  align-items: center;
+}
+
+.flex-center {
+  @extend .flex;
+  justify-content: center;
+}
+
+.flex-space-between {
+  @extend .flex;
+  justify-content: space-between;
+}
+
+.flex-end {
+  @extend .flex;
+  justify-content: flex-end;
+}
+
+.flex-column {
+  @extend .flex;
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+// align
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.ell {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bold {
+  font-weight: bolder !important;
+}
+
+// border
+.border-top {
+  @include border(top);
+}
+
+.border-bottom {
+  @include border(bottom);
+}
+
+.justify {
+  text-align: justify;
+}
+
+// fixed
+.fixed-full {
+  @include fixedFull();
+}
+
+// The first character is a special text
+.is-first-sp {
+  text-indent: -0.6em;
+}
+
+.shadow {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+}

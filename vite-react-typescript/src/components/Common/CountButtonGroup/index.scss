@@ -1,0 +1,44 @@
+.common-count-button-group {
+  button {
+    $size: _calc(20);
+    border: 2px solid $--color-primary;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    position: relative;
+    background: none;
+    //overflow: hidden;
+    &:before, &:after {
+      position: absolute;
+      z-index: 1;
+      display: block;
+      width: _calc(10);
+      height: 2px;
+      border-radius: 2px;
+      background: $--color-primary;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &.minus {
+      border-color: $--color-gray;
+      &:before {
+        content: "";
+        background: $--color-gray;
+      }
+    }
+    &.plus {
+      &:before, &:after {
+        content: "";
+      }
+      &:after {
+        transform: translate(-50%, -50%) rotate(90deg);
+        z-index: 2;
+      }
+    }
+  }
+  .count {
+    padding: 0 10px;
+    font-size: _calc(16);
+  }
+}

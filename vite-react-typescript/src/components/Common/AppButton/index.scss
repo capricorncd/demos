@@ -1,0 +1,17 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-06-12 23:10 (GMT+0900)
+ */
+.app-button {
+  position: relative;
+  background: $--color-primary;
+  color: $--color-white;
+  height: _calc(50);
+  border-radius: _calc(25);
+  font-size: _calc(20);
+  &.is-small {
+    height: _calc(35);
+    font-size: _calc(16);
+  }
+}

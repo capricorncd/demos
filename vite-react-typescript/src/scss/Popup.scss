@@ -1,0 +1,35 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-06-12 17:47 (GMT+0900)
+ */
+.common-popup {
+  z-index: 999;
+  background: rgba(0, 0, 0, .75);
+  pointer-events: none;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.fade-scale-in {
+    pointer-events: auto;
+    animation: fade-in 0.3s ease-in-out forwards;
+    .inner {
+      animation: fade-scale-in 0.3s ease-in-out forwards;
+    }
+  }
+  &.fade-scale-out.is-initialed {
+    pointer-events: none;
+    animation: fade-out 0.3s ease-in-out forwards;
+    .inner {
+      animation: fade-scale-out 0.3s ease-in-out forwards;
+    }
+  }
+  .inner {
+    position: relative;
+    width: 80%;
+    height: 70%;
+    background: $--color-white;
+    border-radius: $--border-radius;
+  }
+}

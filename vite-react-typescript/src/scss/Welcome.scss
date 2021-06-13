@@ -1,0 +1,18 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-06-12 12:07 (GMT+0900)
+ */
+.welcome-page {
+   @include fixedFull();
+   img {
+      width: 100%;
+      height: auto;
+   }
+   button {
+      position: fixed;
+      left: 50%;
+      bottom: _calc(80);
+      transform: translateX(-50%);
+   }
+}

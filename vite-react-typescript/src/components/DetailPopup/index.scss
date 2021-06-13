@@ -1,0 +1,109 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-06-12 22:52 (GMT+0900)
+ */
+.detail-popup {
+  .inner {
+    .header {
+      position: relative;
+      height: _calc(50);
+      .cover {
+        $size: _calc(100);
+        position: absolute;
+        left: _calc(10);
+        top: _calc(-50);
+        width: $size;
+        height: $size;
+        border-radius: $--border-radius;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+        background: $--color-white;
+      }
+      dt, dd {
+        margin: 0 _calc(10) 0 _calc(120);
+        line-height: 1.2;
+      }
+      dt {
+        //font-size: _calc(20);
+        font-weight: bolder;
+      }
+      dd {
+        color: $--color-gray;
+        font-size: _calc(14);
+      }
+    }
+    .small-title {
+      font-size: _calc(14);
+    }
+    .body {
+      position: absolute;
+      left: _calc(10);
+      right: _calc(10);
+      top: _calc(65);
+      bottom: _calc(60);
+      overflow-y: auto;
+      font-size: _calc(14);
+      .detail-content {
+        padding-top: _calc(10);
+        img {
+          margin-top: _calc(10);
+          max-width: 100%;
+          height: auto;
+          border-radius: $--border-radius-small;
+        }
+      }
+    }
+    .footer {
+      $height: _calc(60);
+      display: flex;
+      align-items: center;
+      position: absolute;
+      padding: 0 _calc(10);
+      left: 0;
+      bottom: 0;
+      border-radius: 0 0 $--border-radius $--border-radius;
+      height: $height;
+      width: 100%;
+      .total-price {
+        font-size: _calc(24);
+      }
+      .total-price, button {
+        white-space: nowrap;
+      }
+      .plus-items {
+        margin: 0 _calc(10);
+        font-size: _calc(10);
+        line-height: 1.2;
+        @include clamp(3);
+      }
+    }
+    .close {
+      $size: _calc(30);
+      position: absolute;
+      z-index: 1;
+      top: _calc(-30);
+      right: _calc(-5);
+      width: $size;
+      height: $size;
+      background: none;
+      transform: rotate(45deg);
+      border-radius: 50%;
+      overflow: hidden;
+      &:before, &:after {
+        content: '';
+        display: block;
+        width: $size;
+        height: 2px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background: $--color-white;
+        border-radius: 2px;
+      }
+      &:after {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}

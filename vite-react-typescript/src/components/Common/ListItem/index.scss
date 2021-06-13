@@ -1,0 +1,24 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-06-13 12:09 (GMT+0900)
+ */
+.common-list-item {
+  margin-top: 10px;
+  display: flex;
+  overflow: hidden;
+  .app-image {
+    $width: 80px;
+    width: $width;
+    height: $width;
+    flex: 0 0 $width;
+  }
+  .list-item__info {
+    flex: 1;
+    margin-left: $--space-default;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    overflow: hidden;
+  }
+}

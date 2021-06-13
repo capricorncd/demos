@@ -1,0 +1,11 @@
+.app-image {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  img {
+    max-width: 100%;
+  }
+}

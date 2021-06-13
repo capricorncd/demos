@@ -1,0 +1,15 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-06-12 22:52 (GMT+0900)
+ */
+.app-price {
+  display: inline-flex;
+  align-items: baseline;
+  color: $--color-gray;
+  line-height: 1;
+  .unit {
+    font-size: 0.8em;
+    margin-right: _calc(2);
+  }
+}
