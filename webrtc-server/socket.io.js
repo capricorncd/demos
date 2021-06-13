@@ -5,16 +5,24 @@
  */
 const { Server } = require('socket.io')
 
+let count = 0
+let maxCount = 0
+
 function initSocketIO(server) {
   const io = new Server(server)
 
   io.on('connection', socket => {
     // connection
     console.log('a user connected', socket.id)
+    count++
+    maxCount++
+    io.emit('request', { type: 'count', count: [count, maxCount] })
 
     // disconnect
     socket.on('disconnect', () => {
       console.log(socket.id, ' disconnected')
+      count--
+      io.emit('request', { type: 'count', count: [count, maxCount] })
     })
 
     // emit an event to the socket

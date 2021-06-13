@@ -16,6 +16,7 @@
     input, button {height: 50px;margin:0;padding: 0 5px;}
     input { flex: 1;border: 1px solid #999;}button{flex: 0 0 80px;width: 80px;border: 0;background: greenyellow}
     #app div span {font-size: 0.5rem}
+    .count {position: fixed;top: 2px; right: 2px;z-index: 10;font-size: 0.5rem;color: #999}
   </style>
 </head>
 <body>
@@ -25,6 +26,7 @@
   <input type="text">
   <button type="submit">submit</button>
 </form>
+<div class="count"></div>
 <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
 <script>
   const TYPE_CONNECTION = 'connection'
@@ -37,6 +39,9 @@
   const input = $('input');
   const app = $('#app')
   const userNameDiv = $('#userName')
+
+  const countDiv = $('.count')
+
   let userName = localStorage.getItem('userName');
   let userId = localStorage.getItem('userId');
   if (!userName) {
@@ -67,6 +72,10 @@
   userNameDiv.addEventListener('click', inputUserName)
 
   function addMessageLine(data, isMe = false) {
+    if (data.count) {
+      countDiv.textContent = data.count.join(' / ');
+      return;
+    }
     const div = document.createElement('div')
     const isConnection = data.type === TYPE_CONNECTION
     // connection
@@ -108,7 +117,7 @@
 
   socket.on('request', res => {
     console.log(res)
-    if (!res.userId) return
+    // if (!res.userId) return
     addMessageLine(res, res.userId === userId)
   })
 
