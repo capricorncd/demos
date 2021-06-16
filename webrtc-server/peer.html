@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>PeerConnection</title>
+  <meta name="author" content="https://github.com/capricorncd">
+  <meta name="keywords" content="PeerConnection,capricorncd">
+  <meta name="description" content="PeerConnection,capricorncd,https://github.com/capricorncd">
+  <style>.video-wrapper { display: flex; flex-wrap: wrap; }</style>
+</head>
+<body>
+<div class="video-wrapper">
+  <video id="local" autoplay playsinline></video>
+  <video id="remote" autoplay playsinline></video>
+</div>
+<div class="btn-wrapper">
+  <button id="start">Start</button>
+  <button id="call">Call</button>
+  <button id="hangup">HangUp</button>
+</div>
+<script src="./peer.js"></script>
+</body>
+</html>
