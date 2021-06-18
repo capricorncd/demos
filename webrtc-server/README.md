@@ -250,6 +250,38 @@ ArrayBufferView
 
 ```
 
+## coturn
+
+https://github.com/coturn/coturn
+
+```shell script
+$ #https://github.com/coturn/coturn/wiki/Downloads
+$ tar xvfz turnserver-<...>.tar.gz
+$ ./configure --prefix=/usr/local/coturn
+$ make
+$ sudo make install
+$ cd /usr/local/coturn/etc
+$ cp turnserver.conf.default turnserver.conf
+```
+
+```shell script
+vi turnserver.conf
+```
+
+```
+Listening-port=3478
+External-ip=150.***.***.***
+user=userName:pw # 访问stun/turn服务的用户名和密码
+realm=stun.xxx.com
+```
+
+```shell script
+$ #start service
+$ turnserver -c turnserver.conf
+$ # ./bin/turnserver -c etc/turnserver.conf
+```
+
+
 ## Other
 
 https://github.com/webrtcHacks/adapter

@@ -15,6 +15,8 @@ const remoteVideo = $('#remote')
 const btnStart = $('#start')
 const btnCall = $('#call')
 const btnHangUp = $('#hangup')
+const offerInfoEl = $('#offerInfo')
+const answerInfoEl = $('#answerInfo')
 
 function getMediaStream(stream) {
   localVideo.srcObject = stream
@@ -43,6 +45,7 @@ function getRemoteStreams(e) {
 }
 
 function getAnswer(desc) {
+  answerInfoEl.innerText = desc.sdp
   console.log('getAnswer', desc)
   pc2.setLocalDescription(desc)
   // send desc to signal
@@ -50,7 +53,11 @@ function getAnswer(desc) {
   pc1.setRemoteDescription(desc)
 }
 
+// Session Description Protocol
+// 一种信息格式的描述标准，不属于传输协议，
+// 但可以被其他传输协议用来交换必要的信息
 function getOffer(desc) {
+  offerInfoEl.innerText = desc.sdp
   console.log('getOffer', desc)
   pc1.setLocalDescription(desc)
 

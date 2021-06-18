@@ -8,18 +8,35 @@
   <meta name="author" content="https://github.com/capricorncd">
   <meta name="keywords" content="PeerConnection,capricorncd">
   <meta name="description" content="PeerConnection,capricorncd,https://github.com/capricorncd">
-  <style>.video-wrapper { display: flex; flex-wrap: wrap; }</style>
+  <style>
+    .btn-wrapper {text-align: center}
+    .btn-wrapper button {padding: 10px 20px;border-radius: 4px;}
+    .video-wrapper { display: flex; flex-wrap: wrap; }
+    video{background: #333;}
+    .info{border-radius: 4px;background: #ccc;padding: 10px;}
+  </style>
 </head>
 <body>
-<div class="video-wrapper">
-  <video id="local" autoplay playsinline></video>
-  <video id="remote" autoplay playsinline></video>
-</div>
 <div class="btn-wrapper">
   <button id="start">Start</button>
   <button id="call">Call</button>
   <button id="hangup">HangUp</button>
 </div>
+<dl class="video-wrapper">
+  <dd>
+    <h2>local</h2>
+    <video id="local" autoplay playsinline></video>
+    <h2>Offer SDP</h2>
+    <div id="offerInfo" class="info"></div>
+  </dd>
+  <dd>
+    <h2>remote</h2>
+    <video id="remote" autoplay playsinline></video>
+    <h2>Answer SDP</h2>
+    <div id="answerInfo" class="info"></div>
+  </dd>
+</dl>
+
 <script src="./peer.js"></script>
 </body>
 </html>
