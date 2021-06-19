@@ -11,7 +11,7 @@ import ListItem from "@/components/Common/ListItem";
 import DetailPopup from "@/components/DetailPopup";
 import { positionHandler } from './positionHandler'
 
-const BOTTOM_OFFSET = 70
+const HEIGHT_OFFSET = 0
 
 interface CategoryListProps extends DefaultProps {
 
@@ -21,14 +21,15 @@ const list = Array.from({length: 30}).map((v, i) => {
   return {
     categoryId: i + 1,
     categoryName: i + '分类名称分类名称分类名称'.slice(0, Math.round(Math.random() * 10)),
-    index: i,
     list: Array.from({length: Math.round(Math.random() * 10) || 1})
   }
 })
 
+let isMenuClick = false
+
 export default function CategoryList(props: CategoryListProps) {
   const classes = getClasses('category-list', props.className)
-  const [winHeight, setWinHeight] = useState(window.innerHeight - BOTTOM_OFFSET)
+  const [winHeight, setWinHeight] = useState(window.innerHeight - HEIGHT_OFFSET)
   const [index, setIndex] = useState(0)
   const [detailVisible, setDetailVisible] = useState(false)
 
@@ -37,11 +38,6 @@ export default function CategoryList(props: CategoryListProps) {
   useEffect(() => {
     // @ts-ignore
     const listEl: HTMLElement = listRef.current
-
-    // window.addEventListener('scroll', (e: Event) => {
-    //   console.log(document.documentElement.scrollTop);
-    //   console.log(listEl.getBoundingClientRect());
-    // })
 
     const sideEl = $('.side', listEl)[0]
     const sideElOffsetTop = sideEl.offsetTop
@@ -55,12 +51,9 @@ export default function CategoryList(props: CategoryListProps) {
     const contentEl = $('.content', listEl)[0]
     const contentElOffsetTop = contentEl.offsetTop
 
-    // sideEl.addEventListener('scroll', () => {
-    //   console.log('sideEl scroll', sideEl.scrollHeight, sideEl.scrollTop);
-    // })
-
     let lis: HTMLElement[]
     contentEl.addEventListener('scroll', () => {
+      if (isMenuClick) return;
       lis = $('li', contentEl)
       for (let i = 0; i < lis.length; i++) {
         if (lis[i].offsetTop - contentElOffsetTop > contentEl.scrollTop + 50) {
@@ -73,7 +66,7 @@ export default function CategoryList(props: CategoryListProps) {
 
     // resize
     window.addEventListener('resize', () => {
-      setWinHeight(window.innerHeight - BOTTOM_OFFSET)
+      setWinHeight(window.innerHeight - HEIGHT_OFFSET)
     })
   }, [])
 
@@ -82,14 +75,22 @@ export default function CategoryList(props: CategoryListProps) {
   }
 
   function changeIndex(i: number): void {
+    if (i === index) return
+    isMenuClick = true
     setIndex(i)
     // @ts-ignore
-    positionHandler($('.content', listRef.current)[0], i)
+    positionHandler($('.content', listRef.current)[0], i, () => isMenuClick = false)
   }
+
+  if (props.children && list[0].categoryName !== '推荐') list.unshift({
+    categoryName: '推荐',
+    categoryId: 0,
+    list: []
+  })
 
   return (
     <section className={classes} style={styles} ref={listRef}>
-      <ul className="side">
+      <ul className="side bg">
         {
           list.map((v, i) => (
             <li
@@ -102,8 +103,9 @@ export default function CategoryList(props: CategoryListProps) {
         }
       </ul>
       <ul className="content">
+        { props.children ? (<li>{ props.children  }</li>) : null }
         {
-          list.map((v, i) => (
+          list.map((v, i) => v.list.length > 0 ? (
             <li key={i} data-index={i}>
               <h5 className="mt15">{v.categoryName}</h5>
               {
@@ -112,7 +114,7 @@ export default function CategoryList(props: CategoryListProps) {
                 ))
               }
             </li>
-          ))
+          ) : null)
         }
       </ul>
       <DetailPopup visible={detailVisible} onClose={() => setDetailVisible(false)}/>

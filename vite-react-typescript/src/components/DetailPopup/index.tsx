@@ -8,6 +8,8 @@ import AppImage from '@/components/Common/AppImage'
 import CheckBox from '@/components/Common/CheckBox'
 import AppButton from "@/components/Common/AppButton";
 import AppPrice from "@/components/Common/AppPrice";
+import AppTitle from "@/components/Common/AppTitle";
+import CountButtonGroup from "@/components/Common/CountButtonGroup";
 import {ClickFunction, DefaultProps} from "@/types";
 import './index.scss'
 import welcomeCover from '~/temp/welcome.jpg'
@@ -43,20 +45,22 @@ export default function DetailPopup(props: DetailProps) {
   const classes: string[] = ['common-popup', 'detail-popup', 'fixed-full']
 
   if (props.visible) {
-    classes.push('fade-scale-in')
+    classes.push('fade-in')
     if (!isInitialed) setIsInitialed(true)
-  } else {
-    classes.push('fade-scale-out')
+  } else if (isInitialed) {
+    classes.push('fade-out')
   }
 
-  if (isInitialed) {
-    classes.push('is-initialed')
+  function handleClose(e: React.MouseEvent): void {
+    console.log('handleClose');
+    e.stopPropagation()
+    props.onClose(e)
   }
 
   return (
     <section className={classes.join(' ')}>
-      <section className="inner shadow">
-        <button className="close" onClick={props.onClose}/>
+      <section className="common-popup__inner shadow">
+        <button className="close" onClick={handleClose}/>
         <dl className="header">
           <AppImage className="cover" src={welcomeCover}/>
           <dt className="ell mt10">飘香スペアリブ飘香スペアリブ飘香スペアリブ</dt>
@@ -64,19 +68,19 @@ export default function DetailPopup(props: DetailProps) {
         </dl>
 
         <div className="body">
-          <Title/>
+          <AppTitle/>
           {
             tags1.map((v, k) => (
               <CheckBox key={k} data={v}/>
             ))
           }
-          <Title/>
+          <AppTitle/>
           {
             tags2.map((v, k) => (
               <CheckBox key={k} data={v}/>
             ))
           }
-          <Title/>
+          <AppTitle/>
           {
             tags3.map((v, k) => (
               <CheckBox key={k} data={v}/>
@@ -92,15 +96,10 @@ export default function DetailPopup(props: DetailProps) {
         <div className="footer">
           <AppPrice fontSize={24} primary>2300</AppPrice>
           <div className="plus-items gray">{plusItems.join('、')}</div>
-          <AppButton width={240} small onClick={props.onClose}>はい</AppButton>
+          {/*<AppButton width={240} small onClick={props.onClose}>はい</AppButton>*/}
+          <CountButtonGroup className="btn-count"/>
         </div>
       </section>
     </section>
-  )
-}
-
-function Title() {
-  return (
-    <h5 className="mt10 small-title">種類・サイズなど（多数選択可能など）</h5>
   )
 }

@@ -3,30 +3,62 @@
  * https://github.com/capricorncd
  * Date: 2021-06-12 13:33 (GMT+0900)
  */
-.error {
+.color-error {
   color: $--color-error !important;
 }
-.warning {
+.bg-error {
+  background: $--color-error !important;
+}
+
+.color-warning {
   color: $--color-warning !important;
 }
+.bg-warning {
+  background: $--color-warning !important;
+}
 
-.primary {
+.color-primary {
   color: $--color-primary !important;
 }
+.bg-primary {
+  background: $--color-primary !important;
+}
 
-.secondary {
+.color-secondary {
   color: $--color-secondary !important;
 }
+.bg-secondary {
+  background: $--color-secondary !important;
+}
 
-.gray {
+.color-gray {
   color: $--color-gray !important;
 }
+.bg-gray {
+  background: $--color-gray !important;
+}
 
-.gray-dark {
+.color-gray-dark {
   color: $--color-gray-dark !important;
 }
-
-.gray-light {
-  color: $--color-gray-light !important;
+.bg-gray-dark {
+  background: $--color-gray-dark !important;
 }
 
+.color-gray-light {
+  color: $--color-gray-light !important;
+}
+.bg-gray-light {
+  background: $--color-gray-light !important;
+}
+
+.bg {
+  background: $--color-bg !important;
+}
+
+.color-white {
+  color: $--color-white !important;
+}
+.bg-white {
+  background: $--color-white !important;
+}

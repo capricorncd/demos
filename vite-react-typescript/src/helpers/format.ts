@@ -7,7 +7,7 @@ import { isNumberLike } from './check'
 
 export function calc(val: string | number): string {
   // @ts-ignore
-  return isNumberLike(val) ? `calc(100vw / ${window.__CALC_WIDTH__} * ${val}` : String(val)
+  return isNumberLike(val) ? `${val}px` : String(val)
 }
 
 export function toNumber(input: string | number): number {

@@ -4,15 +4,15 @@
  * Date: 2021-06-12 22:52 (GMT+0900)
  */
 .detail-popup {
-  .inner {
+  .common-popup__inner {
     .header {
       position: relative;
-      height: _calc(50);
+      height: 50px;
       .cover {
-        $size: _calc(100);
+        $size: 100px;
         position: absolute;
-        left: _calc(10);
-        top: _calc(-50);
+        left: 10px;
+        top: -50px;
         width: $size;
         height: $size;
         border-radius: $--border-radius;
@@ -20,33 +20,30 @@
         background: $--color-white;
       }
       dt, dd {
-        margin: 0 _calc(10) 0 _calc(120);
+        margin: 0 10px 0 120px;
         line-height: 1.2;
       }
       dt {
-        //font-size: _calc(20);
+        //font-size: 20px;
         font-weight: bolder;
       }
       dd {
         color: $--color-gray;
-        font-size: _calc(14);
+        font-size: 14px;
       }
-    }
-    .small-title {
-      font-size: _calc(14);
     }
     .body {
       position: absolute;
-      left: _calc(10);
-      right: _calc(10);
-      top: _calc(65);
-      bottom: _calc(60);
+      left: 10px;
+      right: 10px;
+      top: 65px;
+      bottom: 60px;
       overflow-y: auto;
-      font-size: _calc(14);
+      font-size: 14px;
       .detail-content {
-        padding-top: _calc(10);
+        padding: 10px 0;
         img {
-          margin-top: _calc(10);
+          margin-top: 10px;
           max-width: 100%;
           height: auto;
           border-radius: $--border-radius-small;
@@ -54,35 +51,39 @@
       }
     }
     .footer {
-      $height: _calc(60);
+      $height: 60px;
       display: flex;
       align-items: center;
       position: absolute;
-      padding: 0 _calc(10);
+      padding: 0 10px;
       left: 0;
       bottom: 0;
       border-radius: 0 0 $--border-radius $--border-radius;
       height: $height;
       width: 100%;
+      border-top: 1px solid $--color-border-light;
       .total-price {
-        font-size: _calc(24);
+        font-size: 24px;
       }
-      .total-price, button {
+      .total-price {
         white-space: nowrap;
       }
       .plus-items {
-        margin: 0 _calc(10);
-        font-size: _calc(10);
+        margin: 0 10px;
+        font-size: 10px;
         line-height: 1.2;
         @include clamp(3);
       }
+      .btn-count {
+        flex: 0 0 80px;
+      }
     }
     .close {
-      $size: _calc(30);
+      $size: 30px;
       position: absolute;
       z-index: 1;
-      top: _calc(-30);
-      right: _calc(-5);
+      top: -30px;
+      right: -5px;
       width: $size;
       height: $size;
       background: none;

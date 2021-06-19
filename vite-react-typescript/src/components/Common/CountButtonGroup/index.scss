@@ -1,6 +1,6 @@
 .common-count-button-group {
   button {
-    $size: _calc(20);
+    $size: 20px;
     border: 2px solid $--color-primary;
     width: $size;
     height: $size;
@@ -12,7 +12,7 @@
       position: absolute;
       z-index: 1;
       display: block;
-      width: _calc(10);
+      width: 10px;
       height: 2px;
       border-radius: 2px;
       background: $--color-primary;
@@ -38,7 +38,23 @@
     }
   }
   .count {
-    padding: 0 10px;
-    font-size: _calc(16);
+    font-size: 16px;
+    min-width: 40px;
+    text-align: center;
+  }
+  .minus, .count {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+    transform-origin: 10px 10px;
+  }
+  &.has-count {
+    .minus {
+      pointer-events: auto;
+      animation: fadeInRight 0.3s ease-in-out forwards;
+    }
+    .count {
+      animation: fadeInRight 0.3s ease-in-out forwards;
+    }
   }
 }

@@ -5,8 +5,9 @@
  */
 import React from 'react'
 import {HashRouter as Router, Switch, Route} from 'react-router-dom'
-import Welcome from './Welcome'
-import Home from './Home'
+import Welcome from './Welcome/Welcome'
+import Home from './Home/Home'
+import Confirm from './Confirm/Confirm'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Switch>
         <Route path="/" exact children={Welcome}/>
         <Route path="/home" children={Home}/>
+        <Route path="/confirm" children={Confirm}/>
       </Switch>
     </Router>
   )

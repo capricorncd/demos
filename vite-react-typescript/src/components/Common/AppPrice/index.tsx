@@ -21,9 +21,7 @@ export default function AppPrice(props: AppPriceProps) {
     classes.push(props.className)
   }
 
-  if (props.primary) {
-    classes.push('primary')
-  }
+  classes.push(props.primary ? 'color-primary' : 'color-gray')
 
   const styles: AnyObject = {}
   if (props.fontSize) {

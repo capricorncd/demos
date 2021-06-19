@@ -4,6 +4,7 @@
  * Date: 2021-06-12 14:44 (GMT+0900)
  */
 .home-top-swiper {
+  padding-top: 10px;
   .swiper-container {
     padding-bottom: 15px;
   }
@@ -11,8 +12,6 @@
     //padding: 0 $--space-default;
     .item {
       background: $--color-white;
-      //border-radius: $--border-radius;
-      padding: $--space-default;
     }
   }
   .swiper-pagination {
@@ -29,7 +28,7 @@
       height: $size;
       margin: 0 2px;
       border-radius: 50%;
-      background: $--color-white;
+      background: $--color-gray-light;
       &.swiper-pagination-bullet-active {
         background: $--color-primary;
       }

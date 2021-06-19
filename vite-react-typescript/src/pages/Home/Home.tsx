@@ -8,15 +8,19 @@ import React from 'react'
 import TopSwiper from "@/components/Home/TopSwiper";
 import TrendingSwiper from '@/components/Home/TrendingSwiper'
 import CategoryList from "@/components/Common/CategoryList";
-import './index.scss'
+import FooterBar from "@/components/Common/FooterBar/FooterBar";
+import './Home.scss'
 
 export default function Home() {
   return (
     <div className="home-page">
-      <TopSwiper/>
+
       <h4 className="mt10 ml10">Trending</h4>
       <TrendingSwiper/>
-      <CategoryList className={`mt10`}/>
+      <CategoryList className={`mt10`}>
+        <TopSwiper/>
+      </CategoryList>
+      <FooterBar/>
     </div>
   )
 }

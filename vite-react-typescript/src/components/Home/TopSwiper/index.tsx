@@ -35,14 +35,14 @@ export default function TopSwiper(props: TopSwiperProps) {
       >
         {Array.from({length: 10}).map((item, i) => (
           <SwiperSlide key={i}>
-            <div className="item shadow" onClick={() => setDetailVisible(true)}>
+            <div className="item" onClick={() => setDetailVisible(true)}>
               <AppImage
                 src={welcomeCover}
-                height={200}/>
-              <h4 className="ell mt5">オジンオボックンオジンオボックン</h4>
+                height={100}/>
+              <h4 className="ell mt5 align-center">オジンオボックンオジンオボックン</h4>
               <div className="flex-space-between">
+                <span className="color-gray fs12">说明文字内容说明文字内容说明文字内容</span>
                 <AppPrice>{ i + 1 + '00' }</AppPrice>
-                <span className="gray fs12">说明文字内容说明文字内容说明文字内容</span>
               </div>
             </div>
           </SwiperSlide>

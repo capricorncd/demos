@@ -6,6 +6,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import AppButton from "@/components/Common/AppButton";
+import './Welcome.scss'
 import welcomeCover from '~/temp/welcome.jpg'
 
 function Welcome() {

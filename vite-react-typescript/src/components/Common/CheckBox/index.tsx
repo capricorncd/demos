@@ -6,6 +6,7 @@
 import React, {useState} from 'react'
 import AppPrice from "@/components/Common/AppPrice";
 import {DefaultProps} from "@/types";
+import './index.scss'
 
 interface CheckBoxProps extends DefaultProps {
   data: {
@@ -22,7 +23,7 @@ export default function CheckBox(props: CheckBoxProps) {
   return (
     <button className={classes.join(' ')} onClick={() => setChecked(!checked)}>
       {props.data.label}
-      <AppPrice className="price" fontSize={10}>{props.data.price}</AppPrice>
+      <AppPrice className="price" fontSize={10} primary>{props.data.price}</AppPrice>
     </button>
   )
 }

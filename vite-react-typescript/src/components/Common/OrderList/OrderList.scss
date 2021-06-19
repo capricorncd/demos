@@ -1,0 +1,70 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-06-12 13:33 (GMT+0900)
+ */
+.order-list-popup {
+  position: fixed;
+  z-index: 9;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70%;
+  box-shadow: 0 -5px 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: $--border-radius  $--border-radius 0 0;
+  transform: translateY(100%);
+  overflow: hidden;
+  dt {
+    height: 50px;
+    padding: 0 $--space-default;
+  }
+  dd {
+    overflow-y: auto;
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 100px;
+    .list-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: $--space-default;
+      overflow: hidden;
+      &:after {
+        content: '';
+        height: 1px;
+        background: $--color-border-light;
+        position: absolute;
+        left: $--space-default;
+        right: $--space-default;
+        bottom: 0;
+      }
+      &:last-child:after {
+        height: 0;
+      }
+      .name {
+        flex: 1;
+        overflow: hidden;
+      }
+      .price {
+        flex: 0 0 70px;
+      }
+      .btn-count {
+        flex: 0 0 80px;
+      }
+    }
+  }
+}
+.order-list-popup__bg {
+  position: fixed;
+  z-index: 8;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: $--color-bg-mask;
+  opacity: 0;
+  pointer-events: none;
+}

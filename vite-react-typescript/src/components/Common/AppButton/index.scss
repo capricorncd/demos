@@ -7,11 +7,11 @@
   position: relative;
   background: $--color-primary;
   color: $--color-white;
-  height: _calc(50);
-  border-radius: _calc(25);
-  font-size: _calc(20);
+  height: 50px;
+  border-radius: 25px;
+  font-size: 20px;
   &.is-small {
-    height: _calc(35);
-    font-size: _calc(16);
+    height: 35px;
+    font-size: 16px;
   }
 }

@@ -5,31 +5,31 @@
  */
 import React, { useState } from 'react'
 import './index.scss'
+import {DefaultProps} from "@/types";
 
-export default function CountButtonGroup() {
+interface CountButtonGroupProps extends DefaultProps {
+  data?: number;
+}
 
-  const [count, setCount] = useState(0)
+export default function CountButtonGroup(props: CountButtonGroupProps) {
 
-  function click(e: React.MouseEvent, isMinus: boolean = false): void {
+  const [count, setCount] = useState(props.data ?? 0)
+
+  const classes = ['common-count-button-group flex-end']
+
+  if (props.className) classes.push(props.className)
+
+  function click(isMinus: boolean = false): void {
     setCount(isMinus ? Math.max(0, count - 1) : count + 1)
   }
 
+  if (count) classes.push('has-count')
+
   return (
-    <section className="common-count-button-group flex-end" onClick={(e) => e.stopPropagation()}>
-      <Minus count={count} click={click}/>
-      <button className="plus" onClick={(e) => click(e)}/>
+    <section className={classes.join(' ')} onClick={(e) => e.stopPropagation()}>
+      <button className="minus" onClick={(e) => click(true)}/>
+      <div className="count">{count}</div>
+      <button className="plus" onClick={(e) => click()}/>
     </section>
   )
-}
-
-function Minus({count, click}: {count: number, click: Function}) {
-  if (count > 0) {
-    return (
-      <>
-        <button className="minus" onClick={(e) => click(e, true)}/>
-        <div className="count">{count}</div>
-      </>
-    )
-  }
-  return null
 }

@@ -6,10 +6,9 @@
 .app-price {
   display: inline-flex;
   align-items: baseline;
-  color: $--color-gray;
   line-height: 1;
   .unit {
     font-size: 0.8em;
-    margin-right: _calc(2);
+    margin-right: 2px;
   }
 }

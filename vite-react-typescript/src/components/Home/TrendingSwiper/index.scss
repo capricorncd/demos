@@ -4,20 +4,20 @@
  * Date: 2021-06-12 14:44 (GMT+0900)
  */
 .home-trending-swiper {
-  margin-top: _calc(10);
+  margin-top: 10px;
   .swiper-container {
     padding: 0 10px 10px;
   }
   .swiper-slide {
-    width: _calc(160);
+    width: 160px;
   }
   .home-trending-item {
     position: relative;
     background: $--color-white;
     border-radius: $--border-radius;
-    padding: _calc(8);
+    padding: 8px;
     h4 {
-      font-size: _calc(16);
+      font-size: 16px;
     }
   }
 }

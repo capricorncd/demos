@@ -9,14 +9,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 _calc(5);
+  padding: 5px;
   position: relative;
-  height: _calc(35);
   background: none;
-  margin: _calc(10) _calc(10) 0 0;
-  font-size: _calc(12);
+  margin: 10px 10px 0 0;
+  font-size: 12px;
   color: $--color-gray-dark;
-  min-width: _calc(90);
+  min-width: 50px;
   .price {
     position: absolute;
     z-index: 1;
