@@ -5,10 +5,10 @@
  */
 import React from 'react'
 import Header from "@/components/Common/Header/Header";
-import {IconFood} from "@/components/Common/Icons";
 import OrderListItem from "@/components/Common/OrderListItem/OrderListItem";
 import AppPrice from "@/components/Common/AppPrice";
 import AppLabel from "@/components/Common/AppLabel/AppLabel";
+import OrderTop from "@/components/Order/OrderTop/OrderTop";
 import './OrderPage.scss'
 
 export default function OrderPage() {
@@ -18,26 +18,8 @@ export default function OrderPage() {
         <h4>订单详情</h4>
         <p>已下单-{`>`}制作中-{`>`}已完成</p>
       </Header>
-      <section className={`order-page__top`}>
-        <div className="align-center">订单号</div>
-        <h1 className="align-center mt10">S32320210614125410001</h1>
-        <dl className={`order-status`}>
-          <dd className={`color-gray-light`}>
-            <IconFood/>
-            <div>已下单</div>
-          </dd>
-          <dd className="space"/>
-          <dd>
-            <IconFood/>
-            <div>制作中</div>
-          </dd>
-          <dd className="space"/>
-          <dd className={`color-gray-light`}>
-            <IconFood/>
-            <div>已完成</div>
-          </dd>
-        </dl>
-      </section>
+
+      <OrderTop/>
 
       <section className="order-list">
         { Array.from({length: Math.round(Math.random() * 30)}).map((v, i) => (<OrderListItem key={i}/>)) }

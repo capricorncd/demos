@@ -9,7 +9,10 @@
   //justify-content: space-between;
   font-size: 14px;
   dt {
-    //flex: 0 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
   }
   dd {
     text-align: justify;

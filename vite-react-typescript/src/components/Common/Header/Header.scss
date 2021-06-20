@@ -4,6 +4,12 @@
  * Date: 2021-06-20 15:31 (GMT+0900)
  */
 .common-header {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
   padding: 12px $--space-default 100px 50px;
   .back {
     position: absolute;

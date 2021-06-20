@@ -5,23 +5,23 @@
  */
 import React from 'react'
 import './AppLabel.scss'
-import {AnyObject, DefaultProps} from "@/types";
-import {calc} from "@/helpers";
+import {DefaultProps} from "@/types";
 
 interface AppLabelProps extends DefaultProps {
   name?: string | number;
-  // labelWidth?: string | number;
+  right?: React.ReactNode;
 }
 
 export default function AppLabel(props: AppLabelProps) {
   const classes = ['app-label', 'col or-gray']
   if (props.className) classes.push(props.className)
-  // const labelStyles: AnyObject = {}
-  // if (props.labelWidth) labelStyles.width = `0 0 ${calc(props.labelWidth)}`
 
   return (
     <dl className={classes.join(' ')}>
-      <dt>{props.name}</dt>
+      <dt>
+        <div className={`ell`}>{props.name}</div>
+        <div className="right">{ props.right }</div>
+      </dt>
       <dd className={`color-gray`}>{props.children}</dd>
     </dl>
   )

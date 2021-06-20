@@ -1,0 +1,35 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-06-20 21:58 (GMT+0900)
+ */
+.confirm__order-list {
+  position: fixed;
+  z-index: 1;
+  top: 60px;
+  left: 10px;
+  right: 10px;
+  bottom: 80px;
+  padding: 10px 10px 60px;
+  border-radius: $--border-radius;
+  overflow-y: auto;
+  background: $--color-white;
+}
+.confirm__order-list__footer {
+  position: fixed;
+  z-index: 1;
+  left: 10px;
+  right: 10px;
+  bottom: 80px;
+  height: 50px;
+  background: $--color-white;
+  border-radius: 0 0 $--border-radius $--border-radius;
+  > div {
+    margin: 0 $--space-default;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 50px;
+    border-top: 1px solid $--color-border-light;
+  }
+}
