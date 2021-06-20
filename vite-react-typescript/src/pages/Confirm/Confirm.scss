@@ -3,3 +3,51 @@
  * https://github.com/capricorncd
  * Date: 2021-06-19 18:41 (GMT+0900)
  */
+.confirm-page {
+  header {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    .back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+    }
+  }
+  footer {
+    position: fixed;
+    z-index: 10;
+    bottom: 20px;
+    left: 10%;
+    width: 80%;
+    .submit-text {
+      font-size: 0.8em;
+      margin-left: 10px;
+      padding-left: 10px;
+      position: relative;
+      &:before {
+        content: '';
+        width: 1px;
+        background: $--color-white;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+      }
+    }
+  }
+  .order-list {
+    padding: 60px $--space-default 100px;
+    background: $--color-white;
+  }
+}

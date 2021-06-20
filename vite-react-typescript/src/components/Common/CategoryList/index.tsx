@@ -41,24 +41,22 @@ export default function CategoryList(props: CategoryListProps) {
 
     const sideEl = $('.side', listEl)[0]
     const sideElOffsetTop = sideEl.offsetTop
-    const sideLisInfo = $('li', sideEl).map((el, i) => {
-      return {
-        el,
-        index: i,
-        top: el.offsetTop - sideElOffsetTop
-      }
+    const sideLisInfo = $('li', sideEl).map(el => {
+      return el.offsetTop - sideElOffsetTop
     })
     const contentEl = $('.content', listEl)[0]
     const contentElOffsetTop = contentEl.offsetTop
 
     let lis: HTMLElement[]
+    let tempIndex: number
     contentEl.addEventListener('scroll', () => {
       if (isMenuClick) return;
       lis = $('li', contentEl)
       for (let i = 0; i < lis.length; i++) {
-        if (lis[i].offsetTop - contentElOffsetTop > contentEl.scrollTop + 50) {
-          setIndex(Math.max(i - 1, 0))
-          sideEl.scrollTop = sideLisInfo[Math.max(i - 1, 0)].top
+        if (lis[i].offsetTop - contentElOffsetTop > contentEl.scrollTop + 50 && tempIndex !== index) {
+          tempIndex = Math.max(i - 1, 0)
+          setIndex(tempIndex)
+          sideEl.scrollTop = sideLisInfo[tempIndex]
           break
         }
       }
@@ -101,6 +99,7 @@ export default function CategoryList(props: CategoryListProps) {
             </li>
           ))
         }
+        <div className="blank"/>
       </ul>
       <ul className="content">
         { props.children ? (<li>{ props.children  }</li>) : null }

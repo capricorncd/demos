@@ -13,7 +13,7 @@
     width: $width;
     flex: 0 0 $width;
     overflow-y: auto;
-    padding-bottom: $paddingBottom;
+    //padding-bottom: $paddingBottom !important;
     li {
       position: relative;
       display: flex;
@@ -58,6 +58,10 @@
           height: 100%;
         }
       }
+    }
+    // safari li滚动后设置paddingBottom无效问题修复
+    .blank {
+      height: $paddingBottom;
     }
   }
   .content {

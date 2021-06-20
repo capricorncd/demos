@@ -10,6 +10,11 @@
   height: 50px;
   border-radius: 25px;
   font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
   &.is-small {
     height: 35px;
     font-size: 16px;

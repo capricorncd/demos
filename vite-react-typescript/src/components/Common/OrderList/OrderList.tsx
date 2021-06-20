@@ -8,6 +8,7 @@ import './OrderList.scss'
 import {ClickFunction, DefaultProps} from "@/types";
 import AppPrice from "@/components/Common/AppPrice";
 import CountButtonGroup from "@/components/Common/CountButtonGroup";
+import {IconList, IconTrash} from "@/components/Common/Icons";
 
 interface OrderListProps extends DefaultProps {
   visible?: boolean;
@@ -35,8 +36,11 @@ export default function OrderList(props: OrderListProps) {
       <div className={maskClasses.join(' ')} onClick={props.onClose}/>
       <dl className={classes.join(' ')} onClick={(e) => e.stopPropagation()}>
         <dt className="flex-space-between bg">
-          <div className="fs12">已选商品(20)</div>
-          <div className="fs12 color-gray">清空</div>
+          <div className="fs12 flex">
+            <IconList/> 已选商品(20)</div>
+          <div className="fs12 color-gray flex">
+            <IconTrash/> 清空
+          </div>
         </dt>
         <dd>
           {

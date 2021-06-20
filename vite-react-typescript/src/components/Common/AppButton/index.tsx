@@ -5,14 +5,13 @@
  */
 import React from 'react'
 import './index.scss'
-import {AnyObject, ClickFunction} from "@/types";
+import {AnyObject, DefaultProps} from "@/types";
 import {calc} from "@/helpers";
 
-export interface AppButtonProps {
-  children?: string;
-  onClick?: ClickFunction;
+export interface AppButtonProps extends DefaultProps {
   width?: number | string;
   small?: boolean;
+  inline?: boolean;
 }
 
 export default function AppButton(props: AppButtonProps) {
@@ -25,6 +24,7 @@ export default function AppButton(props: AppButtonProps) {
   if (props.width) {
     styles.width = calc(props.width)
   }
+  if (props.inline) styles.display = 'inline-flex'
 
   return (
     <button className={classes.join(' ')} style={styles} onClick={props.onClick}>{

@@ -12,6 +12,6 @@ export type ClickFunction = (e: React.MouseEvent) => void;
 export interface DefaultProps {
   className?: string;
   onClick?: ClickFunction;
-  children?: string | number | JSX.Element;
+  children?: JSX.Element | React.ReactNode;
   styles?: AnyObject;
 }

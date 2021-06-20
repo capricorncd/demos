@@ -5,7 +5,6 @@
  */
 .check-box {
   border-radius: $--border-radius-small;
-  border: 1px solid $--color-gray-dark;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -15,20 +14,21 @@
   margin: 10px 10px 0 0;
   font-size: 12px;
   color: $--color-gray-dark;
+  background: $--color-gray-lighter;
   min-width: 50px;
   .price {
     position: absolute;
     z-index: 1;
     top: 0;
     right: 3px;
-    color: $--color-primary;
+    color: $--color-primary !important;
   }
   &.is-checked {
     background: $--color-primary;
     border-color: $--color-primary;
     color: $--color-white;
     .price {
-      color: $--color-white;
+      color: $--color-white !important;
     }
   }
 }

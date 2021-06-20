@@ -24,8 +24,8 @@ export default function ListItem(props: ListItemProps) {
       <dl className="list-item__info">
         <dd>
           <h4 className="ell">菜品/饮品等名称菜品/饮品等名称菜品/饮品等名称</h4>
-          <p className="fs12 gray">二级名称或其他语言名称</p>
-          <p className="fs12 gray">说明内容等等</p>
+          <p className="fs12 color-gray">二级名称或其他语言名称</p>
+          <p className="fs12 color-gray">说明内容等等</p>
         </dd>
         <dd className="flex-space-between" onClick={(e) => e.stopPropagation()}>
           <AppPrice>900</AppPrice>

@@ -7,11 +7,9 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    pointer-events: none;
   }
   100% {
     opacity: 1;
-    pointer-events: auto;
   }
 }
 
@@ -19,11 +17,9 @@
 @keyframes fadeOut {
   0% {
     opacity: 1;
-    pointer-events: auto;
   }
   100% {
     opacity: 0;
-    pointer-events: none;
   }
 }
 
@@ -82,9 +78,11 @@
 }
 
 .fade-in {
+  pointer-events: auto !important;
   animation: fadeIn 0.3s ease-in-out forwards;
 }
 .fade-out {
+  pointer-events: none !important;
   animation: fadeOut 0.3s ease-in-out forwards;
 }
 
