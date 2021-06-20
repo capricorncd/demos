@@ -1,0 +1,30 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-06-20 18:22 (GMT+0900)
+ */
+.order-list-item {
+  position: relative;
+  margin-top: 10px;
+  padding-left: 90px;
+  min-height: 80px;
+  &:first-child {
+    margin-top: 0;
+  }
+  .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+  }
+  dt {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    line-height: 1.2;
+    h4 {
+      flex: 0 0 75%;
+    }
+  }
+}

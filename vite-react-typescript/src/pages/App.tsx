@@ -8,6 +8,8 @@ import {HashRouter as Router, Switch, Route} from 'react-router-dom'
 import Welcome from './Welcome/Welcome'
 import Home from './Home/Home'
 import Confirm from './Confirm/Confirm'
+import OrderPage from './Order/OrderPage'
+import HistoryPage from './History/HistoryPage'
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
         <Route path="/" exact children={Welcome}/>
         <Route path="/home" children={Home}/>
         <Route path="/confirm" children={Confirm}/>
+        <Route path="/order/detail/:id" children={OrderPage}/>
+        <Route path="/order/history" children={HistoryPage}/>
       </Switch>
     </Router>
   )

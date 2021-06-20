@@ -4,37 +4,38 @@
  * Date: 2021-06-19 18:41 (GMT+0900)
  */
 import React from 'react'
-import { Link } from "react-router-dom";
-import './Confirm.scss'
 import AppButton from "@/components/Common/AppButton";
 import AppPrice from "@/components/Common/AppPrice";
-import IconArrow from "@/components/Common/Icons/IconArrow";
-import ListItem from "@/components/Common/ListItem";
+import OrderListItem from "@/components/Common/OrderListItem/OrderListItem";
+import Header from "@/components/Common/Header/Header";
+import './Confirm.scss'
+import AppLabel from "@/components/Common/AppLabel/AppLabel";
 
 export default function Confirm() {
   return (
     <div className="confirm-page">
-      <header className="bg-primary color-white">
-        <Link to="home" className="back flex-center">
-          <IconArrow left className="color-white"/>
-        </Link>
+      <Header>
         <h4>店铺名称</h4>
         <p className="fs12">桌号 8</p>
-      </header>
+      </Header>
 
-      <div className="order-list">
+      <section className="order-list">
         {
           Array.from({length: Math.round(Math.random() * 10)}).map((v, i) => (
-            <ListItem key={i}/>
+            <OrderListItem key={i}/>
           ))
         }
-      </div>
+        <AppLabel name="备注" className={`mt20`}>备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注,备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注.</AppLabel>
+      </section>
+
+      <section className="order-list__footer">
+        <div className={`fs14 color-gray`}>
+          共6件，合计 <AppPrice className={`ml10 fs16`} primary>9000</AppPrice>
+        </div>
+      </section>
 
       <footer>
-        <AppButton className="shadow">
-          <AppPrice className="color-white">90000</AppPrice>
-          <span className="submit-text">确定下单</span>
-        </AppButton>
+        <AppButton className="shadow">确定下单</AppButton>
       </footer>
     </div>
   )

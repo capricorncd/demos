@@ -5,35 +5,45 @@
   left: 10px;
   right: 10px;
   bottom: 20px;
-  height: $height;
-  border-radius: 25px;
   display: flex;
   align-items: center;
-  .shopping-cart {
-    position: relative;
-    padding: 0 10px 0 20px;
-    color: $--color-white;
-    &:after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: 0;
-      margin-top: -15px;
-      width: 1px;
-      height: 30px;
-      background: #fff;
-      opacity: 0.8;
-    }
+  .footer-bar__btn-list {
+    width: $height;
+    flex: 0 0 $height;
   }
-  .btn-confirm {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0 20px;
-    height: $height;
-    font-size: 16px;
+  dl {
     border-radius: 25px;
-    background: none;
-    color: $--color-white;
+    flex: 1;
+    height: $height;
+
+    .shopping-cart {
+      position: relative;
+      padding: 0 10px 0 20px;
+      color: $--color-white;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -15px;
+        width: 1px;
+        height: 30px;
+        background: #fff;
+        opacity: 0.8;
+      }
+    }
+
+    .btn-confirm {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0 20px;
+      height: $height;
+      font-size: 16px;
+      border-radius: 25px;
+      background: none;
+      color: $--color-white;
+    }
   }
 }

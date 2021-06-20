@@ -19,6 +19,7 @@ export default function AppButton(props: AppButtonProps) {
   const classes = ['app-button']
 
   if (props.small) classes.push('is-small')
+  if (props.className) classes.push(props.className)
 
   const styles: AnyObject = {}
   if (props.width) {
