@@ -53,7 +53,7 @@ export default function CategoryList(props: CategoryListProps) {
       if (isMenuClick) return;
       lis = $('li', contentEl)
       for (let i = 0; i < lis.length; i++) {
-        if (lis[i].offsetTop - contentElOffsetTop > contentEl.scrollTop + 50 && tempIndex !== index) {
+        if (lis[i].offsetTop - contentElOffsetTop > contentEl.scrollTop + 50) {
           tempIndex = Math.max(i - 1, 0)
           setIndex(tempIndex)
           sideEl.scrollTop = sideLisInfo[tempIndex]
