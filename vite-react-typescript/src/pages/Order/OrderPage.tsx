@@ -4,6 +4,7 @@
  * Date: 2021-06-20 15:26 (GMT+0900)
  */
 import React from 'react'
+import { Link } from "react-router-dom";
 import Header from "@/components/Common/Header/Header";
 import OrderListItem from "@/components/Common/OrderListItem/OrderListItem";
 import AppPrice from "@/components/Common/AppPrice";
@@ -14,7 +15,7 @@ import './OrderPage.scss'
 export default function OrderPage() {
   return (
     <div className={`order-page`}>
-      <Header>
+      <Header rightChildren={<HistoryLink/>}>
         <h4>订单详情</h4>
         <p>已下单-{`>`}制作中-{`>`}已完成</p>
       </Header>
@@ -31,5 +32,11 @@ export default function OrderPage() {
         </div>
       </section>
     </div>
+  )
+}
+
+function HistoryLink() {
+  return (
+    <Link to={`/order/history`}>历史订单</Link>
   )
 }

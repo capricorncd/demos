@@ -10,7 +10,7 @@
   left: 0;
   width: 100%;
   overflow: hidden;
-  padding: 12px $--space-default 100px 50px;
+  padding: 15px $--space-default 100px 50px;
   .back {
     position: absolute;
     top: 0;
@@ -19,6 +19,23 @@
     height: 50px;
     .icon {
       font-size: 1.5em;
+    }
+  }
+  h4 {
+    line-height: 20px;
+  }
+  .top-right-wrapper {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    right: 10px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: $--color-white;
+    a {
+      color: $--color-white;
     }
   }
 }

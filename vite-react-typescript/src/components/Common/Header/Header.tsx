@@ -11,6 +11,7 @@ import './Header.scss'
 
 interface HeaderProps extends DefaultProps {
   backPath?: string;
+  rightChildren?: React.ReactNode;
 }
 
 export default function Header(props: HeaderProps) {
@@ -23,6 +24,7 @@ export default function Header(props: HeaderProps) {
       </Link>
       <h4>店铺名称</h4>
       <p className="fs12">桌号 8</p>
+      <div className="top-right-wrapper">{props.rightChildren}</div>
     </header>
   )
 }

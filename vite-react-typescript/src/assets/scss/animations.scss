@@ -77,6 +77,24 @@
   }
 }
 
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  100% {
+    transform: translateX(-100%);
+  }
+  0% {
+    transform: translateX(0);
+  }
+}
+
 .fade-in {
   pointer-events: auto !important;
   animation: fadeIn 0.3s ease-in-out forwards;
@@ -92,4 +110,12 @@
 
 .fade-bottom-out {
   animation: fadeBottomOut 0.3s ease-in-out forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.3s ease-in-out forwards;
+}
+
+.slide-out-left {
+  animation: slideOutLeft 0.3s ease-in-out forwards;
 }

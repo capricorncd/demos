@@ -7,11 +7,13 @@ import React, { useState } from 'react'
 import OrderList from "@/components/Common/OrderList/OrderList";
 import './FooterBar.scss'
 import {Link} from 'react-router-dom'
-import {IconArrow, IconFood, IconList} from "@/components/Common/Icons";
+import {IconArrow, IconFood, IconUser} from "@/components/Common/Icons";
 import AppButton from "@/components/Common/AppButton";
+import SideBar from "@/components/Common/SideBar/SideBar";
 
 export default function FooterBar() {
   const [listVisible, setListVisible] = useState(false)
+  const [sideBarVisible, setSideBarVisible] = useState(false)
 
   function handleClick(): void {
     setListVisible(!listVisible)
@@ -20,11 +22,11 @@ export default function FooterBar() {
   return (
     <>
       <section className="footer-bar">
-        <Link to={`/order/detail/0`} className={`mr10`}>
-          <AppButton className="footer-bar__btn-list">
-            <IconList/>
-          </AppButton>
-        </Link>
+        {/*<Link to={`/order/detail/0`} className={`mr10`}>*/}
+        <AppButton className="footer-bar__btn-list mr10" onClick={() => setSideBarVisible(true)}>
+          <IconUser/>
+        </AppButton>
+        {/*</Link>*/}
         <dl className={`bg-primary shadow flex`} onClick={handleClick}>
           <dd className="shopping-cart flex-center fs20">
             <IconFood className="mr4 mb4"/>
@@ -39,6 +41,7 @@ export default function FooterBar() {
         </dl>
       </section>
       <OrderList visible={listVisible} onClose={() => setListVisible(false)}/>
+      <SideBar visible={sideBarVisible} onClose={() => setSideBarVisible(false)}/>
     </>
   )
 }
