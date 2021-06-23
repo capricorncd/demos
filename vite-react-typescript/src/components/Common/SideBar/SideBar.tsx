@@ -41,6 +41,10 @@ export default function SideBar(props: SideBarProps) {
             <div className="flex-center"><IconList/></div>
             最新订单
           </Link>
+          <Link to="/order/detail/0">
+            <div className="flex-center"><IconList/></div>
+            退出登录
+          </Link>
           {/*<Link to="/order/history">历史订单</Link>*/}
         </div>
         <div className="footer-item" onClick={props.onClose}>

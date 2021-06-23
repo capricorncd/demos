@@ -9,7 +9,7 @@ import AppButton from "@/components/Common/AppButton";
 import './Welcome.scss'
 import welcomeCover from '~/temp/welcome.jpg'
 
-function Welcome() {
+export default function Welcome() {
   return (
     <Link to="/home" className="welcome-page flex-center">
       <img src={welcomeCover} alt=""/>
@@ -18,4 +18,3 @@ function Welcome() {
   )
 }
 
-export default Welcome

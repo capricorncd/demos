@@ -12,6 +12,7 @@ export interface AppButtonProps extends DefaultProps {
   width?: number | string;
   small?: boolean;
   inline?: boolean;
+  path?: string;
 }
 
 export default function AppButton(props: AppButtonProps) {
@@ -27,9 +28,18 @@ export default function AppButton(props: AppButtonProps) {
   }
   if (props.inline) styles.display = 'inline-flex'
 
+  function onClick(e: React.MouseEvent): void {
+    if (props.path) linkTo(props.path)
+    props.onClick && props.onClick(e)
+  }
+
   return (
-    <button className={classes.join(' ')} style={styles} onClick={props.onClick}>{
+    <button className={classes.join(' ')} style={styles} onClick={onClick}>{
       props.children
     }</button>
   )
+}
+
+function linkTo(path: string): void {
+  location.href = path;
 }

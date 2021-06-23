@@ -14,7 +14,6 @@ import './Home.scss'
 export default function Home() {
   return (
     <div className="home-page">
-
       <h4 className="mt10 ml10">Trending</h4>
       <TrendingSwiper/>
       <CategoryList className={`mt10`}>

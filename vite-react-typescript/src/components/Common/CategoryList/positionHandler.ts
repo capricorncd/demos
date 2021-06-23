@@ -4,7 +4,7 @@
  * Date: 2021-06-13 18:39 (GMT+0900)
  */
 import {$} from "@/helpers";
-import TWEEN, { Tween, Easing } from '@tweenjs/tween.js'
+import { Tween, Easing, update } from '@tweenjs/tween.js'
 
 function getOffsetTop(el: HTMLElement): number {
   let top = 0
@@ -19,7 +19,7 @@ function scrollToTop(el: HTMLElement, offsetTop: number, callback?: () => void):
   let animeId: number | null = null
   let tween: Tween<{top: number}> | null = new Tween({top: el.scrollTop})
     .to({top: offsetTop - el.offsetTop - 10}, 250)
-    .easing(Easing.Quintic.Out)
+    .easing(Easing.Quadratic.Out)
     .onUpdate(({top}) => {
       el.scrollTop = top
     })
@@ -35,7 +35,7 @@ function scrollToTop(el: HTMLElement, offsetTop: number, callback?: () => void):
 
   function animate() {
     animeId = requestAnimationFrame(animate)
-    TWEEN.update()
+    update()
   }
   animate()
 }
