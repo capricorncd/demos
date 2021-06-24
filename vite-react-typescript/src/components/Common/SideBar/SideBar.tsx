@@ -4,10 +4,11 @@
  * Date: 2021-06-21 19:38 (GMT+0900)
  */
 import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import './SideBar.scss'
 import {ClickFunction, DefaultProps} from "@/types";
 import {IconArrow, IconList, IconUser} from "@/components/Common/Icons";
+import { useAuth } from '@/components/Common/UseAuth/UseAuth'
 
 interface SideBarProps extends DefaultProps {
   visible: boolean;
@@ -29,24 +30,36 @@ export default function SideBar(props: SideBarProps) {
     innerClasses.push('slide-out-left')
   }
 
+  const history = useHistory()
+  const auth = useAuth()
+
+  function handleClick(path: string): void {
+    history.push(path)
+  }
+
+  async function logout(): Promise<void> {
+    await auth.signOut()
+    history.replace('/')
+  }
+
   return (
     <>
       <section className={innerClasses.join(' ')}>
-        <div className="menu-list">
-          <Link to="/home">
+        <ul className="menu-list">
+          <li onClick={() => handleClick('/home')}>
             <div className="flex-center"><IconUser/></div>
             个人中心
-          </Link>
-          <Link to="/order/detail/0">
+          </li>
+          <li onClick={() => handleClick("/order/detail/0")}>
             <div className="flex-center"><IconList/></div>
             最新订单
-          </Link>
-          <Link to="/order/detail/0">
+          </li>
+          <li onClick={logout}>
             <div className="flex-center"><IconList/></div>
             退出登录
-          </Link>
+          </li>
           {/*<Link to="/order/history">历史订单</Link>*/}
-        </div>
+        </ul>
         <div className="footer-item" onClick={props.onClose}>
           <div className="back">
             <IconArrow left/>
