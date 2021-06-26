@@ -8,7 +8,7 @@ function getStorage(isSessionStorage: boolean): Storage {
 }
 
 export function setCache<T>(key: string, value: T, isSessionStorage = false): void {
-  getStorage(isSessionStorage).setItem(key, JSON.stringify(value));
+  getStorage(isSessionStorage).setItem(key, JSON.stringify(value))
 }
 
 export function getCache<T>(key: string, isSessionStorage = false): T | null {

@@ -5,7 +5,7 @@
  */
 import React from 'react'
 import './index.scss'
-import { DefaultProps } from "@/types";
+import { DefaultProps } from '@/types'
 
 export interface AppTitleProps extends DefaultProps {
 

@@ -24,9 +24,9 @@ export default function App() {
     <ProvideAuth>
       <Router>
         <Switch>
-          <Route path="/" exact>
+          <PrivateRoute path="/" exact>
             <Welcome/>
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
             <Login/>
           </Route>
@@ -49,7 +49,7 @@ export default function App() {
 }
 
 function PrivateRoute({children, ...rest}: RouteProps) {
-  let auth = useAuth();
+  let auth = useAuth()
   return (
     <Route
       {...rest}

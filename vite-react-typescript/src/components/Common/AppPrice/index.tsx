@@ -4,8 +4,8 @@
  * Date: 2021-06-12 23:37 (GMT+0900)
  */
 import React from 'react'
-import {AnyObject} from "@/types";
-import {calc} from "@/helpers";
+import {AnyObject} from '@/types'
+import {calc} from '@/helpers'
 import './index.scss'
 
 interface AppPriceProps {

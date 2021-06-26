@@ -6,12 +6,12 @@
 import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Pagination, Autoplay } from 'swiper'
-import {DefaultProps} from "@/types";
-import {getClasses} from "@/helpers";
-import AppImage from "@/components/Common/AppImage";
-import welcomeCover from "~/temp/welcome.jpg";
-import AppPrice from "@/components/Common/AppPrice";
-import DetailPopup from "@/components/DetailPopup";
+import {DefaultProps} from '@/types'
+import {getClasses} from '@/helpers'
+import AppImage from '@/components/Common/AppImage'
+import welcomeCover from '~/temp/welcome.jpg'
+import AppPrice from '@/components/Common/AppPrice'
+import DetailPopup from '@/components/DetailPopup'
 import './index.scss'
 
 SwiperCore.use([Pagination, Autoplay])

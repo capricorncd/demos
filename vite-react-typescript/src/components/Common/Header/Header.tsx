@@ -4,9 +4,9 @@
  * Date: 2021-06-20 15:31 (GMT+0900)
  */
 import React from 'react'
-import {Link} from "react-router-dom";
-import IconArrow from "@/components/Common/Icons/IconArrow";
-import {DefaultProps} from "@/types";
+import {Link} from 'react-router-dom'
+import IconArrow from '@/components/Common/Icons/IconArrow'
+import {DefaultProps} from '@/types'
 import './Header.scss'
 
 interface HeaderProps extends DefaultProps {

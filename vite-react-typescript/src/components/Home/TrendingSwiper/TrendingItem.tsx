@@ -6,8 +6,8 @@
 import React from 'react'
 import AppImage from '@/components/Common/AppImage'
 import CountButtonGroup from '@/components/Common/CountButtonGroup'
-import AppPrice from "@/components/Common/AppPrice";
-import {ClickFunction, DefaultProps} from "@/types";
+import AppPrice from '@/components/Common/AppPrice'
+import {ClickFunction, DefaultProps} from '@/types'
 import welcomeCover from '~/temp/welcome.jpg'
 
 interface TrendingItemProps extends DefaultProps {

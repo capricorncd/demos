@@ -5,13 +5,14 @@
  */
 import React from 'react'
 import './index.scss'
-import {AnyObject, DefaultProps} from "@/types";
-import {calc} from "@/helpers";
+import {AnyObject, DefaultProps} from '@/types'
+import {calc} from '@/helpers'
 
 export interface AppButtonProps extends DefaultProps {
   width?: number | string;
   small?: boolean;
   inline?: boolean;
+  disabled?: boolean;
   path?: string;
 }
 
@@ -20,6 +21,7 @@ export default function AppButton(props: AppButtonProps) {
   const classes = ['app-button']
 
   if (props.small) classes.push('is-small')
+  if (props.disabled) classes.push('is-disabled')
   if (props.className) classes.push(props.className)
 
   const styles: AnyObject = {}
@@ -29,6 +31,7 @@ export default function AppButton(props: AppButtonProps) {
   if (props.inline) styles.display = 'inline-flex'
 
   function onClick(e: React.MouseEvent): void {
+    if (props.disabled) return
     if (props.path) linkTo(props.path)
     props.onClick && props.onClick(e)
   }

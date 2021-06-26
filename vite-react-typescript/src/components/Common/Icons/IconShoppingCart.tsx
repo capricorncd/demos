@@ -4,8 +4,8 @@
  * Date: 2021-06-19 21:43 (GMT+0900)
  */
 import React from 'react'
-import { DEF_STYLES } from "@/assets/constants/Icons";
-import {AnyObject, DefaultProps} from "@/types";
+import { DEF_STYLES } from '@/assets/constants/Icons'
+import {AnyObject, DefaultProps} from '@/types'
 
 interface IconShoppingCartProps extends DefaultProps {
 

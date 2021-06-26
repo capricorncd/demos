@@ -4,8 +4,8 @@
  * Date: 2021-06-21 21:04 (GMT+0900)
  */
 import React from 'react'
-import {AnyObject, DefaultProps} from "@/types";
-import {DEF_STYLES} from "@/assets/constants/Icons";
+import {AnyObject, DefaultProps} from '@/types'
+import {DEF_STYLES} from '@/assets/constants/Icons'
 
 interface IconUserProps extends DefaultProps {
 

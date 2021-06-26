@@ -4,12 +4,12 @@
  * Date: 2021-06-19 15:18 (GMT+0900)
  */
 import React, { useState } from 'react'
-import OrderList from "@/components/Common/OrderList/OrderList";
+import OrderList from '@/components/Common/OrderList/OrderList'
 import './FooterBar.scss'
 import {Link} from 'react-router-dom'
-import {IconArrow, IconFood, IconUser} from "@/components/Common/Icons";
-import AppButton from "@/components/Common/AppButton";
-import SideBar from "@/components/Common/SideBar/SideBar";
+import {IconArrow, IconFood, IconUser} from '@/components/Common/Icons'
+import AppButton from '@/components/Common/AppButton'
+import SideBar from '@/components/Common/SideBar/SideBar'
 
 export default function FooterBar() {
   const [listVisible, setListVisible] = useState(false)

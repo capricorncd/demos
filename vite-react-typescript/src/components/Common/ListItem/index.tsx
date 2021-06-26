@@ -5,11 +5,11 @@
  */
 import React, {useState} from 'react'
 import './index.scss'
-import {DefaultProps} from "@/types";
-import {getClasses} from "@/helpers";
-import AppImage from "@/components/Common/AppImage";
-import AppPrice from "@/components/Common/AppPrice";
-import CountButtonGroup from "@/components/Common/CountButtonGroup";
+import {DefaultProps} from '@/types'
+import {getClasses} from '@/helpers'
+import AppImage from '@/components/Common/AppImage'
+import AppPrice from '@/components/Common/AppPrice'
+import CountButtonGroup from '@/components/Common/CountButtonGroup'
 import imgPath from '~/temp/welcome.jpg'
 
 interface ListItemProps extends DefaultProps {

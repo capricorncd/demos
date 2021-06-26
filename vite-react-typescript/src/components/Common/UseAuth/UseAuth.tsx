@@ -4,8 +4,8 @@
  * Date: 2021-06-24 21:16 (GMT+0900)
  */
 import React, { useState, useContext, createContext } from 'react'
-import {DefaultProps} from "@/types";
-import { setCache, removeCache, getCache } from "@/helpers";
+import {DefaultProps} from '@/types'
+import { setCache, removeCache, getCache } from '@/helpers'
 import App from '@/assets/constants/App'
 
 export interface UserInfo {
@@ -35,13 +35,20 @@ export function useAuth(): UseAuth {
   return useContext(AuthContext)
 }
 
+function asyncFun(): Promise<void> {
+  return new Promise<void>(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, 1000)
+  })
+}
+
 export function useProvideAuth(): UseAuth {
   const [user, setUser] = useState<UserInfo | null>(getCache(App.userInfoKey))
 
   async function signIn(): Promise<UserInfo> {
-    await setTimeout(() => {
-      console.log('signIn');
-    }, 1000)
+    await asyncFun()
+    console.log('signIn')
     const data = {
       userName: "HaniKzy",
       userId: 10002,
@@ -52,9 +59,8 @@ export function useProvideAuth(): UseAuth {
   }
 
   async function signOut(): Promise<CommonResponseData> {
-    await setTimeout(() => {
-      console.log('signOut');
-    })
+    await asyncFun()
+    console.log('signOut')
     const data = {
       code: 0,
       message: 'success'

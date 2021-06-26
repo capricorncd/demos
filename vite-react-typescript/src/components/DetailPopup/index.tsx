@@ -6,11 +6,11 @@
 import React, { useState } from 'react'
 import AppImage from '@/components/Common/AppImage'
 import CheckBox from '@/components/Common/CheckBox'
-import AppButton from "@/components/Common/AppButton";
-import AppPrice from "@/components/Common/AppPrice";
-import AppTitle from "@/components/Common/AppTitle";
-import CountButtonGroup from "@/components/Common/CountButtonGroup";
-import {ClickFunction, DefaultProps} from "@/types";
+import AppButton from '@/components/Common/AppButton'
+import AppPrice from '@/components/Common/AppPrice'
+import AppTitle from '@/components/Common/AppTitle'
+import CountButtonGroup from '@/components/Common/CountButtonGroup'
+import {ClickFunction, DefaultProps} from '@/types'
 import './index.scss'
 import welcomeCover from '~/temp/welcome.jpg'
 
@@ -52,7 +52,7 @@ export default function DetailPopup(props: DetailProps) {
   }
 
   function handleClose(e: React.MouseEvent): void {
-    console.log('handleClose');
+    console.log('handleClose')
     e.stopPropagation()
     props.onClose(e)
   }

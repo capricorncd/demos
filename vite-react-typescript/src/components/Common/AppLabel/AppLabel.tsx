@@ -5,7 +5,7 @@
  */
 import React from 'react'
 import './AppLabel.scss'
-import {DefaultProps} from "@/types";
+import {DefaultProps} from '@/types'
 
 interface AppLabelProps extends DefaultProps {
   name?: string | number;

@@ -5,7 +5,7 @@
  */
 import React, { useState } from 'react'
 import './index.scss'
-import {DefaultProps} from "@/types";
+import {DefaultProps} from '@/types'
 
 interface CountButtonGroupProps extends DefaultProps {
   data?: number;

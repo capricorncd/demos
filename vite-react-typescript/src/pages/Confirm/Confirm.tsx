@@ -4,9 +4,9 @@
  * Date: 2021-06-19 18:41 (GMT+0900)
  */
 import React from 'react'
-import AppButton from "@/components/Common/AppButton";
-import Header from "@/components/Common/Header/Header";
-import ConfirmOrderList from "@/components/Confirm/OrderList/ConfirmOrderList";
+import AppButton from '@/components/Common/AppButton'
+import Header from '@/components/Common/Header/Header'
+import ConfirmOrderList from '@/components/Confirm/OrderList/ConfirmOrderList'
 import './Confirm.scss'
 
 export default function Confirm() {

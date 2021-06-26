@@ -5,10 +5,10 @@
  */
 import React, { useState } from 'react'
 import './OrderList.scss'
-import {ClickFunction, DefaultProps} from "@/types";
-import AppPrice from "@/components/Common/AppPrice";
-import CountButtonGroup from "@/components/Common/CountButtonGroup";
-import {IconList, IconTrash} from "@/components/Common/Icons";
+import {ClickFunction, DefaultProps} from '@/types'
+import AppPrice from '@/components/Common/AppPrice'
+import CountButtonGroup from '@/components/Common/CountButtonGroup'
+import {IconList, IconTrash} from '@/components/Common/Icons'
 
 interface OrderListProps extends DefaultProps {
   visible?: boolean;

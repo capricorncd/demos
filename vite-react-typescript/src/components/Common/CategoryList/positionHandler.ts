@@ -3,7 +3,7 @@
  * https://github.com/capricorncd
  * Date: 2021-06-13 18:39 (GMT+0900)
  */
-import {$} from "@/helpers";
+import {$} from '@/helpers'
 import { Tween, Easing, update } from '@tweenjs/tween.js'
 
 function getOffsetTop(el: HTMLElement): number {

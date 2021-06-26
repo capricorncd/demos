@@ -4,12 +4,12 @@
  * Date: 2021-06-20 15:26 (GMT+0900)
  */
 import React from 'react'
-import { Link } from "react-router-dom";
-import Header from "@/components/Common/Header/Header";
-import OrderListItem from "@/components/Common/OrderListItem/OrderListItem";
-import AppPrice from "@/components/Common/AppPrice";
-import AppLabel from "@/components/Common/AppLabel/AppLabel";
-import OrderTop from "@/components/Order/OrderTop/OrderTop";
+import { Link } from 'react-router-dom'
+import Header from '@/components/Common/Header/Header'
+import OrderListItem from '@/components/Common/OrderListItem/OrderListItem'
+import AppPrice from '@/components/Common/AppPrice'
+import AppLabel from '@/components/Common/AppLabel/AppLabel'
+import OrderTop from '@/components/Order/OrderTop/OrderTop'
 import './OrderPage.scss'
 
 export default function OrderPage() {

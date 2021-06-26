@@ -6,9 +6,9 @@
 import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import TrendingItem from './TrendingItem'
-import {DefaultProps} from "@/types";
+import {DefaultProps} from '@/types'
 import './index.scss'
-import DetailPopup from "@/components/DetailPopup";
+import DetailPopup from '@/components/DetailPopup'
 
 interface TrendingSwiperProps extends DefaultProps {
 }

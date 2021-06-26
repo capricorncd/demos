@@ -5,10 +5,10 @@
  */
 import React, {useState} from 'react'
 import './ConfirmOrderList.scss'
-import OrderListItem from "@/components/Common/OrderListItem/OrderListItem";
-import AppLabel from "@/components/Common/AppLabel/AppLabel";
-import {IconEdit} from "@/components/Common/Icons";
-import AppPrice from "@/components/Common/AppPrice";
+import OrderListItem from '@/components/Common/OrderListItem/OrderListItem'
+import AppLabel from '@/components/Common/AppLabel/AppLabel'
+import {IconEdit} from '@/components/Common/Icons'
+import AppPrice from '@/components/Common/AppPrice'
 
 const DEF_REMARK = '备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注,备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注.'
 
@@ -16,7 +16,7 @@ export default function ConfirmOrderList() {
   const [remark, setRemark] = useState(DEF_REMARK)
 
   function showEditPopup() {
-    console.log('showEditPopup');
+    console.log('showEditPopup')
   }
 
   return (

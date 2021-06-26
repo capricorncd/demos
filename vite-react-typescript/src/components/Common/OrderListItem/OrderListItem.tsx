@@ -4,10 +4,10 @@
  * Date: 2021-06-20 18:22 (GMT+0900)
  */
 import React from 'react'
-import AppPrice from "@/components/Common/AppPrice";
-import AppImage from "@/components/Common/AppImage";
+import AppPrice from '@/components/Common/AppPrice'
+import AppImage from '@/components/Common/AppImage'
 import './OrderListItem.scss'
-import {DefaultProps} from "@/types";
+import {DefaultProps} from '@/types'
 import tempImgPath from '~/temp/welcome.jpg'
 
 interface OrderListItemProps extends DefaultProps {

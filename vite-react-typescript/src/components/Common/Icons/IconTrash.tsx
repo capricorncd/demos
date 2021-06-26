@@ -4,9 +4,9 @@
  * Date: 2021-06-19 21:36 (GMT+0900)
  */
 import React from 'react'
-import {AnyObject} from "@/types";
-import {DEF_STYLES} from "@/assets/constants/Icons";
-import {DefaultProps} from "@/types";
+import {AnyObject} from '@/types'
+import {DEF_STYLES} from '@/assets/constants/Icons'
+import {DefaultProps} from '@/types'
 
 interface IconTrashProps extends DefaultProps {
 

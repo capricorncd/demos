@@ -5,10 +5,10 @@
  */
 import React, {useState, useEffect, useRef} from 'react'
 import './index.scss'
-import {AnyObject, DefaultProps} from "@/types";
-import {getClasses, $} from "@/helpers";
-import ListItem from "@/components/Common/ListItem";
-import DetailPopup from "@/components/DetailPopup";
+import {AnyObject, DefaultProps} from '@/types'
+import {getClasses, $} from '@/helpers'
+import ListItem from '@/components/Common/ListItem'
+import DetailPopup from '@/components/DetailPopup'
 import { positionHandler } from './positionHandler'
 
 const HEIGHT_OFFSET = 0

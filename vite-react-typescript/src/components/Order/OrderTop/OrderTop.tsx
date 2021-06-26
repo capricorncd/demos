@@ -5,7 +5,7 @@
  */
 import React from 'react'
 import './OrderTop.scss'
-import {IconFood} from "@/components/Common/Icons";
+import {IconFood} from '@/components/Common/Icons'
 
 export default function OrderTop() {
   return (

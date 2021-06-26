@@ -4,8 +4,8 @@
  * Date: 2021-06-12 22:57 (GMT+0900)
  */
 import React, {useState} from 'react'
-import AppPrice from "@/components/Common/AppPrice";
-import {DefaultProps} from "@/types";
+import AppPrice from '@/components/Common/AppPrice'
+import {DefaultProps} from '@/types'
 import './index.scss'
 
 interface CheckBoxProps extends DefaultProps {

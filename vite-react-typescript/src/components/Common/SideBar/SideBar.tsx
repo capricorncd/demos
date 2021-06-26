@@ -6,8 +6,8 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import './SideBar.scss'
-import {ClickFunction, DefaultProps} from "@/types";
-import {IconArrow, IconList, IconUser} from "@/components/Common/Icons";
+import {ClickFunction, DefaultProps} from '@/types'
+import {IconArrow, IconList, IconUser} from '@/components/Common/Icons'
 import { useAuth } from '@/components/Common/UseAuth/UseAuth'
 
 interface SideBarProps extends DefaultProps {

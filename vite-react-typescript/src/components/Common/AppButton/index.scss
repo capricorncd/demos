@@ -19,4 +19,7 @@
     height: 35px;
     font-size: 16px;
   }
+  &.is-disabled {
+    background: $--color-gray-light;
+  }
 }
