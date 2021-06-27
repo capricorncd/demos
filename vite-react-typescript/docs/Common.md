@@ -4,16 +4,16 @@
 
 ## AnyObject
 
-任意对象
+任意对象类型
 
-```
+```typescript
 Record<string, any>
 ```
 ## ClickFunction
 
 点击事件回调函数
 
-```
+```typescript
 (e: React.MouseEvent) => void
 ```
 ## DefaultProps
@@ -22,7 +22,7 @@ Record<string, any>
 
 字段名|类型|必须|说明
 :--|:--|:--|:--
-className|string|no|
-onClick|ClickFunction|no|
-children|JSX.Element / React.ReactNode|no|
-styles|AnyObject|no|
+className|string|no| css class名
+onClick|ClickFunction|no| 点击事件回调函数
+children|JSX.Element / React.ReactNode|no| children
+styles|AnyObject|no| 自定义样式

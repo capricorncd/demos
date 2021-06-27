@@ -16,7 +16,7 @@ function clearDocsDir() {
   fs.readdirSync(docsDir).forEach(file => {
     filePath = docsDir + '/' + file
     if (fs.existsSync(filePath)) {
-      fs.rmSync(filePath)
+      fs.unlinkSync(filePath)
     }
   })
 }
@@ -25,6 +25,24 @@ function readApiTypes() {
   const dirs = fs.readdirSync(typesDir)
   // console.log(dirs)
   return dirs.map(handleFile).filter(item => !!item.title)
+}
+
+/**
+ * 接口数据处理
+ * @param line
+ * @return {{type: string, key: string, required: boolean, desc: string}}
+ */
+function handleInterfaceItem(line) {
+  const [key, value] = line.split(':')
+  const firstIndex = value.indexOf(';')
+  const type = value.slice(0, firstIndex).trim()
+  const desc = value.slice(firstIndex + 1).trim().replace(/^\/\//, '')
+  return {
+    key: key.replace(/\?/, '').trim(),
+    required: !key.includes('?'),
+    type,
+    desc
+  }
 }
 
 /**
@@ -124,13 +142,7 @@ function handleFile(file) {
     }
     // interface字段处理
     if (isInterface) {
-      temp = line.split(':')
-      columns.push({
-        key: temp[0].replace(/\?/, ''),
-        required: !temp[0].includes('?'),
-        type: temp[1].split(';')[0].trim(),
-        desc: temp[1].split(';')[1].replace(/^\/\//, '').trim()
-      })
+      columns.push(handleInterfaceItem(line))
       return
     }
 
@@ -170,13 +182,14 @@ function outputMdFile(data) {
   }
 
   data.children.forEach(item => {
-    lines.push(`## ${item.name}`, '', item.desc.join(os.EOL), '')
+    lines.push(`## ${item.name}`, '')
+    if (item.desc.length) lines.push(item.desc.join(os.EOL), '')
     if (item.type === 'type') {
-      lines.push('```', item.code, '```')
+      lines.push('```typescript', item.code, '```')
     } else if (item.type === 'interface') {
       lines.push(`字段名|类型|必须|说明`, `:--|:--|:--|:--`)
       item.columns.forEach(({ key, type, desc, required }) => {
-        lines.push(`${key}|${type}|${required ? 'yes' : 'no'}|${desc}`)
+        lines.push(`${key}|${type}|${required ? 'yes' : 'no'}|${desc || '-'}`)
       })
       lines.push('')
     }

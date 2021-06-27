@@ -8,7 +8,7 @@
  */
 import React from 'react'
 
-// 任意对象
+// 任意对象类型
 export type AnyObject = Record<string, any>;
 
 // 点击事件回调函数
@@ -16,8 +16,8 @@ export type ClickFunction = (e: React.MouseEvent) => void;
 
 // 组件默认属性
 export interface DefaultProps {
-  className?: string;
-  onClick?: ClickFunction;
-  children?: JSX.Element | React.ReactNode;
-  styles?: AnyObject;
+  className?: string; // css class名
+  onClick?: ClickFunction; // 点击事件回调函数
+  children?: JSX.Element | React.ReactNode; // children
+  styles?: AnyObject; // 自定义样式
 }

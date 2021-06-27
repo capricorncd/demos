@@ -1,20 +1,38 @@
 # vite-react(hook)-typescript
 
+这是一个用vite、react(hook)和typescript构建的应用程序。
+
+## 开发
+
 ```shell script
-$ # development
-$ npm run dev
-$ # or
-$ yarn dev
-$ # > Local:    http://localhost:3000/
-$ # > Network:  http://*.*.*.*:3000/
-$
-$ # build
-$ npm run build
-$ # or
-$ yarn build
-$ 
-$ # serve
-$ yarn serve
-$ # or
-$ npm run serve
+# development
+npm run dev
+# > Local:    http://localhost:3000/
+# > Network:  http://*.*.*.*:3000/
 ```
+
+```shell script
+# build
+npm run build
+```
+
+```shell script
+# serve
+npm run serve
+```
+
+## 文档生成
+
+执行一下命令，将读取`src/types`里的文件生成相应的`Markdown`文档文件。
+
+```shell script
+npm run docs
+```
+
+## 其他
+
+https://vitejs.dev/
+
+https://reactjs.org/docs/hooks-intro.html
+
+https://www.typescriptlang.org/
