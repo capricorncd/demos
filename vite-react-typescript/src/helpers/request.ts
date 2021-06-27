@@ -3,7 +3,7 @@
  * https://github.com/capricorncd
  * Date: 2021-06-26 21:32 (GMT+0900)
  */
-import {AnyObject} from '@/types';
+import {AnyObject} from '@/types'
 
 export async function request<T>(api: string, params: AnyObject = {}, type = 'GET'): Promise<T> {
   return new Promise((resolve, reject) => {

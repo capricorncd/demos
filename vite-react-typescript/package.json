@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "docs": "node ./scripts/create-docs.js"
   },
   "dependencies": {
     "@tweenjs/tween.js": "^18.6.4",
@@ -23,5 +24,6 @@
     "sass": "^1.34.1",
     "typescript": "^4.3.2",
     "vite": "^2.3.7"
-  }
+  },
+  "license": "MIT"
 }
