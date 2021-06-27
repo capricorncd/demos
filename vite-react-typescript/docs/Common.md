@@ -22,7 +22,7 @@ Record<string, any>
 
 字段名|类型|必须|说明
 :--|:--|:--|:--
-className|string|no| css class名
-onClick|ClickFunction|no| 点击事件回调函数
-children|JSX.Element / React.ReactNode|no| children
-styles|AnyObject|no| 自定义样式
+className|string|no|css class名
+onClick|ClickFunction|no|点击事件回调函数
+children|JSX.Element / React.ReactNode|no|children
+styles|AnyObject|no|自定义样式

@@ -19,8 +19,8 @@ redirect_url|string|授权成功后的跳转地址
 
 字段名|类型|必须|说明
 :--|:--|:--|:--
-user|UserInfo|yes| 用户信息
-entry_cover|string|no| 欢迎页封面图。为空则不显示欢迎页面，直接进入菜品主页
+user|UserInfo|yes|用户信息
+entry_cover|string|no|欢迎页封面图。为空则不显示欢迎页面，直接进入菜品主页
 
 ## UserInfo
 
@@ -28,6 +28,6 @@ entry_cover|string|no| 欢迎页封面图。为空则不显示欢迎页面，直
 
 字段名|类型|必须|说明
 :--|:--|:--|:--
-id|number|yes| 用户ID
-name|string|yes| 用户昵称
-avatar|string|yes| 用户头像
+id|number|yes|用户ID
+name|string|yes|用户昵称
+avatar|string|yes|用户头像
