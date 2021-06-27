@@ -25,6 +25,7 @@ export default function OrderPage() {
       <section className="order-list">
         { Array.from({length: Math.round(Math.random() * 30)}).map((v, i) => (<OrderListItem key={i}/>)) }
         <AppLabel name="备注" className={`mt20`}>备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注,备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注.</AppLabel>
+        <AppLabel name="下单时间" className={`mt20`}>2021-12-09 12:45</AppLabel>
       </section>
       <section className="order-list__footer">
         <div className={`fs14 color-gray`}>

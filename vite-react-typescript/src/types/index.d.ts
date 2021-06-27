@@ -5,4 +5,8 @@
  */
 export * from './Auth';
 export * from './Common';
+export * from './FoodDetail';
 export * from './Home';
+export * from './OrderDetail';
+export * from './OrderHistory';
+export * from './SubmitOrder';

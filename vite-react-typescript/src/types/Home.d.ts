@@ -10,8 +10,9 @@
  */
 // 接口返回数据
 export interface HomeResponse {
-  trending_list: ShopItem[];// 热门或推荐列表
+  trending_list: FoodItem[];// 热门或推荐列表
   categories: CategoryItem[]; // 分类列表
+  food_list: FoodItem[];// 食品/酒水/饮料列表
 }
 
 // 分类元素结构
@@ -23,7 +24,7 @@ export interface CategoryItem {
 }
 
 // 商品、菜品
-export interface ShopItem {
+export interface FoodItem {
   id: number; // 商品ID
   name: string; // 商品名称
   sub_name?: string; // 二级名称
@@ -32,4 +33,5 @@ export interface ShopItem {
   special_price?: number; // 优惠价格或会员价格
   remark?: string; // 备注说明
   cover: string; // 封面图
+  sort: number; // 显示顺序，从小至大
 }
