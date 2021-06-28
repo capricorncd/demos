@@ -13,6 +13,14 @@ export default defineConfig({
   },
   server: {
     host: '0.0.0.0',
+    // https://github.com/http-party/node-http-proxy#options
+    proxy: {
+      '/api': {
+        target: 'https://api.github.com/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      },
+    }
   },
   plugins: [reactRefresh()],
   css:{

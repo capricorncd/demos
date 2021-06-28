@@ -11,29 +11,31 @@ import CategoryList from '@/components/Common/CategoryList'
 import FooterBar from '@/components/Common/FooterBar/FooterBar'
 import { request } from '@/helpers'
 import './Home.scss'
-import {AnyObject} from "@/types";
+import {HomeResponse} from '@/types'
+import App from '@/assets/constants/App'
 
 export default function Home() {
-  const [data, setData] = useState<AnyObject>({})
+  const [data, setData] = useState<HomeResponse | null>(null)
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    request<AnyObject>('').then(res => {
+    request.get<HomeResponse>(App.apis.GITHUB_USER).then(res => {
       console.log(res);
       setData(res)
+      setIsLoaded(true)
     }).catch(err => {
-      console.log(err);
+      console.error(err);
     })
   }, [])
 
-  return (
+  return data ? (
     <div className="home-page">
       <h4 className="mt10 ml10">Trending</h4>
       <TrendingSwiper/>
       <CategoryList className={`mt10`}>
         <TopSwiper/>
       </CategoryList>
-      <FooterBar/>
+      <FooterBar data={data}/>
     </div>
-  )
+  ) : null
 }

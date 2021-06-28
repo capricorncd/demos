@@ -10,8 +10,13 @@ import {Link} from 'react-router-dom'
 import {IconArrow, IconFood, IconUser} from '@/components/Common/Icons'
 import AppButton from '@/components/Common/AppButton'
 import SideBar from '@/components/Common/SideBar/SideBar'
+import {DefaultProps} from "@/types";
 
-export default function FooterBar() {
+interface FooterBarProps extends DefaultProps {
+
+}
+
+export default function FooterBar(props: FooterBarProps) {
   const [listVisible, setListVisible] = useState(false)
   const [sideBarVisible, setSideBarVisible] = useState(false)
 
@@ -41,7 +46,10 @@ export default function FooterBar() {
         </dl>
       </section>
       <OrderList visible={listVisible} onClose={() => setListVisible(false)}/>
-      <SideBar visible={sideBarVisible} onClose={() => setSideBarVisible(false)}/>
+      <SideBar
+        data={props.data}
+        visible={sideBarVisible}
+        onClose={() => setSideBarVisible(false)}/>
     </>
   )
 }

@@ -46,7 +46,7 @@ export default function SideBar(props: SideBarProps) {
     <>
       <section className={innerClasses.join(' ')}>
         <ul className="menu-list">
-          <li onClick={() => handleClick('/home')}>
+          <li onClick={() => handleClick(props.data.html_url)}>
             <div className="flex-center"><IconUser/></div>
             个人中心
           </li>
@@ -55,7 +55,9 @@ export default function SideBar(props: SideBarProps) {
             最新订单
           </li>
           <li onClick={logout}>
-            <div className="flex-center"><IconList/></div>
+            <div className="flex-center">
+              <img src={props.data.avatar_url} alt=""/>
+            </div>
             退出登录
           </li>
           {/*<Link to="/order/history">历史订单</Link>*/}

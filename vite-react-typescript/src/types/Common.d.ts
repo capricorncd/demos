@@ -20,4 +20,13 @@ export interface DefaultProps {
   onClick?: ClickFunction; // 点击事件回调函数
   children?: JSX.Element | React.ReactNode; // children
   styles?: AnyObject; // 自定义样式
+  data?: AnyObject | AnyObject[]; // 数据
+}
+
+// request HTTP请求参数
+export interface RequestOptions {
+  url: string;
+  method?: string;
+  data?: AnyObject;
+  headers?: AnyObject;
 }

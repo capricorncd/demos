@@ -10,3 +10,11 @@ export function isNumber(val: string | number): boolean {
 export function isNumberLike(val: string | number): boolean {
   return isNumber(val) || isNumber(Number(val))
 }
+
+export function isUrlLike(url: string): boolean {
+  return /^(https?:)?\/\/.+/.test(url)
+}
+
+export function isObject<T>(o: T): boolean {
+  return o !== null && typeof o === 'object'
+}

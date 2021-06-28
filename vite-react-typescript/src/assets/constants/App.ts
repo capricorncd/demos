@@ -5,4 +5,8 @@
  */
 export default class App {
   public static userInfoKey = 'userInfoKey'
+  public static apis = Object.freeze({
+    HOME: 'home',
+    GITHUB_USER: 'users/Capricorncd',
+  })
 }
