@@ -16,9 +16,10 @@ export default defineConfig({
     // https://github.com/http-party/node-http-proxy#options
     proxy: {
       '/api': {
-        target: 'https://api.github.com/',
+        target: 'http://localhost:8080',
+        // target: 'https://api.github.com/',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        // rewrite: (path) => path.replace(/^\/api/, '')
       },
     }
   },

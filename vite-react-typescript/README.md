@@ -21,12 +21,18 @@ npm run build
 npm run serve
 ```
 
-## 文档生成
+## 文档生成和启动API服务
 
 执行一下命令，将读取`src/types`里的文件生成相应的`Markdown`文档文件。
 
 ```shell script
+# generation docs
 npm run docs
+```
+
+```shell script
+# run api service
+npm run api
 ```
 
 ## 其他

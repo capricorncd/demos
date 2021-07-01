@@ -4,10 +4,12 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "docs": "node ./scripts/create-docs.js"
+    "docs": "node ./scripts/create-docs.js",
+    "api": "node ./apis/index.js"
   },
   "dependencies": {
     "@tweenjs/tween.js": "^18.6.4",
+    "obj2str": "^0.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",

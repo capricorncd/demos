@@ -6,6 +6,7 @@
 const path = require('path')
 const fs = require('fs')
 const os = require('os')
+const { obj2str } = require('obj2str')
 
 // 类型定义文件目录
 const typesDir = path.resolve(__dirname, '../src/types')
@@ -216,6 +217,12 @@ function outputMdFile(data) {
 
   // output
   fs.writeFileSync(`${docsDir}/${data.fileName}.md`, lines.join(os.EOL))
+  // output json
+  const configFile = `${path.resolve(__dirname, `../apis/configs/${data.fileName}.json`)}`
+  if (fs.existsSync(configFile)) {
+    fs.unlinkSync(configFile)
+  }
+  fs.writeFileSync(configFile, obj2str(data, {doubleQuotes: true,keyQuote: true}))
 }
 
 function createReadmeFile() {
