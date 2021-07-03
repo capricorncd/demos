@@ -14,7 +14,7 @@ interface IconUserProps extends DefaultProps {
 export default function IconUser(props: IconUserProps) {
   const styles: AnyObject = {
     ...DEF_STYLES,
-    ...props.styles,
+    ...props.style,
   }
 
   return (

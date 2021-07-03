@@ -6,7 +6,7 @@
 import React, {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 import {ClickFunction, DefaultProps} from '@/types'
-import {IconArrow, IconList, IconUser, IconLogout} from '@/components/Common/Icons'
+import {IconArrow, IconList, IconHome, IconLogout, IconGithub} from '@/components/Common/Icons'
 import { useAuth } from '@/components/Common/UseAuth/UseAuth'
 import {isUrlLike, setBodyScrollStatus} from '@/helpers'
 import './SideBar.scss'
@@ -55,13 +55,17 @@ export default function SideBar(props: SideBarProps) {
     <>
       <section className={innerClasses.join(' ')}>
         <ul className="menu-list">
-          <li onClick={() => handleClick('https://github.com/Capricorncd')}>
-            <div className="flex-center"><IconUser/></div>
-            个人中心
+          <li onClick={() => handleClick('/')}>
+            <div className="flex-center"><IconHome/></div>
+            欢迎页
           </li>
           <li onClick={() => handleClick("/order/detail/0")}>
             <div className="flex-center"><IconList/></div>
             最新订单
+          </li>
+          <li onClick={() => handleClick('https://github.com/capricorncd/demos/tree/main/vite-react-typescript')}>
+            <div className="flex-center"><IconGithub style={{fontSize:`1.5em`}}/></div>
+            Github
           </li>
           <li onClick={logout}>
             <div className="flex-center">

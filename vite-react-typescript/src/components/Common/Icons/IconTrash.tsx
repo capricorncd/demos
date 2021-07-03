@@ -14,7 +14,7 @@ interface IconTrashProps extends DefaultProps {
 export default function IconTrash(props: IconTrashProps) {
   const styles: AnyObject = {
     ...DEF_STYLES,
-    ...props.styles,
+    ...props.style,
   }
   return (
     <svg className={props.className}

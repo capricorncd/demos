@@ -92,10 +92,17 @@ export default function DetailPopup(props: DetailProps) {
       list.splice(list.findIndex(s => s.id === item.id), 1)
     }
     // setSpecifications(list)
-    store.dispatch(counterSlice.actions.update({
-      id: foodId,
-      specifications: list
-    }))
+    if (selectedItem) {
+      store.dispatch(counterSlice.actions.update({
+        id: foodId,
+        specifications: list
+      }))
+    } else {
+      store.dispatch(counterSlice.actions.add({
+        id: foodId,
+        specifications: list
+      }))
+    }
   }
   const specPrice = specifications.reduce((prev, item) => prev + item.price, 0)
   const price = selectedItem && selectedItem.count

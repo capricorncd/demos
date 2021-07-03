@@ -19,7 +19,7 @@ export interface DefaultProps {
   className?: string; // css class名
   onClick?: ClickFunction; // 点击事件回调函数
   children?: JSX.Element | React.ReactNode; // children
-  styles?: AnyObject; // 自定义样式
+  style?: AnyObject; // 自定义样式
   data?: AnyObject | AnyObject[]; // 数据
 }
 

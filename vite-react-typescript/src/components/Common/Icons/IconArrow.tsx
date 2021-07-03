@@ -18,7 +18,7 @@ interface IconArrowProps extends DefaultProps {
 export default function IconArrow(props: IconArrowProps) {
   const styles: AnyObject = {
     ...DEF_STYLES,
-    ...props.styles,
+    ...props.style,
   }
   if (props.up) styles.transform = `rotate(-90deg)`
   if (props.down) styles.transform = `rotate(90deg)`

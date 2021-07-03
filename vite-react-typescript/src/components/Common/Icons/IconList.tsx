@@ -13,7 +13,7 @@ interface IconListProps extends DefaultProps {
 export default function IconList(props: IconListProps) {
   const styles: AnyObject = {
     ...DEF_STYLES,
-    ...props.styles,
+    ...props.style,
   }
   return (
     <svg className={props.className}

@@ -14,7 +14,7 @@ interface IconFoodProps extends DefaultProps {
 export default function IconFood(props: IconFoodProps) {
   const styles: AnyObject = {
     ...DEF_STYLES,
-    ...props.styles,
+    ...props.style,
   }
   return (
     <svg className={props.className}

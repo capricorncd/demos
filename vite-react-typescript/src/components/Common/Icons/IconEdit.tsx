@@ -14,7 +14,7 @@ interface IconEditProps extends DefaultProps {
 export default function IconEdit(props: IconEditProps) {
   const styles: AnyObject = {
     ...DEF_STYLES,
-    ...props.styles,
+    ...props.style,
   }
 
   return (

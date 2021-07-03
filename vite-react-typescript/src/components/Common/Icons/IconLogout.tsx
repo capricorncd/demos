@@ -13,7 +13,7 @@ interface IconListProps extends DefaultProps {
 export default function IconLogout(props: IconListProps) {
   const styles: AnyObject = {
     ...DEF_STYLES,
-    ...props.styles,
+    ...props.style,
   }
 
   return (

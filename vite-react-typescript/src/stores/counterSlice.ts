@@ -39,7 +39,7 @@ export const counterSlice = createSlice({
     },
     remove: (state: StoreCounterState, {payload}: PayloadAction<number>) => {
       const index = state.list.findIndex(item => item.id === payload)
-      if (index !== 1) {
+      if (index !== -1) {
         // @ts-ignore
         if (state.list[index].count > 1) {
           // @ts-ignore
