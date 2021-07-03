@@ -66,6 +66,10 @@
   text-overflow: ellipsis;
 }
 
+.clamp {
+  @include clamp(2);
+}
+
 .bold {
   font-weight: bolder !important;
 }
@@ -99,4 +103,8 @@
 
 .small-text {
   font-size: 0.8em !important;
+}
+
+.overflow {
+  overflow: hidden;
 }

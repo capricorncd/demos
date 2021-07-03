@@ -10,11 +10,11 @@ export function calc(val: string | number): string {
   return isNumberLike(val) ? `${val}px` : String(val)
 }
 
-export function toNumber(input: string | number): number {
+export function toNumber<T>(input: T, initValue = 0): number {
   try {
     const n = Number(input)
-    return isNaN(n) ? 0 : n
+    return isNaN(n) ? initValue : n
   } catch (e) {
-    return 0
+    return initValue
   }
 }

@@ -4,18 +4,31 @@
  * Date: 2021-06-19 17:03 (GMT+0900)
  */
 import React, { useState } from 'react'
-import './OrderList.scss'
-import {ClickFunction, DefaultProps} from '@/types'
+import {ClickFunction, DefaultProps, FoodDetail, StoreCounterListItem, StoreDataFoods} from '@/types'
 import AppPrice from '@/components/Common/AppPrice'
 import CountButtonGroup from '@/components/Common/CountButtonGroup'
 import {IconList, IconTrash} from '@/components/Common/Icons'
+import store, {counterSlice} from '@/stores'
+import './OrderList.scss'
 
 interface OrderListProps extends DefaultProps {
   visible?: boolean;
   onClose: ClickFunction;
+  data: StoreCounterListItem[];
+  foods: StoreDataFoods;
+}
+
+interface ListItem {
+  id: number;
+  name: string;
+  count: number;
+  price: number;
+  remark: string[];
 }
 
 export default function OrderList(props: OrderListProps) {
+  const foods = props.foods
+
   const [isInitialed, setIsInitialed] = useState(false)
   const maskClasses = ['order-list-popup__bg']
   const classes = ['order-list-popup bg-white']
@@ -31,20 +44,45 @@ export default function OrderList(props: OrderListProps) {
     classes.push('fade-bottom-out')
   }
 
+  function clear(e: React.MouseEvent): void {
+    store.dispatch(counterSlice.actions.removeAll())
+    props.onClose()
+  }
+
+  let temp: FoodDetail
+  const list: ListItem[] = props.data.map(item => {
+    temp = foods[item.id]
+    let price = temp.price
+    const remark: string[] = []
+    item.specifications?.forEach(s => {
+      price += s.price
+      remark.push(s.name)
+    })
+    return {
+      id: item.id,
+      name: temp.name,
+      count: item.count as number,
+      price,
+      remark,
+    }
+  })
+
+  const total = list.reduce((prev, item) => prev + item.count, 0)
+
   return (
     <>
       <div className={maskClasses.join(' ')} onClick={props.onClose}/>
       <dl className={classes.join(' ')} onClick={(e) => e.stopPropagation()}>
         <dt className="flex-space-between bg">
           <div className="fs12 flex">
-            <IconList/> 已选商品(20)</div>
-          <div className="fs12 color-gray flex">
+            <IconList/> 已选商品({total})</div>
+          <div className="fs12 color-gray flex" onClick={clear}>
             <IconTrash/> 清空
           </div>
         </dt>
         <dd>
           {
-            Array.from({length: 20}).map((v, i) => (<ListItem key={i}/>))
+            list.map((v, i) => (<ListItem key={i} item={v}/>))
           }
         </dd>
       </dl>
@@ -52,14 +90,28 @@ export default function OrderList(props: OrderListProps) {
   )
 }
 
-function ListItem() {
+
+
+function ListItem({item}: {item: ListItem}) {
+  function handleChange(isMinus: boolean): void {
+    if (isMinus) {
+      store.dispatch(counterSlice.actions.remove(item.id))
+    } else {
+      store.dispatch(counterSlice.actions.add( {
+        id: item.id,
+        specifications: [],
+      }))
+    }
+  }
+
   return (
     <section className="list-item">
       <div className="name">
-        <div className="fs14">商品名称但是开发建设贷款商品名称但是开发建设贷款</div>
+        <div className="fs14">{item.name}</div>
+        <div className="fs12 color-gray">{item.remark.join(' / ')}</div>
       </div>
-      <AppPrice className="price ml10" primary>{Math.round(Math.random() * 100000)}</AppPrice>
-      <CountButtonGroup className="btn-count" data={Math.round(Math.random() * 100)}/>
+      <AppPrice className="price ml10" primary>{item.price * item.count}</AppPrice>
+      <CountButtonGroup className="btn-count" foodId={item.id} change={handleChange}/>
     </section>
   )
 }

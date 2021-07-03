@@ -1,0 +1,79 @@
+{
+  "fileName": "Home",
+  "title": "首页数据获取API",
+  "desc": [
+    "获取首页推荐数据，分类数据，以及菜品数据的API"
+  ],
+  "apiUrl": "api/home",
+  "params": [
+  ],
+  "method": "get",
+  "children": [
+    {
+      "name": "HomeResponse",
+      "desc": [
+        "接口返回数据"
+      ],
+      "type": "interface",
+      "columns": [
+        {
+          "key": "trending_list",
+          "required": true,
+          "type": "FoodDetail[]",
+          "desc": "热门或推荐列表"
+        },
+        {
+          "key": "categories",
+          "required": true,
+          "type": "CategoryItem[]",
+          "desc": "分类列表"
+        },
+        {
+          "key": "food_list",
+          "required": true,
+          "type": "FoodDetail[]",
+          "desc": "食品/酒水/饮料列表"
+        },
+        {
+          "key": "specificationCategories",
+          "required": true,
+          "type": "FoodSpecCategoryItem[]",
+          "desc": "规格分类列表"
+        }
+      ]
+    },
+    {
+      "name": "CategoryItem",
+      "desc": [
+        "分类元素结构"
+      ],
+      "type": "interface",
+      "columns": [
+        {
+          "key": "id",
+          "required": true,
+          "type": "number",
+          "desc": "分类ID"
+        },
+        {
+          "key": "name",
+          "required": true,
+          "type": "string",
+          "desc": "分类名称"
+        },
+        {
+          "key": "sub_name",
+          "required": false,
+          "type": "string",
+          "desc": "其他（语言）名称"
+        },
+        {
+          "key": "icon",
+          "required": false,
+          "type": "string",
+          "desc": "分类图标"
+        }
+      ]
+    }
+  ]
+}

@@ -3,26 +3,27 @@
  * https://github.com/capricorncd
  * Date: 2021-06-12 22:57 (GMT+0900)
  */
-import React, {useState} from 'react'
+import React from 'react'
 import AppPrice from '@/components/Common/AppPrice'
-import {DefaultProps} from '@/types'
+import {DefaultProps, FoodSpecificationItem} from '@/types'
 import './index.scss'
 
 interface CheckBoxProps extends DefaultProps {
-  data: {
-    label: string;
-    price: number;
-  }
+  data: FoodSpecificationItem,
+  change?: (checked: boolean, item: FoodSpecificationItem) => void;
+  checked?: boolean;
 }
 export default function CheckBox(props: CheckBoxProps) {
-  const [checked, setChecked] = useState(false)
-
   const classes = ['check-box']
-  if (checked) classes.push('is-checked')
+  if (props.checked) classes.push('is-checked')
+
+  function handleClick() {
+    props.change && props.change(!props.checked, props.data)
+  }
 
   return (
-    <button className={classes.join(' ')} onClick={() => setChecked(!checked)}>
-      {props.data.label}
+    <button className={classes.join(' ')} onClick={handleClick}>
+      {props.data.name}
       <AppPrice className="price" fontSize={10}>{props.data.price}</AppPrice>
     </button>
   )

@@ -12,9 +12,10 @@ method: `get`
 
 字段名|类型|必须|说明
 :--|:--|:--|:--
-trending_list|FoodItem[]|yes|热门或推荐列表
+trending_list|FoodDetail[]|yes|热门或推荐列表
 categories|CategoryItem[]|yes|分类列表
-food_list|FoodItem[]|yes|食品/酒水/饮料列表
+food_list|FoodDetail[]|yes|食品/酒水/饮料列表
+specificationCategories|FoodSpecCategoryItem[]|yes|规格分类列表
 
 ## CategoryItem
 
@@ -26,19 +27,3 @@ id|number|yes|分类ID
 name|string|yes|分类名称
 sub_name|string|no|其他（语言）名称
 icon|string|no|分类图标
-
-## FoodItem
-
-商品、菜品
-
-字段名|类型|必须|说明
-:--|:--|:--|:--
-id|number|yes|商品ID
-name|string|yes|商品名称
-sub_name|string|no|二级名称
-category_id|number|yes|所属分类ID
-price|number|yes|价格
-special_price|number|no|优惠价格或会员价格
-remark|string|no|备注说明
-cover|string|yes|封面图
-sort|number|yes|显示顺序，从小至大

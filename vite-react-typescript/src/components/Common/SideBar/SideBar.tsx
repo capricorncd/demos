@@ -3,12 +3,13 @@
  * https://github.com/capricorncd
  * Date: 2021-06-21 19:38 (GMT+0900)
  */
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
-import './SideBar.scss'
 import {ClickFunction, DefaultProps} from '@/types'
-import {IconArrow, IconList, IconUser} from '@/components/Common/Icons'
+import {IconArrow, IconList, IconUser, IconLogout} from '@/components/Common/Icons'
 import { useAuth } from '@/components/Common/UseAuth/UseAuth'
+import {isUrlLike, setBodyScrollStatus} from '@/helpers'
+import './SideBar.scss'
 
 interface SideBarProps extends DefaultProps {
   visible: boolean;
@@ -30,11 +31,19 @@ export default function SideBar(props: SideBarProps) {
     innerClasses.push('slide-out-left')
   }
 
+  useEffect(() => {
+    setBodyScrollStatus(props.visible)
+  }, [props.visible])
+
   const history = useHistory()
   const auth = useAuth()
 
   function handleClick(path: string): void {
-    history.push(path)
+    if (isUrlLike(path)) {
+      location.href = path
+    } else {
+      history.push(path)
+    }
   }
 
   async function logout(): Promise<void> {
@@ -46,7 +55,7 @@ export default function SideBar(props: SideBarProps) {
     <>
       <section className={innerClasses.join(' ')}>
         <ul className="menu-list">
-          <li onClick={() => handleClick(props.data.html_url)}>
+          <li onClick={() => handleClick('https://github.com/Capricorncd')}>
             <div className="flex-center"><IconUser/></div>
             个人中心
           </li>
@@ -56,7 +65,7 @@ export default function SideBar(props: SideBarProps) {
           </li>
           <li onClick={logout}>
             <div className="flex-center">
-              <img src={props.data.avatar_url} alt=""/>
+              <IconLogout/>
             </div>
             退出登录
           </li>

@@ -7,6 +7,7 @@ import IconArrow from './IconArrow'
 import IconEdit from './IconEdit'
 import IconFood from './IconFood'
 import IconList from './IconList'
+import IconLogout from './IconLogout'
 import IconShoppingCart from './IconShoppingCart'
 import IconTrash from './IconTrash'
 import IconUser from './IconUser'
@@ -16,6 +17,7 @@ export {
   IconEdit,
   IconFood,
   IconList,
+  IconLogout,
   IconShoppingCart,
   IconTrash,
   IconUser,

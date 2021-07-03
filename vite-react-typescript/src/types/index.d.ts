@@ -10,3 +10,4 @@ export * from './Home';
 export * from './OrderDetail';
 export * from './OrderHistory';
 export * from './SubmitOrder';
+export * from './stores';

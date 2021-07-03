@@ -8,11 +8,10 @@ import './index.scss'
 import { DefaultProps } from '@/types'
 
 export interface AppTitleProps extends DefaultProps {
-
 }
 
 export default function AppTitle(props: AppTitleProps) {
   return (
-    <h6 className="mt10">種類・サイズなど<span className="small-text">（多数選択可能など）</span></h6>
+    <h6 className="mt10">{props.children}</h6>
   )
 }

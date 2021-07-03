@@ -5,7 +5,7 @@
  */
 const path = require('path')
 const fs = require('fs')
-const { categories, foods } = require('../constants')
+const { categories, foods, specificationCategories } = require('../constants')
 
 const apiConfigs = []
 
@@ -20,9 +20,16 @@ function readConfigs() {
   })
 }
 
+let specId = 1
+
 function createSpecifications() {
   return Array.from({length: Math.round(Math.random() * 10)}).map(() => {
-    return 'ddddd'
+    return {
+      id: specId++, // 规格ID
+      c_id: Math.max(1, Math.round(Math.random() * specificationCategories.length)), // 规格分类ID
+      name: "子选项名称", // 子选项名称
+      price: Math.round(Math.random() * 100) * 10,
+    }
   })
 }
 
@@ -30,6 +37,7 @@ let foodId = 1
 const CONTENT_TEMP = '详细说明内容可以为空，详细说明内容可以为空详细说明内容可以为空。详细说明内容可以为空，详细说明内容可以为空详细说明内容可以为空。'
 const REMARK_TEMP = '说明备注内容可以为空，说明备注内容可以为空说明备注内容可以为空。'
 const SUB_NAME_TEMP = '二级标题名称可以为空二级标题名称可以为空。'
+
 function createFoodItem(categoryId) {
   const cover = `./static/${Math.round(Math.random() * 10) || 1}.jpg`
   return {
@@ -58,6 +66,7 @@ function createFoodList() {
 }
 
 function createHomeResponse({ children }) {
+  foodId = 1
   const res = {}
   const response = children.find(item => item.name.includes('Response'))
   if (response) {
@@ -65,6 +74,9 @@ function createHomeResponse({ children }) {
       switch (item.key) {
         case 'categories':
           res.categories = categories
+          break
+        case 'specificationCategories':
+          res.specificationCategories = specificationCategories
           break
         case 'trending_list':
           res.trending_list = []

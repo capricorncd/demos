@@ -6,7 +6,7 @@
 import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Pagination, Autoplay } from 'swiper'
-import {DefaultProps} from '@/types'
+import {DefaultProps, FoodDetail} from '@/types'
 import {getClasses} from '@/helpers'
 import AppImage from '@/components/Common/AppImage'
 import welcomeCover from '~/temp/welcome.jpg'
@@ -49,7 +49,7 @@ export default function TopSwiper(props: TopSwiperProps) {
         ))}
       </Swiper>
 
-      <DetailPopup visible={detailVisible} onClose={() => setDetailVisible(false)}/>
+      <DetailPopup data={{} as FoodDetail} visible={detailVisible} onClose={() => setDetailVisible(false)}/>
     </div>
   )
 }

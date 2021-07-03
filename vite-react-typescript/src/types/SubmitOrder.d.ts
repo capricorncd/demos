@@ -5,7 +5,7 @@
  *
  * #提交订单API
  * 客户提交订单API
- * @apiUrl api/submit-order
+ * @apiUrl api/order/submit
  * @method post
  * @param foodList SubmitOrderFoodItem[] 所选食品信息列表
  * @param remark string 备注信息

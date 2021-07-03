@@ -14,7 +14,7 @@ Record<string, any>
 点击事件回调函数
 
 ```typescript
-(e: React.MouseEvent) => void
+(e?: React.MouseEvent) => void
 ```
 ## DefaultProps
 
@@ -26,3 +26,15 @@ className|string|no|css class名
 onClick|ClickFunction|no|点击事件回调函数
 children|JSX.Element / React.ReactNode|no|children
 styles|AnyObject|no|自定义样式
+data|AnyObject / AnyObject[]|no|数据
+
+## RequestOptions
+
+request HTTP请求参数
+
+字段名|类型|必须|说明
+:--|:--|:--|:--
+url|string|yes|-
+method|string|no|-
+data|AnyObject|no|-
+headers|AnyObject|no|-

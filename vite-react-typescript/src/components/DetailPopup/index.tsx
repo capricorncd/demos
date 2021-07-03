@@ -3,44 +3,52 @@
  * https://github.com/capricorncd
  * Date: 2021-06-12 17:45 (GMT+0900)
  */
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import AppImage from '@/components/Common/AppImage'
 import CheckBox from '@/components/Common/CheckBox'
-import AppButton from '@/components/Common/AppButton'
 import AppPrice from '@/components/Common/AppPrice'
 import AppTitle from '@/components/Common/AppTitle'
 import CountButtonGroup from '@/components/Common/CountButtonGroup'
-import {ClickFunction, DefaultProps} from '@/types'
+import {
+  ClickFunction,
+  DefaultProps,
+  FoodDetail,
+  FoodSpecificationItem,
+  RootState,
+  StoreCounterListItem,
+  StoreDataSpecCategories,
+  FoodSpecCategoryItem,
+} from '@/types'
+import {useSelector} from 'react-redux'
+import store, { counterSlice } from '@/stores'
+import { setBodyScrollStatus } from '@/helpers'
 import './index.scss'
-import welcomeCover from '~/temp/welcome.jpg'
 
 interface DetailProps extends DefaultProps {
   visible: boolean;
   onClose: ClickFunction;
+  data: FoodDetail;
 }
 
-const tags1 = Array.from({length: Math.round(Math.random() * 10) + 1}).map(() => {
-  return {
-    label: '飘香スペアリブ飘香ス'.slice(Math.round(Math.random() * 7)),
-    price: Math.round(Math.random() * 1000),
-  }
-})
-const tags2 = Array.from({length: Math.round(Math.random() * 10) + 1}).map(() => {
-  return {
-    label: '飘香スペアリブ飘香ス'.slice(Math.round(Math.random() * 7)),
-    price: Math.round(Math.random() * 1000),
-  }
-})
-const tags3 = Array.from({length: Math.round(Math.random() * 10) + 1}).map(() => {
-  return {
-    label: '飘香スペアリブ飘香ス'.slice(Math.round(Math.random() * 7)),
-    price: Math.round(Math.random() * 1000),
-  }
-})
+interface SpecificationData extends FoodSpecCategoryItem {
+  list: FoodSpecificationItem[];
+}
 
 export default function DetailPopup(props: DetailProps) {
+  if (!props.data.id) return null
+
+  const popupBodyRef = useRef<HTMLDivElement>(null)
+
+  const data = props.data
+  const foodId = data.id
+
+  const specificationCategories = useSelector<RootState>((state) => state.data.specificationCategories) as StoreDataSpecCategories
+  const selectedList = useSelector<RootState>((state) => state.counter.list) as StoreCounterListItem[]
+  const selectedItem = selectedList.find(item => item.id === foodId)
+  const specifications = selectedItem?.specifications || []
+
   const [isInitialed, setIsInitialed] = useState(false)
-  const [plusItems, setPlusItems] = useState(['飘香スペアリブ', '飘香スペアリ', '飘香スペアリブ', '飘香スペアリ', 'ブ飘香ス', 'ペアリブ', '飘香ス', 'ペアリ', 'ブ飘香スペア', 'リブ飘香スペア'])
+
 
   const classes: string[] = ['common-popup', 'detail-popup', 'fixed-full']
 
@@ -51,53 +59,100 @@ export default function DetailPopup(props: DetailProps) {
     classes.push('fade-out')
   }
 
+  useEffect(() => {
+    setBodyScrollStatus(props.visible)
+    if (props.visible) {
+      // @ts-ignore
+      popupBodyRef.current.scrollTop = 0
+    }
+  }, [props.visible])
+
   function handleClose(e: React.MouseEvent): void {
-    console.log('handleClose')
     e.stopPropagation()
     props.onClose(e)
   }
+
+
+  function handleChange(isMinus: boolean): void {
+    if (isMinus) {
+      store.dispatch(counterSlice.actions.remove(foodId))
+    } else {
+      store.dispatch(counterSlice.actions.add({
+        id: foodId,
+        specifications: specifications,
+      }))
+    }
+  }
+
+  function handleSelect(isChecked: boolean, item: FoodSpecificationItem): void {
+    const list = [...specifications]
+    if (isChecked) {
+      list.push(item)
+    } else {
+      list.splice(list.findIndex(s => s.id === item.id), 1)
+    }
+    // setSpecifications(list)
+    store.dispatch(counterSlice.actions.update({
+      id: foodId,
+      specifications: list
+    }))
+  }
+  const specPrice = specifications.reduce((prev, item) => prev + item.price, 0)
+  const price = selectedItem && selectedItem.count
+    ? selectedItem.count * (props.data.price + specPrice)
+    : 0
+
+  const specificationData: Record<string, SpecificationData> = {}
+  data.specifications.forEach(item => {
+    if (!specificationData[item.c_id]) {
+      specificationData[item.c_id] = {
+        ...specificationCategories[item.c_id],
+        list: []
+      }
+    }
+    specificationData[item.c_id].list.push(item)
+  })
 
   return (
     <section className={classes.join(' ')}>
       <section className="common-popup__inner shadow">
         <button className="close" onClick={handleClose}/>
         <dl className="header">
-          <AppImage className="cover" src={welcomeCover}/>
-          <dt className="ell mt10">飘香スペアリブ飘香スペアリブ飘香スペアリブ</dt>
-          <dd className="ell mt8">飘香小排</dd>
+          <AppImage className="cover" src={data.cover}/>
+          <dt className="mt10">{data.name}</dt>
+          <dd className="mt4">{data.sub_name}</dd>
         </dl>
 
-        <div className="body">
-          <AppTitle/>
+        <div className="body" ref={popupBodyRef}>
+          <div className="fs12 color-gray mt10">{data.remark}</div>
           {
-            tags1.map((v, k) => (
-              <CheckBox key={k} data={v}/>
+            Object.values(specificationData).map((item, index) => (
+              <div key={index}>
+              <AppTitle>{item.name}<span className="small-text">{item.is_multiple_choice ? '（多数選択可能）' : null}</span></AppTitle>
+              {
+                item.list.map((v, k) => (
+                  <CheckBox key={k} data={v} checked={specifications.some(item => item.id === v.id)} change={handleSelect}/>
+                ))
+              }
+              </div>
             ))
           }
-          <AppTitle/>
-          {
-            tags2.map((v, k) => (
-              <CheckBox key={k} data={v}/>
-            ))
-          }
-          <AppTitle/>
-          {
-            tags3.map((v, k) => (
-              <CheckBox key={k} data={v}/>
-            ))
-          }
-
-          <div className="detail-content gray">
-            <div>飘香スペアリブ飘香スペアリブ飘香スペアリブ、飘香スペアリブ飘香スペアリブ飘香スペアリブ飘香スペアリブ飘香スペアリブ飘香スペアリブ。</div>
-            <img src={welcomeCover} alt=""/>
+          <div className="detail-content color-gray">
+            <div>{data.content}</div>
+            {
+              data.image_list && data.image_list.map((url, k) => (<img src={url} key={k}/>))
+            }
           </div>
         </div>
 
         <div className="footer">
-          <AppPrice fontSize={24} primary>2300</AppPrice>
-          <div className="plus-items gray">{plusItems.join('、')}</div>
-          {/*<AppButton width={240} small onClick={props.onClose}>はい</AppButton>*/}
-          <CountButtonGroup className="btn-count"/>
+          {
+            price ? (
+              <AppPrice className={`total-price`} fontSize={24} primary>{price}</AppPrice>
+            ) : null
+          }
+          <div className="plus-items gray">{specifications.map(item => item.name).join('、')}</div>
+          <CountButtonGroup className="btn-count" foodId={props.data.id} change={handleChange}/>
         </div>
       </section>
     </section>

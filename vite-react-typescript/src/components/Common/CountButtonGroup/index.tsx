@@ -3,33 +3,29 @@
  * https://github.com/capricorncd
  * Date: 2021-06-12 15:35 (GMT+0900)
  */
-import React, { useState } from 'react'
+import React from 'react'
+import {DefaultProps, StoreCounterListItem, RootState} from '@/types'
+import {useSelector} from 'react-redux'
 import './index.scss'
-import {DefaultProps} from '@/types'
 
 interface CountButtonGroupProps extends DefaultProps {
-  data?: number;
+  foodId: number;
+  change: (isMinus: boolean) => void;
 }
 
 export default function CountButtonGroup(props: CountButtonGroupProps) {
-
-  const [count, setCount] = useState(props.data ?? 0)
-
+  const selectedList = useSelector<RootState>((state) => state.counter.list) as StoreCounterListItem[]
   const classes = ['common-count-button-group flex-end']
 
   if (props.className) classes.push(props.className)
-
-  function click(isMinus: boolean = false): void {
-    setCount(isMinus ? Math.max(0, count - 1) : count + 1)
-  }
-
+  const count = selectedList.find(item => item.id === props.foodId)?.count || 0
   if (count) classes.push('has-count')
 
   return (
     <section className={classes.join(' ')} onClick={(e) => e.stopPropagation()}>
-      <button className="minus" onClick={(e) => click(true)}/>
+      <button className="minus" onClick={(e) => props.change(true)}/>
       <div className="count">{count}</div>
-      <button className="plus" onClick={(e) => click()}/>
+      <button className="plus" onClick={(e) => props.change(false)}/>
     </section>
   )
 }

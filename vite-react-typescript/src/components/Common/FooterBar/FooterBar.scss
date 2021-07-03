@@ -1,49 +1,56 @@
-.footer-bar {
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-06-12 13:33 (GMT+0900)
+ */
+.footer-bar__btn {
   $height: 50px;
   position: fixed;
   z-index: 10;
   left: 10px;
+  bottom: 20px;
+  width: $height;
+  height: $height;
+}
+dl.footer-bar__submit {
+  $height: 50px;
+  position: fixed;
+  z-index: 10;
+  left: 70px;
   right: 10px;
   bottom: 20px;
-  display: flex;
-  align-items: center;
-  .footer-bar__btn-list {
-    width: $height;
-    flex: 0 0 $height;
-  }
-  dl {
-    border-radius: 25px;
-    flex: 1;
-    height: $height;
+  border-radius: 25px;
+  flex: 1;
+  height: $height;
 
-    .shopping-cart {
-      position: relative;
-      padding: 0 10px 0 20px;
-      color: $--color-white;
+  .shopping-cart {
+    position: relative;
+    padding: 0 10px 0 20px;
+    color: $--color-white;
 
-      &:after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: 0;
-        margin-top: -15px;
-        width: 1px;
-        height: 30px;
-        background: #fff;
-        opacity: 0.8;
-      }
-    }
-
-    .btn-confirm {
+    &:after {
+      content: '';
       position: absolute;
-      top: 0;
+      top: 50%;
       right: 0;
-      padding: 0 20px;
-      height: $height;
-      font-size: 16px;
-      border-radius: 25px;
-      background: none;
-      color: $--color-white;
+      margin-top: -15px;
+      width: 1px;
+      height: 30px;
+      background: #fff;
+      opacity: 0.8;
     }
+  }
+
+  .btn-confirm {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 20px;
+    height: $height;
+    font-size: 16px;
+    border-radius: 25px;
+    background: none;
+    color: $--color-white;
   }
 }
+

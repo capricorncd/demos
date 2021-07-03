@@ -4,8 +4,8 @@
  * Date: 2021-06-20 22:06 (GMT+0900)
  */
 import React from 'react'
-import './OrderTop.scss'
 import {IconFood} from '@/components/Common/Icons'
+import './OrderTop.scss'
 
 export default function OrderTop() {
   return (

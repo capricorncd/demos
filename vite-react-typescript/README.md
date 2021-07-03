@@ -30,6 +30,8 @@ npm run serve
 npm run docs
 ```
 
+启动API服务
+
 ```shell script
 # run api service
 npm run api

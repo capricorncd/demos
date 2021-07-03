@@ -1,0 +1,159 @@
+{
+  "fileName": "FoodDetail",
+  "title": "菜品/食物详情API",
+  "desc": [
+    "获取菜品详情的API"
+  ],
+  "apiUrl": "api/food/detail",
+  "params": [
+    {
+      "key": "foodId",
+      "type": "number",
+      "desc": "食品ID"
+    }
+  ],
+  "method": "get",
+  "children": [
+    {
+      "name": "FoodDetail",
+      "desc": [
+        "接口返回数据"
+      ],
+      "type": "interface",
+      "columns": [
+        {
+          "key": "id",
+          "required": true,
+          "type": "number",
+          "desc": "商品ID"
+        },
+        {
+          "key": "name",
+          "required": true,
+          "type": "string",
+          "desc": "商品名称"
+        },
+        {
+          "key": "sub_name",
+          "required": false,
+          "type": "string",
+          "desc": "二级名称"
+        },
+        {
+          "key": "category_id",
+          "required": true,
+          "type": "number",
+          "desc": "所属分类ID"
+        },
+        {
+          "key": "price",
+          "required": true,
+          "type": "number",
+          "desc": "默认价格"
+        },
+        {
+          "key": "special_price",
+          "required": false,
+          "type": "number",
+          "desc": "优惠价格或会员价格"
+        },
+        {
+          "key": "remark",
+          "required": false,
+          "type": "string",
+          "desc": "备注说明"
+        },
+        {
+          "key": "cover",
+          "required": true,
+          "type": "string",
+          "desc": "封面图"
+        },
+        {
+          "key": "content",
+          "required": false,
+          "type": "string",
+          "desc": "详细说明"
+        },
+        {
+          "key": "image_list",
+          "required": true,
+          "type": "string[]",
+          "desc": "图片列表"
+        },
+        {
+          "key": "specifications",
+          "required": true,
+          "type": "FoodSpecificationItem[]",
+          "desc": "食物规格列表"
+        }
+      ]
+    },
+    {
+      "name": "FoodSpecCategoryItem",
+      "desc": [
+        "食物规格分类"
+      ],
+      "type": "interface",
+      "columns": [
+        {
+          "key": "id",
+          "required": true,
+          "type": "number",
+          "desc": "规格分类ID"
+        },
+        {
+          "key": "name",
+          "required": true,
+          "type": "string",
+          "desc": "规格分类名称"
+        },
+        {
+          "key": "is_required",
+          "required": true,
+          "type": "boolean",
+          "desc": "是否必选"
+        },
+        {
+          "key": "is_multiple_choice",
+          "required": true,
+          "type": "boolean",
+          "desc": "是否为多选"
+        }
+      ]
+    },
+    {
+      "name": "FoodSpecificationItem",
+      "desc": [
+        "规格子选项"
+      ],
+      "type": "interface",
+      "columns": [
+        {
+          "key": "id",
+          "required": true,
+          "type": "number",
+          "desc": "规格ID"
+        },
+        {
+          "key": "c_id",
+          "required": true,
+          "type": "number",
+          "desc": "规格分类ID"
+        },
+        {
+          "key": "name",
+          "required": true,
+          "type": "string",
+          "desc": "子选项名称"
+        },
+        {
+          "key": "price",
+          "required": true,
+          "type": "number",
+          "desc": "差价。默认价格的基础上增减，取值`-n ~ +n`"
+        }
+      ]
+    }
+  ]
+}

@@ -6,7 +6,7 @@
 import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import TrendingItem from './TrendingItem'
-import {DefaultProps} from '@/types'
+import {DefaultProps, FoodDetail} from '@/types'
 import './index.scss'
 import DetailPopup from '@/components/DetailPopup'
 
@@ -23,12 +23,12 @@ export default function TrendingSwiper(props: TrendingSwiperProps) {
       >
         {Array.from({length: 20}).map((item, i) => (
           <SwiperSlide key={i}>
-            <TrendingItem data={i} showDetail={() => setDetailVisible(true)}/>
+            <TrendingItem index={i} showDetail={() => setDetailVisible(true)}/>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      <DetailPopup visible={detailVisible} onClose={() => setDetailVisible(false)}/>
+      <DetailPopup data={{} as FoodDetail} visible={detailVisible} onClose={() => setDetailVisible(false)}/>
     </div>
   )
 }

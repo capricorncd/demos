@@ -2,7 +2,7 @@
 
 客户提交订单API
 
-api: `api/submit-order`
+api: `api/order/submit`
 
 method: `post`
 

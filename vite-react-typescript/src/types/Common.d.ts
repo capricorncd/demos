@@ -12,7 +12,7 @@ import React from 'react'
 export type AnyObject = Record<string, any>;
 
 // 点击事件回调函数
-export type ClickFunction = (e: React.MouseEvent) => void;
+export type ClickFunction = (e?: React.MouseEvent) => void;
 
 // 组件默认属性
 export interface DefaultProps {

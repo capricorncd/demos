@@ -1,0 +1,55 @@
+{
+  "fileName": "FoodList",
+  "title": "菜品/食物列表API",
+  "desc": [
+    "获取菜品列表的API"
+  ],
+  "apiUrl": "api/food/list",
+  "params": [
+    {
+      "key": "page",
+      "type": "number",
+      "desc": "页码，默认1"
+    },
+    {
+      "key": "limit",
+      "type": "number",
+      "desc": "每页多少条数据，默认10"
+    }
+  ],
+  "method": "get",
+  "children": [
+    {
+      "name": "FoodListResponse",
+      "desc": [
+      ],
+      "type": "interface",
+      "columns": [
+        {
+          "key": "total",
+          "required": true,
+          "type": "number",
+          "desc": ""
+        },
+        {
+          "key": "page",
+          "required": true,
+          "type": "number",
+          "desc": ""
+        },
+        {
+          "key": "limit",
+          "required": true,
+          "type": "number",
+          "desc": ""
+        },
+        {
+          "key": "list",
+          "required": true,
+          "type": "FoodDetail[]",
+          "desc": ""
+        }
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@
  * Date: 2021-06-26 21:32 (GMT+0900)
  */
 import {AnyObject, RequestOptions} from '@/types'
-import {isUrlLike, isObject} from "@/helpers/check";
+import {isUrlLike, isObject} from '@/helpers/check'
 
 const DEF_HEADERS = {
   "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",

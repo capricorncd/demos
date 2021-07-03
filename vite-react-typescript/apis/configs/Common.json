@@ -1,0 +1,101 @@
+{
+  "fileName": "Common",
+  "title": "Common.d.ts",
+  "desc": [
+    "公用类型定义文件"
+  ],
+  "apiUrl": null,
+  "params": [
+  ],
+  "method": null,
+  "children": [
+    {
+      "type": "type",
+      "name": "AnyObject",
+      "desc": [
+        "任意对象类型"
+      ],
+      "code": "Record<string, any>"
+    },
+    {
+      "type": "type",
+      "name": "ClickFunction",
+      "desc": [
+        "点击事件回调函数"
+      ],
+      "code": "(e?: React.MouseEvent) => void"
+    },
+    {
+      "name": "DefaultProps",
+      "desc": [
+        "组件默认属性"
+      ],
+      "type": "interface",
+      "columns": [
+        {
+          "key": "className",
+          "required": false,
+          "type": "string",
+          "desc": "css class名"
+        },
+        {
+          "key": "onClick",
+          "required": false,
+          "type": "ClickFunction",
+          "desc": "点击事件回调函数"
+        },
+        {
+          "key": "children",
+          "required": false,
+          "type": "JSX.Element / React.ReactNode",
+          "desc": "children"
+        },
+        {
+          "key": "styles",
+          "required": false,
+          "type": "AnyObject",
+          "desc": "自定义样式"
+        },
+        {
+          "key": "data",
+          "required": false,
+          "type": "AnyObject / AnyObject[]",
+          "desc": "数据"
+        }
+      ]
+    },
+    {
+      "name": "RequestOptions",
+      "desc": [
+        "request HTTP请求参数"
+      ],
+      "type": "interface",
+      "columns": [
+        {
+          "key": "url",
+          "required": true,
+          "type": "string",
+          "desc": ""
+        },
+        {
+          "key": "method",
+          "required": false,
+          "type": "string",
+          "desc": ""
+        },
+        {
+          "key": "data",
+          "required": false,
+          "type": "AnyObject",
+          "desc": ""
+        },
+        {
+          "key": "headers",
+          "required": false,
+          "type": "AnyObject",
+          "desc": ""
+        }
+      ]
+    }
+  ]
+}

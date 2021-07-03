@@ -5,7 +5,7 @@
  */
 import React, {useState, useEffect, useRef} from 'react'
 import './index.scss'
-import {AnyObject, DefaultProps} from '@/types'
+import {AnyObject, DefaultProps, FoodDetail, HomeResponse} from '@/types'
 import {getClasses, $} from '@/helpers'
 import ListItem from '@/components/Common/ListItem'
 import DetailPopup from '@/components/DetailPopup'
@@ -14,16 +14,8 @@ import { positionHandler } from './positionHandler'
 const HEIGHT_OFFSET = 0
 
 interface CategoryListProps extends DefaultProps {
-
+  data: HomeResponse;
 }
-
-const list = Array.from({length: 30}).map((v, i) => {
-  return {
-    categoryId: i + 1,
-    categoryName: i + '分类名称分类名称分类名称'.slice(0, Math.round(Math.random() * 10)),
-    list: Array.from({length: Math.round(Math.random() * 10) || 1})
-  }
-})
 
 let isMenuClick = false
 
@@ -32,6 +24,7 @@ export default function CategoryList(props: CategoryListProps) {
   const [winHeight, setWinHeight] = useState(window.innerHeight - HEIGHT_OFFSET)
   const [index, setIndex] = useState(0)
   const [detailVisible, setDetailVisible] = useState(false)
+  const [selectItem, setSelectItem] = useState<FoodDetail>({} as FoodDetail)
 
   const listRef = useRef(null)
 
@@ -66,6 +59,14 @@ export default function CategoryList(props: CategoryListProps) {
     window.addEventListener('resize', () => {
       setWinHeight(window.innerHeight - HEIGHT_OFFSET)
     })
+
+    if (props.children) {
+      props.data.categories.unshift({
+        id: 0,
+        name: '推荐',
+        sub_name: '',
+      })
+    }
   }, [])
 
   const styles: AnyObject = {
@@ -80,22 +81,24 @@ export default function CategoryList(props: CategoryListProps) {
     positionHandler($('.content', listRef.current)[0], i, () => isMenuClick = false)
   }
 
-  if (props.children && list[0].categoryName !== '推荐') list.unshift({
-    categoryName: '推荐',
-    categoryId: 0,
-    list: []
+  const foods: Record<string, FoodDetail[]> = {}
+  props.data.food_list.forEach(item => {
+    if (!foods[item.category_id]) {
+      foods[item.category_id] = []
+    }
+    foods[item.category_id].push(item)
   })
 
   return (
     <section className={classes} style={styles} ref={listRef}>
       <ul className="side bg">
         {
-          list.map((v, i) => (
+          props.data.categories.map((item, i) => (
             <li
               className={index === i ? 'active' : ''}
               key={i}
               onClick={() => changeIndex(i)}>
-              { v.categoryName }
+              { item.name }
             </li>
           ))
         }
@@ -104,19 +107,27 @@ export default function CategoryList(props: CategoryListProps) {
       <ul className="content">
         { props.children ? (<li>{ props.children  }</li>) : null }
         {
-          list.map((v, i) => v.list.length > 0 ? (
+          props.data.categories.map((v, i) => foods[v.id] ? (
             <li key={i} data-index={i}>
-              <h5 className="mt15">{v.categoryName}</h5>
+              <h5 className="mt15">{v.name}</h5>
               {
-                v.list.map((item, j) => (
-                  <ListItem key={j} onClick={() => setDetailVisible(true)}/>
+                foods[v.id].map((item, j) => (
+                  <ListItem data={item} key={j} onClick={
+                    () => {
+                      setSelectItem(item)
+                      setDetailVisible(true)
+                    }
+                  }/>
                 ))
               }
             </li>
           ) : null)
         }
       </ul>
-      <DetailPopup visible={detailVisible} onClose={() => setDetailVisible(false)}/>
+      <DetailPopup
+        data={selectItem}
+        visible={detailVisible}
+        onClose={() => setDetailVisible(false)}/>
     </section>
   )
 }

@@ -1,0 +1,59 @@
+{
+  "fileName": "SubmitOrder",
+  "title": "提交订单API",
+  "desc": [
+    "客户提交订单API"
+  ],
+  "apiUrl": "api/order/submit",
+  "params": [
+    {
+      "key": "foodList",
+      "type": "SubmitOrderFoodItem[]",
+      "desc": "所选食品信息列表"
+    },
+    {
+      "key": "remark",
+      "type": "string",
+      "desc": "备注信息"
+    }
+  ],
+  "method": "post",
+  "children": [
+    {
+      "name": "SubmitOrderFoodItem",
+      "desc": [
+        "所选食品信息"
+      ],
+      "type": "interface",
+      "columns": [
+        {
+          "key": "foodId",
+          "required": true,
+          "type": "number",
+          "desc": "食品ID"
+        },
+        {
+          "key": "count",
+          "required": true,
+          "type": "number",
+          "desc": "所选数量"
+        },
+        {
+          "key": "specifications",
+          "required": true,
+          "type": "number[]",
+          "desc": "所选规格ID列表"
+        }
+      ]
+    },
+    {
+      "name": "SubmitOrderResponse",
+      "desc": [
+        "接口返回数据"
+      ],
+      "type": "interface",
+      "columns": [
+      ]
+    }
+  ]
+}

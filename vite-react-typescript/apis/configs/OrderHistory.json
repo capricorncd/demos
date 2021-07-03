@@ -1,0 +1,77 @@
+{
+  "fileName": "OrderHistory",
+  "title": "历史订单列表API",
+  "desc": [
+    "获取历史订单数据列表API"
+  ],
+  "apiUrl": "api/order/history",
+  "params": [
+    {
+      "key": "page",
+      "type": "number",
+      "desc": "页码"
+    }
+  ],
+  "method": null,
+  "children": [
+    {
+      "name": "OrderHistoryResponse",
+      "desc": [
+        "接口返回数据"
+      ],
+      "type": "interface",
+      "columns": [
+        {
+          "key": "order_list",
+          "required": true,
+          "type": "OrderHistoryListItem[]",
+          "desc": ""
+        },
+        {
+          "key": "total",
+          "required": true,
+          "type": "number",
+          "desc": "总条数"
+        },
+        {
+          "key": "limit",
+          "required": true,
+          "type": "number",
+          "desc": "每页订单数"
+        }
+      ]
+    },
+    {
+      "name": "OrderHistoryListItem",
+      "desc": [
+      ],
+      "type": "interface",
+      "columns": [
+        {
+          "key": "id",
+          "required": true,
+          "type": "string",
+          "desc": "订单号"
+        },
+        {
+          "key": "create_data",
+          "required": true,
+          "type": "string",
+          "desc": "下单时间"
+        },
+        {
+          "key": "count",
+          "required": true,
+          "type": "number",
+          "desc": "件数"
+        },
+        {
+          "key": "total_price",
+          "required": true,
+          "type": "number",
+          "desc": "总消费价格"
+        }
+      ]
+    }
+  ]
+}
