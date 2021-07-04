@@ -24,6 +24,6 @@ export function removeCache(key: string, isSessionStorage = false): void {
   getStorage(isSessionStorage).removeItem(key)
 }
 
-export function removeCacheAll(isSessionStorage = false) {
+export function clearCache(isSessionStorage = false) {
   getStorage(isSessionStorage).clear()
 }

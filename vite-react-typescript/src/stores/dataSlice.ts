@@ -4,7 +4,26 @@
  * Date: 2021-07-01 20:24 (GMT+0900)
  */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import {CategoryItem, FoodDetail, StoreDataState, FoodSpecCategoryItem} from '@/types'
+import {CategoryItem, FoodDetail, StoreDataState, FoodSpecCategoryItem, HomeResponse, UserInfo, ShopInfo} from '@/types'
+
+const defaultBaseData = {
+  user_info: {
+    id: 0,
+    name: '',
+    avatar: '',
+  },
+  entry_cover: '',
+  shop_info: {
+    shop_id: 0,
+    shop_name: '',
+    shop_sub_name: '',
+    table_id: 0,
+    table_name: '',
+    price_symbol: '¥',
+    is_tax_included: false,
+  },
+  primary_color: '',
+}
 
 // Define the initial state using that type
 const initialState: StoreDataState = {
@@ -12,6 +31,9 @@ const initialState: StoreDataState = {
   categories: {},
   specificationCategories: {},
   specifications: {},
+  baseData: {
+    ...defaultBaseData,
+  },
 }
 
 
@@ -19,12 +41,30 @@ export const dataSlice = createSlice({
   name: 'data',
   initialState,
   reducers: {
-    updateFoods: (state: StoreDataState, {payload}: PayloadAction<FoodDetail[]>) => {
+    update(state: StoreDataState, {payload}: PayloadAction<HomeResponse>): void {
+      const { food_list: foodList, categories, specificationCategories } = payload
+      if (foodList) {
+        foodList.forEach(item => {
+          state.foods[item.id] = item
+        })
+      }
+      if (categories) {
+        categories.forEach(item => {
+          state.categories[item.id] = item
+        })
+      }
+      if (specificationCategories) {
+        specificationCategories.forEach(item => {
+          state.specificationCategories[item.id] = item
+        })
+      }
+    },
+    updateFoods(state: StoreDataState, {payload}: PayloadAction<FoodDetail[]>): void {
       payload.forEach(item => {
         state.foods[item.id] = item
       })
     },
-    updateCategories: (state: StoreDataState, {payload}: PayloadAction<CategoryItem[]>) => {
+    updateCategories(state: StoreDataState, {payload}: PayloadAction<CategoryItem[]>): void {
       payload.forEach(item => {
         state.categories[item.id] = item
       })

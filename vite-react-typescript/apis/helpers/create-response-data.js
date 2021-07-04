@@ -25,9 +25,9 @@ let specId = 1
 function createSpecifications() {
   return Array.from({length: Math.round(Math.random() * 10)}).map(() => {
     return {
-      id: specId++, // 规格ID
+      id: specId, // 规格ID
       c_id: Math.max(1, Math.round(Math.random() * specificationCategories.length)), // 规格分类ID
-      name: "子选项名称", // 子选项名称
+      name: "子选项名称" + specId++, // 子选项名称
       price: Math.round(Math.random() * 100) * 10,
     }
   })
@@ -65,6 +65,8 @@ function createFoodList() {
   })
 }
 
+let _foodList = null
+
 function createHomeResponse({ children }) {
   foodId = 1
   const res = {}
@@ -82,7 +84,7 @@ function createHomeResponse({ children }) {
           res.trending_list = []
           break
         case 'food_list':
-          res.food_list = Array.prototype.concat.apply([], createFoodList())
+          res.food_list = _foodList
           break
       }
     })
@@ -90,7 +92,37 @@ function createHomeResponse({ children }) {
   return res
 }
 
-function createResponseData(api) {
+function createSubmitResponse(cfg, reqParams) {
+  let temp
+  const list = reqParams.foodList
+    ? reqParams.foodList.map(item => {
+      temp = _foodList.find(f => f.id === item.id) || {}
+      return {
+        ...temp,
+        count: item.count,
+        specifications: item.specifications
+          ? item.specifications.map(cid => {
+            return {
+              ...temp.specifications.find(s => s.id === cid)
+            }
+          })
+          : []
+      }
+    })
+    : []
+  return {
+    order_id: `ORDER${Math.random().toString().slice(2)}`,
+    status: 1,
+    shop_id: 1,
+    shop_name: 'Shop name',
+    table_name: 'Table Name',
+    list,
+    create_date: +new Date(),
+    remark: reqParams.remark,
+  }
+}
+
+function createResponseData(api, reqParams) {
   const apiFullPath = api.slice(1)
   console.log('apiFullPath', apiFullPath)
   if (!apiConfigs.length) {
@@ -101,10 +133,13 @@ function createResponseData(api) {
   console.log(cfg)
   if (!cfg) return {}
 
+  if (!_foodList) _foodList = Array.prototype.concat.apply([], createFoodList())
+
   switch (apiFullPath) {
     case 'api/home':
       return createHomeResponse(cfg)
-      break
+    case 'api/order/submit':
+      return createSubmitResponse(cfg, reqParams)
   }
   return {}
 }

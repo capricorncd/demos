@@ -7,12 +7,13 @@ import React, { useState, useEffect } from 'react'
 // import {Link} from 'react-router-dom'
 import TopSwiper from '@/components/Home/TopSwiper'
 import TrendingSwiper from '@/components/Home/TrendingSwiper'
-import CategoryList from '@/components/Common/CategoryList'
-import FooterBar from '@/components/Common/FooterBar/FooterBar'
-import { request } from '@/helpers'
+import CategoryList from '@/components/Home/CategoryList'
+import FooterBar from '@/components/Home/FooterBar/FooterBar'
+import {request, getCache, setCache} from '@/helpers'
 import {HomeResponse} from '@/types'
-import App from '@/assets/constants/App'
+import {Apis, CacheKeys} from '@/assets/constants'
 import store, { dataSlice } from '@/stores'
+import Loading from '@/components/Common/Loading/Loading'
 import './Home.scss'
 
 export default function Home() {
@@ -20,17 +21,26 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    request.get<HomeResponse>(App.apis.HOME).then(res => {
-      console.log(res);
-      setData(res)
+    function init(data: HomeResponse, doNotCache = false): void {
+      setData(data)
       setIsLoaded(true)
-      store.dispatch(dataSlice.actions.updateFoods(res.food_list))
-      store.dispatch(dataSlice.actions.updateCategories(res.categories))
-      store.dispatch(dataSlice.actions.updateSpecCategories(res.specificationCategories))
-    }).catch(err => {
+      if (!doNotCache) setCache(CacheKeys.homeApiData, data)
+      store.dispatch(dataSlice.actions.update(data))
+    }
+    const cache: HomeResponse | null = getCache(CacheKeys.homeApiData)
+    if (cache) {
+      init(cache, true)
+      return
+    }
+
+    request.get<HomeResponse>(Apis.home).then(init).catch(err => {
       console.error(err);
     })
   }, [])
+
+  if (!isLoaded) {
+    return (<Loading/>)
+  }
 
   return data ? (
     <div className="home-page">

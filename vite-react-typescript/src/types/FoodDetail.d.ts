@@ -22,6 +22,8 @@ export interface FoodDetail {
   content?: string; // 详细说明
   image_list: string[]; // 图片列表
   specifications: FoodSpecificationItem[]; // 食物规格列表
+  // 前端临时字段，确认订单页使用，api不返回该字段
+  count?: number;
 }
 
 // 食物规格分类

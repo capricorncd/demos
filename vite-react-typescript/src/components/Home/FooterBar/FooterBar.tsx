@@ -5,7 +5,7 @@
  */
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import OrderList from '@/components/Common/OrderList/OrderList'
+import OrderList from '@/components/Home/OrderList/OrderList'
 import {Link} from 'react-router-dom'
 import {IconArrow, IconFood, IconUser} from '@/components/Common/Icons'
 import AppButton from '@/components/Common/AppButton'

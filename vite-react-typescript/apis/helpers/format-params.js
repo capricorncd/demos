@@ -5,24 +5,11 @@
  */
 function formatParams(input) {
     if (!input) return {}
-    const result = {}
-    let temp
-    // a=1&b=222
-    decodeURIComponent(input).split('&').forEach(str => {
-        const [key, value] = str.split('=')
-        if (!key) return
-        // post array
-        if (/(\w+)\[\]/.test(key)) {
-            temp = RegExp.$1
-            if (!result[temp]) {
-                result[temp] = []
-            }
-            result[temp].push(value)
-        } else {
-            result[key] = value
-        }
-    })
-    return result
+    try {
+        return JSON.parse(input)
+    } catch (e) {
+        return input
+    }
 }
 
 module.exports = {

@@ -12,7 +12,7 @@ params:
 :--|:--|:--
 platform|sting|入口平台，微信`weixin`/LINE`line`/PayPay`paypay`/普通浏览器`other`
 shopId|string|商铺ID或唯一标识
-tableId|number|餐桌编号(下单时再提交？)
+tableId|number|餐桌Id(下单时再提交？)
 redirectUrl|string|授权成功后的跳转地址
 
 ## AuthResponse
@@ -21,7 +21,8 @@ redirectUrl|string|授权成功后的跳转地址
 :--|:--|:--|:--
 user_info|UserInfo|yes|用户信息
 entry_cover|string|no|欢迎页封面图。为空则不显示欢迎页面，直接进入菜品主页
-basic_data|BasicData|yes|基数数据
+shop_info|ShopInfo|yes|店铺信息
+primary_color|string|yes|主题色
 
 ## UserInfo
 
@@ -33,11 +34,16 @@ id|number|yes|用户ID
 name|string|yes|用户昵称
 avatar|string|yes|用户头像
 
-## BasicData
+## ShopInfo
 
 系统/店铺基础数据
 
 字段名|类型|必须|说明
 :--|:--|:--|:--
-price_symbol|string|yes|价格符号
-isTaxIncluded|boolean|yes|是否为含税价格
+shop_id|number|yes|店铺Id
+shop_name|string|yes|店铺名称
+shop_sub_name|string|yes|店铺别名或其他语言名称
+table_id|number|yes|扫码对应的餐桌id
+table_name|string|yes|餐桌名称或编号，如8号（桌），xx包间等
+price_symbol|string|yes|价格符号，如$/¥
+is_tax_included|boolean|yes|是否为含税价格

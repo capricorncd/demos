@@ -51,7 +51,7 @@
           "desc": "children"
         },
         {
-          "key": "styles",
+          "key": "style",
           "required": false,
           "type": "AnyObject",
           "desc": "自定义样式"

@@ -29,15 +29,18 @@ cover|string|yes|封面图
 content|string|no|详细说明
 image_list|string[]|yes|图片列表
 specifications|FoodSpecificationItem[]|yes|食物规格列表
+count|number|no|-
 
 ## FoodSpecCategoryItem
 
+前端临时字段，确认订单页使用，api不返回该字段
 食物规格分类
 
 字段名|类型|必须|说明
 :--|:--|:--|:--
 id|number|yes|规格分类ID
 name|string|yes|规格分类名称
+sub_name|string|yes|别名或其他语言
 is_required|boolean|yes|是否必选
 is_multiple_choice|boolean|yes|是否为多选
 

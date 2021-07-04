@@ -6,24 +6,31 @@
 import React from 'react'
 import {IconFood} from '@/components/Common/Icons'
 import './OrderTop.scss'
+import {DefaultProps, OrderDetailResponse} from '@/types'
+import { OrderStatus } from '@/assets/constants'
 
-export default function OrderTop() {
+interface OrderTopProps extends DefaultProps {
+  data: OrderDetailResponse;
+}
+
+export default function OrderTop(props: OrderTopProps) {
+  const status = props.data.status
   return (
     <section className={`order-page__top`}>
       <div className="align-center">订单号</div>
-      <h1 className="align-center mt10">S32320210614125410001</h1>
+      <h1 className="align-center mt10">{props.data.order_id}</h1>
       <dl className={`order-status`}>
-        <dd className={`color-gray-light`}>
+        <dd className={status === OrderStatus.placed ? `active` : ``}>
           <IconFood/>
           <div>已下单</div>
         </dd>
         <dd className="space"/>
-        <dd>
+        <dd className={status === OrderStatus.making ? `active` : ``}>
           <IconFood/>
           <div>制作中</div>
         </dd>
         <dd className="space"/>
-        <dd className={`color-gray-light`}>
+        <dd className={status === OrderStatus.completed ? `active` : ``}>
           <IconFood/>
           <div>已完成</div>
         </dd>

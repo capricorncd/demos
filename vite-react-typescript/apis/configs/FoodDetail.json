@@ -86,12 +86,19 @@
           "required": true,
           "type": "FoodSpecificationItem[]",
           "desc": "食物规格列表"
+        },
+        {
+          "key": "count",
+          "required": false,
+          "type": "number",
+          "desc": ""
         }
       ]
     },
     {
       "name": "FoodSpecCategoryItem",
       "desc": [
+        "前端临时字段，确认订单页使用，api不返回该字段",
         "食物规格分类"
       ],
       "type": "interface",
@@ -107,6 +114,12 @@
           "required": true,
           "type": "string",
           "desc": "规格分类名称"
+        },
+        {
+          "key": "sub_name",
+          "required": true,
+          "type": "string",
+          "desc": "别名或其他语言"
         },
         {
           "key": "is_required",

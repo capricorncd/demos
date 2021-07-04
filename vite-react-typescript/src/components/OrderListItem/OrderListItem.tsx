@@ -7,26 +7,36 @@ import React from 'react'
 import AppPrice from '@/components/Common/AppPrice'
 import AppImage from '@/components/Common/AppImage'
 import './OrderListItem.scss'
-import {DefaultProps} from '@/types'
-import tempImgPath from '~/temp/welcome.jpg'
+import {DefaultProps, FoodDetail} from '@/types'
 
 interface OrderListItemProps extends DefaultProps {
-
+  data: FoodDetail;
 }
 
 export default function OrderListItem(props: OrderListItemProps) {
   const classes = ['order-list-item']
   if (props.className) classes.push(props.className)
+
+  const data = props.data
+  let price = data.price
+  let remark: string[] = []
+  if (data.specifications) {
+    data.specifications.forEach(item => {
+      price += item.price
+      remark.push(item.name)
+    })
+  }
+
   return (
     <dl className={classes.join(' ')}>
-      <AppImage src={tempImgPath} className={`cover`}/>
+      <AppImage src={data.cover} className={`cover`}/>
       <dt>
-        <h4>商品名称菜品名称名称名称商品名称菜品名称名称名称</h4>
-        <AppPrice>343</AppPrice>
+        <h4>{data.name}</h4>
+        <AppPrice>{price}</AppPrice>
       </dt>
       <dd className="flex-space-between fs12 color-gray">
-        <div>说明说明说明说明</div>
-        <div>x {Math.round(Math.random() * 5) || 1}</div>
+        <div className={`remark`}>{remark.join('、')}</div>
+        <div>x {data.count}</div>
       </dd>
     </dl>
   )

@@ -5,12 +5,14 @@
  */
 import {FoodDetail, FoodSpecCategoryItem} from '@/types/FoodDetail'
 import {CategoryItem} from '@/types/Home'
+import {AuthResponse} from '@/types/Auth'
 
 export interface StoreDataState {
   foods: StoreDataFoods;
   categories: StoreDataCategories;
   specificationCategories: StoreDataSpecCategories;
   specifications: {};
+  baseData: AuthResponse;
 }
 
 export type StoreDataFoods = Record<string, FoodDetail>;

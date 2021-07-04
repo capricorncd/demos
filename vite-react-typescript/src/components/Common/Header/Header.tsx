@@ -22,8 +22,14 @@ export default function Header(props: HeaderProps) {
       <Link to={props.backPath || '/home'} className="back flex-center">
         <IconArrow left className="icon color-white"/>
       </Link>
-      <h4>店铺名称</h4>
-      <p className="fs12">桌号 8</p>
+      {
+        props.children ? props.children : (
+          <>
+            <h4>店铺名称</h4>
+            <p className="fs12">桌号 8</p>
+          </>
+        )
+      }
       <div className="top-right-wrapper">{props.rightChildren}</div>
     </header>
   )

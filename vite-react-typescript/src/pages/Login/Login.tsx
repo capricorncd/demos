@@ -5,7 +5,7 @@
  */
 import React, { useState } from 'react'
 import {useHistory, useLocation} from 'react-router-dom'
-import {useAuth} from '@/components/Common/UseAuth/UseAuth'
+import {useAuth} from '@/components/UseAuth/UseAuth'
 import './Login.scss'
 import AppButton from '@/components/Common/AppButton'
 

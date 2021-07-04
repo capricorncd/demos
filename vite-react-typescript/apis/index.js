@@ -26,14 +26,12 @@ const server = http.createServer((req, res) => {
       reqParams = search
     }
     console.log(reqParams) // 数据传输完，打印数据的内容
-    console.log(formatParams(reqParams))
+    const responseData = createResponseData(urlPath, formatParams(reqParams))
+
+    res.writeHead(200, {'Content-Type': 'application/json'})
+    // const json = fs.readFileSync(resolve(__dirname, `./data/${urlPath.split('/').filter(w => w).join('-')}.json`)).toString()
+    res.end(JSON.stringify(responseData))
   })
-
-  const responseData = createResponseData(urlPath)
-
-  res.writeHead(200, {'Content-Type': 'application/json'})
-  // const json = fs.readFileSync(resolve(__dirname, `./data/${urlPath.split('/').filter(w => w).join('-')}.json`)).toString()
-  res.end(JSON.stringify(responseData))
 })
 
 server.listen(PORT_HTTP, IP)

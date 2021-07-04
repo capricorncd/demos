@@ -6,7 +6,7 @@
 import React, { useState, useContext, createContext } from 'react'
 import {DefaultProps} from '@/types'
 import { setCache, removeCache, getCache } from '@/helpers'
-import App from '@/assets/constants/App'
+import {CacheKeys} from '@/assets/constants'
 
 export interface UserInfo {
   userName: string;
@@ -44,7 +44,7 @@ function asyncFun(): Promise<void> {
 }
 
 export function useProvideAuth(): UseAuth {
-  const [user, setUser] = useState<UserInfo | null>(getCache(App.userInfoKey))
+  const [user, setUser] = useState<UserInfo | null>(getCache(CacheKeys.userInfo))
 
   async function signIn(): Promise<UserInfo> {
     await asyncFun()
@@ -53,7 +53,7 @@ export function useProvideAuth(): UseAuth {
       userName: "HaniKzy",
       userId: 10002,
     }
-    setCache(App.userInfoKey, data)
+    setCache(CacheKeys.userInfo, data)
     setUser(data)
     return data
   }
@@ -66,7 +66,7 @@ export function useProvideAuth(): UseAuth {
       message: 'success'
     }
     setUser(null)
-    removeCache(App.userInfoKey)
+    removeCache(CacheKeys.userInfo)
     return data
   }
 

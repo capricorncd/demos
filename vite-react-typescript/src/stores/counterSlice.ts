@@ -5,10 +5,13 @@
  */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import {StoreCounterState, StoreCounterListItem} from '@/types'
-import {toNumber} from '@/helpers'
+import {getCache, setCache, toNumber} from '@/helpers'
+import {CacheKeys} from '@/assets/constants'
+
+const cache: StoreCounterListItem[] | null = getCache(CacheKeys.selectedItems)
 
 const initialState: StoreCounterState = {
-  list: [],
+  list: cache || [],
 }
 
 export const counterSlice = createSlice({
@@ -26,6 +29,7 @@ export const counterSlice = createSlice({
           count: 1,
         }]
       }
+      setCache(CacheKeys.selectedItems, state.list)
     },
     update: (state: StoreCounterState, {payload}: PayloadAction<StoreCounterListItem>) => {
       const index = state.list.findIndex(item => item.id === payload.id)
@@ -35,6 +39,7 @@ export const counterSlice = createSlice({
           count: state.list[index].count,
         }
         state.list = [...state.list]
+        setCache(CacheKeys.selectedItems, state.list)
       }
     },
     remove: (state: StoreCounterState, {payload}: PayloadAction<number>) => {
@@ -48,10 +53,12 @@ export const counterSlice = createSlice({
           state.list.splice(index, 1)
         }
         state.list = [...state.list]
+        setCache(CacheKeys.selectedItems, state.list)
       }
     },
     removeAll: (state: StoreCounterState) => {
       state.list = []
+      setCache(CacheKeys.selectedItems, state.list)
     },
   },
 })

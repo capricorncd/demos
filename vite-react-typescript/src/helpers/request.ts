@@ -7,7 +7,7 @@ import {AnyObject, RequestOptions} from '@/types'
 import {isUrlLike, isObject} from '@/helpers/check'
 
 const DEF_HEADERS = {
-  "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+  "Content-type": "application/json; charset=UTF-8",
 }
 
 function createQueries(data: AnyObject): string {
@@ -51,7 +51,7 @@ export function request<T>(_options: RequestOptions): Promise<T> {
           apiUrl += createQueries(data)
           break
         case 'post':
-          options.body = createSearchParams(data)
+          options.body = JSON.stringify(data)
           break
       }
     }

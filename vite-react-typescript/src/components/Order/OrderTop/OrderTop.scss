@@ -20,6 +20,12 @@
     text-align: center;
     font-size: 12px;
     width: 70%;
+    dd {
+      color: $--color-gray;
+      &.active {
+        color: $--color-black;
+      }
+    }
     .space {
       position: relative;
       display: flex;

@@ -25,7 +25,7 @@ Record<string, any>
 className|string|no|css class名
 onClick|ClickFunction|no|点击事件回调函数
 children|JSX.Element / React.ReactNode|no|children
-styles|AnyObject|no|自定义样式
+style|AnyObject|no|自定义样式
 data|AnyObject / AnyObject[]|no|数据
 
 ## RequestOptions

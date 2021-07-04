@@ -11,7 +11,7 @@ import {
   Route,
   RouteProps
 } from 'react-router-dom'
-import { ProvideAuth, useAuth } from '@/components/Common/UseAuth/UseAuth'
+import { ProvideAuth, useAuth } from '@/components/UseAuth/UseAuth'
 import Login from './Login/Login'
 import Welcome from './Welcome/Welcome'
 import Home from './Home/Home'
@@ -36,7 +36,7 @@ export default function App() {
           <PrivateRoute path="/confirm">
             <Confirm/>
           </PrivateRoute>
-          <PrivateRoute path="/order/detail/:id">
+          <PrivateRoute path="/order/detail/:id?">
             <OrderPage/>
           </PrivateRoute>
           <PrivateRoute path="/order/history">
