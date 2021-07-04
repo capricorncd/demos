@@ -2,6 +2,10 @@
 
 这是一个用vite、react(hook)和typescript构建的应用程序。
 
+![demo preview](./qr-code.png)
+
+demo 扫码预览
+
 ## 开发
 
 ```shell script
@@ -35,6 +39,16 @@ npm run docs
 ```shell script
 # run api service
 npm run api
+```
+
+## nginx配置
+
+```
+server {
+    location ~ /api {
+        proxy_pass http://localhost:8080;
+    }
+}
 ```
 
 ## 其他
