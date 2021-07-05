@@ -31,6 +31,7 @@ const initialState: StoreDataState = {
   categories: {},
   specificationCategories: {},
   specifications: {},
+  trendingList: [],
   baseData: {
     ...defaultBaseData,
   },
@@ -42,7 +43,7 @@ export const dataSlice = createSlice({
   initialState,
   reducers: {
     update(state: StoreDataState, {payload}: PayloadAction<HomeResponse>): void {
-      const { food_list: foodList, categories, specificationCategories } = payload
+      const { food_list: foodList, categories, specificationCategories, trending_list: trendingList } = payload
       if (foodList) {
         foodList.forEach(item => {
           state.foods[item.id] = item
@@ -58,6 +59,7 @@ export const dataSlice = createSlice({
           state.specificationCategories[item.id] = item
         })
       }
+      state.trendingList = trendingList
     },
     updateFoods(state: StoreDataState, {payload}: PayloadAction<FoodDetail[]>): void {
       payload.forEach(item => {

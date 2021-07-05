@@ -7,29 +7,37 @@ import React from 'react'
 import AppImage from '@/components/Common/AppImage'
 import CountButtonGroup from '@/components/Common/CountButtonGroup'
 import AppPrice from '@/components/Common/AppPrice'
-import {ClickFunction, DefaultProps} from '@/types'
-import welcomeCover from '~/temp/welcome.jpg'
+import {DefaultProps, FoodDetail} from '@/types'
+import store, {counterSlice} from '@/stores'
 
 interface TrendingItemProps extends DefaultProps {
-  showDetail: ClickFunction;
-  index: number;
+  data: FoodDetail;
 }
 
 export default function TrendingItem(props: TrendingItemProps): JSX.Element {
+  const data = props.data
+  const foodId = data.id
 
   function handleChange(isMinus: boolean): void {
-    console.log(isMinus);
+    if (isMinus) {
+      store.dispatch(counterSlice.actions.remove(foodId))
+    } else {
+      store.dispatch(counterSlice.actions.add( {
+        id: foodId,
+        // specifications: [],
+      }))
+    }
   }
 
   return (
-    <div className="home-trending-item shadow" onClick={props.showDetail}>
+    <div className="home-trending-item shadow" onClick={props.onClick}>
       <AppImage
-        src={welcomeCover}
+        src={data.cover}
         height={100}/>
-      <h4 className="ell">オジンオボックンオジンオボックン</h4>
-      <div className="flex-space-between">
-        <AppPrice>{ props.index + 1 + '00' }</AppPrice>
-        <CountButtonGroup foodId={1} change={handleChange}/>
+      <h5 className="ell">{data.name}</h5>
+      <div className="flex-space-between fs14">
+        <AppPrice>{ data.price }</AppPrice>
+        <CountButtonGroup foodId={foodId} change={handleChange}/>
       </div>
     </div>
   )

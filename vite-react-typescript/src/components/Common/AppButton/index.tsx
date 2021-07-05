@@ -28,7 +28,7 @@ export default function AppButton(props: AppButtonProps) {
   if (props.width) {
     styles.width = calc(props.width)
   }
-  if (props.inline) styles.display = 'inline-flex'
+  if (props.inline) classes.push('is-inline')
 
   function onClick(e: React.MouseEvent): void {
     if (props.disabled) return

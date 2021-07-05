@@ -12,6 +12,7 @@ export interface StoreDataState {
   categories: StoreDataCategories;
   specificationCategories: StoreDataSpecCategories;
   specifications: {};
+  trendingList: number[];
   baseData: AuthResponse;
 }
 

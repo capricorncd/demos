@@ -1,9 +1,9 @@
 /**
  * Created by Capricorncd.
  * https://github.com/capricorncd
- * Date: 2021-06-12 22:52 (GMT+0900)
+ * Date: 2021-07-05 21:49 (GMT+0900)
  */
-.detail-popup {
+.remark-input-popup {
   .common-popup__inner {
     .header {
       position: absolute;
@@ -19,7 +19,7 @@
         top: -40px;
         width: $size;
         height: $size;
-        border-radius: $--border-radius;
+        border-radius: 50%;
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
         background: $--color-white;
       }
@@ -41,22 +41,28 @@
       position: absolute;
       left: 10px;
       right: 10px;
-      top: 70px;
-      bottom: 60px;
+      top: 80px;
+      bottom: 70px;
       overflow-y: auto;
       font-size: 14px;
-      .detail-content {
-        padding: 10px 0;
-        img {
-          margin-top: 10px;
-          max-width: 100%;
-          height: auto;
-          border-radius: $--border-radius-small;
+      textarea {
+        position: absolute;
+        display: block;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: $--color-bg;
+        resize: none;
+        padding: 10px;
+        border-radius: $--border-radius-small;
+        &::placeholder {
+          color: $--color-gray-light;
         }
       }
     }
     .footer {
-      $height: 60px;
+      $height: 70px;
       display: flex;
       align-items: center;
       position: absolute;
@@ -66,22 +72,6 @@
       border-radius: 0 0 $--border-radius $--border-radius;
       height: $height;
       width: 100%;
-      border-top: 1px solid $--color-border-light;
-      .total-price {
-        font-size: 24px;
-        white-space: nowrap;
-        min-width: 60px;
-      }
-      .plus-items {
-        margin: 0 10px;
-        font-size: 10px;
-        line-height: 1.2;
-        flex: 1;
-        @include clamp(3);
-      }
-      .btn-count {
-        flex: 0 0 80px;
-      }
     }
   }
 }

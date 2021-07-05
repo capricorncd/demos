@@ -12,7 +12,7 @@ import { FoodDetail, FoodSpecCategoryItem } from './FoodDetail'
 
 // 接口返回数据
 export interface HomeResponse {
-  trending_list: FoodDetail[];// 热门或推荐列表
+  trending_list: number[];// 热门或推荐菜品id列表
   categories: CategoryItem[]; // 分类列表
   food_list: FoodDetail[];// 食品/酒水/饮料列表
   specificationCategories: FoodSpecCategoryItem[];// 规格分类列表

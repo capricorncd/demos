@@ -27,5 +27,33 @@
     height: 80%;
     background: $--color-white;
     border-radius: $--border-radius;
+    .close {
+      $size: 30px;
+      position: absolute;
+      z-index: 1;
+      top: -30px;
+      right: -5px;
+      width: $size;
+      height: $size;
+      background: none;
+      transform: rotate(45deg);
+      border-radius: 50%;
+      overflow: hidden;
+      &:before, &:after {
+        content: '';
+        display: block;
+        width: $size;
+        height: 2px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background: $--color-white;
+        border-radius: 2px;
+      }
+      &:after {
+        transform: rotate(90deg);
+      }
+    }
   }
 }

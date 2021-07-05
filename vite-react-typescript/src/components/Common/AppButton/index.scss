@@ -22,4 +22,8 @@
   &.is-disabled {
     background: $--color-gray-light;
   }
+  &.is-inline {
+    display: inline-flex;
+    margin: 0;
+  }
 }

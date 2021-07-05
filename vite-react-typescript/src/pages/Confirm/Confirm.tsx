@@ -16,10 +16,14 @@ import {IconEdit} from '@/components/Common/Icons'
 import AppLabel from '@/components/Common/AppLabel/AppLabel'
 import {useHistory} from 'react-router-dom'
 import store, {counterSlice} from '@/stores'
+import RemarkInputPopup from '@/components/Confirm/RemarkInpuPopup'
+import Loading from '@/components/Common/Loading/Loading'
 
 export default function Confirm() {
   const history = useHistory()
-  const [remark, setRemark] = useState<string | null>(getCache(CacheKeys.confirmRemark))
+  const [remark, setRemark] = useState<string>(getCache(CacheKeys.confirmRemark) || '')
+  const [inputVisible, setInputVisible] = useState(false)
+  const [isSubmit, setIsSubmit] = useState(false)
   const selectedList = useSelector<RootState>((state) => state.counter.list) as StoreCounterListItem[]
 
   if (!selectedList || !selectedList.length) {
@@ -45,19 +49,22 @@ export default function Confirm() {
         console.log(res);
         setCache(CacheKeys.confirmResponse, res)
         // 清除备注数据
-        setCache(CacheKeys.confirmRemark, null)
+        setCache(CacheKeys.confirmRemark, '')
         // 清除已选数据
         store.dispatch(counterSlice.actions.removeAll())
-        history.push('/order/detail/' + res.order_id)
+        alert('下单成功！')
+        history.replace('/order/detail/' + res.order_id)
       })
       .catch(console.error)
   }
 
-  function showEditPopup() {
-    console.log('showEditPopup')
+  function remarkChange(input: string): void {
+    setRemark(input)
+    setInputVisible(false)
+    setCache(CacheKeys.confirmRemark, input)
   }
 
-  return (
+  return isSubmit ? (<Loading>数据提交中</Loading>) : (
     <div className="confirm-page">
       <Header/>
 
@@ -65,13 +72,19 @@ export default function Confirm() {
         <AppLabel
           name="备注"
           className={`mt20`}
-          right={<IconEdit className={`color-primary`} onClick={showEditPopup}/>}
+          right={<IconEdit className={`color-primary`} onClick={() => setInputVisible(true)}/>}
         >{ remark || '无' }</AppLabel>
       </ConfirmOrderList>
 
       <footer>
         <AppButton className="shadow" onClick={submit}>确定下单</AppButton>
       </footer>
+
+      <RemarkInputPopup
+        value={remark}
+        visible={inputVisible}
+        change={remarkChange}
+        onClose={() => setInputVisible(false)}/>
     </div>
   )
 }

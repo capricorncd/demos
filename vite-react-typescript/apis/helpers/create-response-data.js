@@ -81,7 +81,7 @@ function createHomeResponse({ children }) {
           res.specificationCategories = specificationCategories
           break
         case 'trending_list':
-          res.trending_list = []
+          res.trending_list = _foodList.slice(0, 20).filter(item => item.id % 4 === 0).map(item => item.id)
           break
         case 'food_list':
           res.food_list = _foodList

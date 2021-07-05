@@ -12,7 +12,7 @@ method: `get`
 
 字段名|类型|必须|说明
 :--|:--|:--|:--
-trending_list|FoodDetail[]|yes|热门或推荐列表
+trending_list|number[]|yes|热门或推荐菜品id列表
 categories|CategoryItem[]|yes|分类列表
 food_list|FoodDetail[]|yes|食品/酒水/饮料列表
 specificationCategories|FoodSpecCategoryItem[]|yes|规格分类列表

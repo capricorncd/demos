@@ -18,6 +18,7 @@ export default function Loading(props: LoadingProps) {
   return (
     <div className={classes.join(' ')}>
       <IconLoading type={1} style={{fontSize: '5em'}}/>
+      <div>{props.children}</div>
     </div>
   )
 }

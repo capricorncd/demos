@@ -19,8 +19,8 @@
         {
           "key": "trending_list",
           "required": true,
-          "type": "FoodDetail[]",
-          "desc": "热门或推荐列表"
+          "type": "number[]",
+          "desc": "热门或推荐菜品id列表"
         },
         {
           "key": "categories",
