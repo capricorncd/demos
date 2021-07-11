@@ -16,6 +16,7 @@ interface OrderListProps extends DefaultProps {
   onClose: ClickFunction;
   data: StoreCounterListItem[];
   foods: StoreDataFoods;
+  onItemClick: (id: number) => void;
 }
 
 interface ListItem {
@@ -82,7 +83,7 @@ export default function OrderList(props: OrderListProps) {
         </dt>
         <dd>
           {
-            list.map((v, i) => (<ListItem key={i} item={v}/>))
+            list.map((v, i) => (<ListItem key={i} item={v} onClick={() => props.onItemClick(v.id)}/>))
           }
         </dd>
       </dl>
@@ -90,9 +91,11 @@ export default function OrderList(props: OrderListProps) {
   )
 }
 
+interface ListItemProps extends DefaultProps {
+  item: ListItem;
+}
 
-
-function ListItem({item}: {item: ListItem}) {
+function ListItem({item, onClick}: ListItemProps) {
   function handleChange(isMinus: boolean): void {
     if (isMinus) {
       store.dispatch(counterSlice.actions.remove(item.id))
@@ -105,7 +108,7 @@ function ListItem({item}: {item: ListItem}) {
   }
 
   return (
-    <section className="list-item">
+    <section className="list-item" onClick={onClick}>
       <div className="name">
         <div className="fs14">{item.name}</div>
         <div className="fs12 color-gray">{item.remark.join(' / ')}</div>

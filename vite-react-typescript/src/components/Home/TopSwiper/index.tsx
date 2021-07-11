@@ -49,7 +49,7 @@ export default function TopSwiper(props: TopSwiperProps) {
         ))}
       </Swiper>
 
-      <DetailPopup data={{} as FoodDetail} visible={detailVisible} onClose={() => setDetailVisible(false)}/>
+      <DetailPopup foodId={0} visible={detailVisible} onClose={() => setDetailVisible(false)}/>
     </div>
   )
 }

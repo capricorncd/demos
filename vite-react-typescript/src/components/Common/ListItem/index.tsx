@@ -20,8 +20,9 @@ export default function ListItem(props: ListItemProps) {
   const classes = getClasses('common-list-item', props.className)
   const data = props.data
   const foodId = data.id
+  const hasSpecif = data.specifications && data.specifications.length > 0
 
-  function handleChange(isMinus: boolean): void {
+  function handleChange(isMinus: boolean, count: number): void {
     if (isMinus) {
       store.dispatch(counterSlice.actions.remove(foodId))
     } else {
@@ -29,6 +30,11 @@ export default function ListItem(props: ListItemProps) {
         id: foodId,
         // specifications: [],
       }))
+      // 首次添加时，判断是否有规格选项
+      // 如果有，则显示详情弹窗
+      if (!count && hasSpecif) {
+        props.onClick && props.onClick()
+      }
     }
   }
 

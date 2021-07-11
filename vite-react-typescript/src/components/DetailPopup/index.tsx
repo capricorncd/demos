@@ -8,6 +8,7 @@ import AppImage from '@/components/Common/AppImage'
 import CheckBox from '@/components/Common/CheckBox'
 import AppPrice from '@/components/Common/AppPrice'
 import AppTitle from '@/components/Common/AppTitle'
+import AppButton from "@/components/Common/AppButton";
 import CountButtonGroup from '@/components/Common/CountButtonGroup'
 import {
   ClickFunction,
@@ -17,7 +18,7 @@ import {
   RootState,
   StoreCounterListItem,
   StoreDataSpecCategories,
-  FoodSpecCategoryItem,
+  FoodSpecCategoryItem, StoreDataFoods,
 } from '@/types'
 import {useSelector} from 'react-redux'
 import store, { counterSlice } from '@/stores'
@@ -27,7 +28,7 @@ import './index.scss'
 interface DetailProps extends DefaultProps {
   visible: boolean;
   onClose: ClickFunction;
-  data: FoodDetail;
+  foodId: number;
 }
 
 interface SpecificationData extends FoodSpecCategoryItem {
@@ -35,20 +36,25 @@ interface SpecificationData extends FoodSpecCategoryItem {
 }
 
 export default function DetailPopup(props: DetailProps) {
-  if (!props.data.id) return null
-
+  const [isInitialed, setIsInitialed] = useState(false)
   const popupBodyRef = useRef<HTMLDivElement>(null)
-
-  const data = props.data
-  const foodId = data.id
-
   const specificationCategories = useSelector<RootState>((state) => state.data.specificationCategories) as StoreDataSpecCategories
   const selectedList = useSelector<RootState>((state) => state.counter.list) as StoreCounterListItem[]
+  const foods = useSelector<RootState>((state) => state.data.foods) as StoreDataFoods
+
+  useEffect(() => {
+    setBodyScrollStatus(props.visible)
+    if (props.visible && popupBodyRef.current) {
+      popupBodyRef.current.scrollTop = 0
+    }
+  }, [props.visible])
+
+  const foodId = props.foodId
+  if (!foodId) return null
+  const data = foods[foodId]
+
   const selectedItem = selectedList.find(item => item.id === foodId)
   const specifications = selectedItem?.specifications || []
-
-  const [isInitialed, setIsInitialed] = useState(false)
-
 
   const classes: string[] = ['common-popup', 'detail-popup', 'fixed-full']
 
@@ -59,19 +65,10 @@ export default function DetailPopup(props: DetailProps) {
     classes.push('fade-out')
   }
 
-  useEffect(() => {
-    setBodyScrollStatus(props.visible)
-    if (props.visible) {
-      // @ts-ignore
-      popupBodyRef.current.scrollTop = 0
-    }
-  }, [props.visible])
-
-  function handleClose(e: React.MouseEvent): void {
-    e.stopPropagation()
+  function handleClose(e?: React.MouseEvent): void {
+    e && e.stopPropagation()
     props.onClose(e)
   }
-
 
   function handleChange(isMinus: boolean): void {
     if (isMinus) {
@@ -106,7 +103,7 @@ export default function DetailPopup(props: DetailProps) {
   }
   const specPrice = specifications.reduce((prev, item) => prev + item.price, 0)
   const price = selectedItem && selectedItem.count
-    ? selectedItem.count * (props.data.price + specPrice)
+    ? selectedItem.count * (data.price + specPrice)
     : 0
 
   const specificationData: Record<string, SpecificationData> = {}
@@ -159,7 +156,8 @@ export default function DetailPopup(props: DetailProps) {
             ) : null
           }
           <div className="plus-items gray">{specifications.map(item => item.name).join('、')}</div>
-          <CountButtonGroup className="btn-count" foodId={props.data.id} change={handleChange}/>
+          <AppButton className={`btn-submit`} onClick={handleClose}>确定</AppButton>
+          <CountButtonGroup className="btn-count" foodId={foodId} change={handleChange}/>
         </div>
       </section>
     </section>

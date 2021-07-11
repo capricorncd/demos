@@ -43,7 +43,7 @@ export default function TrendingSwiper(props: TrendingSwiperProps) {
 
       {
         selectedItem ? (
-          <DetailPopup data={selectedItem} visible={detailVisible} onClose={() => setDetailVisible(false)}/>
+          <DetailPopup foodId={selectedItem.id} visible={detailVisible} onClose={() => setDetailVisible(false)}/>
           ) : null
       }
     </div>

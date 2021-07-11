@@ -10,7 +10,7 @@ import './index.scss'
 
 interface CountButtonGroupProps extends DefaultProps {
   foodId: number;
-  change: (isMinus: boolean) => void;
+  change: (isMinus: boolean, count: number) => void;
 }
 
 export default function CountButtonGroup(props: CountButtonGroupProps) {
@@ -23,9 +23,9 @@ export default function CountButtonGroup(props: CountButtonGroupProps) {
 
   return (
     <section className={classes.join(' ')} onClick={(e) => e.stopPropagation()}>
-      <button className="minus" onClick={(e) => props.change(true)}/>
+      <button className="minus" onClick={(e) => props.change(true, count)}/>
       <div className="count">{count}</div>
-      <button className="plus" onClick={(e) => props.change(false)}/>
+      <button className="plus" onClick={(e) => props.change(false, count)}/>
     </section>
   )
 }

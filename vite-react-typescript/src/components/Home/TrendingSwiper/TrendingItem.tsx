@@ -17,8 +17,9 @@ interface TrendingItemProps extends DefaultProps {
 export default function TrendingItem(props: TrendingItemProps): JSX.Element {
   const data = props.data
   const foodId = data.id
+  const hasSpecif = data.specifications && data.specifications.length > 0
 
-  function handleChange(isMinus: boolean): void {
+  function handleChange(isMinus: boolean, count: number): void {
     if (isMinus) {
       store.dispatch(counterSlice.actions.remove(foodId))
     } else {
@@ -26,6 +27,9 @@ export default function TrendingItem(props: TrendingItemProps): JSX.Element {
         id: foodId,
         // specifications: [],
       }))
+      if (!count && hasSpecif) {
+        props.onClick && props.onClick()
+      }
     }
   }
 

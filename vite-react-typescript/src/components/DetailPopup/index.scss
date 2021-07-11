@@ -41,12 +41,13 @@
       position: absolute;
       left: 10px;
       right: 10px;
-      top: 70px;
+      top: 80px;
       bottom: 60px;
       overflow-y: auto;
       font-size: 14px;
+      padding: 0 0 50px;
       .detail-content {
-        padding: 10px 0;
+        padding: 10px 0 0;
         img {
           margin-top: 10px;
           max-width: 100%;
@@ -79,8 +80,17 @@
         flex: 1;
         @include clamp(3);
       }
+      .btn-submit {
+        flex: 0 0 90px;
+      }
       .btn-count {
-        flex: 0 0 80px;
+        position: absolute;
+        z-index: 2;
+        top: -40px;
+        right: 0;
+        background: rgba(255,255,255,.6);
+        padding: 5px 10px;
+        border-radius: 30px;
       }
     }
   }

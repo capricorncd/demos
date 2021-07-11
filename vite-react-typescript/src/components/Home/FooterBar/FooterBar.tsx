@@ -10,6 +10,7 @@ import {Link} from 'react-router-dom'
 import {IconArrow, IconFood, IconUser} from '@/components/Common/Icons'
 import AppButton from '@/components/Common/AppButton'
 import SideBar from '@/components/Common/SideBar/SideBar'
+import DetailPopup from "@/components/DetailPopup";
 import {DefaultProps, FoodDetail, RootState, StoreCounterListItem, StoreDataFoods} from '@/types'
 import './FooterBar.scss'
 
@@ -22,6 +23,8 @@ export default function FooterBar(props: FooterBarProps) {
   const foods = useSelector<RootState>((state) => state.data.foods) as StoreDataFoods
   const [listVisible, setListVisible] = useState(false)
   const [sideBarVisible, setSideBarVisible] = useState(false)
+  const [selectedItemId, setSelectedItemId] = useState(0)
+  const [detailVisible, setDetailVisible] = useState(false)
 
   function handleClick(): void {
     setListVisible(!listVisible)
@@ -68,11 +71,19 @@ export default function FooterBar(props: FooterBarProps) {
         visible={listVisible}
         data={selectedList}
         foods={foods}
+        onItemClick={(id: number) => {
+          setSelectedItemId(id)
+          setDetailVisible(true)
+        }}
         onClose={() => setListVisible(false)}/>
       <SideBar
         data={props.data}
         visible={sideBarVisible}
         onClose={() => setSideBarVisible(false)}/>
+      <DetailPopup
+        foodId={selectedItemId}
+        visible={detailVisible}
+        onClose={() => setDetailVisible(false)}/>
     </>
   )
 }

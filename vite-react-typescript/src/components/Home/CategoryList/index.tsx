@@ -5,7 +5,7 @@
  */
 import React, {useState, useEffect, useRef} from 'react'
 import './index.scss'
-import {AnyObject, DefaultProps, FoodDetail, HomeResponse} from '@/types'
+import {AnyObject, CategoryItem, DefaultProps, FoodDetail, HomeResponse} from '@/types'
 import {getClasses, $} from '@/helpers'
 import ListItem from '@/components/Common/ListItem'
 import DetailPopup from '@/components/DetailPopup'
@@ -24,7 +24,7 @@ export default function CategoryList(props: CategoryListProps) {
   const [winHeight, setWinHeight] = useState(window.innerHeight - HEIGHT_OFFSET)
   const [index, setIndex] = useState(0)
   const [detailVisible, setDetailVisible] = useState(false)
-  const [selectItem, setSelectItem] = useState<FoodDetail>({} as FoodDetail)
+  const [selectItemId, setSelectItemId] = useState<number>(0)
 
   const listRef = useRef(null)
 
@@ -59,14 +59,6 @@ export default function CategoryList(props: CategoryListProps) {
     window.addEventListener('resize', () => {
       setWinHeight(window.innerHeight - HEIGHT_OFFSET)
     })
-
-    if (props.children) {
-      props.data.categories.unshift({
-        id: 0,
-        name: '推荐',
-        sub_name: '',
-      })
-    }
   }, [])
 
   const styles: AnyObject = {
@@ -81,6 +73,16 @@ export default function CategoryList(props: CategoryListProps) {
     positionHandler($('.content', listRef.current)[0], i, () => isMenuClick = false)
   }
 
+  const categories: CategoryItem[] = props.data.categories.slice(0)
+
+  if (props.children) {
+    categories.unshift({
+      id: 0,
+      name: '推荐',
+      sub_name: '',
+    })
+  }
+
   const foods: Record<string, FoodDetail[]> = {}
   props.data.food_list.forEach(item => {
     if (!foods[item.category_id]) {
@@ -93,7 +95,7 @@ export default function CategoryList(props: CategoryListProps) {
     <section className={classes} style={styles} ref={listRef}>
       <ul className="side bg">
         {
-          props.data.categories.map((item, i) => (
+          categories.map((item, i) => (
             <li
               className={index === i ? 'active' : ''}
               key={i}
@@ -107,14 +109,14 @@ export default function CategoryList(props: CategoryListProps) {
       <ul className="content">
         { props.children ? (<li>{ props.children  }</li>) : null }
         {
-          props.data.categories.map((v, i) => foods[v.id] ? (
+          categories.map((v, i) => foods[v.id] ? (
             <li key={i} data-index={i}>
               <h5 className="mt15">{v.name}</h5>
               {
                 foods[v.id].map((item, j) => (
                   <ListItem data={item} key={j} onClick={
                     () => {
-                      setSelectItem(item)
+                      setSelectItemId(item.id)
                       setDetailVisible(true)
                     }
                   }/>
@@ -125,7 +127,7 @@ export default function CategoryList(props: CategoryListProps) {
         }
       </ul>
       <DetailPopup
-        data={selectItem}
+        foodId={selectItemId}
         visible={detailVisible}
         onClose={() => setDetailVisible(false)}/>
     </section>
