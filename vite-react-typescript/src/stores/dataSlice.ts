@@ -21,6 +21,7 @@ const defaultBaseData = {
     table_name: '',
     price_symbol: '¥',
     is_tax_included: false,
+    address: '',
   },
   primary_color: '',
 }

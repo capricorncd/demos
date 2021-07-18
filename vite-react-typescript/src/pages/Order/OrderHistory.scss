@@ -1,0 +1,57 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-07-18 17:13 (GMT+0900)
+ */
+.order-history-page {
+  .list-wrapper {
+    position: fixed;
+    z-index: 1;
+    top: 60px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    padding: 10px 10px 60px;
+    border-radius: 10px;
+    overflow-y: auto;
+    background: #fff;
+    li {
+      position: relative;
+      display: flex;
+      margin: 10px 0 0 0;
+      @include border(bottom, $--color-border-light);
+      padding-bottom: 5px;
+      &:last-child {
+        border-bottom-width: 0 !important;
+      }
+      .left {
+        flex: 1;
+      }
+      .right {
+        flex: 0 0 100px;
+      }
+    }
+  }
+  footer {
+    position: fixed;
+    z-index: 10;
+    bottom: 20px;
+    left: 10px;
+    right: 10px;
+    .submit-text {
+      font-size: 0.8em;
+      margin-left: 10px;
+      padding-left: 10px;
+      position: relative;
+      &:before {
+        content: '';
+        width: 1px;
+        background: $--color-white;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+      }
+    }
+  }
+}

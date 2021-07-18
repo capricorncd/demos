@@ -21,6 +21,60 @@
       ],
       "type": "interface",
       "columns": [
+        {
+          "key": "order_id",
+          "required": true,
+          "type": "string",
+          "desc": "订单号"
+        },
+        {
+          "key": "status",
+          "required": true,
+          "type": "number",
+          "desc": "订单状态"
+        },
+        {
+          "key": "shop_info",
+          "required": true,
+          "type": "ShopInfo",
+          "desc": "店铺信息"
+        },
+        {
+          "key": "list",
+          "required": true,
+          "type": "FoodDetail[]",
+          "desc": "订单菜品列表"
+        },
+        {
+          "key": "total_price",
+          "required": true,
+          "type": "number",
+          "desc": "总价格，根据订单计算出来的价格"
+        },
+        {
+          "key": "actual_payment",
+          "required": true,
+          "type": "number",
+          "desc": "实际支付价格，可能为客服修改后的优惠总价格"
+        },
+        {
+          "key": "actual_payment_remark",
+          "required": true,
+          "type": "string",
+          "desc": "实际支付与总价格不同时的备注信息，比如：\"活动折扣1000元\"等"
+        },
+        {
+          "key": "create_date",
+          "required": true,
+          "type": "string",
+          "desc": "下单时间"
+        },
+        {
+          "key": "remark",
+          "required": false,
+          "type": "string",
+          "desc": "备注"
+        }
       ]
     }
   ]

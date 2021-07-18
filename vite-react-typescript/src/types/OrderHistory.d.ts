@@ -7,6 +7,7 @@
  * 获取历史订单数据列表API
  * @apiUrl api/order/history
  * @param page number 页码
+ * @param limit number 每页返回数据条数
  */
 // 接口返回数据
 export interface OrderHistoryResponse {
@@ -17,7 +18,7 @@ export interface OrderHistoryResponse {
 
 export interface OrderHistoryListItem {
   id: string; // 订单号
-  create_data: string; // 下单时间
+  create_date: string; // 下单时间
   count: number; // 件数
-  total_price: number; // 总消费价格
+  actual_payment: number; // 实际支付价格，可能为客服修改后的优惠总价格
 }

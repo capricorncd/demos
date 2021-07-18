@@ -7,4 +7,5 @@ export const Apis = {
   home: 'home',
   orderSubmit: 'order/submit',
   orderDetail: 'order/detail',
+  orderHistory: 'order/history',
 } as const

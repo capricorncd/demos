@@ -47,3 +47,4 @@ table_id|number|yes|扫码对应的餐桌id
 table_name|string|yes|餐桌名称或编号，如8号（桌），xx包间等
 price_symbol|string|yes|价格符号，如$/¥
 is_tax_included|boolean|yes|是否为含税价格
+address|string|yes|店铺地址

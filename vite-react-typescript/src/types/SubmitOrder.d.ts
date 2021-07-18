@@ -12,8 +12,6 @@
  * @param tableId number 餐桌或座位Id
  * @param remark string 备注信息
  */
-import {FoodDetail} from '@/types/FoodDetail'
-
 // 所选食品信息
 export interface SubmitOrderFoodItem {
   id: number; // 食品ID
@@ -24,11 +22,4 @@ export interface SubmitOrderFoodItem {
 // 接口返回数据
 export interface SubmitOrderResponse {
   order_id: string; //订单号
-  status: number; // 订单状态
-  shop_id: number; // 店铺Id
-  shop_name: string; // 店铺名称
-  table_name: string; // 桌号
-  list: FoodDetail[]; // 订单菜品列表
-  create_date: string; // 下单时间
-  remark?: string; // 备注
 }

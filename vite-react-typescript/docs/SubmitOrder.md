@@ -32,10 +32,3 @@ specifications|number[]|yes|所选规格ID列表
 字段名|类型|必须|说明
 :--|:--|:--|:--
 order_id|string|yes|订单号
-status|number|yes|订单状态
-shop_id|number|yes|店铺Id
-shop_name|string|yes|店铺名称
-table_name|string|yes|桌号
-list|FoodDetail[]|yes|订单菜品列表
-create_date|string|yes|下单时间
-remark|string|no|备注

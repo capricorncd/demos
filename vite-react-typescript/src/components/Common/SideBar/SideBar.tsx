@@ -64,9 +64,9 @@ export default function SideBar(props: SideBarProps) {
             <div className="flex-center"><IconHome/></div>
             欢迎页
           </li>
-          <li onClick={() => handleClick("/order/detail")}>
+          <li onClick={() => handleClick("/order/history")}>
             <div className="flex-center"><IconList/></div>
-            最新订单
+            历史订单
           </li>
           <li onClick={() => handleClick('clearCache')}>
             <div className="flex-center"><IconClear/></div>

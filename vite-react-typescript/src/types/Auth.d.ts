@@ -35,4 +35,5 @@ export interface ShopInfo {
   table_name: string; //餐桌名称或编号，如8号（桌），xx包间等
   price_symbol: string; //价格符号，如$/¥
   is_tax_included: boolean; // 是否为含税价格
+  address: string; // 店铺地址
 }

@@ -25,8 +25,8 @@ export default function Header(props: HeaderProps) {
       {
         props.children ? props.children : (
           <>
-            <h4>店铺名称</h4>
-            <p className="fs12">桌号 8</p>
+            <h4>店铺名称<span className="small-text">(桌号 8)</span></h4>
+            <p className="fs12">东京新宿区1-21-3 3-201</p>
           </>
         )
       }

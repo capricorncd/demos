@@ -8,6 +8,7 @@ import AppPrice from '@/components/Common/AppPrice'
 import AppImage from '@/components/Common/AppImage'
 import './OrderListItem.scss'
 import {DefaultProps, FoodDetail} from '@/types'
+import {toNumber} from "@/helpers";
 
 interface OrderListItemProps extends DefaultProps {
   data: FoodDetail;
@@ -22,7 +23,7 @@ export default function OrderListItem(props: OrderListItemProps) {
   let remark: string[] = []
   if (data.specifications) {
     data.specifications.forEach(item => {
-      price += item.price
+      price += toNumber(item.price)
       remark.push(item.name)
     })
   }
