@@ -1,0 +1,52 @@
+{"frames": {
+
+  "cloudsFORE_bot.png":
+  {
+    "frame": {"x":2,"y":804,"w":600,"h":800},
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": {"x":0,"y":0,"w":600,"h":800},
+    "sourceSize": {"w":600,"h":800}
+  },
+  "cloudsFORE_top.png":
+  {
+    "frame": {"x":2,"y":2,"w":600,"h":800},
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": {"x":0,"y":0,"w":600,"h":800},
+    "sourceSize": {"w":600,"h":800}
+  },
+  "shmupBG_bot.jpg":
+  {
+    "frame": {"x":604,"y":803,"w":600,"h":799},
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": {"x":0,"y":0,"w":600,"h":799},
+    "sourceSize": {"w":600,"h":799}
+  },
+  "shmupBG_mid.jpg":
+  {
+    "frame": {"x":1206,"y":2,"w":600,"h":799},
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": {"x":0,"y":0,"w":600,"h":799},
+    "sourceSize": {"w":600,"h":799}
+  },
+  "shmupBG_top.jpg":
+  {
+    "frame": {"x":604,"y":2,"w":600,"h":799},
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": {"x":0,"y":0,"w":600,"h":799},
+    "sourceSize": {"w":600,"h":799}
+  }},
+  "meta": {
+    "app": "http://www.texturepacker.com",
+    "version": "1.0",
+    "image": "background.png",
+    "format": "RGBA8888",
+    "size": {"w":1808,"h":1606},
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:10731465ea427975d39b4c09c91f4d62$"
+  }
+}
