@@ -4,27 +4,27 @@
  * Date: 2021-06-19 17:03 (GMT+0900)
  */
 import React, { useState } from 'react'
-import {ClickFunction, DefaultProps, FoodDetail, StoreCounterListItem, StoreDataFoods} from '@/types'
+import { ClickFunction, DefaultProps, FoodDetail, StoreCounterListItem, StoreDataFoods } from '@/types'
 import AppPrice from '@/components/Common/AppPrice'
 import CountButtonGroup from '@/components/Common/CountButtonGroup'
-import {IconList, IconTrash} from '@/components/Common/Icons'
-import store, {counterSlice} from '@/stores'
+import { IconList, IconTrash } from '@/components/Common/Icons'
+import store, { counterSlice } from '@/stores'
 import './OrderList.scss'
 
 interface OrderListProps extends DefaultProps {
-  visible?: boolean;
-  onClose: ClickFunction;
-  data: StoreCounterListItem[];
-  foods: StoreDataFoods;
-  onItemClick: (id: number) => void;
+  visible?: boolean
+  onClose: ClickFunction
+  data: StoreCounterListItem[]
+  foods: StoreDataFoods
+  onItemClick: (id: number) => void
 }
 
 interface ListItem {
-  id: number;
-  name: string;
-  count: number;
-  price: number;
-  remark: string[];
+  id: number
+  name: string
+  count: number
+  price: number
+  remark: string[]
 }
 
 export default function OrderList(props: OrderListProps) {
@@ -47,15 +47,15 @@ export default function OrderList(props: OrderListProps) {
 
   function clear(e: React.MouseEvent): void {
     store.dispatch(counterSlice.actions.removeAll())
-    props.onClose()
+    props.onClose(e)
   }
 
   let temp: FoodDetail
-  const list: ListItem[] = props.data.map(item => {
+  const list: ListItem[] = props.data.map((item) => {
     temp = foods[item.id]
     let price = temp.price
     const remark: string[] = []
-    item.specifications?.forEach(s => {
+    item.specifications?.forEach((s) => {
       price += s.price
       remark.push(s.name)
     })
@@ -72,19 +72,20 @@ export default function OrderList(props: OrderListProps) {
 
   return (
     <>
-      <div className={maskClasses.join(' ')} onClick={props.onClose}/>
+      <div className={maskClasses.join(' ')} onClick={props.onClose} />
       <dl className={classes.join(' ')} onClick={(e) => e.stopPropagation()}>
         <dt className="flex-space-between bg">
           <div className="fs12 flex">
-            <IconList/> 已选商品({total})</div>
+            <IconList /> 已选商品({total})
+          </div>
           <div className="fs12 color-gray flex" onClick={clear}>
-            <IconTrash/> 清空
+            <IconTrash /> 清空
           </div>
         </dt>
         <dd>
-          {
-            list.map((v, i) => (<ListItem key={i} item={v} onClick={() => props.onItemClick(v.id)}/>))
-          }
+          {list.map((v, i) => (
+            <ListItem key={i} item={v} onClick={() => props.onItemClick(v.id)} />
+          ))}
         </dd>
       </dl>
     </>
@@ -92,18 +93,20 @@ export default function OrderList(props: OrderListProps) {
 }
 
 interface ListItemProps extends DefaultProps {
-  item: ListItem;
+  item: ListItem
 }
 
-function ListItem({item, onClick}: ListItemProps) {
+function ListItem({ item, onClick }: ListItemProps) {
   function handleChange(isMinus: boolean): void {
     if (isMinus) {
       store.dispatch(counterSlice.actions.remove(item.id))
     } else {
-      store.dispatch(counterSlice.actions.add( {
-        id: item.id,
-        specifications: [],
-      }))
+      store.dispatch(
+        counterSlice.actions.add({
+          id: item.id,
+          specifications: [],
+        }),
+      )
     }
   }
 
@@ -113,8 +116,10 @@ function ListItem({item, onClick}: ListItemProps) {
         <div className="fs14">{item.name}</div>
         <div className="fs12 color-gray">{item.remark.join(' / ')}</div>
       </div>
-      <AppPrice className="price ml10" primary>{item.price * item.count}</AppPrice>
-      <CountButtonGroup className="btn-count" foodId={item.id} change={handleChange}/>
+      <AppPrice className="price ml10" primary>
+        {item.price * item.count}
+      </AppPrice>
+      <CountButtonGroup className="btn-count" foodId={item.id} change={handleChange} />
     </section>
   )
 }

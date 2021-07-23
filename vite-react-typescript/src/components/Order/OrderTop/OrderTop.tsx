@@ -4,13 +4,13 @@
  * Date: 2021-06-20 22:06 (GMT+0900)
  */
 import React from 'react'
-import {IconFood} from '@/components/Common/Icons'
+import { IconFood } from '@/components/Common/Icons'
 import './OrderTop.scss'
-import {DefaultProps, OrderDetailResponse} from '@/types'
+import { DefaultProps, OrderDetailResponse } from '@/types'
 import { OrderStatus } from '@/assets/constants'
 
 interface OrderTopProps extends DefaultProps {
-  data: OrderDetailResponse;
+  data: OrderDetailResponse
 }
 
 export default function OrderTop(props: OrderTopProps) {
@@ -21,17 +21,17 @@ export default function OrderTop(props: OrderTopProps) {
       <h1 className="align-center mt10">{props.data.order_id}</h1>
       <dl className={`order-status`}>
         <dd className={status === OrderStatus.placed ? `active` : ``}>
-          <IconFood/>
+          <IconFood />
           <div>已下单</div>
         </dd>
-        <dd className="space"/>
+        <dd className="space" />
         <dd className={status === OrderStatus.making ? `active` : ``}>
-          <IconFood/>
+          <IconFood />
           <div>制作中</div>
         </dd>
-        <dd className="space"/>
+        <dd className="space" />
         <dd className={status === OrderStatus.completed ? `active` : ``}>
-          <IconFood/>
+          <IconFood />
           <div>已完成</div>
         </dd>
       </dl>

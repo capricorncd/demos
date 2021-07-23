@@ -4,29 +4,29 @@
  * Date: 2021-06-24 21:16 (GMT+0900)
  */
 import React, { useState, useContext, createContext } from 'react'
-import {DefaultProps} from '@/types'
+import { DefaultProps } from '@/types'
 import { setCache, removeCache, getCache } from '@/helpers'
-import {CacheKeys} from '@/assets/constants'
+import { CacheKeys } from '@/assets/constants'
 
 export interface UserInfo {
-  userName: string;
-  userId: number;
+  userName: string
+  userId: number
 }
 
 export interface CommonResponseData {
-  code: number;
-  message: string;
+  code: number
+  message: string
 }
 
 export interface UseAuth {
-  user: UserInfo | null;
-  signIn: () => Promise<UserInfo>,
-  signOut: () => Promise<CommonResponseData>,
+  user: UserInfo | null
+  signIn: () => Promise<UserInfo>
+  signOut: () => Promise<CommonResponseData>
 }
 
 const AuthContext = createContext<UseAuth>({} as UseAuth)
 
-export function ProvideAuth({children}: DefaultProps) {
+export function ProvideAuth({ children }: DefaultProps) {
   const auth = useProvideAuth()
   return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>
 }
@@ -36,7 +36,7 @@ export function useAuth(): UseAuth {
 }
 
 function asyncFun(): Promise<void> {
-  return new Promise<void>(resolve => {
+  return new Promise<void>((resolve) => {
     setTimeout(() => {
       resolve()
     }, 1000)
@@ -50,7 +50,7 @@ export function useProvideAuth(): UseAuth {
     await asyncFun()
     console.log('signIn')
     const data = {
-      userName: "HaniKzy",
+      userName: 'HaniKzy',
       userId: 10002,
     }
     setCache(CacheKeys.userInfo, data)
@@ -63,7 +63,7 @@ export function useProvideAuth(): UseAuth {
     console.log('signOut')
     const data = {
       code: 0,
-      message: 'success'
+      message: 'success',
     }
     setUser(null)
     removeCache(CacheKeys.userInfo)

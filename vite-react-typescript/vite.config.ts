@@ -1,6 +1,12 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-07-23 14:14 (GMT+0900)
+ */
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import reactRefresh from '@vitejs/plugin-react-refresh'
+import eslintPlugin from 'vite-plugin-eslint'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,15 +21,18 @@ export default defineConfig({
     host: '0.0.0.0',
     // https://github.com/http-party/node-http-proxy#options
     proxy: {
-      '/api': {
-        target: 'http://localhost:8080',
-        // target: 'https://api.github.com/',
-        changeOrigin: true,
-        // rewrite: (path) => path.replace(/^\/api/, '')
-      },
+      // '/api': {
+      //   target: 'http://localhost:8080',
+      //   // target: 'https://api.github.com/',
+      //   changeOrigin: true,
+      //   // rewrite: (path) => path.replace(/^\/api/, '')
+      // },
     }
   },
-  plugins: [reactRefresh()],
+  plugins: [
+    reactRefresh(),
+    eslintPlugin({fix: true}),
+  ],
   css:{
     preprocessorOptions: {
       scss: {

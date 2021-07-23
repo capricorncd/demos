@@ -5,19 +5,18 @@
  */
 import React from 'react'
 import './index.scss'
-import {AnyObject, DefaultProps} from '@/types'
-import {calc} from '@/helpers'
+import { AnyObject, DefaultProps } from '@/types'
+import { calc } from '@/helpers'
 
 export interface AppButtonProps extends DefaultProps {
-  width?: number | string;
-  small?: boolean;
-  inline?: boolean;
-  disabled?: boolean;
-  path?: string;
+  width?: number | string
+  small?: boolean
+  inline?: boolean
+  disabled?: boolean
+  path?: string
 }
 
 export default function AppButton(props: AppButtonProps) {
-
   const classes = ['app-button']
 
   if (props.small) classes.push('is-small')
@@ -37,12 +36,12 @@ export default function AppButton(props: AppButtonProps) {
   }
 
   return (
-    <button className={classes.join(' ')} style={styles} onClick={onClick}>{
-      props.children
-    }</button>
+    <button className={classes.join(' ')} style={styles} onClick={onClick}>
+      {props.children}
+    </button>
   )
 }
 
 function linkTo(path: string): void {
-  location.href = path;
+  location.href = path
 }

@@ -3,17 +3,17 @@
  * https://github.com/capricorncd
  * Date: 2021-06-21 19:38 (GMT+0900)
  */
-import React, {useState, useEffect} from 'react'
-import {useHistory} from 'react-router-dom'
-import {ClickFunction, DefaultProps} from '@/types'
-import {IconArrow, IconList, IconHome, IconLogout, IconGithub, IconClear} from '@/components/Common/Icons'
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+import { ClickFunction, DefaultProps } from '@/types'
+import { IconArrow, IconList, IconHome, IconLogout, IconGithub, IconClear } from '@/components/Common/Icons'
 import { useAuth } from '@/components/UseAuth/UseAuth'
-import {isUrlLike, setBodyScrollStatus, clearCache} from '@/helpers'
+import { isUrlLike, setBodyScrollStatus, clearCache } from '@/helpers'
 import './SideBar.scss'
 
 interface SideBarProps extends DefaultProps {
-  visible: boolean;
-  onClose: ClickFunction;
+  visible: boolean
+  onClose: ClickFunction
 }
 
 export default function SideBar(props: SideBarProps) {
@@ -61,24 +61,32 @@ export default function SideBar(props: SideBarProps) {
       <section className={innerClasses.join(' ')}>
         <ul className="menu-list">
           <li onClick={() => handleClick('/')}>
-            <div className="flex-center"><IconHome/></div>
+            <div className="flex-center">
+              <IconHome />
+            </div>
             欢迎页
           </li>
-          <li onClick={() => handleClick("/order/history")}>
-            <div className="flex-center"><IconList/></div>
+          <li onClick={() => handleClick('/order/history')}>
+            <div className="flex-center">
+              <IconList />
+            </div>
             历史订单
           </li>
           <li onClick={() => handleClick('clearCache')}>
-            <div className="flex-center"><IconClear/></div>
+            <div className="flex-center">
+              <IconClear />
+            </div>
             清除缓存
           </li>
           <li onClick={() => handleClick('https://github.com/capricorncd/demos/tree/main/vite-react-typescript')}>
-            <div className="flex-center"><IconGithub style={{fontSize:`1.5em`}}/></div>
+            <div className="flex-center">
+              <IconGithub style={{ fontSize: `1.5em` }} />
+            </div>
             Github
           </li>
           <li onClick={logout}>
             <div className="flex-center">
-              <IconLogout/>
+              <IconLogout />
             </div>
             退出登录
           </li>
@@ -86,12 +94,12 @@ export default function SideBar(props: SideBarProps) {
         </ul>
         <div className="footer-item" onClick={props.onClose}>
           <div className="back">
-            <IconArrow left/>
+            <IconArrow left />
           </div>
           <div className={`fs14 ml10 color-gray`}>返回</div>
         </div>
       </section>
-      <section className={maskClasses.join(' ')} onClick={props.onClose}/>
+      <section className={maskClasses.join(' ')} onClick={props.onClose} />
     </>
   )
 }

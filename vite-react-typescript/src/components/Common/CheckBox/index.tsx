@@ -5,13 +5,13 @@
  */
 import React from 'react'
 import AppPrice from '@/components/Common/AppPrice'
-import {DefaultProps, FoodSpecificationItem} from '@/types'
+import { DefaultProps, FoodSpecificationItem } from '@/types'
 import './index.scss'
 
 interface CheckBoxProps extends DefaultProps {
-  data: FoodSpecificationItem,
-  change?: (checked: boolean, item: FoodSpecificationItem) => void;
-  checked?: boolean;
+  data: FoodSpecificationItem
+  change?: (checked: boolean, item: FoodSpecificationItem) => void
+  checked?: boolean
 }
 export default function CheckBox(props: CheckBoxProps) {
   const classes = ['check-box']
@@ -24,7 +24,9 @@ export default function CheckBox(props: CheckBoxProps) {
   return (
     <button className={classes.join(' ')} onClick={handleClick}>
       {props.data.name}
-      <AppPrice className="price" fontSize={10}>{props.data.price}</AppPrice>
+      <AppPrice className="price" fontSize={10}>
+        {props.data.price}
+      </AppPrice>
     </button>
   )
 }

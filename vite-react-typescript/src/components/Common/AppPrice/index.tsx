@@ -4,15 +4,15 @@
  * Date: 2021-06-12 23:37 (GMT+0900)
  */
 import React from 'react'
-import {AnyObject} from '@/types'
-import {calc} from '@/helpers'
+import { AnyObject } from '@/types'
+import { calc } from '@/helpers'
 import './index.scss'
 
 interface AppPriceProps {
-  children?: string | number;
-  fontSize?: string | number;
-  className?: string;
-  primary?: boolean;
+  children?: string | number
+  fontSize?: string | number
+  className?: string
+  primary?: boolean
 }
 
 export default function AppPrice(props: AppPriceProps) {
@@ -29,7 +29,7 @@ export default function AppPrice(props: AppPriceProps) {
   }
   return (
     <div className={classes.join(' ')} style={styles}>
-      <span className="unit">¥</span> { props.children }
+      <span className="unit">¥</span> {props.children}
     </div>
   )
 }

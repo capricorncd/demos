@@ -7,11 +7,8 @@ import React from 'react'
 import './index.scss'
 import { DefaultProps } from '@/types'
 
-export interface AppTitleProps extends DefaultProps {
-}
+export type AppTitleProps = DefaultProps
 
 export default function AppTitle(props: AppTitleProps) {
-  return (
-    <h6 className="mt10">{props.children}</h6>
-  )
+  return <h6 className="mt10">{props.children}</h6>
 }

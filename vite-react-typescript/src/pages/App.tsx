@@ -4,13 +4,7 @@
  * Date: 2021-06-12 11:56 (GMT+0900)
  */
 import React from 'react'
-import {
-  HashRouter as Router,
-  Switch,
-  Redirect,
-  Route,
-  RouteProps
-} from 'react-router-dom'
+import { HashRouter as Router, Switch, Redirect, Route, RouteProps } from 'react-router-dom'
 import { ProvideAuth, useAuth } from '@/components/UseAuth/UseAuth'
 import Login from './Login/Login'
 import Welcome from './Welcome/Welcome'
@@ -25,22 +19,22 @@ export default function App() {
       <Router>
         <Switch>
           <PrivateRoute path="/" exact>
-            <Welcome/>
+            <Welcome />
           </PrivateRoute>
           <Route path="/login">
-            <Login/>
+            <Login />
           </Route>
           <PrivateRoute path="/home">
-            <Home/>
+            <Home />
           </PrivateRoute>
           <PrivateRoute path="/confirm">
-            <Confirm/>
+            <Confirm />
           </PrivateRoute>
           <PrivateRoute path="/order/detail/:id?">
-            <OrderDetail/>
+            <OrderDetail />
           </PrivateRoute>
           <PrivateRoute path="/order/history">
-            <OrderHistory/>
+            <OrderHistory />
           </PrivateRoute>
         </Switch>
       </Router>
@@ -48,8 +42,8 @@ export default function App() {
   )
 }
 
-function PrivateRoute({children, ...rest}: RouteProps) {
-  let auth = useAuth()
+function PrivateRoute({ children, ...rest }: RouteProps) {
+  const auth = useAuth()
   return (
     <Route
       {...rest}
@@ -59,8 +53,8 @@ function PrivateRoute({children, ...rest}: RouteProps) {
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
-              state: { from: location }
+              pathname: '/login',
+              state: { from: location },
             }}
           />
         )

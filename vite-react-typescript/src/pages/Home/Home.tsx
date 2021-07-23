@@ -9,9 +9,9 @@ import TopSwiper from '@/components/Home/TopSwiper'
 import TrendingSwiper from '@/components/Home/TrendingSwiper'
 import CategoryList from '@/components/Home/CategoryList'
 import FooterBar from '@/components/Home/FooterBar/FooterBar'
-import {request, getCache, setCache} from '@/helpers'
-import {HomeResponse} from '@/types'
-import {Apis, CacheKeys} from '@/assets/constants'
+import { request, getCache, setCache } from '@/helpers'
+import { HomeResponse } from '@/types'
+import { Apis, CacheKeys } from '@/assets/constants'
 import store, { dataSlice } from '@/stores'
 import Loading from '@/components/Common/Loading/Loading'
 import './Home.scss'
@@ -33,23 +33,26 @@ export default function Home() {
       return
     }
 
-    request.get<HomeResponse>(Apis.home).then(init).catch(err => {
-      console.error(err);
-    })
+    request
+      .get<HomeResponse>(Apis.home)
+      .then(init)
+      .catch((err) => {
+        console.error(err)
+      })
   }, [])
 
   if (!isLoaded) {
-    return (<Loading/>)
+    return <Loading />
   }
 
   return data ? (
     <div className="home-page">
       <h4 className="mt10 ml10">Trending</h4>
-      <TrendingSwiper/>
+      <TrendingSwiper />
       <CategoryList className={`mt10`} data={data}>
-        <TopSwiper/>
+        <TopSwiper />
       </CategoryList>
-      <FooterBar data={data}/>
+      <FooterBar data={data} />
     </div>
   ) : null
 }

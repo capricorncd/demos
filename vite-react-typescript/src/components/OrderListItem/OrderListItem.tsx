@@ -7,11 +7,11 @@ import React from 'react'
 import AppPrice from '@/components/Common/AppPrice'
 import AppImage from '@/components/Common/AppImage'
 import './OrderListItem.scss'
-import {DefaultProps, FoodDetail} from '@/types'
-import {toNumber} from "@/helpers";
+import { DefaultProps, FoodDetail } from '@/types'
+import { toNumber } from '@/helpers'
 
 interface OrderListItemProps extends DefaultProps {
-  data: FoodDetail;
+  data: FoodDetail
 }
 
 export default function OrderListItem(props: OrderListItemProps) {
@@ -20,9 +20,9 @@ export default function OrderListItem(props: OrderListItemProps) {
 
   const data = props.data
   let price = data.price
-  let remark: string[] = []
+  const remark: string[] = []
   if (data.specifications) {
-    data.specifications.forEach(item => {
+    data.specifications.forEach((item) => {
       price += toNumber(item.price)
       remark.push(item.name)
     })
@@ -30,7 +30,7 @@ export default function OrderListItem(props: OrderListItemProps) {
 
   return (
     <dl className={classes.join(' ')}>
-      <AppImage src={data.cover} className={`cover`}/>
+      <AppImage src={data.cover} className={`cover`} />
       <dt>
         <h4>{data.name}</h4>
         <AppPrice>{price}</AppPrice>

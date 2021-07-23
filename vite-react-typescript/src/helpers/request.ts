@@ -3,39 +3,39 @@
  * https://github.com/capricorncd
  * Date: 2021-06-26 21:32 (GMT+0900)
  */
-import {AnyObject, RequestOptions} from '@/types'
-import {isUrlLike, isObject} from '@/helpers/check'
+import { AnyObject, RequestOptions } from '@/types'
+import { isUrlLike } from '@/helpers/check'
 
 const DEF_HEADERS = {
-  "Content-type": "application/json; charset=UTF-8",
+  'Content-type': 'application/json; charset=UTF-8',
 }
 
 function createQueries(data: AnyObject): string {
-  const arr = Object.entries(data).map(item => item.join('='))
+  const arr = Object.entries(data).map((item) => item.join('='))
   return arr.length ? `?${arr.join('&')}` : ''
 }
 
-function createSearchParams(data: AnyObject): URLSearchParams {
-  const urlSearchParams = new URLSearchParams();
-  Object.entries(data).forEach(([key, value]) => {
-    handleParams(value, key, urlSearchParams)
-  })
-  return urlSearchParams
-}
+// function createSearchParams(data: AnyObject): URLSearchParams {
+//   const urlSearchParams = new URLSearchParams()
+//   Object.entries(data).forEach(([key, value]) => {
+//     handleParams(value, key, urlSearchParams)
+//   })
+//   return urlSearchParams
+// }
 
-function handleParams(params: any, key: string, data: URLSearchParams): void {
-  if (Array.isArray(params)) {
-    for (const value of params) {
-      handleParams(value, `${key}[]`, data);
-    }
-  } else if (isObject(params)) {
-    Object.entries(params).forEach(([_key, _value]) => {
-      handleParams(_value, `${key}[${_key}]`, data)
-    })
-  } else {
-    data.append(key, params)
-  }
-}
+// function handleParams(params: any, key: string, data: URLSearchParams): void {
+//   if (Array.isArray(params)) {
+//     for (const value of params) {
+//       handleParams(value, `${key}[]`, data)
+//     }
+//   } else if (isObject(params)) {
+//     Object.entries(params).forEach(([_key, _value]) => {
+//       handleParams(_value, `${key}[${_key}]`, data)
+//     })
+//   } else {
+//     data.append(key, params)
+//   }
+// }
 
 export function request<T>(_options: RequestOptions): Promise<T> {
   const { url, method = 'get', data = {}, headers = {} } = _options
@@ -43,7 +43,7 @@ export function request<T>(_options: RequestOptions): Promise<T> {
     // handle url
     let apiUrl = isUrlLike(url) ? url : `/api/${url}`
     // handle options
-    const options: AnyObject = { method, headers: { ...DEF_HEADERS, ...headers }}
+    const options: AnyObject = { method, headers: { ...DEF_HEADERS, ...headers } }
     // handle data
     if (Object.keys(data).length) {
       switch (method.toLowerCase()) {
@@ -59,15 +59,15 @@ export function request<T>(_options: RequestOptions): Promise<T> {
     fetch(apiUrl, options)
       .then((response: Response) => {
         if (response.status >= 200 && response.status < 300) {
-          return response.json();
+          return response.json()
         } else {
-          throw new Error(response.statusText);
+          throw new Error(response.statusText)
         }
       })
-      .then(json => {
+      .then((json) => {
         resolve(json)
       })
-      .catch(err => {
+      .catch((err) => {
         console.error('Request Failed', err)
         reject(err)
       })
@@ -83,11 +83,10 @@ request.get = function requestGet<T>(api: string, params: AnyObject = {}, header
   })
 }
 request.post = function requestPost<T>(api: string, params: AnyObject = {}, headers: AnyObject = {}): Promise<T> {
-    return request({
-      url: api,
-      method: 'post',
-      data: params,
-      headers,
-    })
-  }
-
+  return request({
+    url: api,
+    method: 'post',
+    data: params,
+    headers,
+  })
+}

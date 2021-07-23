@@ -4,12 +4,10 @@
  * Date: 2021-06-20 21:46 (GMT+0900)
  */
 import React from 'react'
-import {AnyObject, DefaultProps} from '@/types'
-import {DEF_STYLES} from '@/assets/constants/Icons'
+import { AnyObject, DefaultProps } from '@/types'
+import { DEF_STYLES } from '@/assets/constants/Icons'
 
-interface IconEditProps extends DefaultProps {
-
-}
+type IconEditProps = DefaultProps
 
 export default function IconEdit(props: IconEditProps) {
   const styles: AnyObject = {
@@ -18,10 +16,14 @@ export default function IconEdit(props: IconEditProps) {
   }
 
   return (
-    <svg className={props.className}
-         style={styles}
-         onClick={props.onClick}
-         viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1601">
+    <svg
+      className={props.className}
+      style={styles}
+      onClick={props.onClick}
+      viewBox="0 0 1024 1024"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      p-id="1601">
       <path
         d="M848.937379 537.578518a38.363045 38.363045 0 0 0-38.387037 38.387037c0 1.495495 0.111962 2.879028 0.215927 4.262561h-0.215927V947.040246H76.934078V213.423982h400.92861c21.224833 0 38.387037-17.170202 38.387037-38.387037 0-21.224833-17.162204-38.387037-38.387037-38.387037H76.934078a76.72609 76.72609 0 0 0-76.774074 76.774074V947.040246c0 42.441668 34.332406 76.774074 76.774074 76.774074h733.616264c42.441668 0 76.774074-34.332406 76.774074-76.774074V580.228116h-0.20793c0.103965-1.383533 0.20793-2.767066 0.20793-4.262561 0-21.216835-17.162204-38.387037-38.387037-38.387037z"
         p-id="1602"></path>

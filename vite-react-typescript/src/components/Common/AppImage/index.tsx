@@ -8,10 +8,10 @@ import { calc } from '../../../helpers'
 import './index.scss'
 
 export interface AppImageProps {
-  src: string;
-  height?: number;
-  inlineFlex?: boolean;
-  className?: string;
+  src: string
+  height?: number
+  inlineFlex?: boolean
+  className?: string
 }
 
 export default function AppImage(props: AppImageProps) {
@@ -30,7 +30,7 @@ export default function AppImage(props: AppImageProps) {
 
   return (
     <div className={classes.join(' ')} style={styles}>
-      <img src={props.src} alt=""/>
+      <img src={props.src} alt="" />
     </div>
   )
 }

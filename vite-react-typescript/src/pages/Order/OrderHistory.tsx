@@ -5,23 +5,23 @@
  *
  * 历史订单
  */
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './OrderHistory.scss'
-import Header from "@/components/Common/Header/Header";
-import {request} from "@/helpers";
-import {Apis} from "@/assets/constants";
-import {DefaultProps, OrderHistoryListItem, OrderHistoryResponse} from "@/types";
-import AppPrice from "@/components/Common/AppPrice";
-import {useHistory} from 'react-router-dom'
-
-const mockList: OrderHistoryListItem[] = Array.from({length: 100}).map(item => {
+import Header from '@/components/Common/Header/Header'
+import { request } from '@/helpers'
+import { Apis } from '@/assets/constants'
+import { DefaultProps, OrderHistoryListItem, OrderHistoryResponse } from '@/types'
+import AppPrice from '@/components/Common/AppPrice'
+import { useHistory } from 'react-router-dom'
+/* eslint-disable camelcase */
+const mockList: OrderHistoryListItem[] = Array.from({ length: 100 }).map(() => {
   return {
     id: 'Order' + Math.random(),
     count: 2,
     total_price: 23333,
     actual_payment: 23333,
     actual_payment_remark: '',
-    create_date: '2021-04-09 12:53'
+    create_date: '2021-04-09 12:53',
   }
 })
 
@@ -34,23 +34,25 @@ export default function OrderHistory() {
 
   useEffect(() => {
     if (isNoMore) return
-    request.get<OrderHistoryResponse>(Apis.orderHistory, {limit: 10, page: page})
-      .then(res => {
+    request
+      .get<OrderHistoryResponse>(Apis.orderHistory, { limit: 10, page: page })
+      .then((res) => {
         setData(res)
-        console.log(res);
+        console.log(res)
         if (!res.order_list || !res.order_list.length) {
           setIsNoMore(true)
         } else {
           setList(list.concat(res.order_list))
+          setPage(page + 1)
         }
       })
-      .catch(err => {
-        console.log(err);
+      .catch((err) => {
+        console.log(err)
       })
 
     // 下拉加载更多实现
     // setPage(page + 1)
-  }, [page])
+  }, [page, isNoMore, list])
 
   return data ? (
     <div className={`order-history-page`}>
@@ -61,15 +63,15 @@ export default function OrderHistory() {
 
       <ul className="list-wrapper">
         {list.map((item, i) => (
-          <OrderListItem data={item} key={i} onClick={() => history.push(`/order/detail/${item.id}`)}/>
-          ))}
-       </ul>
+          <OrderListItem data={item} key={i} onClick={() => history.push(`/order/detail/${item.id}`)} />
+        ))}
+      </ul>
     </div>
   ) : null
 }
 
 interface OrderListItemProps extends DefaultProps {
-  data: OrderHistoryListItem;
+  data: OrderHistoryListItem
 }
 
 function OrderListItem(props: OrderListItemProps) {

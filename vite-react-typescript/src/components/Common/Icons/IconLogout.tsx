@@ -4,11 +4,9 @@
  * Date: 2021-07-03 18:48 (GMT+0900)
  */
 import React from 'react'
-import {AnyObject, DefaultProps} from '@/types'
-import {DEF_STYLES} from '@/assets/constants/Icons'
-interface IconListProps extends DefaultProps {
-
-}
+import { AnyObject, DefaultProps } from '@/types'
+import { DEF_STYLES } from '@/assets/constants/Icons'
+type IconListProps = DefaultProps
 
 export default function IconLogout(props: IconListProps) {
   const styles: AnyObject = {
@@ -17,10 +15,14 @@ export default function IconLogout(props: IconListProps) {
   }
 
   return (
-    <svg className={props.className}
-         style={styles}
-         onClick={props.onClick}
-         viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1373">
+    <svg
+      className={props.className}
+      style={styles}
+      onClick={props.onClick}
+      viewBox="0 0 1024 1024"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      p-id="1373">
       <path
         d="M384 853.333333H213.333333c-25.6 0-42.666667-17.066667-42.666666-42.666666V213.333333c0-25.6 17.066667-42.666667 42.666666-42.666666h170.666667c25.6 0 42.666667-17.066667 42.666667-42.666667s-17.066667-42.666667-42.666667-42.666667H213.333333C140.8 85.333333 85.333333 140.8 85.333333 213.333333v597.333334c0 72.533333 55.466667 128 128 128h170.666667c25.6 0 42.666667-17.066667 42.666667-42.666667s-17.066667-42.666667-42.666667-42.666667z"
         p-id="1374"></path>

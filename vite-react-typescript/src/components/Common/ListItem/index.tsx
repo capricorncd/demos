@@ -5,15 +5,15 @@
  */
 import React from 'react'
 import './index.scss'
-import {DefaultProps, FoodDetail} from '@/types'
-import {getClasses} from '@/helpers'
+import { DefaultProps, FoodDetail } from '@/types'
+import { getClasses } from '@/helpers'
 import AppImage from '@/components/Common/AppImage'
 import AppPrice from '@/components/Common/AppPrice'
 import CountButtonGroup from '@/components/Common/CountButtonGroup'
-import store, {counterSlice} from '@/stores'
+import store, { counterSlice } from '@/stores'
 
 interface ListItemProps extends DefaultProps {
-  data: FoodDetail;
+  data: FoodDetail
 }
 
 export default function ListItem(props: ListItemProps) {
@@ -26,10 +26,12 @@ export default function ListItem(props: ListItemProps) {
     if (isMinus) {
       store.dispatch(counterSlice.actions.remove(foodId))
     } else {
-      store.dispatch(counterSlice.actions.add( {
-        id: foodId,
-        // specifications: [],
-      }))
+      store.dispatch(
+        counterSlice.actions.add({
+          id: foodId,
+          // specifications: [],
+        }),
+      )
       // 首次添加时，判断是否有规格选项
       // 如果有，则显示详情弹窗
       if (!count && hasSpecif) {
@@ -40,7 +42,7 @@ export default function ListItem(props: ListItemProps) {
 
   return (
     <section className={classes} onClick={props.onClick}>
-      <AppImage src={data.cover}/>
+      <AppImage src={data.cover} />
       <dl className="list-item__info">
         <dd>
           <h4 className="ell">{data.name}</h4>
@@ -49,7 +51,7 @@ export default function ListItem(props: ListItemProps) {
         </dd>
         <dd className="flex-space-between">
           <AppPrice>{data.price}</AppPrice>
-          <CountButtonGroup foodId={foodId} change={handleChange}/>
+          <CountButtonGroup foodId={foodId} change={handleChange} />
         </dd>
       </dl>
     </section>

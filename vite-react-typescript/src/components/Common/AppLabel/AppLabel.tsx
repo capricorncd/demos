@@ -5,11 +5,11 @@
  */
 import React from 'react'
 import './AppLabel.scss'
-import {DefaultProps} from '@/types'
+import { DefaultProps } from '@/types'
 
 interface AppLabelProps extends DefaultProps {
-  name?: string | number;
-  right?: React.ReactNode;
+  name?: string | number
+  right?: React.ReactNode
 }
 
 export default function AppLabel(props: AppLabelProps) {
@@ -20,7 +20,7 @@ export default function AppLabel(props: AppLabelProps) {
     <dl className={classes.join(' ')}>
       <dt>
         <div className={`ell`}>{props.name}</div>
-        <div className="right">{ props.right }</div>
+        <div className="right">{props.right}</div>
       </dt>
       <dd className={`color-gray`}>{props.children}</dd>
     </dl>

@@ -7,11 +7,11 @@ import React from 'react'
 import AppImage from '@/components/Common/AppImage'
 import CountButtonGroup from '@/components/Common/CountButtonGroup'
 import AppPrice from '@/components/Common/AppPrice'
-import {DefaultProps, FoodDetail} from '@/types'
-import store, {counterSlice} from '@/stores'
+import { DefaultProps, FoodDetail } from '@/types'
+import store, { counterSlice } from '@/stores'
 
 interface TrendingItemProps extends DefaultProps {
-  data: FoodDetail;
+  data: FoodDetail
 }
 
 export default function TrendingItem(props: TrendingItemProps): JSX.Element {
@@ -23,10 +23,12 @@ export default function TrendingItem(props: TrendingItemProps): JSX.Element {
     if (isMinus) {
       store.dispatch(counterSlice.actions.remove(foodId))
     } else {
-      store.dispatch(counterSlice.actions.add( {
-        id: foodId,
-        // specifications: [],
-      }))
+      store.dispatch(
+        counterSlice.actions.add({
+          id: foodId,
+          // specifications: [],
+        }),
+      )
       if (!count && hasSpecif) {
         props.onClick && props.onClick()
       }
@@ -35,13 +37,11 @@ export default function TrendingItem(props: TrendingItemProps): JSX.Element {
 
   return (
     <div className="home-trending-item shadow" onClick={props.onClick}>
-      <AppImage
-        src={data.cover}
-        height={100}/>
+      <AppImage src={data.cover} height={100} />
       <h5 className="ell">{data.name}</h5>
       <div className="flex-space-between fs14">
-        <AppPrice>{ data.price }</AppPrice>
-        <CountButtonGroup foodId={foodId} change={handleChange}/>
+        <AppPrice>{data.price}</AppPrice>
+        <CountButtonGroup foodId={foodId} change={handleChange} />
       </div>
     </div>
   )
