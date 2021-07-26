@@ -7,7 +7,8 @@ import * as PIXI from 'pixi.js'
 import { gsap } from 'gsap'
 import { PixiPlugin } from 'gsap/PixiPlugin'
 import './style.scss'
-import Background from './Background2'
+import Background from './Background'
+import EMP from './EMP'
 
 // register the plugin
 gsap.registerPlugin(PixiPlugin)
@@ -27,12 +28,17 @@ container.appendChild(app.view)
 
 app.loader
   .add('./static/background.json')
+  .add('./static/EMP.png')
   .load(onAssetsLoaded)
 
 function onAssetsLoaded() {
   const bg = new Background(app)
+  const emp = new EMP(app)
 
   app.ticker.add((delta) => {
     bg.update(delta)
+    emp.update()
+
+    if (emp.isEnded()) emp.reset()
   })
 }
