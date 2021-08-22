@@ -93,3 +93,6 @@ sw.*
 
 cert/
 *cert/
+
+# python
+venv/
