@@ -166,6 +166,8 @@ sklearn.feature_extraction.DictVectorizer(sparse=True)
 # getting-started/demo-002.py
 ```
 
+![文本特征值提取公式](static/readme/tfidf.png)
+
 ### 2.2.4 特征预处理
 
 ### 2.2.5 特征降维
