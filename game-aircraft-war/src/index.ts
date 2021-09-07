@@ -37,8 +37,8 @@ function onAssetsLoaded() {
 
   app.ticker.add((delta) => {
     bg.update(delta)
-    emp.update()
+    // emp.update()
 
-    if (emp.isEnded()) emp.reset()
+    // if (emp.isEnded()) emp.reset()
   })
 }

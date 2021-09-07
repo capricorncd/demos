@@ -151,7 +151,7 @@ sklearn：对于特征的处理提供了强大的接口
 文本特征提取
 图像特征提取（深度学习中介绍）
 
-```python
+```
 # 特征提取API
 sklearn.feature_extraction
 
@@ -169,6 +169,16 @@ sklearn.feature_extraction.DictVectorizer(sparse=True)
 ![文本特征值提取公式](static/readme/tfidf.png)
 
 ### 2.2.4 特征预处理
+
+通过一些**转换函数**将特征数据转换成更加适合**算法模型**的特征数据的过程。
+
+数值型数据的**无量纲化**：**归一化**和**标准化**
+
+```
+sklearn.preprocessing
+```
+
+![normalized 归一化](static/readme/normalized.png)
 
 ### 2.2.5 特征降维
 

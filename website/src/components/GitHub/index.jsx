@@ -37,6 +37,24 @@ const list = [
     ]
   },
   {
+    name: 'vite-react-typescript',
+    cover: './static/vite-react-typescript.png',
+    url: 'https://github.com/capricorncd/demos/tree/main/vite-react-typescript',
+    desc: [
+      {
+        text: 'レストランのスマホ注文システム'
+      },
+      {
+        tag: 'Tags',
+        text: 'React(hook)/TypeScript/Vite/Sass'
+      },
+      {
+        tag: 'Source',
+        url: DEMOS_SOURCE_MAIN_URL + 'vite-react-typescript'
+      }
+    ]
+  },
+  {
     name: 'School Circle Web Site',
     cover: './static/app-site.jpg',
     url: './demos/app-website/',
