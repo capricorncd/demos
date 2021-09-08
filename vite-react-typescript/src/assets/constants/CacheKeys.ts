@@ -13,4 +13,5 @@ export const CacheKeys = {
   selectedItems: 'selectedItems',
   confirmRemark: 'confirmRemark',
   confirmResponse: 'confirmResponse',
+  language: 'language',
 } as const

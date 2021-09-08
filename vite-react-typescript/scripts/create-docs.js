@@ -6,11 +6,18 @@
 const path = require('path')
 const fs = require('fs')
 const os = require('os')
-const { obj2str } = require('obj2str')
+const { formatDate } = require('date-utils-2020')
+// const { obj2str } = require('obj2str')
 
 // 类型定义文件目录
 const typesDir = path.resolve(__dirname, '../src/types')
 const docsDir = path.resolve(__dirname, '../docs')
+
+function checkDocsDir() {
+  if (!fs.existsSync(docsDir)) {
+    fs.mkdirSync(docsDir)
+  }
+}
 
 /**
  * clear docs dir
@@ -100,6 +107,8 @@ function handleFile(file) {
       // 提取标题以下的其他有用的备注信息
       else if (res.title) {
         // 参数处理
+        // * @method post
+        // * @param tableId number/null 餐桌Id(下单时再提交？)
         if (/^\*\s*@(\w+)\s+(.+)/.test(line)) {
           $1 = RegExp.$1
           $2 = RegExp.$2.trim()
@@ -141,12 +150,13 @@ function handleFile(file) {
       return
     }
     // 处理其他类型或接口定义数据
-    if (/interface\s(\w+)/.test(line)) {
+    if (/interface\s(\w+)(?:\s+extends (\w+))?/.test(line)) {
       isInterface = true
       interfaceData = {
         name: RegExp.$1,
         desc: tempArr.slice(),
         type: 'interface',
+        extends: RegExp.$2 || null,
       }
       // 清除单行注释数据
       tempArr.length = 0
@@ -203,6 +213,11 @@ function outputMdFile(data) {
     if (item.type === 'type') {
       lines.push('```typescript', item.code, '```')
     } else if (item.type === 'interface') {
+      // extends info
+      if (item.extends) {
+        lines.push('extends: `' + item.extends + '`', '')
+      }
+      // create table
       lines.push(`字段名|类型|必须|说明`, `:--|:--|:--|:--`)
       if (item.columns.length) {
         item.columns.forEach(({ key, type, desc, required }) => {
@@ -217,12 +232,12 @@ function outputMdFile(data) {
 
   // output
   fs.writeFileSync(`${docsDir}/${data.fileName}.md`, lines.join(os.EOL))
-  // output json
-  const configFile = `${path.resolve(__dirname, `../apis/configs/${data.fileName}.json`)}`
-  if (fs.existsSync(configFile)) {
-    fs.unlinkSync(configFile)
-  }
-  fs.writeFileSync(configFile, obj2str(data, {doubleQuotes: true,keyQuote: true}))
+  // // output json
+  // const configFile = `${path.resolve(__dirname, `../apis/configs/${data.fileName}.json`)}`
+  // if (fs.existsSync(configFile)) {
+  //   fs.unlinkSync(configFile)
+  // }
+  // fs.writeFileSync(configFile, obj2str(data, {doubleQuotes: true,keyQuote: true}))
 }
 
 function createReadmeFile() {
@@ -234,7 +249,11 @@ function createReadmeFile() {
     '',
     'If you directly modify the content of this file, it will be overwritten the next time you execute `npm run docs`!', '',
     '## API请求参数', '',
-    '为了避免eslint蛇形(snake_case)命名警告，故API请求参数采用驼峰(camel_case)命名。', '',
+    '为了避免eslint蛇形(snake_case)命名警告，故API请求参数采用驼峰(camelCase)命名。', '',
+    '## 关于API字段名', '',
+    '目前API返回数据字段名为暂定内容，后期根据数据库字段名做相应调整。', '',
+    '## 文档生成时间', '',
+    formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss G'), ''
   ]
   // output
   fs.writeFileSync(`${docsDir}/README.md`, lines.join(os.EOL))
@@ -244,6 +263,7 @@ function createReadmeFile() {
  * run
  */
 function run() {
+  checkDocsDir()
   clearDocsDir()
   readTypeFiles().forEach(outputMdFile)
   createReadmeFile()

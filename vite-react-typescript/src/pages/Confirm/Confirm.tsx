@@ -35,7 +35,7 @@ export default function Confirm() {
     if (isSubmit) return
     setIsSubmit(true)
     const params = {
-      shopId: 1,
+      merchantId: 1,
       tableId: 10,
       remark,
       foodList: selectedList.map((item) => {
@@ -49,7 +49,7 @@ export default function Confirm() {
     request
       .post<SubmitOrderResponse>(Apis.orderSubmit, params)
       .then((res) => {
-        console.log(res)
+        // console.log(res)
         setCache(CacheKeys.confirmResponse, res)
         // 清除备注数据
         setCache(CacheKeys.confirmRemark, '')
@@ -60,7 +60,7 @@ export default function Confirm() {
         setIsSubmit(false)
       })
       .catch((err) => {
-        console.error(err)
+        // console.error(err)
         setIsSubmit(false)
       })
   }

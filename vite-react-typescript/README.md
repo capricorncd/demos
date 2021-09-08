@@ -1,31 +1,40 @@
-# vite-react(hook)-typescript
+# vite-react-typescript
 
-这是一个用vite、react(hook)和typescript构建的应用程序。
+Vite, React(Hook), TypeScript
 
-![demo preview](./qr-code.png)
+## Dev
 
-demo 扫码预览
+### Setup
 
-## 开发
+```shell script
+npm i
+```
+
+### run dev
 
 ```shell script
 # development
 npm run dev
 # > Local:    http://localhost:3000/
 # > Network:  http://*.*.*.*:3000/
+# yarn dev
 ```
+
+### build
 
 ```shell script
 # build
 npm run build
 ```
 
+### server
+
 ```shell script
 # serve
 npm run serve
 ```
 
-## 文档生成和启动API服务
+## Generation Docs
 
 执行一下命令，将读取`src/types`里的文件生成相应的`Markdown`文档文件。
 
@@ -34,24 +43,9 @@ npm run serve
 npm run docs
 ```
 
-启动API服务
+![ScreenShot](./screen-shot.jpg)
 
-```shell script
-# run api service
-npm run api
-```
-
-## nginx配置
-
-```
-server {
-    location ~ /api {
-        proxy_pass http://localhost:8080;
-    }
-}
-```
-
-## 其他
+## Other
 
 https://vitejs.dev/
 

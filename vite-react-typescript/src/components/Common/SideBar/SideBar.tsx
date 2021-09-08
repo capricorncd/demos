@@ -5,10 +5,12 @@
  */
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { ClickFunction, DefaultProps } from '@/types'
-import { IconArrow, IconList, IconHome, IconLogout, IconGithub, IconClear } from '@/components/Common/Icons'
+import { useSelector } from 'react-redux'
+import { ClickFunction, DefaultProps, LanguageData, RootState } from '@/types'
+import { IconArrow, IconList, IconHome, IconLogout, IconLanguage, IconClear } from '@/components/Common/Icons'
 import { useAuth } from '@/components/UseAuth/UseAuth'
 import { isUrlLike, setBodyScrollStatus, clearCache } from '@/helpers'
+// import {getLanguageList} from '@/assets/constants'
 import './SideBar.scss'
 
 interface SideBarProps extends DefaultProps {
@@ -17,6 +19,7 @@ interface SideBarProps extends DefaultProps {
 }
 
 export default function SideBar(props: SideBarProps) {
+  const languages = useSelector<RootState>((state) => state.data.languages) as LanguageData
   const [isInitialed, setIsInitialed] = useState(false)
 
   const maskClasses = ['common-side-bar__mask']
@@ -39,9 +42,16 @@ export default function SideBar(props: SideBarProps) {
   const auth = useAuth()
 
   function handleClick(path: string): void {
+    // clear cache
     if (path === 'clearCache') {
       clearCache()
       location.reload()
+      return
+    }
+    // language
+    if (path === 'language') {
+      // open language choice popup
+      alert('open language choice popup')
       return
     }
     if (isUrlLike(path)) {
@@ -78,11 +88,11 @@ export default function SideBar(props: SideBarProps) {
             </div>
             清除缓存
           </li>
-          <li onClick={() => handleClick('https://github.com/capricorncd/demos/tree/main/vite-react-typescript')}>
+          <li onClick={() => handleClick('language')}>
             <div className="flex-center">
-              <IconGithub style={{ fontSize: `1.5em` }} />
+              <IconLanguage />
             </div>
-            Github
+            {languages.language}
           </li>
           <li onClick={logout}>
             <div className="flex-center">

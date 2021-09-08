@@ -4,8 +4,7 @@
  * Date: 2021-07-03 10:45 (GMT+0900)
  */
 import {FoodDetail, FoodSpecCategoryItem} from '@/types/FoodDetail'
-import {CategoryItem} from '@/types/Home'
-import {AuthResponse} from '@/types/Auth'
+import {CategoryItem, AuthResponse, LanguageData} from '@/types'
 
 export interface StoreDataState {
   foods: StoreDataFoods;
@@ -14,6 +13,7 @@ export interface StoreDataState {
   specifications: {};
   trendingList: number[];
   baseData: AuthResponse;
+  languages: LanguageData;
 }
 
 export type StoreDataFoods = Record<string, FoodDetail>;

@@ -5,6 +5,7 @@
  */
 import { AnyObject, RequestOptions } from '@/types'
 import { isUrlLike } from '@/helpers/check'
+import mockData from '~/data.json'
 
 const DEF_HEADERS = {
   'Content-type': 'application/json; charset=UTF-8',
@@ -59,6 +60,9 @@ export function request<T>(_options: RequestOptions): Promise<T> {
     fetch(apiUrl, options)
       .then((response: Response) => {
         if (response.status >= 200 && response.status < 300) {
+          if (apiUrl.includes('/api/home')) {
+            return mockData
+          }
           return response.json()
         } else {
           throw new Error(response.statusText)
@@ -68,7 +72,7 @@ export function request<T>(_options: RequestOptions): Promise<T> {
         resolve(json)
       })
       .catch((err) => {
-        console.error('Request Failed', err)
+        // console.error('Request Failed', err)
         reject(err)
       })
   })

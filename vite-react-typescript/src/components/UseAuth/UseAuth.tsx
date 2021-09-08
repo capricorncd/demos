@@ -48,7 +48,7 @@ export function useProvideAuth(): UseAuth {
 
   async function signIn(): Promise<UserInfo> {
     await asyncFun()
-    console.log('signIn')
+    // console.log('signIn')
     const data = {
       userName: 'HaniKzy',
       userId: 10002,
@@ -60,7 +60,7 @@ export function useProvideAuth(): UseAuth {
 
   async function signOut(): Promise<CommonResponseData> {
     await asyncFun()
-    console.log('signOut')
+    // console.log('signOut')
     const data = {
       code: 0,
       message: 'success',

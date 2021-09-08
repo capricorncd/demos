@@ -38,3 +38,16 @@ url|string|yes|-
 method|string|no|-
 data|AnyObject|no|-
 headers|AnyObject|no|-
+
+## LanguageTypes
+
+language: en/ja/ko/zh
+
+```typescript
+typeof AppConstants.languageTypeEN
+```
+## LanguageData
+
+```typescript
+Record<typeof columns[keyof typeof columns], string>
+```

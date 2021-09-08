@@ -24,17 +24,15 @@ export default function OrderDetail() {
   const history = useHistory()
 
   useEffect(() => {
-    request
-      .get<OrderDetailResponse>(Apis.orderDetail, { orderId })
-      .then((res) => {
-        if (!res || !res.order_id) {
-          alert('订单不存在！')
-          history.replace('/home')
-          return
-        }
-        setData(res)
-      })
-      .catch(console.error)
+    request.get<OrderDetailResponse>(Apis.orderDetail, { orderId }).then((res) => {
+      if (!res || !res.order_id) {
+        alert('订单不存在！')
+        history.replace('/home')
+        return
+      }
+      setData(res)
+    })
+    // .catch(console.error)
   }, [orderId, history])
 
   if (!data) {

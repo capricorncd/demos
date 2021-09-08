@@ -3,27 +3,23 @@
  * https://github.com/capricorncd
  * Date: 2021-06-24 22:21 (GMT+0900)
  */
-function getStorage(isSessionStorage: boolean): Storage {
-  return isSessionStorage ? sessionStorage : localStorage
+export function setCache<T>(key: string, value: T): void {
+  localStorage.setItem(key, JSON.stringify(value))
 }
 
-export function setCache<T>(key: string, value: T, isSessionStorage = false): void {
-  getStorage(isSessionStorage).setItem(key, JSON.stringify(value))
-}
-
-export function getCache<T>(key: string, isSessionStorage = false): T | null {
+export function getCache<T>(key: string, defaultValue: T | null = null): T | null {
   try {
-    const cache = getStorage(isSessionStorage).getItem(key)
-    return cache ? JSON.parse(cache) : null
+    const cache = localStorage.getItem(key)
+    return cache ? JSON.parse(cache) : defaultValue
   } catch (e) {
-    return null
+    return defaultValue
   }
 }
 
-export function removeCache(key: string, isSessionStorage = false): void {
-  getStorage(isSessionStorage).removeItem(key)
+export function removeCache(key: string): void {
+  localStorage.removeItem(key)
 }
 
-export function clearCache(isSessionStorage = false) {
-  getStorage(isSessionStorage).clear()
+export function clearCache() {
+  localStorage.clear()
 }

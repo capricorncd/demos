@@ -10,4 +10,12 @@ If you directly modify the content of this file, it will be overwritten the next
 
 ## API请求参数
 
-为了避免eslint蛇形(snake_case)命名警告，故API请求参数采用驼峰(camel_case)命名。
+为了避免eslint蛇形(snake_case)命名警告，故API请求参数采用驼峰(camelCase)命名。
+
+## 关于API字段名
+
+目前API返回数据字段名为暂定内容，后期根据数据库字段名做相应调整。
+
+## 文档生成时间
+
+2021-09-08 21:57:09 GMT+0900 (Japan Standard Time)

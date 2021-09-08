@@ -8,7 +8,7 @@
  * @apiUrl api/order/submit
  * @method post
  * @param foodList SubmitOrderFoodItem[] 所选食品信息列表
- * @param shopId number 店铺Id
+ * @param merchantId number 店铺Id
  * @param tableId number 餐桌或座位Id
  * @param remark string 备注信息
  */

@@ -38,7 +38,7 @@ export default function OrderHistory() {
       .get<OrderHistoryResponse>(Apis.orderHistory, { limit: 10, page: page })
       .then((res) => {
         setData(res)
-        console.log(res)
+        // console.log(res)
         if (!res.order_list || !res.order_list.length) {
           setIsNoMore(true)
         } else {
@@ -47,7 +47,7 @@ export default function OrderHistory() {
         }
       })
       .catch((err) => {
-        console.log(err)
+        // console.log(err)
       })
 
     // 下拉加载更多实现

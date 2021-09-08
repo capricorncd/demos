@@ -9,6 +9,7 @@ import IconEdit from './IconEdit'
 import IconFood from './IconFood'
 import IconGithub from './IconGithub'
 import IconHome from './IconHome'
+import IconLanguage from './IconLanguage'
 import IconList from './IconList'
 import IconLoading from './IconLoading'
 import IconLogout from './IconLogout'
@@ -23,6 +24,7 @@ export {
   IconFood,
   IconGithub,
   IconHome,
+  IconLanguage,
   IconList,
   IconLoading,
   IconLogout,

@@ -37,7 +37,7 @@ export default function Home() {
       .get<HomeResponse>(Apis.home)
       .then(init)
       .catch((err) => {
-        console.error(err)
+        // console.error(err)
       })
   }, [])
 

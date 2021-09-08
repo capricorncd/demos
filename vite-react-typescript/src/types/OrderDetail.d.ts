@@ -9,14 +9,14 @@
  * @method get
  * @param orderId number 订单ID，为0时返回最新订单数据
  */
-import {ShopInfo} from "@/types/Auth";
+import {MerchantInfo} from "@/types/Auth";
 import {FoodDetail} from "@/types/FoodDetail";
 
 // 接口返回数据
 export interface OrderDetailResponse {
   order_id: string; // 订单号
   status: number; // 订单状态
-  shop_info: ShopInfo; // 店铺信息
+  merchant_info: MerchantInfo; // 店铺信息
   list: FoodDetail[]; // 订单菜品列表
   total_price: number; // 总价格，根据订单计算出来的价格
   actual_payment: number; // 实际支付价格，可能为客服修改后的优惠总价格

@@ -7,6 +7,8 @@
  * 公用类型定义文件
  */
 import React from 'react'
+import columns from '@/assets/constants/lang/columns'
+import {AppConstants} from '@/assets/constants'
 
 // 任意对象类型
 export type AnyObject = Record<string, any>;
@@ -30,3 +32,11 @@ export interface RequestOptions {
   data?: AnyObject;
   headers?: AnyObject;
 }
+
+// language: en/ja/ko/zh
+export type LanguageTypes = typeof AppConstants.languageTypeEN
+  | typeof AppConstants.languageTypeJA
+  | typeof AppConstants.languageTypeZH
+  | typeof AppConstants.languageTypeKO
+
+export type LanguageData = Record<typeof columns[keyof typeof columns], string>

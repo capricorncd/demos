@@ -11,7 +11,7 @@ params:
 参数名|类型|说明
 :--|:--|:--
 foodList|SubmitOrderFoodItem[]|所选食品信息列表
-shopId|number|店铺Id
+merchantId|number|店铺Id
 tableId|number|餐桌或座位Id
 remark|string|备注信息
 

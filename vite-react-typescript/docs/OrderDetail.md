@@ -20,7 +20,7 @@ orderId|number|订单ID，为0时返回最新订单数据
 :--|:--|:--|:--
 order_id|string|yes|订单号
 status|number|yes|订单状态
-shop_info|ShopInfo|yes|店铺信息
+merchant_info|MerchantInfo|yes|店铺信息
 list|FoodDetail[]|yes|订单菜品列表
 total_price|number|yes|总价格，根据订单计算出来的价格
 actual_payment|number|yes|实际支付价格，可能为客服修改后的优惠总价格

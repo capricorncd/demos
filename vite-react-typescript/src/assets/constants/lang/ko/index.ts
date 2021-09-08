@@ -5,9 +5,9 @@
  */
 import { LanguageColumns } from '../columns'
 
-const zh: Record<LanguageColumns, string> = {
-  0: '开始点餐',
-  1: '语言选择',
+const ko: Record<LanguageColumns, string> = {
+  0: '주문 시작',
+  1: '언어',
 }
 
-export default zh
+export default ko

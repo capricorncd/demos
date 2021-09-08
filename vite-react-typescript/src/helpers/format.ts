@@ -18,3 +18,12 @@ export function toNumber<T>(input: T, initValue = 0): number {
     return initValue
   }
 }
+
+/**
+ * add comma
+ * 33333 -> 33,333
+ * @param input
+ */
+export function addComma(input: number | string): string {
+  return input ? input.toLocaleString() : String(input)
+}
