@@ -86,7 +86,7 @@ const list = [
       },
       {
         tag: 'Demo',
-        url: HOME_URL + 'music-card/'
+        url: HOME_URL + 'demos/music-card/'
       },
       {
         tag: 'Source',
