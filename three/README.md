@@ -15,9 +15,9 @@ http://localhost:8002/
 
 ## 资源
 
-演示地址： https://capricorncd.github.io/blog/dist/three/index.html
+演示地址： https://capricorncd.github.io/demos/three/index.html
 
-源码：https://github.com/capricorncd/blog/tree/master/demos/three
+源码：https://github.com/capricorncd/demos/tree/main/three
 
 C4D文件：https://github.com/capricorncd/blog/tree/master/c4d
 
