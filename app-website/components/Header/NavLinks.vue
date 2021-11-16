@@ -11,7 +11,7 @@
       to="/404">404 Page</nuxt-link>
     <a
       :class="{current: current === 'source'}"
-      href="https://github.com/capricorncd/blog/tree/master/demos/app-website" target="_blank">Source</a>
+      href="https://github.com/capricorncd/demos/tree/main/app-website" target="_blank">Source</a>
     <a
       :class="{current: current === 'github'}"
       href="https://github.com/capricorncd" target="_blank">Github</a>

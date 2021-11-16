@@ -15,7 +15,7 @@
           <h1>SCHOOL CIRCLE</h1>
           <div class="info">
             <p>Address：Tokyo, Japan</p>
-            <p>E-mail：kaneoki2020@gmail.com</p>
+            <p>E-mail：zx198401@gmail.com</p>
           </div>
         </div>
       </div>

@@ -3,12 +3,12 @@
     <div class="wp">
       <dl class="l">
         <dd>
-          <span class="key">CopyRight: </span><span class="value">© 2016-2020 Capricorncd.</span>
+          <span class="key">CopyRight: </span><span class="value">© 2016-{{year}} Capricorncd.</span>
         </dd>
       </dl>
       <dl class="r">
         <dd>
-          <span class="key">Email: </span><span class="value">kaneoki2020@gmail.com</span>
+          <span class="key">Email: </span><span class="value">zx198401@gmail.com</span>
         </dd>
       </dl>
     </div>
@@ -18,7 +18,13 @@
 <script>
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  data() {
+    return {
+      year: new Date().getFullYear(),
+    }
+  }
+})
 </script>
 
 <style lang="scss">
