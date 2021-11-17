@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import { onLoadAudio } from '../helper/web-audio'
+import { initAudioContext } from '../helper/web-audio'
 
 export default {
   created() {
     App.on('first-play', audio => {
       try {
-        onLoadAudio(audio, this.$refs.wave)
+        initAudioContext(audio, this.$refs.wave)
       } catch (e) {
         alert(e.message)
       }

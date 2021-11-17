@@ -3,18 +3,10 @@
  * https://github.com/capricorncd
  * Date: 2020-10-06 10:54
  */
-import { requestAnimeFrame, cancelAnimeFrame } from './animation-frame'
-import { initSwiper } from './swiper'
-import { initAudio } from './init-audio'
-import { initOuterWrapper } from './init-outer-wrapper'
+export { requestAnimeFrame, cancelAnimeFrame } from './animation-frame'
+export { initSwiper } from './swiper'
+export { initOuterWrapper } from './init-outer-wrapper'
 
-export {
-  requestAnimeFrame,
-  cancelAnimeFrame,
-  initSwiper,
-  initAudio,
-  initOuterWrapper
-}
 /**
  * 获取音频封面
  * @param item

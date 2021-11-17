@@ -3,17 +3,30 @@
  * https://github.com/capricorncd
  * Date: 2020-10-17 21:25
  */
-export function onLoadAudio(audio, parent) {
+import Vue from 'vue'
+
+export function initAudioContext(audio, parent) {
   // webkitAudioContext
   // fix: safari and weChat that device iphone 7 plus
   const AudioContext = window.AudioContext || window.webkitAudioContext
   const context = new AudioContext()
+  // gain
+  const gainNode = context.createGain()
+  gainNode.gain.value = 0.1
+  Vue.prototype.$gainNode = gainNode
+  // analyser
   const analyser = context.createAnalyser()
   analyser.fftSize = 512
-  const source = context.createMediaElementSource(audio)
 
+  const source = context.createMediaElementSource(audio)
+  source.connect(gainNode)
   source.connect(analyser)
-  analyser.connect(context.destination)
+  gainNode.connect(context.destination)
+  // analyser.connect(context.destination)
+
+  context.onstatechange = () => {
+    console.log('onstatechange', context.state)
+  }
 
   const bufferLength = analyser.frequencyBinCount
   const dataArray = new Uint8Array(bufferLength)

@@ -40,7 +40,7 @@
       <zx-praise :is-error="isError" :item="currentCard || {}" @change="praiseStateChange"/>
       <div class="next" @click="next"/>
     </div>
-    <VolumeControl ref="vc"/>
+    <VolumeControl/>
   </div>
 </template>
 
@@ -48,8 +48,7 @@
 import { beforeDestroy } from '../mixins/before-destroy'
 import {
   getDistance, getCurrentUrl, checkNumber,
-  requestAnimeFrame, cancelAnimeFrame,
-  initAudio, initOuterWrapper
+  requestAnimeFrame, cancelAnimeFrame, initOuterWrapper
 } from '../helper/index'
 import ZxTag from './Tag'
 import ZxCard from './Card'
@@ -271,24 +270,20 @@ export default {
     }
   },
   mounted () {
-    const $audio = document.createElement('audio')
-    $audio.style.display = 'none'
+    this.$audio = this.$root.$el.querySelector('audio')
 
-    this.$audio = $audio
-    // App.emit('init-audio-end', $audio)
-
-    this.$refs.vc.setAudio($audio)
-
-    const $body = App.query('body')
-
-    $body.appendChild(this.$audio)
-
-    initAudio.call(this)
+    this.$audio.addEventListener('error', this._audioHandler)
+    this.$audio.addEventListener('ended', this._audioHandler)
+    this.$audio.addEventListener('pause', this._audioHandler)
+    this.$audio.addEventListener('play', this._audioHandler)
+    this.$audio.addEventListener('canplay', this._canplayHandler)
+    this.$audio.addEventListener('canplaythrough', this._canplayHandler)
 
     // 处理body背景图片
     const winRadio = window.innerWidth / window.innerHeight
     const bgRadio = 750 / 1624
     if (winRadio < bgRadio) {
+      const $body = App.query('body')
       $body.style.backgroundSize = 'auto 100%'
     }
 

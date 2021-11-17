@@ -8,6 +8,7 @@
         </svg>
       </a>
     </header>
+    <audio style="display: none"/>
     <MusicCard/>
     <WaveWrapper/>
   </div>

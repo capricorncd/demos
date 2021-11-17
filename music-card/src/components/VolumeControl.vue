@@ -14,7 +14,7 @@ export default {
   name: 'VolumeControl',
   data() {
     return {
-      barWidth: 5
+      barWidth: 10
     }
   },
   computed: {
@@ -25,22 +25,18 @@ export default {
     }
   },
   methods: {
-    setAudio(el) {
-      this.$audio = el
-      el.volume = 0.05
-    },
     handleClick(e) {
       const el = e.target
       const box = el.getBoundingClientRect()
       const volume = Math.min((e.pageX - box.left) / box.width, 1)
       this.barWidth = volume * 100
-      this.$audio.volume = volume
+      this.$gainNode.gain.value = volume
     },
     svgClick(num) {
       let newWidth = Math.min(this.barWidth + num, 100)
       if (newWidth < 0) newWidth = 0
       this.barWidth = newWidth
-      this.$audio.volume = newWidth === 0 ? 0 : newWidth / 100
+      this.$gainNode.gain.value = newWidth === 0 ? 0 : newWidth / 100
     }
   }
 }
