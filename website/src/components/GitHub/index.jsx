@@ -24,11 +24,11 @@ const list = [
       },
       {
         tag: '公式サイト',
-        url: 'https://www.shinsengumi-ouka.com/'
+        url: 'https://www.shinsengumi-ouka.com'
       },
       {
-        tag: 'Mobage',
-        url: 'http://www.mbga.jp/_game_intro?game_id=12026826'
+        tag: 'Yamada Game',
+        url: 'https://yamada.shinsengumi-ouka.com'
       },
       {
         tag: 'GREE',
