@@ -10,72 +10,54 @@ const DEMOS_SOURCE_MAIN_URL = 'https://github.com/capricorncd/demos/tree/main/'
 const HOME_URL = 'https://capricorncd.github.io/'
 
 const list = [
-  {
-    name: '新選組 ～桜華妖乱～',
-    cover: './static/game-shinsengumi.jpg',
-    url: 'https://www.shinsengumi-ouka.com/',
-    desc: [
-      {
-        text: '幕末の京都を舞台に繰り広げられる、新たなる新選組の物語。美しく咲く女性隊士と共に妖屍(あやかし)を討ち、歴史を切り拓け！'
-      },
-      {
-        tag: 'Tags',
-        text: 'TypeScript'
-      },
-      {
-        tag: '公式サイト',
-        url: 'https://www.shinsengumi-ouka.com'
-      },
-      {
-        tag: 'Yamada Game',
-        url: 'https://yamada.shinsengumi-ouka.com'
-      },
-      {
-        tag: 'GREE',
-        url: 'http://jp.apps.gree.net/ja/80174'
-      }
-    ]
-  },
-  {
-    name: 'vite-react-typescript',
-    cover: './static/vite-react-typescript.png',
-    url: 'https://github.com/capricorncd/demos/tree/main/vite-react-typescript',
-    desc: [
-      {
-        text: 'レストランのスマホ注文システム'
-      },
-      {
-        tag: 'Tags',
-        text: 'React(hook)/TypeScript/Vite/Sass'
-      },
-      {
-        tag: 'Source',
-        url: DEMOS_SOURCE_MAIN_URL + 'vite-react-typescript'
-      }
-    ]
-  },
-  {
-    name: 'School Circle Web Site',
-    cover: './static/app-site.jpg',
-    url: './demos/app-website/',
-    desc: [
-      {
-        text: 'Listen,it\'s like falling in love'
-      },
-      {
-        tag: 'Tags',
-        text: 'Nuxt.js(Vue.js)/Sass/CSS3(animation)/HTML5'
-      },
-      {
-        tag: 'Source',
-        url: DEMOS_SOURCE_MAIN_URL + 'app-website'
-      }
-    ]
-  },
+  // {
+  //   name: '新選組 ～桜華妖乱～',
+  //   cover: './static/game-shinsengumi.jpg',
+  //   url: 'https://www.shinsengumi-ouka.com/',
+  //   desc: [
+  //     {
+  //       text: '幕末の京都を舞台に繰り広げられる、新たなる新選組の物語。美しく咲く女性隊士と共に妖屍(あやかし)を討ち、歴史を切り拓け！'
+  //     },
+  //     {
+  //       tag: 'Tags',
+  //       text: 'TypeScript'
+  //     },
+  //     {
+  //       tag: '公式サイト',
+  //       url: 'https://www.shinsengumi-ouka.com'
+  //     },
+  //     {
+  //       tag: 'Yamada Game',
+  //       url: 'https://yamada.shinsengumi-ouka.com'
+  //     },
+  //     {
+  //       tag: 'GREE',
+  //       url: 'http://jp.apps.gree.net/ja/80174'
+  //     }
+  //   ]
+  // },
+  // {
+  //   name: 'vite-react-typescript',
+  //   cover: './static/vite-react-typescript.png',
+  //   url: 'https://github.com/capricorncd/demos/tree/main/vite-react-typescript',
+  //   desc: [
+  //     {
+  //       text: 'レストランのスマホ注文システム'
+  //     },
+  //     {
+  //       tag: 'Tags',
+  //       text: 'React(hook)/TypeScript/Vite/Sass'
+  //     },
+  //     {
+  //       tag: 'Source',
+  //       url: DEMOS_SOURCE_MAIN_URL + 'vite-react-typescript'
+  //     }
+  //   ]
+  // },
   {
     name: 'Music Card Demo',
     cover: './static/music-card.jpg',
-    url: './demos/music-card/',
+    url: HOME_URL + 'demos/music-card/',
     desc: [
       {
         text: 'The music card that Web mini-program application in Smartphone App'
@@ -91,49 +73,6 @@ const list = [
       {
         tag: 'Source',
         url: DEMOS_SOURCE_MAIN_URL + 'music-card'
-      }
-    ]
-  },
-  {
-    name: 'zx-editor',
-    cover: './static/zx-editor.png',
-    url: 'https://github.com/capricorncd/zx-editor',
-    desc: [
-      {
-        text: 'The HTML document (rich text) editor in Smart phone browser or webview, supporting mixed layout, reference, headline, unordered list, font color, bold and italics.'
-      },
-      {
-        tag: 'Tags',
-        text: 'JavaScript/HTML5/Less/Gulp/Rollup',
-      },
-      {
-        tag: 'Demo',
-        url: 'https://capricorncd.github.io/zx-editor/'
-      },
-      {
-        tag: 'Source',
-        url: 'https://github.com/capricorncd/zx-editor'
-      },
-      {
-        tag: 'Docs',
-        url: 'https://capricorncd.github.io/zx-editor/docs/options.html#textStyleheadLeftbtntext'
-      }
-    ],
-    npm: [
-      {
-        url: 'https://npmcharts.com/compare/zx-editor?minimal=true',
-        icon: 'https://img.shields.io/npm/dm/zx-editor.svg?sanitize=true',
-        alt: 'Downloads'
-      },
-      {
-        url: 'https://www.npmjs.com/package/zx-editor',
-        icon: 'https://img.shields.io/npm/v/zx-editor.svg?sanitize=true',
-        alt: 'Version'
-      },
-      {
-        url: 'https://www.npmjs.com/package/zx-editor',
-        icon: 'https://img.shields.io/npm/l/zx-editor.svg?sanitize=true',
-        alt: 'License'
       }
     ]
   },
@@ -190,7 +129,7 @@ const list = [
       },
       {
         tag: 'Tags',
-        text: 'TypeScript/Stylus/Webpack4'
+        text: 'TypeScript/Sass/Webpack5/AudioContext'
       },
       {
         tag: 'Play',
@@ -200,13 +139,73 @@ const list = [
         tag: 'Source',
         url: 'https://github.com/capricorncd/tetris'
       }
+    ],
+    npm: [
+      {
+        url: 'https://npmcharts.com/compare/zx-tetris?minimal=true',
+        icon: 'https://img.shields.io/npm/dm/zx-tetris.svg?sanitize=true',
+        alt: 'Downloads'
+      },
+      {
+        url: 'https://www.npmjs.com/package/zx-tetris',
+        icon: 'https://img.shields.io/npm/v/zx-tetris.svg?sanitize=true',
+        alt: 'Version'
+      },
+      {
+        url: 'https://www.npmjs.com/package/zx-tetris',
+        icon: 'https://img.shields.io/npm/l/zx-tetris.svg?sanitize=true',
+        alt: 'License'
+      }
+    ]
+  },
+  {
+    name: 'zx-editor',
+    cover: './static/zx-editor.png',
+    url: 'https://github.com/capricorncd/zx-editor',
+    desc: [
+      {
+        text: 'The HTML document (rich text) editor in Smart phone browser or webview, supporting mixed layout, reference, headline, unordered list, font color, bold and italics.'
+      },
+      {
+        tag: 'Tags',
+        text: 'JavaScript/HTML5/Less/Gulp/Rollup',
+      },
+      {
+        tag: 'Demo',
+        url: 'https://capricorncd.github.io/zx-editor/'
+      },
+      {
+        tag: 'Source',
+        url: 'https://github.com/capricorncd/zx-editor'
+      },
+      {
+        tag: 'Docs',
+        url: 'https://capricorncd.github.io/zx-editor/docs/options.html#textStyleheadLeftbtntext'
+      }
+    ],
+    npm: [
+      {
+        url: 'https://npmcharts.com/compare/zx-editor?minimal=true',
+        icon: 'https://img.shields.io/npm/dm/zx-editor.svg?sanitize=true',
+        alt: 'Downloads'
+      },
+      {
+        url: 'https://www.npmjs.com/package/zx-editor',
+        icon: 'https://img.shields.io/npm/v/zx-editor.svg?sanitize=true',
+        alt: 'Version'
+      },
+      {
+        url: 'https://www.npmjs.com/package/zx-editor',
+        icon: 'https://img.shields.io/npm/l/zx-editor.svg?sanitize=true',
+        alt: 'License'
+      }
     ]
   },
   {
     // name: 'C4D + Three.js',
     name: 'C4DとThree.jsで製品の3D表示ページの開発 Demo',
     cover: './static/three.png',
-    url: './demos/three/index.html#/ClockObj',
+    url: HOME_URL + 'demos/three/index.html#/ClockObj',
     desc: [
       {
         text: 'Developing 3D display pages for products in C4D and Three.js'
@@ -222,6 +221,24 @@ const list = [
       {
         tag: 'Source',
         url: DEMOS_SOURCE_MAIN_URL + 'three'
+      }
+    ]
+  },
+  {
+    name: 'School Circle Web Site',
+    cover: './static/app-site.jpg',
+    url: HOME_URL + 'demos/app-website/',
+    desc: [
+      {
+        text: 'Listen,it\'s like falling in love'
+      },
+      {
+        tag: 'Tags',
+        text: 'Nuxt.js(Vue.js)/Sass/CSS3(animation)/HTML5'
+      },
+      {
+        tag: 'Source',
+        url: DEMOS_SOURCE_MAIN_URL + 'app-website'
       }
     ]
   },
