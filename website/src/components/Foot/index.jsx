@@ -9,7 +9,7 @@ import './footer.scss'
 class Footer extends Component {
   render() {
     return <footer>
-      © 2016-{ new Date().getFullYear() } Capricorncd. kaneoki2020@gmail.com
+      © 2016-{ new Date().getFullYear() } Capricorncd. kaneoki1984@gmail.com / capricorncd@qq.com
     </footer>
   }
 }
