@@ -3,6 +3,9 @@
  * https://github.com/capricorncd
  * Date: 2022/03/06 21:36:48 (GMT+0900)
  * Binary tree traversal (preorder, inorder, subsequent)
+ *
+ * JavaScript二叉树算法
+ * https://github.com/capricorncd/blog/blob/master/javascript/JavaScript%E4%BA%8C%E5%8F%89%E6%A0%91%E7%AE%97%E6%B3%95.md
  */
 
 /**
