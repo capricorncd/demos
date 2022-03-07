@@ -1,0 +1,27 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-06-12 12:07 (GMT+0900)
+ */
+// margin padding 20 -> 50 (20, 25, 30...45, 50)
+@for $i from 4 through 10
+{
+  @include createOffset($i * 5);
+}
+// margin padding -40 -> -20 (-40, -35...-15, -20)
+@for $i from -8 through -4
+{
+  @include createOffset($i * 5);
+}
+// margin padding -19 -> 1
+@for $i from -19 through 1
+{
+  @include createOffset($i);
+}
+// margin padding 1 -> 19
+@for $i from 1 through 19
+{
+  @include createOffset($i);
+}
+// margin padding 0
+@include createOffset(0);

@@ -1,0 +1,45 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2021-06-12 13:33 (GMT+0900)
+ */
+@mixin clamp($line: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}
+
+@mixin createOffset($val) {
+  $value: $val + px !important;
+  .m#{$val} {
+    margin: $value;
+  }
+  .mt#{$val} {
+    margin-top: $value;
+  }
+  .mr#{$val} {
+    margin-right: $value;
+  }
+  .mb#{$val} {
+    margin-bottom: $value;
+  }
+  .ml#{$val} {
+    margin-left: $value;
+  }
+  .p#{$val} {
+    padding: $value;
+  }
+  .pt#{$val} {
+    padding-top: $value;
+  }
+  .pr#{$val} {
+    padding-right: $value;
+  }
+  .pb#{$val} {
+    padding-bottom: $value;
+  }
+  .pl#{$val} {
+    padding-left: $value;
+  }
+}
