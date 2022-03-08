@@ -5,9 +5,9 @@
  */
 import {useState, useEffect} from 'react'
 import {loadImgSource} from '../helpers'
-// import '../styles/HomePage.scss'
 
 const SOURCE_PREFIX = './home-anime/'
+
 const sources: Record<string, string> = {
   verticalLine: SOURCE_PREFIX + 'vertical-line.png',
   jukeboxStart: SOURCE_PREFIX + 'jukebox-start.png',
