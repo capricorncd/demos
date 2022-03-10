@@ -1,5 +1,7 @@
 # Ruby
 
+https://www.ruby-lang.org/
+
 ## プログラム基本的な動き
 
 1. 順次進行(じゅんじ　しんこう)
