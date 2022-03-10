@@ -4,7 +4,7 @@
 # 数は要素数という
 
 # 配列の作り方
-# Array.new()と[]角カッコ
+# Array.new()と[]「角カッコ」
 
 # 変数 = Array.new(要素数)
 arr1 = Array.new(4)
@@ -22,6 +22,6 @@ p arr2
 
 # 多次元配列
 arr3 = [["Tom", "Mary"], ["Kit", "Jack"]]
-p arr3[0][1]
+p arr3[0][1] # Mary
 p arr3
 
