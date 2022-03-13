@@ -9,6 +9,8 @@ const { BannerPlugin, ProgressPlugin } = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+// https://www.npmjs.com/package/webpack-bundle-analyzer
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const pkg = require('./package.json')
 const argsArr = process.argv.slice(2)
 
@@ -115,6 +117,9 @@ let webpackConfig
 if (isProd) {
  webpackConfig = merge(baseConfig, {
    plugins: [
+     new BundleAnalyzerPlugin({
+       analyzerMode: 'static'
+     }),
      new CleanWebpackPlugin(),
      new BannerPlugin([
        `${pkg.name} ${pkg.version}`,
