@@ -11,8 +11,12 @@
 /**
  * node
  */
-class Node {
-  constructor(value) {
+class Node<T> {
+  public value: T;
+  public left: null | Node<T>;
+  public right: null | Node<T>;
+
+  constructor(value: T) {
     // value
     this.value = value
     // left node
@@ -25,8 +29,10 @@ class Node {
 /**
  * binary tree
  */
-class BinaryTree {
-  constructor(nodes) {
+class BinaryTree<T> {
+  private root: null | Node<T>;
+
+  constructor(nodes: T[]) {
     this.root = null
     nodes.forEach((item => {
       this.insert(item)
@@ -37,7 +43,7 @@ class BinaryTree {
    * insert value
    * @param value
    */
-  insert(value) {
+  insert(value: T): void {
     const node = new Node(value)
     if (this.root === null) {
       this.root = node
@@ -51,7 +57,7 @@ class BinaryTree {
    * @param node
    * @param newNode
    */
-  insertNode(node, newNode) {
+  insertNode(node: Node<T>, newNode: Node<T>): void {
     if (newNode.value < node.value) {
       if (node.left === null) {
         node.left = newNode
@@ -73,7 +79,7 @@ class BinaryTree {
    * @param callback
    * @private
    */
-  _preorderTraversal(node, callback) {
+  _preorderTraversal<K>(node: Node<T> | null, callback: (value: T) => K) {
     if (node) {
       callback(node.value)
       this._preorderTraversal(node.left, callback)
@@ -85,8 +91,8 @@ class BinaryTree {
    * preorder traversal
    * @returns {*[]}
    */
-  preorderTraversal() {
-    const arr = []
+  preorderTraversal(): T[] {
+    const arr: T[] = []
     this._preorderTraversal(this.root, (value) => {
       arr.push(value)
     })
@@ -99,7 +105,7 @@ class BinaryTree {
    * @param callback
    * @private
    */
-  _inorderTraversal(node, callback) {
+  _inorderTraversal<K>(node: Node<T> | null, callback: (value: T) => K) {
     if (node) {
       this._inorderTraversal(node.left, callback)
       callback(node.value)
@@ -111,8 +117,8 @@ class BinaryTree {
    * inorder traversal
    * @returns {*[]}
    */
-  inorderTraversal() {
-    const arr = []
+  inorderTraversal(): T[] {
+    const arr: T[] = []
     this._inorderTraversal(this.root, (value) => {
       arr.push(value)
     })
@@ -125,7 +131,7 @@ class BinaryTree {
    * @param callback
    * @private
    */
-  _subsequentTraversal(node, callback) {
+  _subsequentTraversal<K>(node: Node<T> | null, callback: (value: T) => K) {
     if (node) {
       this._subsequentTraversal(node.left, callback)
       this._subsequentTraversal(node.right, callback)
@@ -137,8 +143,8 @@ class BinaryTree {
    * subsequent traversal
    * @returns {*[]}
    */
-  subsequentTraversal() {
-    const arr = []
+  subsequentTraversal(): T[] {
+    const arr: T[] = []
     this._subsequentTraversal(this.root, (value) => {
       arr.push(value)
     })
@@ -146,10 +152,6 @@ class BinaryTree {
   }
 }
 
-const bt = new BinaryTree([13, 6, 3, 9, 7, 20, 15, 28, 32])
-console.log('preorderTraversal:\n', bt.preorderTraversal().join(', '));
-// 13, 6, 3, 9, 7, 20, 15, 28, 32
-console.log('inorderTraversal:\n', bt.inorderTraversal().join(', '));
-// 3, 6, 7, 9, 13, 15, 20, 28, 32
-console.log('subsequentTraversal:\n', bt.subsequentTraversal().join(', '));
-// 3, 7, 9, 6, 15, 32, 28, 20, 13
+export {
+  BinaryTree
+}
