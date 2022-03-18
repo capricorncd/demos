@@ -6,26 +6,26 @@
  * Stack
  * LIFO，last-in-first-out
  */
-class Stack {
+export class Stack<T> {
+  private _items: T[];
+
   constructor() {
     this._items = []
   }
 
-  push(item) {
+  push(item: T): void {
     this._items.push(item)
   }
 
-  pop() {
-    return this._items.pop()
+  pop(): T | null {
+    return this._items.pop() ?? null
   }
 
-  isEmpty() {
+  isEmpty(): boolean {
     return this.size() === 0
   }
 
-  size() {
+  size(): number {
     return this._items.length
   }
 }
-
-exports.Stack = Stack

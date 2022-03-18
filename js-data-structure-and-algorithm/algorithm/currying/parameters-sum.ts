@@ -5,23 +5,22 @@
  *
  * sum
  */
-function add(x) {
+function add(x: number): (y: number) => number {
   return (y) => {
     return x + y
   }
 }
 
-console.log('add: 1 + 3 =', add(1)(3))
-
 // currying
-function sum(...args) {
+function sum(...args: number[]): number {
   return args.reduce((prev, v) => prev + v)
 }
 
 // parameters merge
-function currying(fn) {
-  const args = []
-  return function handler(...rest) {
+// @ts-ignore TS2393: Duplicate function implementation.
+function currying(fn: Function) {
+  const args: number[] = []
+  return function handler(...rest: number[]) {
     args.push(...rest)
     if (rest.length > 0) {
       return handler
@@ -32,13 +31,14 @@ function currying(fn) {
   }
 }
 
-console.log(currying(sum)(1, 3)());
-console.log(currying(sum)(1, 3)(9, 3)());
-console.log(currying(sum)(1, 3)(90)());
-console.log(currying(sum)(1, 3)(2)(3)(4)(5)());
-
 // sort
-function sort(...args) {
+function sort(...args: number[]): number[] {
   return args.sort()
 }
-console.log(currying(sort)(1, 3)(2)(3)(4)(5)());
+
+export {
+  add,
+  currying,
+  sort,
+  sum
+}

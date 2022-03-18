@@ -7,15 +7,15 @@
  * 十进制转二进制
  * 10進数から2進数
  */
-const {Stack} = require('./Stack')
+import {Stack} from './Stack'
 
 /**
  * Decimal to Binary
  * @param input number
  * @returns {string} binary string
  */
-function decimalToBinary(input) {
-  const stack = new Stack()
+function decimalToBinary(input: number): string {
+  const stack = new Stack<number>()
 
   // push
   while (input > 0) {
@@ -32,5 +32,6 @@ function decimalToBinary(input) {
   return binaries.join('')
 }
 
-console.log(decimalToBinary(3));
-console.log(decimalToBinary(100));
+export {
+  decimalToBinary
+}

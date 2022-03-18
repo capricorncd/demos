@@ -11,9 +11,9 @@
  */
 const TIMES = 7
 
-function useBitOperation(input) {
+function useBitOperation(input: number): number {
   let sum = 0
-  const add = (m, n) => {
+  const add = (m: number, n: number) => {
     while (m) {
       [m, n] = [(m & n) << 1, m ^ n]
     }
@@ -30,7 +30,7 @@ function useBitOperation(input) {
 console.log('useBitOperation:', useBitOperation(5));
 console.log('useBitOperation:', useBitOperation(9));
 
-function usePad(input) {
+function usePad(input: number): number {
   return ''.padStart(TIMES).repeat(input).length
   // return ''.padEnd(TIMES).repeat(input).length
 }
@@ -38,14 +38,14 @@ function usePad(input) {
 console.log('usePad:', usePad(5));
 console.log('usePad:', usePad(9));
 
-function usePadReplace(input) {
+function usePadReplace(input: number): number {
   return ''.padEnd(input, '0').replace(/0/g, ''.padEnd(TIMES)).length
 }
 
 console.log('usePadReplace:', usePadReplace(5));
 console.log('usePadReplace:', usePadReplace(9));
 
-function useArray(input) {
+function useArray(input: number): number {
   return new Array(input).fill(new Array(TIMES).fill(null)).flat().length
   // return new Array(TIMES).fill(new Array(input).fill(null)).flat().length
 }
@@ -53,7 +53,7 @@ function useArray(input) {
 console.log('useArray:', useArray(5));
 console.log('useArray:', useArray(9));
 
-function useArrayMap(input) {
+function useArrayMap(input: number): number {
   return new Array(input).fill(null).map(() => new Array(TIMES).fill(null)).flat().length
 }
 
@@ -61,7 +61,7 @@ console.log('useArrayMap:', useArrayMap(5));
 console.log('useArrayMap:', useArrayMap(9));
 
 // Base Conversion and Bit Operations
-function useParseInt(input) {
+function useParseInt(input: number): number {
   return parseInt(input.toString(TIMES).concat('0'), TIMES)
 }
 
@@ -69,7 +69,7 @@ console.log('useParseInt:', useParseInt(5));
 console.log('useParseInt:', useParseInt(9));
 
 // hack
-function multiply(input) {
+function multiply(input: number): number {
   // String.fromCharCode(42) => *
   return new Function(['return', input, String.fromCharCode(42), TIMES].join(' '))()
 }

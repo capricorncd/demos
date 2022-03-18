@@ -3,6 +3,8 @@
  * https://github.com/capricorncd
  * Date: 2022/03/11 11:00:29 (GMT+0900)
  */
+type ObjAny = Record<string, any>
+
 const input = {
   'a.b.c.dd': 'abcdd',
   'a.d.xx': 'adxx',
@@ -30,10 +32,11 @@ const output = {
  * @param input object
  * @returns {{}}
  */
-function expandProperties(input) {
+function expandProperties(input: ObjAny): ObjAny {
   const result = {}
   for (let [keys, value] of Object.entries(input)) {
     keys.split('.').reduce((prev, key, index, arr) => {
+      // @ts-ignore
       return prev[key] = index === arr.length - 1 ? value : prev[key] || {}
     }, result)
   }
@@ -47,7 +50,7 @@ console.log(expandProperties(input));
  * @param input object{a: {b: {c: {d: 'abcd'}}}}
  * @returns {{}} {a.b.c.d: 'abcd'}
  */
-function collapseProperties(input) {
+function collapseProperties(input: ObjAny): ObjAny {
   const result = {}
   for (let [key, value] of Object.entries(input)) {
     handleKeyValue(key, value, result)
@@ -61,7 +64,7 @@ function collapseProperties(input) {
  * @param value any
  * @param result {}
  */
-function handleKeyValue(key, value, result) {
+function handleKeyValue(key: string, value: any, result: ObjAny): void {
   // null case is not considered
   if (typeof value === 'object') {
     for (let [k, v] of Object.entries(value)) {
@@ -81,11 +84,12 @@ console.log(collapseProperties(output));
  * @param result {}
  * @returns {{}}
  */
-function flatObject(obj, prevKey = '', result = {}) {
+function flatObject(obj: ObjAny, prevKey = '', result = {}) {
   for (let [key, value] of Object.entries(obj)) {
     if (typeof value === 'object') {
       flatObject(value, prevKey.concat(`${key}.`), result)
     } else {
+      // @ts-ignore
       result[prevKey.concat(key)] = value
     }
   }
@@ -99,16 +103,18 @@ console.log(flatObject(output));
  * @param input
  * @returns {{}}
  */
-function flatObjectWithQueue(input) {
+function flatObjectWithQueue(input: ObjAny): ObjAny {
   const result = {}
   const queue = Object.entries(input)
   while (queue.length) {
+    // @ts-ignore
     const [key, value] = queue.pop()
     if (typeof value === 'object') {
       for (let [k, v] of Object.entries(value)) {
         queue.push([`${key}.${k}`, v])
       }
     } else {
+      // @ts-ignore
       result[key] = value
     }
   }
