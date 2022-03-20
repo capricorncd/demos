@@ -8,8 +8,7 @@ import {LazyManClass} from './LazyMan'
 test('base', done => {
   function callback(res: string[]): void {
     try {
-      expect(res.join(' '))
-        .toBe(`Hi, I'm Audrey.`)
+      expect(res).toEqual([`Hi, I'm Audrey.`])
       done()
     } catch (err) {
       done(err)
@@ -20,10 +19,15 @@ test('base', done => {
 })
 
 test('sleep', done => {
+  const result = [
+    `Hi, I'm Audrey.`,
+    `wait 2 seconds.`,
+    `I just fell asleep for 2 seconds.`,
+    `eat lunch.`
+  ]
   function callback(res: string[]): void {
     try {
-      expect(res.join(' '))
-        .toBe(`Hi, I'm Audrey. wait 2 seconds. I just fell asleep for 2 seconds. eat lunch.`)
+      expect(res).toEqual(result)
       done()
     } catch (err) {
       done(err)
@@ -37,10 +41,14 @@ test('sleep', done => {
 
 
 test('eat', done => {
+  const result = [
+    `Hi, I'm Audrey.`,
+    `eat lunch.`,
+    `eat supper.`
+  ]
   function callback(res: string[]): void {
     try {
-      expect(res.join(' '))
-        .toBe(`Hi, I'm Audrey. eat lunch. eat supper.`)
+      expect(res).toEqual(result)
       done()
     } catch (err) {
       done(err)
@@ -54,10 +62,17 @@ test('eat', done => {
 
 
 test('sleepFirst', done => {
+  const result = [
+    `wait 0.5 seconds.`,
+    `I just fell asleep for 0.5 seconds.`,
+    `wait 1 seconds.`,
+    `I just fell asleep for 1 seconds.`,
+    `Hi, I'm Audrey.`,
+    `eat lunch.`
+  ]
   function callback(res: string[]): void {
     try {
-      expect(res.join(' '))
-        .toBe(`wait 2 seconds. I just fell asleep for 2 seconds. wait 1 seconds. I just fell asleep for 1 seconds. Hi, I'm Audrey. eat lunch.`)
+      expect(res).toEqual(result)
       done()
     } catch (err) {
       done(err)
@@ -65,7 +80,7 @@ test('sleepFirst', done => {
   }
   new LazyManClass('Audrey')
     .eat('lunch')
-    .sleepFirst(2)
+    .sleepFirst(0.5)
     .sleepFirst(1)
     .finally(callback)
 })
