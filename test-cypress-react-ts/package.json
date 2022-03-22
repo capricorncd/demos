@@ -1,0 +1,25 @@
+{
+  "name": "cypress-demo",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
+    "test-e2e": "cypress open",
+    "test-ct": "cypress open-ct"
+  },
+  "dependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
+  "devDependencies": {
+    "@cypress/react": "^5.12.4",
+    "@cypress/vite-dev-server": "^2.2.2",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@vitejs/plugin-react": "^1.0.0",
+    "cypress": "^9.5.2",
+    "typescript": "^4.3.2",
+    "vite": "^2.5.4"
+  }
+}
