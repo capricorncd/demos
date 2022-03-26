@@ -1,0 +1,30 @@
+{
+  "name": "nodejs-jwt-authrization",
+  "version": "1.0.0",
+  "description": "nodejs-jwt-authrization",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/capricorncd"
+  },
+  "keywords": [
+    "nodejs",
+    "jwt",
+    "authrization",
+    "token",
+    "jsonwebtoken"
+  ],
+  "author": "Capricorncd",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

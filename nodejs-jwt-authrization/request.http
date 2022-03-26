@@ -1,0 +1,12 @@
+POST http://localhost:9528/login
+content-type: application/json
+
+{
+  "username": "Stallone",
+  "password": "testMD5String"
+}
+
+###
+GET http://localhost:9528/logged
+# 遵守OAuth2.0规则: Bearer TOKEN
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlN0YWxsb25lIiwiaWF0IjoxNjQ4MjUyNjQzLCJleHAiOjE2NDgyNTYyNDN9.DLUynTV5ad9LFU5ha4G8-SIfTEynAdIjLroFMumzM0Q
