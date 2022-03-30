@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Drag and drop</title>
+    <meta name="author" content="capricorncd">
+    <meta name="keywords" content="drag, drop, javascript, dom, capricorncd">
+    <meta name="description" content="https://github.com/capricorncd">
+    <style>
+        section {display: flex;}
+        .drop-target {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+            margin: 4px;
+        }
+        .drop-target p {cursor: move;}
+    </style>
+</head>
+<body>
+<section>
+    <div class="drop-target" id="dropTarget1">
+        <p id="item" draggable="true">Item</p>
+    </div>
+    <div class="drop-target" id="dropTarget2"></div>
+</section>
+<script>
+  const dropTarget1 = $('#dropTarget1')
+  const dropTarget2 = $('#dropTarget2')
+
+  dropTarget1.addEventListener('drop', handleDrop)
+  dropTarget2.addEventListener('drop', handleDrop)
+  dropTarget1.addEventListener('dragover', handleDragover)
+  dropTarget2.addEventListener('dragover', handleDragover)
+
+  function handleDrop(e) {
+    e.preventDefault()
+    const itemId = e.dataTransfer.getData('item-id')
+    e.target.append($(`#${itemId}`))
+  }
+
+  // allow drop
+  function handleDragover(e) {
+    e.preventDefault()
+  }
+
+  const item = $('#item')
+  item.addEventListener('dragstart', function (e) {
+    e.dataTransfer.setData('item-id', e.target.id)
+  })
+
+  function $(s, c = document) {
+    return c.querySelector(s)
+  }
+</script>
+</body>
+</html>
