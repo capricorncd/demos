@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Web Worker</title>
+    <meta name="author" content="capricorncd">
+    <meta name="keywords" content="capricorncd">
+    <meta name="description" content="https://github.com/capricorncd">
+</head>
+<body>
+<h1>Web Worker</h1>
+<main>
+    <h3>Normal</h3>
+    <p>Before: <span class="normal-before-hook"></span></p>
+    <button class="normal-button-hook">Sort</button>
+    <p>After: <span class="normal-after-hook"></span></p>
+    <hr>
+    <h3>SharedWorker</h3>
+    <p>Before: <span class="shared-before-hook"></span></p>
+    <button class="shared-button-hook">Sort</button>
+    <p>After: <span class="shared-after-hook"></span></p>
+</main>
+
+<script type="module" src="./demo.normal.js"></script>
+<script type="module" src="./demo.shared.js"></script>
+</body>
+</html>
