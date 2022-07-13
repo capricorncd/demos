@@ -2,7 +2,11 @@
 
 ## radio
 
+<details>
+<summary>
 https://codepen.io/AngelaVelasquez/pen/DGeErL
+</summary>
+
 
 ```html
 <div class="alert">
@@ -232,9 +236,14 @@ by the way it is so weird when you look at your code a couple of years after you
 }
 ```
 
+</details>
+
 ## fold-out menu
 
+<details>
+<summary>
 https://codepen.io/erikterwan/pen/EVzeRP
+</summary>
 
 ```html
 <!--    Made by Erik Terwan    -->
@@ -438,10 +447,14 @@ body
   transform: none;
 }
 ```
+</details>
 
 ## checkbox
 
+<details>
+<summary>
 https://codepen.io/Vestride/pen/AwaMNg
+</summary>
 
 ```html
 <h1 class="title">Pure CSS Custom Checkboxes</h1>
@@ -466,7 +479,7 @@ https://codepen.io/Vestride/pen/AwaMNg
 </ul>
 ```
 
-```css
+```scss
 .styled-checkbox {
   position: absolute; // take it out of document flow
   opacity: 0; // hide it
@@ -534,10 +547,12 @@ https://codepen.io/Vestride/pen/AwaMNg
     transform: rotate(45deg);
   }
 }
+```
 
 // Demo-only styles
 // --------------
 
+```scss
 html {
   background: lightgray;
 }
@@ -566,10 +581,14 @@ li {
   color: rgb(69, 113, 236);
 }
 ```
+</details>
 
 ## popup box
 
+<details>
+<summary>
 https://codepen.io/imprakash/pen/GgNMXO
+</summary>
 
 ```html
 <h1>Popup/Modal Windows without JavaScript</h1>
@@ -588,7 +607,7 @@ https://codepen.io/imprakash/pen/GgNMXO
 </div>
 ```
 
-```css
+```scss
 body {
   font-family: Arial, sans-serif;
   background: url(http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg) no-repeat;
@@ -686,10 +705,14 @@ h1 {
   }
 }
 ```
+</details>
 
 ## Animated Gradient Ghost Button Concept
 
+<details>
+<summary>
 https://codepen.io/ARS/pen/vEwEPP
+</summary>
 
 ```html
 <a href="https://codepen.io/ARS" target="_blank"><span>button</span></a>
@@ -793,10 +816,14 @@ a {
   100%  { -webkit-clip-path: polygon(/*1*/ 0% 100%, /*2*/ $border 100%, /*3*/ $border 100%, /*4*/ $border 100%, /*5*/ $border 100%, /*6*/ $border 100%, /*7*/ $border 100%, /*8*/ $border 100%, /*9*/ $border 100%, /*10*/ 0% 100%); }
 }
 ```
+</details>
 
 ## Select
 
+<details>
+<summary>
 https://codepen.io/raubaca/pen/VejpQP
+</summary>
 
 ```html
 <div class="select">
@@ -877,9 +904,14 @@ a {
 }
 ```
 
+</details>
+
 ## Tabs
 
+<details>
+<summary>
 https://codepen.io/wallaceerick/pen/nRyxPz
+</summary>
 
 ```html
 <h1>Pure CSS Tabs <span>Just CSS, No JS!</span></h1>
@@ -1027,11 +1059,14 @@ p.link {
   }
 } 
 ```
+</details>
 
 ## Pure CSS DropDown Menu
 
+<details>
+<summary>
 https://codepen.io/andornagy/pen/ALbdbJ
-
+</summary>
 
 ```html
 
@@ -1193,9 +1228,14 @@ li > a:after { content:  ' +'; }
 li > a:only-child:after { content: ''; }
 ```
 
+</details>
+
 ## Pure CSS Accordion
 
+<details>
+<summary>
 https://codepen.io/raubaca/pen/PZzpVe
+</summary>
 
 ```html
 <h1>Pure CSS Accordion <sup>2.0</sup></h1>
@@ -1341,3 +1381,5 @@ input:checked {
   }
 }
 ```
+
+</details>
