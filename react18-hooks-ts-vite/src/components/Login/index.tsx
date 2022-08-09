@@ -3,6 +3,8 @@
  * https://github.com/capricorncd
  * Date: 2022/06/07 23:02:43 (GMT+0900)
  */
+import { UserOutlined } from '@ant-design/icons';
+import { Input, Button } from 'antd';
 import * as React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../Auth';
@@ -36,10 +38,18 @@ export function LoginPage() {
       <p>You must log in to view the page at {from}</p>
 
       <form onSubmit={handleSubmit}>
-        <label>
-          Username: <input name="username" type="text" />
-        </label>{' '}
-        <button type="submit">Login</button>
+        <Input.Group compact style={{ width: '300px', maxWidth: '100%' }}>
+          <Input
+            placeholder="Please enter any string"
+            name="username"
+            prefix={<UserOutlined />}
+            defaultValue="capricorncd"
+            style={{ width: 'calc(100% - 80px)' }}
+          />
+          <Button type="primary" htmlType="submit" style={{ width: '80px' }}>
+            Login
+          </Button>
+        </Input.Group>
       </form>
     </div>
   );

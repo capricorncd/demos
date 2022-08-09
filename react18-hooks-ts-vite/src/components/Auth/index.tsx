@@ -3,6 +3,7 @@
  * https://github.com/capricorncd
  * Date: 2022/06/07 23:02:43 (GMT+0900)
  */
+import { Button } from 'antd';
 import * as React from 'react';
 import { useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { fakeAuthProvider } from './auth';
@@ -52,13 +53,13 @@ export function AuthStatus() {
   return (
     <p>
       Welcome {auth.user}!{' '}
-      <button
+      <Button
         onClick={() => {
           auth.signOut(() => navigate('/'));
         }}
       >
         Sign out
-      </button>
+      </Button>
     </p>
   );
 }
