@@ -1,0 +1,11 @@
+{
+  "name": "demos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/capricorncd/demos.git",
+  "author": "capricorncd <capricorncd@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "docs": "node _scripts/update-docs.cjs"
+  }
+}

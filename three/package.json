@@ -52,5 +52,9 @@
     "type": "git",
     "url": "git+https://github.com/capricorncd/blog.git"
   },
-  "homepage": "https://github.com/capricorncd/blog/tree/master/demos/three"
+  "homepage": "https://github.com/capricorncd/blog/tree/master/demos/three",
+  "docInfo": {
+    "url": "https://capricorncd.github.io/demos/three",
+    "desc": "three, react 16, webpack 4"
+  }
 }

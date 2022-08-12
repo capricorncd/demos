@@ -48,5 +48,9 @@
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-redux": "^6.0.0"
+  },
+  "docInfo": {
+    "url": "https://capricorncd.github.io/demos/react-demo",
+    "desc": "react 16.x.x, webpack 4"
   }
 }
