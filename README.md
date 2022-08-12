@@ -3,8 +3,6 @@
 Hello World!
 
 <!--LINKS_TABLE-->
-## Links
-
 Demo|Link|Description
 :--|:--|:--
 anime-dom|<a href="https://capricorncd.github.io/demos/anime-dom" target="_blank">https://capricorncd.github.io/demos/anime-dom</a>|webpack 5

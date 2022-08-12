@@ -35,8 +35,8 @@ function createDocInfoLines(arr) {
   if (!isValidArray(arr)) return []
 
   const lines = [
-    '## Links',
-    BLANK_LINE,
+    // '## Links',
+    // BLANK_LINE,
     `Demo|Link|Description`,
     ':--|:--|:--',
   ]
