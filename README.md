@@ -7,7 +7,7 @@ Hello World!
 
 Demo|Link|Description
 :--|:--|:--
-anime-dom|<a href="https://capricorncd.github.io/demos/anime-demo" target="_blank">https://capricorncd.github.io/demos/anime-demo</a>|webpack 5
+anime-dom|<a href="https://capricorncd.github.io/demos/anime-dom" target="_blank">https://capricorncd.github.io/demos/anime-dom</a>|webpack 5
 app-website|<a href="https://capricorncd.github.io/demos/app-website" target="_blank">https://capricorncd.github.io/demos/app-website</a>|nuxt
 fireworks|<a href="https://capricorncd.github.io/demos/fireworks" target="_blank">https://capricorncd.github.io/demos/fireworks</a>|webpack 5
 music-card|<a href="https://capricorncd.github.io/demos/music-card" target="_blank">https://capricorncd.github.io/demos/music-card</a>|vue 2.x.x, webpack 4
