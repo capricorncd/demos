@@ -18,7 +18,9 @@
     "lint": "eslint . --fix --ext .js,.cjs,.ts,.tsx"
   },
   "dependencies": {
+    "@types/crypto-js": "^4.1.1",
     "antd": "^4.22.4",
+    "crypto-js": "^4.1.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0"

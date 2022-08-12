@@ -14,7 +14,9 @@ interface AuthContextType<T> {
   signOut: (callback: VoidFunction) => void;
 }
 
-const AuthContext = React.createContext<AuthContextType<string | null>>(null!);
+const AuthContext = React.createContext<AuthContextType<string | null> | null>(
+  null
+);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = React.useState<string | null>(null);
@@ -45,6 +47,8 @@ export function useAuth() {
 export function AuthStatus() {
   const auth = useAuth();
   const navigate = useNavigate();
+
+  console.log(auth);
 
   if (!auth.user) {
     return <p>You are not logged in.</p>;
