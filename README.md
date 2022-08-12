@@ -15,5 +15,5 @@ react-demo|<a href="https://capricorncd.github.io/demos/react-demo" target="_bla
 Blockchain|<a href="https://capricorncd.github.io/demos/blockchain" target="_blank">https://capricorncd.github.io/demos/blockchain</a>|React18 Hooks Typescript Vite & Ant Design
 smoke-text|<a href="https://capricorncd.github.io/demos/smoke-text" target="_blank">https://capricorncd.github.io/demos/smoke-text</a>|webpack 5
 three-js-demo|<a href="https://capricorncd.github.io/demos/three" target="_blank">https://capricorncd.github.io/demos/three</a>|three, react 16, webpack 4
-webgl-demos|<a href="https://capricorncd.github.io/demos/webgl" target="_blank">https://capricorncd.github.io/demos/webgl</a>|pixi.js, react 17, webpack 5
+webgl-demos|<a href="https://capricorncd.github.io/demos/webgl/index" target="_blank">https://capricorncd.github.io/demos/webgl/index</a>|pixi.js, react 17, webpack 5
 <!--LINKS_TABLE-->

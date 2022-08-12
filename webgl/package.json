@@ -73,7 +73,7 @@
     "three": "^0.126.0"
   },
   "docInfo": {
-    "url": "https://capricorncd.github.io/demos/webgl",
+    "url": "https://capricorncd.github.io/demos/webgl/index",
     "desc": "pixi.js, react 17, webpack 5"
   }
 }
