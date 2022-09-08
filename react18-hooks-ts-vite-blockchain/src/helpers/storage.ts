@@ -11,8 +11,6 @@
  * @returns `void`
  */
 export function setLocalStorage<T>(key: string, value: T): void {
-  console.log(key, value);
-  console.log(JSON.stringify(value, null, 2));
   localStorage.setItem(key, JSON.stringify(value));
 }
 

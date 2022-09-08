@@ -11,7 +11,6 @@ import {
   Route,
   Outlet,
   useNavigate,
-  useLocation,
   Link,
 } from 'react-router-dom';
 import { AuthProvider, AuthStatus, RequireAuth } from './components/Auth';
@@ -58,9 +57,7 @@ function ProtectedPage() {
 
 function Layout() {
   const navigate = useNavigate();
-  const location = useLocation();
 
-  console.log(location);
   return (
     <AntLayout style={{ minHeight: '100vh' }}>
       <PageHeader

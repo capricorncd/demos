@@ -48,9 +48,9 @@ export function AuthStatus() {
   const auth = useAuth();
   const navigate = useNavigate();
 
-  console.log(auth);
+  // console.log(auth);
 
-  if (!auth.user) {
+  if (!auth?.user) {
     return <p>You are not logged in.</p>;
   }
 
