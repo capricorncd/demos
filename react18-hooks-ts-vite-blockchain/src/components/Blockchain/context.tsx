@@ -4,7 +4,11 @@
  * Date: 2022/08/09 20:02:43 (GMT+0900)
  */
 import { SHA256 } from 'crypto-js';
-import { createContext, useContext, useState, useMemo } from 'react';
+import { createContext, useContext, useState, useMemo, useEffect } from 'react';
+import { setLocalStorage, getLocalStorage } from '../../helpers';
+
+const chainsCacheKey = '_chains';
+const transactionsCacheKey = '_transactions';
 
 interface TransactionItem {
   id: string;
@@ -26,6 +30,7 @@ interface BlockchainContextValue {
   writeToBlockchain: () => void;
   tamper: () => void;
   isValid: boolean;
+  clearAllBlockchain: () => void;
 }
 
 const GENESIS_BLOCK_HASH = 'acb';
@@ -47,8 +52,20 @@ interface BlockchainProviderProps {
 }
 
 export function BlockchainProvider(props: BlockchainProviderProps) {
-  const [transactions, setTransactions] = useState<TransactionItem[]>([]);
-  const [blocks, setBlocks] = useState<BlockItem[]>([GENESIS_BLOCK]);
+  const [transactions, setTransactions] = useState<TransactionItem[]>(
+    getLocalStorage(transactionsCacheKey, [])
+  );
+  const [blocks, setBlocks] = useState<BlockItem[]>(
+    getLocalStorage(chainsCacheKey, [GENESIS_BLOCK])
+  );
+
+  useEffect(() => {
+    setLocalStorage(transactionsCacheKey, transactions);
+  }, [transactions]);
+
+  useEffect(() => {
+    setLocalStorage(chainsCacheKey, blocks);
+  }, [blocks]);
 
   function addTransaction(name: string) {
     setTransactions([
@@ -113,6 +130,10 @@ export function BlockchainProvider(props: BlockchainProviderProps) {
     });
   }, [blocks]);
 
+  function clearAllBlockchain(): void {
+    setBlocks([GENESIS_BLOCK]);
+  }
+
   return (
     <BlockchainContext.Provider
       value={{
@@ -122,6 +143,7 @@ export function BlockchainProvider(props: BlockchainProviderProps) {
         writeToBlockchain,
         tamper: tamperingWithTransaction,
         isValid,
+        clearAllBlockchain,
       }}
     >
       {props.children}

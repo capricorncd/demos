@@ -4,6 +4,7 @@
  * Date: 2022/08/09 20:02:43 (GMT+0900)
  */
 import { Space, Alert, Statistic } from 'antd';
+import { padStart } from '../../helpers';
 import { useBlockchain } from './context';
 
 export function Head() {
@@ -19,11 +20,11 @@ export function Head() {
       <Space size="large">
         <Statistic
           title="Transactions that are not on the chain"
-          value={store.transactions.length}
+          value={padStart(store.transactions.length)}
         />
         <Statistic
           title="Transactions that have been on the chain"
-          value={store.blocks.length}
+          value={padStart(store.blocks.length)}
         />
       </Space>
       <Alert

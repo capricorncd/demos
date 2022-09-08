@@ -13,8 +13,14 @@ export function Form() {
   const store = useBlockchain();
   if (!store) return null;
 
-  const { addTransaction, writeToBlockchain, transactions, tamper, blocks } =
-    store;
+  const {
+    addTransaction,
+    writeToBlockchain,
+    transactions,
+    tamper,
+    blocks,
+    clearAllBlockchain,
+  } = store;
 
   return (
     <div
@@ -60,7 +66,12 @@ export function Form() {
           >
             Write to the blockchain
           </Button>
-          <Button danger onClick={() => tamper()}>
+          <Button
+            type="primary"
+            disabled={!blocks.length}
+            danger
+            onClick={() => tamper()}
+          >
             Tamper
           </Button>
         </Space>
@@ -83,6 +94,17 @@ export function Form() {
           </li>
         ))}
       </ul>
+
+      <Space>
+        <Button
+          type="primary"
+          danger
+          disabled={!blocks.length}
+          onClick={() => clearAllBlockchain()}
+        >
+          Clear all blockchain
+        </Button>
+      </Space>
     </div>
   );
 }
