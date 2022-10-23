@@ -36,6 +36,9 @@ $imgHeight: 236px;
       align-items: center;
       justify-content: center;
       background: $--color-dark;
+      color: #fff;
+      cursor: pointer;
+      font-size: 2rem;
       img {
         width: 100%;
         height: auto;

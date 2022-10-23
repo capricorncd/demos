@@ -55,6 +55,59 @@ const list = [
   //   ]
   // },
   {
+    name: 'image-process',
+    coverBg: 'linear-gradient(142deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)',
+    url: 'https://github.com/capricorncd/image-process-tools',
+    desc: [
+      {
+        text: 'A Image clipping or scaling, support local or same domain video file screenshot. It\'s implemented in canvas.'
+      },
+      {
+        tag: 'Tags',
+        text: 'TypeScript/Vite',
+      },
+      {
+        tag: 'Demo',
+        url: 'https://capricorncd.github.io/image-process-tools/demo/'
+      },
+    ],
+    npm: [
+      {
+        url: 'https://npmcharts.com/compare/image-process?minimal=true',
+        icon: 'https://img.shields.io/npm/dm/image-process.svg?sanitize=true',
+        alt: 'Downloads'
+      },
+      {
+        url: 'https://www.npmjs.com/package/image-process',
+        icon: 'https://img.shields.io/npm/v/image-process.svg?sanitize=true',
+        alt: 'Version'
+      },
+      {
+        url: 'https://www.npmjs.com/package/image-process',
+        icon: 'https://img.shields.io/npm/l/image-process.svg?sanitize=true',
+        alt: 'License'
+      }
+    ]
+  },
+  {
+    name: 'blockchain',
+    coverBg: 'linear-gradient(90deg, rgba(2,0,40,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)',
+    url: 'https://github.com/capricorncd/blockchain',
+    desc: [
+      {
+        text: 'A blockchain is a type of Digital Ledger Technology (DLT) that consists of growing list of records, called blocks, that are securely linked together using cryptography.'
+      },
+      {
+        tag: 'Tags',
+        text: 'TypeScript/React/AntDesign/Vite',
+      },
+      {
+        tag: 'Demo',
+        url: 'https://capricorncd.github.io/demos/blockchain/'
+      },
+    ],
+  },
+  {
     name: 'Music Card Demo',
     cover: './static/music-card.jpg',
     url: HOME_URL + 'demos/music-card/',
@@ -115,6 +168,37 @@ const list = [
       {
         url: 'https://www.npmjs.com/package/zx-calendar',
         icon: 'https://img.shields.io/npm/l/zx-calendar.svg?sanitize=true',
+        alt: 'License'
+      }
+    ]
+  },
+  {
+    name: 'zx-sml',
+    coverBg: 'linear-gradient(337deg, rgba(1,48,138,1) 0%, rgba(22,187,212,1) 76%)',
+    url: 'https://github.com/capricorncd/zx-sml',
+    desc: [
+      {
+        text: 'zx-sml is some static method library, which contains toSnakeCase, splitValue, getLocalStorage, formatDate, createElement, classNames and other methods. And zx-sml/nodejs is some tool functions used in the Nodejs environment, which contains getCommentsData, outputFile, mkdirSync and other methods. It is mainly used to obtain the comment information in the code, and then output it as a Markdown file.'
+      },
+      {
+        tag: 'Tags',
+        text: 'TypeScript/Vite',
+      },
+    ],
+    npm: [
+      {
+        url: 'https://npmcharts.com/compare/zx-sml?minimal=true',
+        icon: 'https://img.shields.io/npm/dm/zx-sml.svg?sanitize=true',
+        alt: 'Downloads'
+      },
+      {
+        url: 'https://www.npmjs.com/package/zx-sml',
+        icon: 'https://img.shields.io/npm/v/zx-sml.svg?sanitize=true',
+        alt: 'Version'
+      },
+      {
+        url: 'https://www.npmjs.com/package/zx-sml',
+        icon: 'https://img.shields.io/npm/l/zx-sml.svg?sanitize=true',
         alt: 'License'
       }
     ]
@@ -312,8 +396,8 @@ class GitHub extends Component {
   render() {
     const items = list.map((item, i) => {
       return <div className="github-item-wrapper" key={i}>
-        <div className="l" onClick={() => this.clickHandler(item)}>
-          <img src={ item.cover } alt=""/>
+        <div className="l" style={{ background: item.coverBg }} onClick={() => this.clickHandler(item)}>
+          {!item.cover ? item.name.toUpperCase() : <img src={ item.cover } alt=""/>}
         </div>
         <dl className="r">
           <dt>
