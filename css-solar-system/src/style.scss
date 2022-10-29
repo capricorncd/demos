@@ -22,15 +22,11 @@
 }
 
 body {
+  margin: 0;
   width: 100vw;
   height: 100vh;
   background: radial-gradient(ellipse at bottom, #1c2837 0%, #050608 100%);
   background-attachment: fixed;
-}
-
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
 }
 
 .solar-system {
@@ -90,20 +86,17 @@ body {
   @include size(70);
   @include before(4, #9f5e26);
   @include anime(7.2);
-  // animation: orbit 7.2s linear infinite;
 }
 // 金星
 .venus {
   @include size(100);
   @include before(8, #beb768);
   @include anime(18.5);
-  // animation: orbit 18.5s linear infinite;
 }
 // 地球
 .earth {
   @include size(145);
   @include anime(30);
-  // animation: orbit 30s linear infinite;
   @include before(6, #11abe9);
   &::after {
     content: '';
@@ -114,7 +107,6 @@ body {
     border-radius: 50%;
     box-shadow: 0 -10px 0 -8px grey;
     @include anime(2.2);
-    // animation: orbit 2.2s linear infinite;
   }
 }
 // 火星
@@ -122,21 +114,18 @@ body {
   @include size(190);
   @include before(6, #cf3921);
   @include anime(56.4);
-  // animation: orbit 56.4s linear infinite;
 }
 // 木星
 .jupiter {
   @include size(340);
   @include before(18, #c76e2a);
   @include anime(355.7);
-  // animation: orbit 355.7s linear infinite;
 }
 // 土星
 .saturn {
   @include size(440);
   @include before(12, #e7c194);
   @include anime(882.7);
-  // animation: orbit 882.7s linear infinite;
   &::after {
     position: absolute;
     content: '';
@@ -149,7 +138,6 @@ body {
     transform-origin: 52% 60%;
     border-radius: 50%;
     @include anime(882.7);
-    // animation: orbit 882.7s linear infinite;
     animation-direction: reverse;
   }
 }
@@ -158,21 +146,18 @@ body {
   @include size(520);
   @include before(10, #b5e3e3);
   @include anime(2512.4);
-  // animation: orbit 2512.4s linear infinite;
 }
 // 海王星
 .neptune {
   @include size(630);
   @include before(10, #175e9e);
   @include anime(4991.8);
-  // animation: orbit 4991.8s linear infinite;
 }
 // 冥王星
 .pluto {
   @include size(780);
   @include before(3, #b5e3e3);
   @include anime(7439.7);
-  // animation: orbit 7439.7s linear infinite;
 }
 // 小行星带
 .asteroid-belt {
@@ -182,7 +167,6 @@ body {
   opacity: .7;
   pointer-events: none;
   @include anime(180);
-  // animation: orbit 180s linear infinite;
   @include before(210) {
     top: 50%;
     border-radius: 140px;

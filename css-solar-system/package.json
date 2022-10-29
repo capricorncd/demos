@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite --port=8080",
-    "build": "vite build"
+    "build": "vite build --emptyOutDir"
   },
   "devDependencies": {
     "sass": "^1.55.0",
