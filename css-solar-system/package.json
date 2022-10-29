@@ -1,0 +1,22 @@
+{
+  "name": "css-solar-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Capricorncd",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --port=8080",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "sass": "^1.55.0",
+    "vite": "^3.2.1"
+  },
+  "dependencies": {
+    "zx-sml": "^0.6.4"
+  },
+  "docInfo": {
+    "url": "https://capricorncd.github.io/demos/css-solar-system",
+    "desc": "CSS, vite"
+  }
+}
