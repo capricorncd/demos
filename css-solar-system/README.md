@@ -9,3 +9,7 @@ https://capricorncd.github.io/demos/css-solar-system
 ## Source
 
 https://github.com/capricorncd/demos/tree/main/css-solar-system/src
+
+## Video Tutorial
+
+https://www.bilibili.com/video/BV1Me4y127Vc
