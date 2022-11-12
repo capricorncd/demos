@@ -14,7 +14,7 @@ function Demo3Wrap(props: { children: ReactNode }) {
   return (
     <div>
       <h1>Demo3</h1>
-      <p>use props.children</p>
+      <p>props.children</p>
       {props.children}
       <SomeChild />
     </div>

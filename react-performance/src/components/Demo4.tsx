@@ -19,7 +19,7 @@ function Button(props: { children: ReactNode }) {
   return (
     <div>
       <h1>Demo4</h1>
-      <p>use props.children</p>
+      <p>props.children</p>
       <button type="button" onClick={onClick}>
         Update
       </button>

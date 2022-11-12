@@ -17,7 +17,7 @@ export function Demo6() {
     <context.Provider value={state}>
       <updateContext.Provider value={setState}>
         <h1>Demo6 context</h1>
-        <p>use memo</p>
+        <p>memo</p>
         <Middle />
       </updateContext.Provider>
     </context.Provider>
