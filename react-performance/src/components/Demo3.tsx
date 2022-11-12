@@ -1,26 +1,29 @@
 import { useState, SyntheticEvent, ReactNode } from 'react';
 
 export function Demo3() {
+  console.count('Demo3');
   return (
     <Demo3Wrap>
-      <Input />
+      <Button />
     </Demo3Wrap>
   );
 }
 
 function Demo3Wrap(props: { children: ReactNode }) {
+  console.count('Demo3Wrap');
   return (
     <div>
       <h1>Demo3</h1>
+      <p>use props.children</p>
       {props.children}
       <SomeChild />
     </div>
   );
 }
 
-function Input() {
+function Button() {
   const [state, setState] = useState(0);
-  console.log(state);
+  console.count('Button');
   const onClick = (e: SyntheticEvent<HTMLButtonElement>) => {
     setState(Math.random());
   };
@@ -36,6 +39,6 @@ function Input() {
 }
 
 function SomeChild() {
-  console.log('Demo3 SomeChild');
+  console.count('Demo3 SomeChild');
   return <div>Demo3 SomeChild</div>;
 }

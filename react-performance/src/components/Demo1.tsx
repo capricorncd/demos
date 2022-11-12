@@ -2,7 +2,7 @@ import { useState, SyntheticEvent } from 'react';
 
 export function Demo1() {
   const [state, setState] = useState(0);
-  console.log(state);
+  console.count('Demo1');
   const onClick = (e: SyntheticEvent<HTMLButtonElement>) => {
     setState(Math.random());
   };
@@ -10,6 +10,7 @@ export function Demo1() {
   return (
     <div>
       <h1>Demo1</h1>
+      <p>normal</p>
       <button type="button" onClick={onClick}>
         Update
       </button>
@@ -20,6 +21,6 @@ export function Demo1() {
 }
 
 function SomeChild() {
-  console.log('Demo1 SomeChild');
+  console.count('Demo1 SomeChild');
   return <div>Demo1 SomeChild</div>;
 }

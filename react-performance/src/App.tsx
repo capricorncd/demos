@@ -11,6 +11,9 @@ import { Demo2 } from './components/Demo2';
 import { Demo3 } from './components/Demo3';
 import { Demo4 } from './components/Demo4';
 import { Demo5 } from './components/Demo5';
+import { Demo6 } from './components/Demo6';
+import { Demo7 } from './components/Demo7';
+import { Demo8 } from './components/Demo8';
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
           <Route path="/demo3" element={<Demo3 />} />
           <Route path="/demo4" element={<Demo4 />} />
           <Route path="/demo5" element={<Demo5 />} />
+          <Route path="/demo6" element={<Demo6 />} />
+          <Route path="/demo7" element={<Demo7 />} />
+          <Route path="/demo8" element={<Demo8 />} />
         </Route>
       </Routes>
     </AuthProvider>
@@ -73,7 +79,12 @@ function Header() {
 }
 
 function Home() {
-  return <h1>Home</h1>;
+  return (
+    <>
+      <h1>Home</h1>
+      <p>React performance optimization demo.</p>
+    </>
+  );
 }
 
 export default App;

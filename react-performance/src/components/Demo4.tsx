@@ -1,16 +1,17 @@
 import { useState, SyntheticEvent, ReactNode } from 'react';
 
 export function Demo4() {
+  console.count('Demo4')
   return (
-    <Input>
+    <Button>
       <SomeChild />
-    </Input>
+    </Button>
   );
 }
 
-function Input(props: { children: ReactNode }) {
+function Button(props: { children: ReactNode }) {
   const [state, setState] = useState(0);
-  console.log(state);
+  console.count('Button');
   const onClick = (e: SyntheticEvent<HTMLButtonElement>) => {
     setState(Math.random());
   };
@@ -18,6 +19,7 @@ function Input(props: { children: ReactNode }) {
   return (
     <div>
       <h1>Demo4</h1>
+      <p>use props.children</p>
       <button type="button" onClick={onClick}>
         Update
       </button>
@@ -28,6 +30,6 @@ function Input(props: { children: ReactNode }) {
 }
 
 function SomeChild() {
-  console.log('Demo4 SomeChild');
+  console.count('Demo4 SomeChild');
   return <div>Demo4 SomeChild</div>;
 }

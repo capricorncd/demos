@@ -4,19 +4,20 @@ import {
   useContext,
   Dispatch,
   SetStateAction,
+  useMemo,
 } from 'react';
 
 const context = createContext(0);
 const updateContext = createContext<Dispatch<SetStateAction<number>>>(() => { });
 
-export function Demo5() {
+export function Demo7() {
   const [state, setState] = useState(0);
-  console.count('Demo5');
+  console.count('Demo7');
   return (
     <context.Provider value={state}>
       <updateContext.Provider value={setState}>
-        <h1>Demo5 context</h1>
-        <p>useContext</p>
+        <h1>Demo7 context</h1>
+        <p>use useMemo</p>
         <Middle />
       </updateContext.Provider>
     </context.Provider>
@@ -25,12 +26,14 @@ export function Demo5() {
 
 function Middle() {
   console.count('Middle');
-  return (
-    <div>
-      <Button />
-      <Display />
-    </div>
-  );
+  return useMemo(() => {
+    return (
+      <div>
+        <Button />
+        <Display />
+      </div>
+    );
+  }, [])
 }
 
 function Button() {
