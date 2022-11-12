@@ -44,14 +44,14 @@ const paths = {
   Demo6: '/demo6',
   Demo7: '/demo7',
   Demo8: '/demo8',
-}
+};
 
-const links = Object.keys(paths).map(key => {
+const links = Object.keys(paths).map((key) => {
   return {
     name: key,
     path: paths[key as keyof typeof paths],
-  }
-})
+  };
+});
 
 function Header() {
   const location = useLocation();
@@ -59,17 +59,21 @@ function Header() {
 
   return (
     <section>
-      {links.map(item => <Link to={item.path} key={item.path} className={isCurrent(item.path, location.pathname)}>{item.name}</Link>)}
+      {links.map((item) => (
+        <Link
+          to={item.path}
+          key={item.path}
+          className={isCurrent(item.path, location.pathname)}
+        >
+          {item.name}
+        </Link>
+      ))}
     </section>
   );
 }
 
 function Home() {
-  return (
-    <h1>
-      Home
-    </h1>
-  );
+  return <h1>Home</h1>;
 }
 
 export default App;

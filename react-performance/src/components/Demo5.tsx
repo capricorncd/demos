@@ -1,6 +1,6 @@
-import { 
-  useState, 
-  createContext, 
+import {
+  useState,
+  createContext,
   useContext,
   Dispatch,
   SetStateAction,
@@ -10,12 +10,12 @@ const context = createContext(0);
 const updateContext = createContext<Dispatch<SetStateAction<number>>>(() => {});
 
 export function Demo5() {
-  const [count, setCount] = useState(0);
-  console.log('APP', count)
+  const [state, setState] = useState(0);
+  console.log('APP', state);
   return (
-    <context.Provider value={count}>
-      <updateContext.Provider value={setCount}>
-        <h1>Demo5</h1>
+    <context.Provider value={state}>
+      <updateContext.Provider value={setState}>
+        <h1>Demo5 context</h1>
         <Middle />
       </updateContext.Provider>
     </context.Provider>
@@ -23,25 +23,23 @@ export function Demo5() {
 }
 
 function Middle() {
-  console.log('Middle')
+  console.log('Middle');
   return (
     <div>
       <Button />
       <Display />
     </div>
-  )
+  );
 }
 
 function Button() {
-  console.log('Button')
+  console.log('Button');
   const setCount = useContext(updateContext);
-  return <button onClick={() => setCount(4)}>Update</button>;
+  return <button onClick={() => setCount(Math.random())}>Update</button>;
 }
 
 function Display() {
-  const count = useContext(context);
-  console.log('Display', count)
-  return (
-    <div>{ count }</div>
-  )
+  const state = useContext(context);
+  console.log('Display', state);
+  return <div>Display {state}</div>;
 }

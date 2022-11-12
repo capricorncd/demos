@@ -1,4 +1,4 @@
-import { useState, FormEvent, ReactNode } from 'react';
+import { useState, SyntheticEvent, ReactNode } from 'react';
 
 export function Demo3() {
   return (
@@ -8,29 +8,31 @@ export function Demo3() {
   );
 }
 
-function Demo3Wrap(props: { children: ReactNode}) {
+function Demo3Wrap(props: { children: ReactNode }) {
   return (
     <div>
       <h1>Demo3</h1>
       {props.children}
       <SomeChild />
     </div>
-  )
+  );
 }
 
 function Input() {
-  const [count, setCount] = useState(0);
-  console.log(count);
-  const onChange = (e: FormEvent<HTMLInputElement>) => {
-    setCount(+e.currentTarget.value);
+  const [state, setState] = useState(0);
+  console.log(state);
+  const onClick = (e: SyntheticEvent<HTMLButtonElement>) => {
+    setState(Math.random());
   };
 
   return (
     <>
-      <input type="number" value={count} onChange={onChange} />
-      <div>Count is {count}</div>
+      <button type="button" onClick={onClick}>
+        Update
+      </button>
+      <div>State is {state}</div>
     </>
-  )
+  );
 }
 
 function SomeChild() {

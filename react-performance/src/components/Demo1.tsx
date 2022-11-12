@@ -1,17 +1,19 @@
-import { useState, FormEvent } from 'react';
+import { useState, SyntheticEvent } from 'react';
 
 export function Demo1() {
-  const [count, setCount] = useState(0);
-  console.log(count);
-  const onChange = (e: FormEvent<HTMLInputElement>) => {
-    setCount(+e.currentTarget.value);
+  const [state, setState] = useState(0);
+  console.log(state);
+  const onClick = (e: SyntheticEvent<HTMLButtonElement>) => {
+    setState(Math.random());
   };
 
   return (
     <div>
       <h1>Demo1</h1>
-      <input type="number" value={count} onChange={onChange} />
-      <div>Count is {count}</div>
+      <button type="button" onClick={onClick}>
+        Update
+      </button>
+      <div>State is {state}</div>
       <SomeChild />
     </div>
   );

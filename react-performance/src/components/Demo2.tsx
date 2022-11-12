@@ -1,9 +1,9 @@
-import { useState, FormEvent } from 'react';
+import { useState, SyntheticEvent } from 'react';
 
 export function Demo2() {
   return (
     <div>
-      <h1>Demo2</h1>
+      <h1>Demo2 </h1>
       <Input />
       <SomeChild />
     </div>
@@ -11,16 +11,18 @@ export function Demo2() {
 }
 
 function Input() {
-  const [count, setCount] = useState(0);
-  console.log(count);
-  const onChange = (e: FormEvent<HTMLInputElement>) => {
-    setCount(+e.currentTarget.value);
+  const [state, setState] = useState(0);
+  console.log(state);
+  const onClick = (e: SyntheticEvent<HTMLButtonElement>) => {
+    setState(Math.random());
   };
 
   return (
     <>
-      <input type="number" value={count} onChange={onChange} />
-      <div>Count is {count}</div>
+      <button type="button" onClick={onClick}>
+        Update
+      </button>
+      <div>State is {state}</div>
     </>
   );
 }
