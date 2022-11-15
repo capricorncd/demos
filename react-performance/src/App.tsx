@@ -5,6 +5,7 @@
  */
 import { Routes, Route, Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import appImg from './app.png';
 import { AuthProvider } from './components/Auth';
 import { Demo1 } from './components/Demo1';
 import { Demo2 } from './components/Demo2';
@@ -14,7 +15,6 @@ import { Demo5 } from './components/Demo5';
 import { Demo6 } from './components/Demo6';
 import { Demo7 } from './components/Demo7';
 import { Demo8 } from './components/Demo8';
-import appImg from './app.png';
 
 function App() {
   return (
@@ -79,7 +79,9 @@ function Header() {
       <a
         href="https://github.com/capricorncd/demos/tree/main/react-performance"
         target="_blank"
-      >Github</a>
+      >
+        Github
+      </a>
     </section>
   );
 }
@@ -89,7 +91,9 @@ function Home() {
     <>
       <h1>Home</h1>
       <p>React performance optimization demo.</p>
-      <p><img src={appImg} style={{ maxWidth: '100%' }} /></p>
+      <p>
+        <img src={appImg} style={{ maxWidth: '100%' }} />
+      </p>
     </>
   );
 }

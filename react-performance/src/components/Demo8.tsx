@@ -1,7 +1,4 @@
-import {
-  useState,
-} from 'react';
-
+import { useState } from 'react';
 
 export function Demo8() {
   console.count('Demo8');
@@ -27,31 +24,31 @@ function Button() {
 }
 
 function OtherComponent() {
-  console.time('OtherComponent')
-  let now = performance.now();
+  console.time('OtherComponent');
+  const now = performance.now();
   while (performance.now() - now < 100) {
     // do something
   }
-  console.timeEnd('OtherComponent')
+  console.timeEnd('OtherComponent');
   return <OtherComponentChild />;
 }
 
 function OtherComponentChild() {
-  console.time('OtherComponentChild')
-  let now = performance.now();
+  console.time('OtherComponentChild');
+  const now = performance.now();
   while (performance.now() - now < 100) {
     // do something
   }
-  console.timeEnd('OtherComponentChild')
-  return <OtherComponentGrandChild />
+  console.timeEnd('OtherComponentChild');
+  return <OtherComponentGrandChild />;
 }
 
 function OtherComponentGrandChild() {
-  console.time('OtherComponentGrandChild')
-  let now = performance.now();
+  console.time('OtherComponentGrandChild');
+  const now = performance.now();
   while (performance.now() - now < 100) {
     // do something
   }
-  console.timeEnd('OtherComponentGrandChild')
-  return <p>OtherComponentGrandChild</p>
+  console.timeEnd('OtherComponentGrandChild');
+  return <p>OtherComponentGrandChild</p>;
 }

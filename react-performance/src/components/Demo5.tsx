@@ -7,7 +7,7 @@ import {
 } from 'react';
 
 const context = createContext(0);
-const updateContext = createContext<Dispatch<SetStateAction<number>>>(() => { });
+const updateContext = createContext<Dispatch<SetStateAction<number>>>(() => {});
 
 export function Demo5() {
   const [state, setState] = useState(0);

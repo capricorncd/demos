@@ -8,7 +8,7 @@ import {
 } from 'react';
 
 const context = createContext(0);
-const updateContext = createContext<Dispatch<SetStateAction<number>>>(() => { });
+const updateContext = createContext<Dispatch<SetStateAction<number>>>(() => {});
 
 export function Demo6() {
   const [state, setState] = useState(0);
@@ -32,7 +32,7 @@ const Middle = memo(() => {
       <Display />
     </div>
   );
-})
+});
 
 function Button() {
   console.count('Button');

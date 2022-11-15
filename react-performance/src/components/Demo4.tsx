@@ -1,7 +1,7 @@
 import { useState, SyntheticEvent, ReactNode } from 'react';
 
 export function Demo4() {
-  console.count('Demo4')
+  console.count('Demo4');
   return (
     <Button>
       <SomeChild />

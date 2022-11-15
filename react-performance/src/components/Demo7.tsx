@@ -8,7 +8,7 @@ import {
 } from 'react';
 
 const context = createContext(0);
-const updateContext = createContext<Dispatch<SetStateAction<number>>>(() => { });
+const updateContext = createContext<Dispatch<SetStateAction<number>>>(() => {});
 
 export function Demo7() {
   const [state, setState] = useState(0);
@@ -33,7 +33,7 @@ function Middle() {
         <Display />
       </div>
     );
-  }, [])
+  }, []);
 }
 
 function Button() {
