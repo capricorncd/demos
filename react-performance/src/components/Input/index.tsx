@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface InputProps {
   name?: string;
+  value: string;
+  onChange: (value: string) => void;
 }
 
 export const Input: React.FC<InputProps> = (props) => {
-  const [value, setValue] = useState('');
-
+  const { value, onChange } = props
   return (
     <input
       name={props.name}
       value={value}
       onChange={(e) => {
-        setValue(e.target.value);
+        onChange(e.target.value);
       }}
     />
   );
