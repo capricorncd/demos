@@ -27,14 +27,16 @@ export const Input: React.FC<InputProps> = (props) => {
     }
   })
 
+  // 如果组件此时处于受控模式，直接使用来自外部的状态
+  // 即便状态的同步是存在延迟，但是 Child 组件所使用到的值一定是最新的
+  const finalState = isControlled ? value : state;
+
   return (
     <input
       name={props.name}
-      value={state}
+      value={finalState}
       onChange={(e) => {
-        if (!isControlled) {
-          setState(e.target.value)
-        }
+        setState(e.target.value);
         onChange(e.target.value);
       }}
     />
