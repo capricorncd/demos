@@ -47,6 +47,7 @@
   "docInfo": {
     "name": "Blockchain",
     "url": "https://capricorncd.github.io/demos/blockchain",
+    "source": "https://github.com/capricorncd/blockchain",
     "desc": "React18 Hooks Typescript Vite & Ant Design"
   }
 }

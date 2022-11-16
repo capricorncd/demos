@@ -41,7 +41,7 @@ function createDocInfoLines(arr) {
     ':--|:--|:--',
   ]
   arr.forEach(item => {
-    lines.push(`${item.name}|<a href="${item.url}" target="_blank">${item.url}</a>|${item.desc}`)
+    lines.push(`[${item.name}](${item.source || item.name})|<a href="${item.url}" target="_blank">${item.url}</a>|${item.desc}`)
   })
   return lines
 }

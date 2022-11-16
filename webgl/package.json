@@ -74,6 +74,7 @@
   },
   "docInfo": {
     "url": "https://capricorncd.github.io/demos/webgl/index",
+    "source": "webgl",
     "desc": "pixi.js, react 17, webpack 5"
   }
 }
