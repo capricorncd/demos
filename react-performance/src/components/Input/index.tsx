@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, SetStateAction } from 'react';
 
 interface Options<T> {
   value?: T;
@@ -16,7 +16,12 @@ function usePropsValue<T>(options: Options<T>) {
     stateRef.current = value;
   }
 
-  const setState = (nextState: T) => {
+  const setState = (v: SetStateAction<T>) => {
+    const nextState =
+      typeof v === 'function'
+        ? (v as (prevState: T) => T)(stateRef.current as T)
+        : v;
+    if (nextState === stateRef.current) return;
     stateRef.current = nextState;
     update();
     onChange?.(nextState);
