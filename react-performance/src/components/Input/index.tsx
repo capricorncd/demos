@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
 interface InputProps {
   name?: string;
@@ -17,26 +17,41 @@ interface InputProps {
  */
 export const Input: React.FC<InputProps> = (props) => {
   const { value, onChange } = props;
-  const [state, setState] = useState(value);
 
   const isControlled = value !== undefined;
 
-  useEffect(() => {
-    if (isControlled) {
-      setState(value);
-    }
-  });
+  const stateRef = useRef(value);
+  if (isControlled) {
+    stateRef.current = value;
+  }
+
+  const [_, setFlag] = useState({});
+
+  const forceUpdate = () => {
+    setFlag({});
+  };
+
+  // useEffect(() => {
+  //   // 在 useEffect 做状态同步
+  //   // 会额外的多触发一次 Child 组件的重渲染
+  //   // 组件比较简单的话，那出现的性能影响可以忽略不计
+  //   // 但是对于一些复杂的组件（例如 Picker），多渲染一次带来的性能问题就比较严重
+  //   if (isControlled) {
+  //     setState(value);
+  //   }
+  // });
 
   // 如果组件此时处于受控模式，直接使用来自外部的状态
   // 即便状态的同步是存在延迟，但是 Child 组件所使用到的值一定是最新的
-  const finalState = isControlled ? value : state;
+  const finalState = isControlled ? value : stateRef.current;
 
   return (
     <input
       name={props.name}
       value={finalState}
       onChange={(e) => {
-        setState(e.target.value);
+        stateRef.current = e.target.value;
+        forceUpdate();
         onChange(e.target.value);
       }}
     />
