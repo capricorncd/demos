@@ -16,4 +16,5 @@ Demo|Link|Description
 [smoke-text](smoke-text)|<a href="https://capricorncd.github.io/demos/smoke-text" target="_blank">https://capricorncd.github.io/demos/smoke-text</a>|webpack 5
 [three-js-demo](three)|<a href="https://capricorncd.github.io/demos/three" target="_blank">https://capricorncd.github.io/demos/three</a>|three, react 16, webpack 4
 [webgl-demos](webgl)|<a href="https://capricorncd.github.io/demos/webgl/index" target="_blank">https://capricorncd.github.io/demos/webgl/index</a>|pixi.js, react 17, webpack 5
+[capricorncd](website)|<a href="https://capricorncd.github.io/" target="_blank">https://capricorncd.github.io/</a>|React17 Webpack5 Scss
 <!--LINKS_TABLE-->
