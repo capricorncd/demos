@@ -19,8 +19,10 @@ class Banner extends Component {
 
   render() {
     return <div className="banner-wrapper">
-      <h1>You are welcome here!</h1>
+      {/* <h1>You are welcome here!</h1> */}
+      <h1>Thanks for your browsing!</h1>
       {/* <p>Welcome.</p> */}
+      {this.props.children}
     </div>
   }
 }

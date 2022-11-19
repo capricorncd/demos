@@ -2,7 +2,8 @@
   position: relative;
   margin-top: $--size-header-height;
   background: $--color-bg-banner;
-  height: 200px;
+  padding-top: 20px;
+  min-height: 200px;
   text-align: center;
   color: #fff;
   overflow: hidden;

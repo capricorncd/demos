@@ -1,0 +1,54 @@
+.parallax-scrolling-wrap {
+  height: 100vh;
+  overflow-x: hidden;
+  perspective: 3px;
+  > div {
+    position: relative;
+    letter-spacing: 1px;
+  }
+  .img {
+    transform: translateZ(-1px) scale(1.6);
+    background-size: cover;
+    background-position: center center;
+    height: 70vh;
+    z-index: -1;
+  }
+  .title{
+    max-width: 60%;
+    margin: 0 auto;
+    z-index: -1;
+    transform: translateY(-30vh) translateZ(1px);
+    text-align: center;
+    a {
+      font-weight: bold;
+      color: #fff;
+      font-size: 30px;
+    }
+  }
+  .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh;
+    background-color: #fff;
+    flex-direction: column;
+    p {
+      margin: 0.5em 0;
+      max-width: 80%;
+      text-align: center;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      a {
+        margin: 0 4px;
+      }
+      &.tags {
+        opacity: .6;
+      }
+    }
+  }
+  // .npm-items {
+  //   a {
+  //     margin: 0 4px;
+  //   }
+  // }
+}

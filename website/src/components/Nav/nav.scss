@@ -15,7 +15,12 @@ header {
     font-weight: 500;
     i {
       font-style: normal;
-      //color: #7e57c2;
+      color: #7e57c2;
+    }
+    &:hover {
+      i {
+        color: inherit;
+      }
     }
   }
   .github {

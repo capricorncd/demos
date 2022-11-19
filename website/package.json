@@ -52,5 +52,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/capricorncd/blog.git"
+  },
+  "docInfo": {
+    "name": "capricorncd",
+    "source": "website",
+    "url": "https://capricorncd.github.io/",
+    "desc": "React17 Webpack5 Scss"
   }
 }

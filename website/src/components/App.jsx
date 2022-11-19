@@ -7,9 +7,10 @@ import React, { Component } from 'react'
 import { isMacOS } from '~/assets/js'
 import Nav from './Nav/index'
 import Banner from './Banner'
-import GitHub from './GitHub'
+// import GitHub from './GitHub'
 import More from './More'
 import Footer from './Foot'
+import ParallaxScrolling from './ParallaxScrolling'
 
 class App extends Component {
   componentDidMount() {
@@ -24,10 +25,12 @@ class App extends Component {
   render() {
     return <>
       <Nav/>
-      <Banner/>
-      <GitHub/>
+      <ParallaxScrolling/>
+      {/* <GitHub/> */}
       <More/>
-      <Footer/>
+      <Banner>
+        <Footer/>
+      </Banner>
     </>
   }
 }
