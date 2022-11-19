@@ -61,7 +61,7 @@ export const list = [
       },
       {
         tag: 'Demo',
-        url: 'https://capricorncd.github.io/image-process-tools/demo/'
+        url: HOME_URL + 'image-process-tools/demo/'
       }
     ],
     npm: [
@@ -96,7 +96,7 @@ export const list = [
       },
       {
         tag: 'Demo',
-        url: 'https://capricorncd.github.io/demos/blockchain/'
+        url: HOME_URL + 'demos/blockchain/'
       }
     ]
   },
@@ -138,15 +138,15 @@ export const list = [
       },
       {
         tag: 'Demo',
-        url: 'https://capricorncd.github.io/calendar/dist/index.html'
+        url: HOME_URL + 'calendar/dist/index.html'
       },
       {
         tag: 'Vue2.x',
-        url: 'https://capricorncd.github.io/calendar/dist/vue.html'
+        url: HOME_URL + 'calendar/dist/vue.html'
       },
       {
         tag: 'React',
-        url: 'https://capricorncd.github.io/calendar/dist/react.html'
+        url: HOME_URL + 'calendar/dist/react.html'
       }
     ],
     npm: [
@@ -214,7 +214,7 @@ export const list = [
       },
       {
         tag: 'Play',
-        url: 'https://capricorncd.github.io/tetris/dist/index.html'
+        url: HOME_URL + 'tetris/dist/index.html'
       }
       // {
       //   tag: 'Source',
@@ -254,15 +254,11 @@ export const list = [
       },
       {
         tag: 'Demo',
-        url: 'https://capricorncd.github.io/zx-editor/'
+        url: HOME_URL + 'zx-editor/'
       },
       {
         tag: 'Source',
         url: 'https://github.com/capricorncd/zx-editor'
-      },
-      {
-        tag: 'Docs',
-        url: 'https://capricorncd.github.io/zx-editor/docs/options.html#textStyleheadLeftbtntext'
       }
     ],
     npm: [
@@ -298,6 +294,10 @@ export const list = [
         text: 'C4D/Three.js/React.js/Scss/Webpack4'
       },
       {
+        tag: 'Demo',
+        url: HOME_URL + 'demos/three/index.html#/ClockObj'
+      },
+      {
         tag: 'Qiita',
         url: 'https://qiita.com/capricorncd/items/881b22208521e2ae31a4'
       },
@@ -319,6 +319,10 @@ export const list = [
       {
         tag: 'Tags',
         text: 'Nuxt.js(Vue.js)/Sass/CSS3(animation)/HTML5'
+      },
+      {
+        tag: 'Demo',
+        url: HOME_URL + 'demos/app-website/'
       },
       {
         tag: 'Source',
