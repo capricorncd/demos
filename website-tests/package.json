@@ -1,0 +1,16 @@
+{
+  "name": "website-tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.28.0"
+  },
+  "scripts": {
+    "test": "npx playwright test",
+    "debug": "npx playwright test --debug"
+  },
+  "dependencies": {
+    "zx-sml": "^0.6.4"
+  }
+}
