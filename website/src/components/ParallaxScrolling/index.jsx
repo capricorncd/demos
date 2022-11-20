@@ -1,28 +1,35 @@
 import React, { Component, Fragment } from 'react'
-import './parallax-scrolling.scss'
-import { isMacOS } from '~/assets/js'
+import { isMacOS, throttle } from '~/assets/js'
 import { list } from '../GitHub/data'
+import './parallax-scrolling.scss'
 
 export default class ParallaxScrolling extends Component {
   constructor(props) {
     super(props)
-    this.onScroll = this._onScroll.bind(this)
+    this.onScroll = throttle(this._onScroll.bind(this))
     this.isMacOS = isMacOS()
+    this.prevScrollY = 0
   }
 
-  _onScroll() {
-    const moreButton = document.querySelector('.more-wrapper')
-    const rect = moreButton.getBoundingClientRect()
-    if (rect.top < window.innerHeight) {
-      // window isn't scrolling in Mac OS
-      // see App.jsx componentDidMount() { ... }
-      if (this.isMacOS) {
-        document.querySelector('#app').scrollTop = 0
-      } else {
-        window.scrollTo(0, 0)
+  _onScroll(e) {
+    const scrollTop = e.target.scrollTop
+    if (this.prevScrollY > scrollTop) {
+      // scroll to top
+      const moreButton = document.querySelector('.more-wrapper')
+      const { top } = moreButton.getBoundingClientRect()
+      if (top < window.innerHeight) {
+        // window isn't scrolling in Mac OS
+        // see App.jsx componentDidMount() { ... }
+        if (this.isMacOS) {
+          document.querySelector('#app').scrollTo(0, 0)
+        } else {
+          window.scrollTo(0, 0)
+        }
       }
     }
+    this.prevScrollY = scrollTop 
   }
+
   /**
    * create npm info
    * @param npm
@@ -33,7 +40,7 @@ export default class ParallaxScrolling extends Component {
     return <p className="npm-items">
       {
         npm.map((npm, i) => {
-          return <a href={npm.url} target="_blank" key={i}>
+          return <a href={npm.url} target="_blank" key={i} rel="noreferrer">
             <img src={npm.icon} alt={npm.alt} />
           </a>
         })
@@ -53,9 +60,9 @@ export default class ParallaxScrolling extends Component {
     if (descItem) arr.push(<p key="desc">{descItem.text}</p>)
     // tags
     const tagItem = desc.find((item) => item.tag === 'Tags')
-    if (tagItem) arr.push(<p key="tags" className="tags">
+    if (tagItem) { arr.push(<p key="tags" className="tags">
       {tagItem.tag}: {tagItem.text}
-    </p>)
+    </p>) }
     // urls
     const urls = desc.filter((item) => item.url)
     if (!urls.some(item => item.tag === 'Source')) {
@@ -65,7 +72,7 @@ export default class ParallaxScrolling extends Component {
       })
     }
     const urlNodes = urls.map((item, i) => (
-      <a key={i} href={item.url} target="_blank">[{ item.tag }]</a>
+      <a key={i} href={item.url} target="_blank" rel="noreferrer">[{ item.tag }]</a>
     ))
     arr.push(<p key="urls">{urlNodes}</p>)
     return arr
@@ -79,7 +86,7 @@ export default class ParallaxScrolling extends Component {
             backgroundImage: `url(${item.bgImgUrl || ('https://source.unsplash.com/random?t=' + i)}`
           }} />
           <div className="title">
-            <a href={item.url} target="_blank">{ item.name }</a>
+            <a href={item.url} target="_blank" rel="noreferrer">{ item.name }</a>
           </div>
           <div className="text">
             {/* <a href={item.url} target="_blank">{ item.name }</a> */}

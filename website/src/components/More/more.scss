@@ -5,10 +5,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    // background: $--color-bg-banner;
     background: transparent;
-    border: 2px solid $--color-bg-banner;
-    color: $--color-bg-banner;
+    border: 2px solid $--color-link;
+    color: $--color-link;
     border-radius: 30px;
     padding: 0 40px;
     opacity: 0.8;
@@ -17,7 +16,8 @@
     max-width: 80%;
     font-weight: 700;
     &:hover {
-      // color: #fff;
+      color: $--color-link-hover;
+      border-color: $--color-link-hover;
       text-decoration: none;
       opacity: 1;
     }

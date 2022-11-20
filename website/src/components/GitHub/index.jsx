@@ -26,7 +26,7 @@ class GitHub extends Component {
     return <dd className="npm-items">
       {
         npm.map((npm, i) => {
-          return <a href={npm.url} target="_blank" key={i}>
+          return <a href={npm.url} target="_blank" key={i} rel="noreferrer">
             <img src={npm.icon} alt={npm.alt} />
           </a>
         })
@@ -44,7 +44,7 @@ class GitHub extends Component {
       return <dd key={i}>
         { desc.tag ? desc.tag + ': ' : '' }
         {
-          desc.url ? <a href={desc.url} target="_blank">{ desc.url }</a> : desc.text
+          desc.url ? <a href={desc.url} target="_blank" rel="noreferrer">{ desc.url }</a> : desc.text
         }
       </dd>
     })
@@ -58,7 +58,7 @@ class GitHub extends Component {
         </div>
         <dl className="r">
           <dt>
-            <a href={item.url} target="_blank">{ item.name }</a>
+            <a href={item.url} target="_blank" rel="noreferrer">{ item.name }</a>
           </dt>
           { this.createDescInfo(item.desc) }
           { this.createNpmInfo(item.npm) }

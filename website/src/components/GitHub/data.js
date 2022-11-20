@@ -281,7 +281,7 @@ export const list = [
   },
   {
     // name: 'C4D + Three.js',
-    name: 'C4DとThree.jsで製品',
+    name: '3D display of products',
     cover: './static/three.png',
     url: HOME_URL + 'demos/three/index.html#/ClockObj',
     bgImgUrl: './static/flower.jpg',

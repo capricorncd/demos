@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "webpack serve",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "eslint . --fix --ext .js,.cjs,.jsx"
   },
   "keywords": [
     "capricorncd",
@@ -15,7 +16,6 @@
   "author": "Capricorncd",
   "license": "MIT",
   "dependencies": {
-    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0"
@@ -38,6 +38,7 @@
     "eslint-webpack-plugin": "^2.1.0",
     "file-loader": "^6.1.1",
     "html-webpack-plugin": "^4.5.0",
+    "prop-types": "^15.7.2",
     "sass": "^1.27.0",
     "sass-loader": "^10.0.3",
     "style-loader": "^2.0.0",

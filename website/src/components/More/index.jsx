@@ -9,13 +9,9 @@ import './more.scss'
 class More extends Component {
   render() {
     return <div className="more-wrapper">
-      <a href="https://github.com/capricorncd" target="_blank">More Repositories
-        <svg height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4.53657 8.69699" className="css-b7q1rs">
-          <path d="
-        M.18254,8.697a.18149.18149,0,0,1-.12886-.31034L4.09723,4.34126.05369.29954a.18149.18149,
-        0,0,1,.2559-.2559L4.4838,4.21785a.18149.18149,0,0,1,0,.2559L.30958,8.648A.18149.18149,
-        0,0,1,.18254,8.697Z
-      " fill="currentColor"></path>
+      <a href="https://github.com/capricorncd" target="_blank" rel="noreferrer">More Repositories
+        <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" height="24">
+          <path d="M729.987756 534.448268 376.290155 888.145869c-18.73776 18.73776-49.092092 18.73776-67.828828 0s-18.73776-49.092092 0-67.828828l285.868773-285.868773L308.461327 248.579495c-18.73776-18.73776-18.73776-49.092092 0-67.828828s49.092092-18.73776 67.828828 0L729.987756 534.448268z" p-id="1609" fill="currentColor" />
         </svg>
       </a>
     </div>

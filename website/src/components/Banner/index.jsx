@@ -4,6 +4,7 @@
  * Date: 2020-12-06 20:33
  */
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './banner.scss'
 // import { initAnimation } from './animate'
 import { Fireworks } from '../../../../fireworks/dist/index'
@@ -28,3 +29,7 @@ class Banner extends Component {
 }
 
 export default Banner
+
+Banner.propTypes = {
+  children: PropTypes.node
+}

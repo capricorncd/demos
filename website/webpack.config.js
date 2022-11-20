@@ -52,7 +52,7 @@ const baseConfig = {
     }
   },
   resolve: {
-    extensions: ['.js', '.vue', '.jsx', '.ts', '.tsx', '.json'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
       '~': resolve('./')
     }

@@ -7,7 +7,7 @@ header {
   height: $--size-header-height;
   display: flex;
   align-items: center;
-  background: #2a0e74;
+  background: $--color-default;
   .page-title-wrapper {
     margin-left: 20px;
     font-size: 24px;
@@ -15,13 +15,13 @@ header {
     font-weight: 500;
     i {
       font-style: normal;
-      color: #7e57c2;
+      color: $--color-link;
     }
-    &:hover {
-      i {
-        color: inherit;
-      }
-    }
+    // &:hover {
+    //   i {
+    //     color: inherit;
+    //   }
+    // }
   }
   .github {
     position: absolute;
