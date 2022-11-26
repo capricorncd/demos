@@ -3,53 +3,9 @@ const DEMOS_SOURCE_MAIN_URL = 'https://github.com/capricorncd/demos/tree/main/'
 const HOME_URL = 'https://capricorncd.github.io/'
 
 export const list = [
-  // {
-  //   name: '新選組 ～桜華妖乱～',
-  //   cover: './static/game-shinsengumi.jpg',
-  //   url: 'https://www.shinsengumi-ouka.com/',
-  //   desc: [
-  //     {
-  //       text: '幕末の京都を舞台に繰り広げられる、新たなる新選組の物語。美しく咲く女性隊士と共に妖屍(あやかし)を討ち、歴史を切り拓け！'
-  //     },
-  //     {
-  //       tag: 'Tags',
-  //       text: 'TypeScript'
-  //     },
-  //     {
-  //       tag: '公式サイト',
-  //       url: 'https://www.shinsengumi-ouka.com'
-  //     },
-  //     {
-  //       tag: 'Yamada Game',
-  //       url: 'https://yamada.shinsengumi-ouka.com'
-  //     },
-  //     {
-  //       tag: 'GREE',
-  //       url: 'http://jp.apps.gree.net/ja/80174'
-  //     }
-  //   ]
-  // },
-  // {
-  //   name: 'vite-react-typescript',
-  //   cover: './static/vite-react-typescript.png',
-  //   url: 'https://github.com/capricorncd/demos/tree/main/vite-react-typescript',
-  //   desc: [
-  //     {
-  //       text: 'レストランのスマホ注文システム'
-  //     },
-  //     {
-  //       tag: 'Tags',
-  //       text: 'React(hook)/TypeScript/Vite/Sass'
-  //     },
-  //     {
-  //       tag: 'Source',
-  //       url: DEMOS_SOURCE_MAIN_URL + 'vite-react-typescript'
-  //     }
-  //   ]
-  // },
   {
     name: 'image-process',
-    coverBg: 'linear-gradient(142deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)',
+    // coverBg: 'linear-gradient(142deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)',
     url: 'https://github.com/capricorncd/image-process-tools',
     desc: [
       {
@@ -57,7 +13,7 @@ export const list = [
       },
       {
         tag: 'Tags',
-        text: 'TypeScript/Vite'
+        text: 'TypeScript/Vite/pnpm/Sass/Vue3.x(demo)'
       },
       {
         tag: 'Demo',
@@ -92,7 +48,7 @@ export const list = [
       },
       {
         tag: 'Tags',
-        text: 'TypeScript/React/AntDesign/Vite'
+        text: 'TypeScript/React18/AntDesign/Vite'
       },
       {
         tag: 'Demo',
@@ -111,7 +67,7 @@ export const list = [
       },
       {
         tag: 'Tags',
-        text: 'JavaScript/Vue2.js/Scss/Webpack4'
+        text: 'JavaScript/Vue2.x/Scss/Canvas/Webpack4'
       },
       {
         tag: 'Demo',
@@ -178,7 +134,7 @@ export const list = [
       },
       {
         tag: 'Tags',
-        text: 'TypeScript/Vite'
+        text: 'TypeScript/Vite/Node.js'
       }
     ],
     npm: [
@@ -215,6 +171,10 @@ export const list = [
       {
         tag: 'Play',
         url: HOME_URL + 'tetris/dist/index.html'
+      },
+      {
+        tag: 'Demo',
+        url: HOME_URL + 'tetris/dist/index.html'
       }
       // {
       //   tag: 'Source',
@@ -250,7 +210,7 @@ export const list = [
       },
       {
         tag: 'Tags',
-        text: 'JavaScript/HTML5/Less/Gulp/Rollup'
+        text: 'TypeScript/Sass/pnpm/Vite'
       },
       {
         tag: 'Demo',
@@ -291,7 +251,7 @@ export const list = [
       },
       {
         tag: 'Tags',
-        text: 'C4D/Three.js/React.js/Scss/Webpack4'
+        text: 'C4D/Three.js/React16/Scss/Webpack4'
       },
       {
         tag: 'Demo',
