@@ -9,7 +9,7 @@ export const items = [
     title: 'image-process',
     url: 'https://github.com/capricorncd/image-process-tools',
     desc: `A Image clipping or scaling, support local or same domain video file screenshot. It's implemented in canvas.`,
-    tags: 'Tags: TypeScript/Vite',
+    tags: 'Tags: TypeScript/Vite/pnpm/Sass/Vue3.x(demo)',
     links: {
       Demo: 'https://capricorncd.github.io/image-process-tools/demo/',
       Source: 'https://github.com/capricorncd/image-process-tools'
@@ -19,7 +19,7 @@ export const items = [
     title: 'blockchain',
     url: 'https://github.com/capricorncd/blockchain',
     desc: 'A blockchain is a type of Digital Ledger Technology (DLT) that consists of growing list of records, called blocks, that are securely linked together using cryptography.',
-    tags: 'Tags: TypeScript/React/AntDesign/Vite',
+    tags: 'Tags: TypeScript/React18/AntDesign/Vite',
     links: {
       Demo: 'https://capricorncd.github.io/demos/blockchain/',
       Source: 'https://github.com/capricorncd/blockchain',
@@ -29,7 +29,7 @@ export const items = [
     title: 'Music Card',
     url: 'https://capricorncd.github.io/demos/music-card/',
     desc: 'The music card that Web mini-program application in Smartphone App',
-    tags: 'Tags: JavaScript/Vue2.js/Scss/Webpack4',
+    tags: 'Tags: JavaScript/Vue2.x/Scss/Canvas/Webpack4',
     links: {
       Demo: 'https://capricorncd.github.io/demos/music-card/',
       Source: 'https://github.com/capricorncd/demos/tree/main/music-card'
@@ -44,6 +44,7 @@ export const items = [
       Demo: 'https://capricorncd.github.io/calendar/dist/index.html',
       'Vue2.x': 'https://capricorncd.github.io/calendar/dist/vue.html',
       React: 'https://capricorncd.github.io/calendar/dist/react.html',
+      SolidJS: 'https://capricorncd.github.io/calendar/dist/solid.html',
       Source: 'https://github.com/capricorncd/calendar#zx-calendar',
     }
   },
@@ -51,7 +52,7 @@ export const items = [
     title: 'zx-sml',
     url: 'https://github.com/capricorncd/zx-sml',
     desc: 'zx-sml is some static method library, which contains toSnakeCase, splitValue, getLocalStorage, formatDate, createElement, classNames and other methods. And zx-sml/nodejs is some tool functions used in the Nodejs environment, which contains getCommentsData, outputFile, mkdirSync and other methods. It is mainly used to obtain the comment information in the code, and then output it as a Markdown file.',
-    tags: 'Tags: TypeScript/Vite',
+    tags: 'Tags: TypeScript/Vite/Node.js',
     links: {
       Source: 'https://github.com/capricorncd/zx-sml'
     }
@@ -63,16 +64,17 @@ export const items = [
     tags: 'Tags: TypeScript/Sass/Webpack5/AudioContext',
     links: {
       Play: 'https://capricorncd.github.io/tetris/dist/index.html',
+      Demo: 'https://capricorncd.github.io/tetris/dist/index.html',
       Source: 'https://github.com/capricorncd/tetris',
     }
   },
   {
-    title: 'zx-editor',
+    title: 'sp-editor',
     url: 'https://github.com/capricorncd/zx-editor',
     desc: 'The HTML document (rich text) editor in Smart phone browser or webview, supporting mixed layout, reference, headline, unordered list, font color, bold and italics.',
-    tags: 'Tags: JavaScript/HTML5/Less/Gulp/Rollup',
+    tags: 'Tags: TypeScript/Sass/npm/Vite',
     links: {
-      Demo: 'https://capricorncd.github.io/zx-editor/',
+      Demo: 'https://capricorncd.github.io/zx-editor/demo',
       Source: 'https://github.com/capricorncd/zx-editor',
     }
   },
@@ -80,7 +82,7 @@ export const items = [
     title: '3D display of products',
     url: 'https://capricorncd.github.io/demos/three/index.html#/ClockObj',
     desc: 'Developing 3D display pages for products in C4D and Three.js',
-    tags: 'Tags: C4D/Three.js/React.js/Scss/Webpack4',
+    tags: 'Tags: C4D/Three.js/React16/Scss/Webpack4',
     links: {
       Demo: 'https://capricorncd.github.io/demos/three/index.html#/ClockObj',
       Qiita: 'https://qiita.com/capricorncd/items/881b22208521e2ae31a4',
