@@ -4,8 +4,9 @@
   "description": "capricorncd.github.io",
   "main": "src/index.js",
   "scripts": {
-    "dev": "webpack serve",
-    "build": "webpack --mode production",
+    "dev": "npm run bg-image && vite",
+    "build": "npm run bg-image && vite build",
+    "bg-image": "node scripts/handle-bg-image.js",
     "lint": "eslint . --fix --ext .js,.cjs,.jsx"
   },
   "keywords": [
@@ -21,13 +22,7 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.1",
-    "babel-loader": "^8.1.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^6.2.1",
-    "css-loader": "^5.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
     "eslint": "^7.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.1",
@@ -35,29 +30,20 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-webpack-plugin": "^2.1.0",
-    "file-loader": "^6.1.1",
-    "html-webpack-plugin": "^4.5.0",
     "prop-types": "^15.7.2",
-    "sass": "^1.27.0",
-    "sass-loader": "^10.0.3",
-    "style-loader": "^2.0.0",
-    "style-resources-loader": "^1.3.3",
-    "webpack": "^5.3.1",
-    "webpack-cli": "^4.1.0",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.2.0"
+    "sass": "^1.62.1",
+    "vite": "^4.3.9"
   },
   "github": "https://github.com/capricorncd",
-  "homepage": "https://github.com/capricorncd/blog/tree/master/demos/website",
+  "homepage": "https://github.com/capricorncd/demos/tree/main/website",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/capricorncd/blog.git"
+    "url": "git+https://github.com/capricorncd"
   },
   "docInfo": {
     "name": "capricorncd",
     "source": "website",
     "url": "https://capricorncd.github.io/",
-    "desc": "React17 Webpack5 Scss"
+    "desc": "React17 Vite Scss"
   }
 }

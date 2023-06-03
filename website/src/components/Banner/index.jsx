@@ -1,5 +1,6 @@
 /**
  * Created by Capricorncd.
+ * https://github.com/xing1984
  * https://github.com/capricorncd
  * Date: 2020-12-06 20:33
  */
@@ -7,7 +8,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './banner.scss'
 // import { initAnimation } from './animate'
-import { Fireworks } from '../../../../fireworks/dist/index'
+import { Fireworks } from './fireworks.js'
 
 class Banner extends Component {
   componentDidMount() {

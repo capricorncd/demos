@@ -1,12 +1,17 @@
 
 const DEMOS_SOURCE_MAIN_URL = 'https://github.com/capricorncd/demos/tree/main/'
 const HOME_URL = 'https://capricorncd.github.io/'
+const GITHUB_USER_URL = 'https://github.com/capricorncd/'
+const NPM_PACKAGE_URL = 'https://www.npmjs.com/package/'
+const NPM_CHARTS_URL = 'https://npmcharts.com/compare/'
+const IMG_SHIELDS_URL = 'https://img.shields.io/npm/'
 
 export const list = [
   {
     name: 'image-process',
     // coverBg: 'linear-gradient(142deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)',
-    url: 'https://github.com/capricorncd/image-process-tools',
+    url: GITHUB_USER_URL + 'image-process-tools',
+    // bgImgUrl: './static/miura-beach.jpg',
     desc: [
       {
         text: 'A Image clipping or scaling, support local or same domain video file screenshot. It\'s implemented in canvas.'
@@ -22,18 +27,18 @@ export const list = [
     ],
     npm: [
       {
-        url: 'https://npmcharts.com/compare/image-process?minimal=true',
-        icon: 'https://img.shields.io/npm/dm/image-process.svg?sanitize=true',
+        url: NPM_CHARTS_URL + 'image-process?minimal=true',
+        icon: IMG_SHIELDS_URL + 'dm/image-process.svg?sanitize=true',
         alt: 'Downloads'
       },
       {
-        url: 'https://www.npmjs.com/package/image-process',
-        icon: 'https://img.shields.io/npm/v/image-process.svg?sanitize=true',
+        url: NPM_PACKAGE_URL + 'image-process',
+        icon: IMG_SHIELDS_URL + 'v/image-process.svg?sanitize=true',
         alt: 'Version'
       },
       {
-        url: 'https://www.npmjs.com/package/image-process',
-        icon: 'https://img.shields.io/npm/l/image-process.svg?sanitize=true',
+        url: NPM_PACKAGE_URL + 'image-process',
+        icon: IMG_SHIELDS_URL + 'l/image-process.svg?sanitize=true',
         alt: 'License'
       }
     ]
@@ -41,7 +46,8 @@ export const list = [
   {
     name: 'blockchain',
     coverBg: 'linear-gradient(90deg, rgba(2,0,40,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)',
-    url: 'https://github.com/capricorncd/blockchain',
+    url: GITHUB_USER_URL + 'blockchain',
+    // bgImgUrl: './static/train.jpg',
     desc: [
       {
         text: 'A blockchain is a type of Digital Ledger Technology (DLT) that consists of growing list of records, called blocks, that are securely linked together using cryptography.'
@@ -82,8 +88,8 @@ export const list = [
   {
     name: 'zx-calendar',
     cover: './static/zx-calendar.png',
-    url: 'https://github.com/capricorncd/calendar#zx-calendar',
-    bgImgUrl: './static/crow.jpg',
+    url: GITHUB_USER_URL + 'calendar#zx-calendar',
+    // bgImgUrl: './static/plum-bossom.jpg',
     desc: [
       {
         text: 'zx-calendar, zx-vue-calendar (Vue2.x.x and Vue3.x.x), zx-react-calendar'
@@ -103,22 +109,26 @@ export const list = [
       {
         tag: 'React',
         url: HOME_URL + 'calendar/dist/react.html'
+      },
+      {
+        tag: 'SolidJS',
+        url: HOME_URL + 'calendar/dist/solid.html'
       }
     ],
     npm: [
       {
-        url: 'https://npmcharts.com/compare/zx-calendar?minimal=true',
-        icon: 'https://img.shields.io/npm/dm/zx-calendar.svg?sanitize=true',
+        url: NPM_CHARTS_URL + 'zx-calendar?minimal=true',
+        icon: IMG_SHIELDS_URL + 'dm/zx-calendar.svg?sanitize=true',
         alt: 'Downloads'
       },
       {
-        url: 'https://www.npmjs.com/package/zx-calendar',
-        icon: 'https://img.shields.io/npm/v/zx-calendar.svg?sanitize=true',
+        url: NPM_PACKAGE_URL + 'zx-calendar',
+        icon: IMG_SHIELDS_URL + 'v/zx-calendar.svg?sanitize=true',
         alt: 'Version'
       },
       {
-        url: 'https://www.npmjs.com/package/zx-calendar',
-        icon: 'https://img.shields.io/npm/l/zx-calendar.svg?sanitize=true',
+        url: NPM_PACKAGE_URL + 'zx-calendar',
+        icon: IMG_SHIELDS_URL + 'l/zx-calendar.svg?sanitize=true',
         alt: 'License'
       }
     ]
@@ -126,8 +136,8 @@ export const list = [
   {
     name: 'zx-sml',
     coverBg: 'linear-gradient(337deg, rgba(1,48,138,1) 0%, rgba(22,187,212,1) 76%)',
-    url: 'https://github.com/capricorncd/zx-sml',
-    bgImgUrl: './static/grass.jpg',
+    url: GITHUB_USER_URL + 'zx-sml',
+    // bgImgUrl: './static/sakura2023.jpg',
     desc: [
       {
         text: 'zx-sml is some static method library, which contains toSnakeCase, splitValue, getLocalStorage, formatDate, createElement, classNames and other methods. And zx-sml/nodejs is some tool functions used in the Nodejs environment, which contains getCommentsData, outputFile, mkdirSync and other methods. It is mainly used to obtain the comment information in the code, and then output it as a Markdown file.'
@@ -139,18 +149,18 @@ export const list = [
     ],
     npm: [
       {
-        url: 'https://npmcharts.com/compare/zx-sml?minimal=true',
-        icon: 'https://img.shields.io/npm/dm/zx-sml.svg?sanitize=true',
+        url: NPM_CHARTS_URL + 'zx-sml?minimal=true',
+        icon: IMG_SHIELDS_URL + 'dm/zx-sml.svg?sanitize=true',
         alt: 'Downloads'
       },
       {
-        url: 'https://www.npmjs.com/package/zx-sml',
-        icon: 'https://img.shields.io/npm/v/zx-sml.svg?sanitize=true',
+        url: NPM_PACKAGE_URL + 'zx-sml',
+        icon: IMG_SHIELDS_URL + 'v/zx-sml.svg?sanitize=true',
         alt: 'Version'
       },
       {
-        url: 'https://www.npmjs.com/package/zx-sml',
-        icon: 'https://img.shields.io/npm/l/zx-sml.svg?sanitize=true',
+        url: NPM_PACKAGE_URL + 'zx-sml',
+        icon: IMG_SHIELDS_URL + 'l/zx-sml.svg?sanitize=true',
         alt: 'License'
       }
     ]
@@ -158,8 +168,8 @@ export const list = [
   {
     name: 'Tetris Game.(俄罗斯方块/テトリス)',
     cover: './static/tetris.png',
-    url: 'https://github.com/capricorncd/tetris',
-    bgImgUrl: './static/akihabara.jpg',
+    url: GITHUB_USER_URL + 'tetris',
+    // bgImgUrl: './static/akihabara.jpg',
     desc: [
       {
         text: 'Tetris is a tile-matching video game created by Russian software engineer Alexey Pajitnov in 1984. '
@@ -178,63 +188,63 @@ export const list = [
       }
       // {
       //   tag: 'Source',
-      //   url: 'https://github.com/capricorncd/tetris'
+      //   url: GITHUB_USER_URL + 'tetris'
       // }
     ],
     npm: [
       {
-        url: 'https://npmcharts.com/compare/zx-tetris?minimal=true',
-        icon: 'https://img.shields.io/npm/dm/zx-tetris.svg?sanitize=true',
+        url: NPM_CHARTS_URL + 'zx-tetris?minimal=true',
+        icon: IMG_SHIELDS_URL + 'dm/zx-tetris.svg?sanitize=true',
         alt: 'Downloads'
       },
       {
-        url: 'https://www.npmjs.com/package/zx-tetris',
-        icon: 'https://img.shields.io/npm/v/zx-tetris.svg?sanitize=true',
+        url: NPM_PACKAGE_URL + 'zx-tetris',
+        icon: IMG_SHIELDS_URL + 'v/zx-tetris.svg?sanitize=true',
         alt: 'Version'
       },
       {
-        url: 'https://www.npmjs.com/package/zx-tetris',
-        icon: 'https://img.shields.io/npm/l/zx-tetris.svg?sanitize=true',
+        url: NPM_PACKAGE_URL + 'zx-tetris',
+        icon: IMG_SHIELDS_URL + 'l/zx-tetris.svg?sanitize=true',
         alt: 'License'
       }
     ]
   },
   {
-    name: 'zx-editor',
+    name: 'sp-editor',
     cover: './static/zx-editor.png',
-    url: 'https://github.com/capricorncd/zx-editor',
-    bgImgUrl: './static/cat.jpg',
+    url: GITHUB_USER_URL + 'zx-editor',
+    // bgImgUrl: './static/cat.jpg',
     desc: [
       {
         text: 'The HTML document (rich text) editor in Smart phone browser or webview, supporting mixed layout, reference, headline, unordered list, font color, bold and italics.'
       },
       {
         tag: 'Tags',
-        text: 'TypeScript/Sass/pnpm/Vite'
+        text: 'TypeScript/Sass/npm/Vite'
       },
       {
         tag: 'Demo',
-        url: HOME_URL + 'zx-editor/'
+        url: HOME_URL + 'zx-editor/demo'
       },
       {
         tag: 'Source',
-        url: 'https://github.com/capricorncd/zx-editor'
+        url: GITHUB_USER_URL + 'zx-editor'
       }
     ],
     npm: [
       {
-        url: 'https://npmcharts.com/compare/zx-editor?minimal=true',
-        icon: 'https://img.shields.io/npm/dm/zx-editor.svg?sanitize=true',
+        url: NPM_CHARTS_URL + 'sp-editor?minimal=true',
+        icon: IMG_SHIELDS_URL + 'dm/sp-editor.svg?sanitize=true',
         alt: 'Downloads'
       },
       {
-        url: 'https://www.npmjs.com/package/zx-editor',
-        icon: 'https://img.shields.io/npm/v/zx-editor.svg?sanitize=true',
+        url: NPM_PACKAGE_URL + 'sp-editor',
+        icon: IMG_SHIELDS_URL + 'v/sp-editor.svg?sanitize=true',
         alt: 'Version'
       },
       {
-        url: 'https://www.npmjs.com/package/zx-editor',
-        icon: 'https://img.shields.io/npm/l/zx-editor.svg?sanitize=true',
+        url: NPM_PACKAGE_URL + 'sp-editor',
+        icon: IMG_SHIELDS_URL + 'l/sp-editor.svg?sanitize=true',
         alt: 'License'
       }
     ]
@@ -244,7 +254,7 @@ export const list = [
     name: '3D display of products',
     cover: './static/three.png',
     url: HOME_URL + 'demos/three/index.html#/ClockObj',
-    bgImgUrl: './static/flower.jpg',
+    // bgImgUrl: './static/flower.jpg',
     desc: [
       {
         text: 'Developing 3D display pages for products in C4D and Three.js'
@@ -271,7 +281,7 @@ export const list = [
     name: 'School Circle Web Site',
     cover: './static/app-site.jpg',
     url: HOME_URL + 'demos/app-website/',
-    bgImgUrl: './static/akihabara2.jpg',
+    // bgImgUrl: './static/akihabara2.jpg',
     desc: [
       {
         text: 'Listen,it\'s like falling in love'

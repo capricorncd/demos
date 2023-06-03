@@ -2,4 +2,4 @@
 
 https://capricorncd.github.io/
 
-webpack5, React17, sass
+Vite, React17, Sass
