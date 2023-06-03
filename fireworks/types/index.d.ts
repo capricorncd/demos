@@ -3,7 +3,7 @@
  * https://github.com/capricorncd/dev3cli
  * Date: 2021-05-08 11:10:37
 */
-import { Particle } from '@/Particle'
+import { Particle } from '../src/Particle'
 
 export interface FireworkOptions {
   x: number;
@@ -18,4 +18,3 @@ export interface ParticleOptions {
   y: number;
   hue: number;
 }
-

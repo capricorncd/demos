@@ -3,8 +3,8 @@
  * https://github.com/capricorncd
  * Date: 2021-05-16 10:58
  */
-import { Fireworks } from '@/index'
-import '@/style.scss'
+import { Fireworks } from '../src'
+import './style.scss'
 
 // @ts-ignore
 const canvas = new Fireworks(window)

@@ -3,7 +3,7 @@
  * https://github.com/capricorncd
  * Date: 2021-05-11 20:09
  */
-import { random } from '@/helpers'
+import { random } from './helpers'
 import { ParticleOptions } from '../types'
 
 export class Particle {

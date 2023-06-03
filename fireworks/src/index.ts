@@ -6,9 +6,9 @@
  * 视频出处：
  * https://www.bilibili.com/video/BV1vU4y1b7qR
  */
-import { random, gerElSize } from '@/helpers'
-import { Firework } from '@/Firework'
-import { Particle } from '@/Particle'
+import { random, gerElSize } from './helpers'
+import { Firework } from './Firework'
+import { Particle } from './Particle'
 
 export function Fireworks(el: HTMLElement | Window): HTMLCanvasElement {
   const canvas = document.createElement('canvas')

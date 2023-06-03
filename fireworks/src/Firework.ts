@@ -3,8 +3,8 @@
  * https://github.com/capricorncd
  * Date: 2021-05-10 20:21
  */
-import { calcDistance, random } from '@/helpers'
-import { Particle } from '@/Particle'
+import { calcDistance, random } from './helpers'
+import { Particle } from './Particle'
 import { FireworkOptions } from '../types'
 
 export class Firework {

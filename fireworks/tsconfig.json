@@ -22,11 +22,6 @@
     "noEmit": false,
     "experimentalDecorators": true,
     "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
     "types": [
       "@types/node"
     ]
