@@ -84,5 +84,6 @@
         pos.start = changedCount > 0 ? pos.start + 3 : pos.start - 3
         pos.end += changedCount
         el.setSelectionRange(pos.start, pos.end)
+        updateInput?.(el)
     }
 })()
