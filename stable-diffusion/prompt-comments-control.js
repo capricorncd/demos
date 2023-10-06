@@ -4,13 +4,11 @@
     let isFocus = false
 
     let changedFirstLineCharCount = 0
-    let isNotSelect = true
 
     function getSelectionPosition(el) {
         isFocus = true
         pos.start = el.selectionStart
         pos.end = el.selectionEnd
-        isNotSelect = pos.start === pos.end
     }
 
     function textereaEventHandler(e) {
@@ -90,6 +88,7 @@
 
 
     function setSelection(changedCount, el) {
+        const isNotSelect = pos.start === pos.end
         pos.start += changedFirstLineCharCount
         pos.end = isNotSelect ? pos.start : pos.end + changedCount
         el.setSelectionRange(pos.start, pos.end)
