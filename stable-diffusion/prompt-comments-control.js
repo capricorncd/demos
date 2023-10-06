@@ -13,7 +13,7 @@
 
     function textereaEventHandler(e) {
         const el = e.target
-        // id="*_prompt"
+        // div[id="*_prompt"]
         if (el.nodeName === 'TEXTAREA' && (el.closest('div').id || '').endsWith('_prompt')) {
             switch (e.type) {
                 case 'mouseup':
