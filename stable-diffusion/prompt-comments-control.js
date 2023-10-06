@@ -1,33 +1,34 @@
-(function() {
+(function () {
     const pos = {}
 
-    let isFocusIn = false
+    let isFocus = false
 
-    function setTextereaSelection(el) {
-        isFocusIn = true
+    let changedFirstLineCharCount = 0
+
+    function getSelectionPosition(el) {
+        isFocus = true
         pos.start = el.selectionStart
         pos.end = el.selectionEnd
     }
 
     function textereaEventHandler(e) {
-        console.log(e.type)
         const el = e.target
-        // xxxx_prompt
+        // id="*_prompt"
         if (el.nodeName === 'TEXTAREA' && (el.closest('div').id || '').endsWith('_prompt')) {
             switch (e.type) {
                 case 'mouseup':
                     // click
                     if (e.which === 1) {
-                        setTextereaSelection(el)
+                        getSelectionPosition(el)
                     }
                     break
                 case 'keyup':
                 case 'select':
-                    setTextereaSelection(el)
+                    getSelectionPosition(el)
                     break
             }
         } else {
-            isFocusIn = false
+            isFocus = false
         }
     }
 
@@ -39,17 +40,23 @@
 
     function toggleComment(line) {
         if (COMMENT_REG.test(line)) {
-            return line.replace(COMMENT_REG, '')
+            const newLine = line.replace(COMMENT_REG, '')
+            if (changedFirstLineCharCount === 0) {
+                changedFirstLineCharCount = newLine.length - line.length
+            }
+            return newLine
         } else {
+            if (changedFirstLineCharCount === 0) changedFirstLineCharCount = 3
             return '// ' + line
         }
     }
 
     document.addEventListener('keydown', (e) => {
-        if (!isFocusIn) return
-        const el = e.target
+        if (!isFocus) return
         // Ctrl + /
         if (e.ctrlKey && e.key === '/') {
+            changedFirstLineCharCount = 0
+            const el = e.target
             const txt = el.value
             const oldTxtCount = txt.length
 
@@ -81,7 +88,7 @@
 
 
     function setSelection(changedCount, el) {
-        pos.start = changedCount > 0 ? pos.start + 3 : pos.start - 3
+        pos.start += changedFirstLineCharCount
         pos.end += changedCount
         el.setSelectionRange(pos.start, pos.end)
         updateInput?.(el)
