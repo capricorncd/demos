@@ -4,11 +4,13 @@
     let isFocus = false
 
     let changedFirstLineCharCount = 0
+    let isNotSelect = true
 
     function getSelectionPosition(el) {
         isFocus = true
         pos.start = el.selectionStart
         pos.end = el.selectionEnd
+        isNotSelect = pos.start === pos.end
     }
 
     function textereaEventHandler(e) {
@@ -73,7 +75,7 @@
                     line = lines[i]
                     // +1 \n
                     charCountEnd += line.length + 1
-                    if (charCountEnd >= pos.start && charCountStart <= pos.end) {
+                    if (charCountEnd > pos.start && charCountStart <= pos.end) {
                         newLines.push(toggleComment(line))
                     } else {
                         newLines.push(line)
@@ -89,7 +91,7 @@
 
     function setSelection(changedCount, el) {
         pos.start += changedFirstLineCharCount
-        pos.end += changedCount
+        pos.end = isNotSelect ? pos.start : pos.end + changedCount
         el.setSelectionRange(pos.start, pos.end)
         updateInput?.(el)
     }
