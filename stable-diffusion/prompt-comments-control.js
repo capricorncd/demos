@@ -1,23 +1,30 @@
+/**
+ * Created by Capricorncd.
+ * https://github.com/capricorncd
+ * Date: 2023/09/23 20:55:25 (GMT+0900)
+ */
 (function () {
+    const COMMENT_REG = /^\s*(#|\/\/)\s*/
     const pos = {}
-
     let isFocus = false
-
     let changedFirstLineCharCount = 0
 
     function getSelectionPosition(el) {
         isFocus = true
-        pos.start = el.selectionStart
-        pos.end = el.selectionEnd
+        // the obtained pos data is old when mouseup event.
+        setTimeout(() => {
+            pos.start = el.selectionStart
+            pos.end = el.selectionEnd
+        }, 0)
     }
 
     function textereaEventHandler(e) {
         const el = e.target
-        // div[id="*_prompt"]
+        // Determine whether it is a PROMPT textarea, div[id="*_prompt"]
         if (el.nodeName === 'TEXTAREA' && (el.closest('div').id || '').endsWith('_prompt')) {
             switch (e.type) {
                 case 'mouseup':
-                    // click
+                    // left mouse button
                     if (e.which === 1) {
                         getSelectionPosition(el)
                     }
@@ -35,21 +42,6 @@
     document.addEventListener('select', textereaEventHandler)
     document.addEventListener('keyup', textereaEventHandler)
     document.addEventListener('mouseup', textereaEventHandler)
-
-    const COMMENT_REG = /^\s*(#|\/\/)\s*/
-
-    function toggleComment(line) {
-        if (COMMENT_REG.test(line)) {
-            const newLine = line.replace(COMMENT_REG, '')
-            if (changedFirstLineCharCount === 0) {
-                changedFirstLineCharCount = newLine.length - line.length
-            }
-            return newLine
-        } else {
-            if (changedFirstLineCharCount === 0) changedFirstLineCharCount = 3
-            return '// ' + line
-        }
-    }
 
     document.addEventListener('keydown', (e) => {
         if (!isFocus) return
@@ -69,12 +61,31 @@
                 let charCountEnd = 0
                 const newLines = []
                 let line
+
+                // Determine whether to execute comment or uncoment
+                let isExecuteComment = false
                 for (let i = 0; i < len; i++) {
                     line = lines[i]
                     // +1 \n
                     charCountEnd += line.length + 1
                     if (charCountEnd > pos.start && charCountStart <= pos.end) {
-                        newLines.push(toggleComment(line))
+                        if (!COMMENT_REG.test(line)) {
+                            isExecuteComment = true
+                            break
+                        }
+                    }
+                    charCountStart = charCountEnd
+                }
+
+                charCountStart = 0
+                charCountEnd = 0
+                
+                for (let i = 0; i < len; i++) {
+                    line = lines[i]
+                    // +1 \n
+                    charCountEnd += line.length + 1
+                    if (charCountEnd > pos.start && charCountStart <= pos.end) {
+                        newLines.push(isExecuteComment ? comment(line) : uncomment(line))
                     } else {
                         newLines.push(line)
                     }
@@ -86,6 +97,22 @@
         }
     })
 
+    function comment(line) {
+        if (changedFirstLineCharCount === 0) changedFirstLineCharCount = 3
+        return '// ' + line
+    }
+
+    function uncomment(line) {
+        const newLine = line.replace(COMMENT_REG, '');
+        if (changedFirstLineCharCount === 0) {
+            changedFirstLineCharCount = newLine.length - line.length
+        }
+        return newLine
+    }
+
+    function toggleComment(line) {
+        return COMMENT_REG.test(line) ? uncomment(line) : comment(line)
+    }
 
     function setSelection(changedCount, el) {
         const isNotSelect = pos.start === pos.end
