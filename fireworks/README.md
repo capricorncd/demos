@@ -1,7 +1,6 @@
 # fireworks
 
-This project was created by the <a href="https://github.com/capricorncd/dev3cli" target="_blank">dev3cli</a> command tool.
-https://github.com/capricorncd/dev3cli
+https://capricorncd.github.io/demos/fireworks/
 
 ## Build Setup
 
