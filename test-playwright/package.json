@@ -1,0 +1,19 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "repository": "https://github.com/capricorncd/blog",
+  "author": "Xing Zhong(Capricorncd)",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.26.1",
+    "@types/node": "^18.7.23",
+    "typescript": "^4.8.4"
+  },
+  "scripts": {
+    "save": "node scripts/save-reports.js"
+  },
+  "dependencies": {
+    "zx-sml": "^0.6.1"
+  }
+}
