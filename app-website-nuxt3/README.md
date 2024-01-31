@@ -1,6 +1,6 @@
 # app-website
 
-https://capricorncd.github.io/blog/dist/app-website/
+https://capricorncd.github.io/demos/app-website/
 
 ## Build Setup
 
