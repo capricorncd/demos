@@ -1,0 +1,22 @@
+dl {
+  margin: 4em auto;
+  max-width: 480px;
+  display: grid;
+  row-gap: 20px;
+}
+
+dl dd {
+  border: 1px dashed rgb(170, 31, 0);
+  border-radius: 0.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  color: rgba(170, 31, 0, 0.8);
+}
+
+dl dd:not(.drag-start) {
+  background-color: rgb(170, 31, 0);
+  border: 1px solid rgb(170, 31, 0);
+  color: #fff;
+}
