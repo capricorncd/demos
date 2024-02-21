@@ -7,11 +7,12 @@
 </template>
 
 <script>
-import XmHeader from '../components/Header/index.vue'
+import Vue from 'vue'
+import XmHeader from '../components/Header/index'
 import ContactUs from '../components/ContactUs/index.vue'
 import XmFooter from '../components/Footer/index.vue'
 
-export default {
+export default Vue.extend({
   components: {
     XmHeader,
     ContactUs,
@@ -20,7 +21,7 @@ export default {
   head: {
     title: 'CONTACT US'
   }
-}
+})
 </script>
 
 <style lang="scss">

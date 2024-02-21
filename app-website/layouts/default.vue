@@ -1,13 +1,13 @@
 <template>
   <div class="xm-default-layout-container">
     <StripeBackground/>
-    <NuxtPage/>
+    <nuxt/>
   </div>
 </template>
 
 <script>
-  import StripeBackground from '~/components/StripeBackground.vue'
-  import { getBrowserType, browserVersion, isMacOS, isMobile } from '~/assets/libs'
+  import StripeBackground from '../components/StripeBackground'
+  import { getBrowserType, browserVersion, isMacOS, isMobile } from '../assets/libs'
   export default {
     components: {
       StripeBackground

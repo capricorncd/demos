@@ -24,10 +24,11 @@
 </template>
 
 <script>
-  import AmapClass from '~/assets/libs/amap/index'
+  import Vue from 'vue'
+  import AmapClass from 'assets/libs/amap/index'
   import MarkerIcon from './img/map-marker.png'
 
-  export default {
+  export default Vue.extend({
     data () {
       return {
         map: null
@@ -53,7 +54,7 @@
         }, true)
       }
     },
-  }
+  })
 </script>
 
 <style lang="scss">

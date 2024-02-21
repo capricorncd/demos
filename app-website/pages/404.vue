@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import XmHeader from '../components/Header/index.vue'
+  import XmHeader from '../components/Header/index'
   import NullPage from '../components/NullPage/index.vue'
   export default {
     components: {
