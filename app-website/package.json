@@ -1,28 +1,23 @@
 {
   "name": "app-website",
-  "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "nuxt-ts",
-    "build:ts": "nuxt-ts build",
-    "start": "nuxt-ts start",
-    "generate:ts": "nuxt-ts generate",
-    "build": "nuxt generate && node build/index.js"
+    "build": "nuxt build && node build/index.js",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^2.0.0",
-    "core-js": "^3.6.5",
-    "nuxt": "^2.14.6",
     "particles.js": "^2.0.0",
-    "swiper": "^6.3.5",
-    "vue-awesome-swiper": "^4.1.1"
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.6",
-    "@nuxt/typescript-build": "^2.0.3",
-    "fs-extra": "^9.0.1",
-    "node-sass": "^6.0.0",
-    "sass-loader": "^10.1.0"
+    "nuxt": "^3.10.2",
+    "sass": "^1.70.0",
+    "vue": "^3.4.14",
+    "vue-router": "^4.2.5"
   },
   "docInfo": {
     "url": "https://capricorncd.github.io/demos/app-website",

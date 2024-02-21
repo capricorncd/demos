@@ -8,18 +8,17 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import NavLinks from './NavLinks'
+import NavLinks from './NavLinks.vue'
 
-export default Vue.extend({
+export default {
   components: {
     NavLinks
   }
-})
+}
 </script>
 
 <style lang="scss">
-  @import "assets/scss/constants";
+  @import "~/assets/scss/constants";
 
   $height: 60px;
 

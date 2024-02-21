@@ -58,8 +58,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
-
 const SOURCE_PREFIX = './home-anime/'
 const IMG_SOURCES = {
   verticalLine: SOURCE_PREFIX + 'vertical-line.png',
@@ -78,7 +76,7 @@ const IMG_SOURCES = {
   qr: SOURCE_PREFIX + 'qr.png',
 }
 
-export default Vue.extend({
+export default {
   data () {
     return {
       sources: IMG_SOURCES,
@@ -106,7 +104,7 @@ export default Vue.extend({
       alert(`${type} Download.`)
     }
   }
-})
+}
 
 function loadImgSource (data) {
   return new Promise(resolve => {

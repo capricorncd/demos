@@ -2,12 +2,6 @@
   <div class="xm-stripe-background-wrapper"/>
 </template>
 
-<script>
- import Vue from 'vue'
-
-  export default Vue.extend({})
-</script>
-
 <style lang="scss">
   @import "assets/scss/constants";
   .xm-stripe-background-wrapper {

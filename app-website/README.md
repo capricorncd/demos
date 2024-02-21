@@ -6,17 +6,16 @@ https://capricorncd.github.io/demos/app-website/
 
 ```bash
 # install dependencies
-$ yarn install
+$ npm install
 
 # serve with hot reload at localhost:3000
-$ yarn dev
+$ npm run dev -- -o
 
 # build for production and launch server
-$ yarn build
-$ yarn start
+$ npm run build
 
 # generate static project
-$ yarn generate
+$ npm run generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxt.com/).

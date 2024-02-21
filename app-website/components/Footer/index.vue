@@ -8,7 +8,7 @@
       </dl>
       <dl class="r">
         <dd>
-          <span class="key">Email: </span><span class="value">zx198401@gmail.com</span>
+          <span class="key">Email: </span><span class="value">capricorncd@qq.com</span>
         </dd>
       </dl>
     </div>
@@ -16,19 +16,17 @@
 </template>
 
 <script>
-import Vue from 'vue'
-
-export default Vue.extend({
+export default {
   data() {
     return {
       year: new Date().getFullYear(),
     }
   }
-})
+}
 </script>
 
 <style lang="scss">
-  @import "assets/scss/constants";
+  @import "~/assets/scss/constants.scss";
 
   .xm-footer-wrapper {
     position: fixed;
