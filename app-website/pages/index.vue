@@ -9,12 +9,11 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import XmHeader from '../components/Header/index'
-import HomePage from '../components/index.vue'
-import XmFooter from '../components/Footer/index.vue'
+import XmHeader from '~/components/Header/index.vue'
+import HomePage from '~/components/index.vue'
+import XmFooter from '~/components/Footer/index.vue'
 
-export default Vue.extend({
+export default {
   components: {
     XmHeader,
     HomePage,
@@ -40,7 +39,7 @@ export default Vue.extend({
       this.scrollTop = document.documentElement.scrollTop || document.body.scrollTop
     }
   }
-})
+}
 </script>
 
 <style lang="scss">

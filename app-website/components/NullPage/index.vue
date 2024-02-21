@@ -367,7 +367,6 @@
     },
     mounted () {
       if (process.browser) {
-        require('particles.js')
         this.$nextTick(_ => {
           window.particlesJS('nullPageCanvasId', particlesJson)
           window.particlesJS('nullPageCanvasId2', particlesJson2)

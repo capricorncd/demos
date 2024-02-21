@@ -46,9 +46,9 @@
 </template>
 
 <script>
-  import AmapClass from '../../assets/libs/amap/index'
+  import AmapClass from '~/assets/libs/amap/index'
   import MarkerIcon from '../ContactUs/img/map-marker.png'
-  import { supportWebp } from '../../assets/libs/index'
+  import { supportWebp } from '~/assets/libs/index'
 
   const PREFIX = './mobile/'
   export default {

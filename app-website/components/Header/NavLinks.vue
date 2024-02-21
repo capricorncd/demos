@@ -19,9 +19,7 @@
 </template>
 
 <script>
-  import Vue from 'vue'
-
-  export default Vue.extend({
+  export default {
     data () {
       return {
         current: this.$route.name || 'index'
@@ -32,7 +30,7 @@
         this.current = val.name
       }
     }
-  })
+  }
 </script>
 
 <style lang="scss">
