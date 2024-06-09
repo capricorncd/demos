@@ -1,6 +1,5 @@
 /**
  * Created by Capricorncd.
- * https://github.com/xing1984
  * https://github.com/capricorncd
  * Date: 2020-12-06 20:33
  */
